@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c656c5d7992fac42800355fc2a04ec6, type: 3}
+  m_Name: Mania_1_Polaroid
+  m_EditorClassIdentifier: 
+  <type>k__BackingField: 5
+  icon: {fileID: 21300000, guid: 60dc8921c0d28834bb01904183f3ad2c, type: 3}
+  functionality:
+    rid: 5167629325063422047
+  canPhysicallyHold: 0
+  itemObj: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 5167629325063422047
+      type: {class: InventoryUsable, ns: , asm: Assembly-CSharp}
+      data:
+        <variations>k__BackingField:
+        - rid: 5167629374436147410
+        <data>k__BackingField:
+          rid: 5167629325063422049
+    - rid: 5167629325063422049
+      type: {class: InventoryUsable/Data, ns: , asm: Assembly-CSharp}
+      data:
+        <requiredItem>k__BackingField: {fileID: 0}
+        <use>k__BackingField: {fileID: 0}
+        <controls>k__BackingField: {fileID: 0}
+        <type>k__BackingField: 0
+    - rid: 5167629374436147410
+      type: {class: PolaroidImage, ns: , asm: Assembly-CSharp}
+      data:
+        usable: 1
+        sprite: {fileID: -8318277596760801014, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}

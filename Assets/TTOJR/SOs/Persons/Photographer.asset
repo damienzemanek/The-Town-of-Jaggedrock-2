@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a967fdf03c8d3649896e4a8550d8295, type: 3}
+  m_Name: Photographer
+  m_EditorClassIdentifier: 
+  _personName: Katie
+  excludeSelfFromGetRandomPersonNamne: 0
+  role: 4
+  groupingTrait: 2
+  myPersonITalkAbout: {fileID: 11400000, guid: 957baae8a79c5ca48a12fc5efae0b7b4, type: 2}

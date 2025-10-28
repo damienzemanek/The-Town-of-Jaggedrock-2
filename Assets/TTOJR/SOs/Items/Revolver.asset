@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c656c5d7992fac42800355fc2a04ec6, type: 3}
+  m_Name: Revolver
+  m_EditorClassIdentifier: 
+  <type>k__BackingField: 6
+  icon: {fileID: 0}
+  functionality:
+    rid: 5167628940249923707
+  canHold: 1
+  itemObj: {fileID: 474301957224382143, guid: 83e35337808e5c348be49721f3907e03, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: 5167628940249923707
+      type: {class: Gun, ns: , asm: Assembly-CSharp}
+      data:
+        <variations>k__BackingField:
+        - rid: 5167628940249923708
+        <data>k__BackingField:
+          rid: 5167628940249923709
+    - rid: 5167628940249923708
+      type: {class: Uses, ns: , asm: Assembly-CSharp}
+      data:
+        <inv>k__BackingField: {fileID: 0}
+        <usedUp>k__BackingField: 0
+        <uses>k__BackingField: 6
+        <initialUses>k__BackingField: 6
+    - rid: 5167628940249923709
+      type: {class: Gun/Data, ns: , asm: Assembly-CSharp}
+      data:
+        <caster>k__BackingField: {fileID: 0}
+        mask:
+          serializedVersion: 2
+          m_Bits: 256
+        damage: 10
