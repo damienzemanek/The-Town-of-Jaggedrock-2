@@ -1,0 +1,985 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &982097704640732577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5697004476810092418}
+  m_Layer: 0
+  m_Name: SpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5697004476810092418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982097704640732577}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2379640947552331762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1016635838129323196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134652333517317123}
+  - component: {fileID: 3113719160030800402}
+  - component: {fileID: 6725761765686565157}
+  m_Layer: 0
+  m_Name: obj (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134652333517317123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016635838129323196}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.32255018, z: 0}
+  m_LocalScale: {x: 1, y: 1.2513, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2379640947552331762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3113719160030800402
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016635838129323196}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6725761765686565157
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016635838129323196}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3239273644362386707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2431374005048105992}
+  - component: {fileID: 164951281822018270}
+  m_Layer: 0
+  m_Name: 'EVENT: Mania_ONE'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2431374005048105992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239273644362386707}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2379640947552331762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164951281822018270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239273644362386707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2116c1b3df01e44ba15910d99467df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5903264447225073114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2379640947552331762}
+  - component: {fileID: 5679287963306251154}
+  - component: {fileID: -4213842099056564933}
+  - component: {fileID: 7954968831088163592}
+  - component: {fileID: 8744624707574587565}
+  - component: {fileID: 7953465503095966787}
+  - component: {fileID: 9011192281063177126}
+  - component: {fileID: 5011224887782839587}
+  - component: {fileID: 8840392011632752183}
+  - component: {fileID: -9144149633550173534}
+  - component: {fileID: 2217963900361797958}
+  - component: {fileID: -6235299643011096383}
+  - component: {fileID: 2748782247982346700}
+  - component: {fileID: 8691793057313305186}
+  - component: {fileID: 622850279409869296}
+  - component: {fileID: 2261850633766986948}
+  - component: {fileID: 1316212875097786116}
+  - component: {fileID: 1955912521524013698}
+  - component: {fileID: 7781131134454421346}
+  m_Layer: 7
+  m_Name: THE LADY IN BLACK
+  m_TagString: NPC
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2379640947552331762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 134652333517317123}
+  - {fileID: 2275732511205854095}
+  - {fileID: 5697004476810092418}
+  - {fileID: 2431374005048105992}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5679287963306251154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3.10502, z: 1}
+  m_Center: {x: 0, y: -0.03703046, z: 0}
+--- !u!54 &-4213842099056564933
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  serializedVersion: 4
+  m_Mass: 20
+  m_Drag: 1
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 2
+--- !u!195 &7954968831088163592
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.86
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120000
+  m_StoppingDistance: 0.1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3.09
+  m_BaseOffset: 1.6
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &8744624707574587565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7953465503095966787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cc2d0b1f2b2a04fbd6731c78190a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 10
+--- !u!114 &9011192281063177126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b44b68d91639274d9ac8ecab40286e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 7954968831088163592}
+  residentAreaMask:
+    serializedVersion: 2
+    m_Bits: 0
+  delayUseArea: 2
+  stopped: 0
+  usingArea: 0
+  stuckTimeout: 8
+  retryCooldown: 1.5
+  nextRetryTime: 0
+  stopCheckProgressValue: 0
+  lastAreaInContact: {fileID: 0}
+--- !u!114 &5011224887782839587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bc8063c9e95401f9a8a38bc716750d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Method: 0
+  m_Curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8840392011632752183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <locationMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 8
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 1
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 0
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &-9144149633550173534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{"Dialogue Tree Controller":{"_value":1,"_name":"Dialogue
+    Tree Controller","_id":"6c4d9e71-f1bb-4a5e-a079-849b7be4db25","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.DialogueTrees.DialogueTreeController,
+    NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"RandLoc":{"_propertyPath":"LocationRandomizer.RandLoc","_name":"RandLoc","_id":"6e8ab097-a04f-4677-a28e-1b2d54f1bff9","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"RandLocExcludeHotel":{"_propertyPath":"LocationRandomizer.RandLocExcludeHotel","_name":"RandLocExcludeHotel","_id":"92e76660-2214-4e94-adb6-2bf7c48375dc","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"personName":{"_propertyPath":"Dialuage.personName","_name":"personName","_id":"60a4a1fb-8ab5-419f-9a1c-37bb8d63c121","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"randPersonName":{"_propertyPath":"Dialuage.randPersonName","_name":"randPersonName","_id":"3ae41356-d7f3-42d6-be74-c711ccd68a9e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"dialaugeChoice":{"_propertyPath":"DialaugeChooser.dialaugeChoice","_name":"dialaugeChoice","_id":"89050d4b-8394-459f-94f3-b2c64cb0037b","$type":"NodeCanvas.Framework.Variable`1[[DialaugeChooser+DialaugeChoice,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"personITalkAboutsGroupingTrait":{"_propertyPath":"Dialuage.personITalkAboutsGroupingTrait","_name":"personITalkAboutsGroupingTrait","_id":"5a2deb3a-798d-40bb-a63a-fa19e32f0736","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"personITalkAboutsName":{"_propertyPath":"Dialuage.personITalkAboutsName","_name":"personITalkAboutsName","_id":"fd3d5f98-5453-40ae-ad4e-ede694e55697","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"myGroupingTrait":{"_propertyPath":"Dialuage.myGroupingTrait","_name":"myGroupingTrait","_id":"6921b1fe-e939-424a-ae9d-4f8f40a16088","$type":"NodeCanvas.Framework.Variable`1[[SO_Person+GroupingTrait,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"initialChatComplete":{"_propertyPath":"Dialuage.initialChatComplete","_name":"initialChatComplete","_id":"40409604-bf35-4aa3-b497-7b813b17a93c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"progressLevelOfCurrentQuest":{"_propertyPath":"LadyInBlack.progressLevelOfCurrentQuest","_name":"progressLevelOfCurrentQuest","_id":"65f9739d-c7f2-46c4-ba6b-e5e8671ba11d","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hasAnActiveQuest":{"_propertyPath":"LadyInBlack.hasAnActiveQuest","_name":"hasAnActiveQuest","_id":"98b25433-f9d2-4825-be2e-bde4eea66cee","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentQuest":{"_propertyPath":"LadyInBlack.currentQuest","_name":"currentQuest","_id":"43fd7c31-45cb-4883-a5e6-ee8a023f67bb","$type":"NodeCanvas.Framework.Variable`1[[Questing+Town+Quest,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: -6235299643011096383}
+  _serializedVariables:
+  - _json: '{"_value":1,"_name":"Dialogue Tree Controller","_id":"6c4d9e71-f1bb-4a5e-a079-849b7be4db25","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.DialogueTrees.DialogueTreeController,
+      NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: -6235299643011096383}
+  - _json: '{"_propertyPath":"LocationRandomizer.RandLoc","_name":"RandLoc","_id":"6e8ab097-a04f-4677-a28e-1b2d54f1bff9","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.RandLocExcludeHotel","_name":"RandLocExcludeHotel","_id":"92e76660-2214-4e94-adb6-2bf7c48375dc","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Dialuage.personName","_name":"personName","_id":"60a4a1fb-8ab5-419f-9a1c-37bb8d63c121","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Dialuage.randPersonName","_name":"randPersonName","_id":"3ae41356-d7f3-42d6-be74-c711ccd68a9e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"DialaugeChooser.dialaugeChoice","_name":"dialaugeChoice","_id":"89050d4b-8394-459f-94f3-b2c64cb0037b","$type":"NodeCanvas.Framework.Variable`1[[DialaugeChooser+DialaugeChoice,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Dialuage.personITalkAboutsGroupingTrait","_name":"personITalkAboutsGroupingTrait","_id":"5a2deb3a-798d-40bb-a63a-fa19e32f0736","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Dialuage.personITalkAboutsName","_name":"personITalkAboutsName","_id":"fd3d5f98-5453-40ae-ad4e-ede694e55697","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Dialuage.myGroupingTrait","_name":"myGroupingTrait","_id":"6921b1fe-e939-424a-ae9d-4f8f40a16088","$type":"NodeCanvas.Framework.Variable`1[[SO_Person+GroupingTrait,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Dialuage.initialChatComplete","_name":"initialChatComplete","_id":"40409604-bf35-4aa3-b497-7b813b17a93c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LadyInBlack.progressLevelOfCurrentQuest","_name":"progressLevelOfCurrentQuest","_id":"65f9739d-c7f2-46c4-ba6b-e5e8671ba11d","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LadyInBlack.hasAnActiveQuest","_name":"hasAnActiveQuest","_id":"98b25433-f9d2-4825-be2e-bde4eea66cee","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LadyInBlack.currentQuest","_name":"currentQuest","_id":"43fd7c31-45cb-4883-a5e6-ee8a023f67bb","$type":"NodeCanvas.Framework.Variable`1[[Questing+Town+Quest,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+--- !u!114 &2217963900361797958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d71fb7c52372e244baf2e69a9d0d116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: 
+  _portrait: {fileID: 0}
+  _dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+  _dialogueOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &-6235299643011096383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32e4b851ebd8fa4ea0645b99be1cf97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"conditions":[null],"_UID":"3dbe52a7-48a7-40c7-b394-9c6573369dd0","_position":{"x":875.4391,"y":-337.8988},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"0"},{"statement":{"_text":"..."},"_position":{"x":884.0,"y":-237.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"_action":{"method":{"_baseInfo":"DialaugeChooser|SetDialaugeChoice|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_UID":"30553741-2224-424e-a4bb-ebc994c5374c","_position":{"x":839.7573,"y":-99.23859},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"2"},{"conditions":[{"valueA":{"_name":"initialChatComplete","_targetVariableID":"40409604-bf35-4aa3-b497-7b813b17a93c"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},{"valueA":{"_name":"initialChatComplete","_targetVariableID":"40409604-bf35-4aa3-b497-7b813b17a93c"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"_position":{"x":873.7219,"y":-3.423096},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"3"},{"availableChoices":[{"statement":{"_text":"Hi,
+    Who are you?"}}],"_position":{"x":601.7219,"y":129.5769},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"4"},{"statement":{"_text":"..."},"_position":{"x":622.7219,"y":275.5769},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"_action":{"boolVariable":{"_name":"initialChatComplete","_targetVariableID":"40409604-bf35-4aa3-b497-7b813b17a93c"},"$type":"NodeCanvas.Tasks.Actions.SetBoolean"},"_position":{"x":556.5353,"y":376.9947},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"6"},{"conditions":[null],"_UID":"f68020c6-79ff-43c0-87db-40128c2cf8f8","_position":{"x":885.0621,"y":106.711},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"7"},{"availableChoices":[{"statement":{"_text":"Hello."}}],"_position":{"x":890.7219,"y":207.5769},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"8"},{"statement":{"_text":"..."},"_position":{"x":894.7219,"y":368.5769},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"I
+    hear the whispers of the past."},"_position":{"x":840.7219,"y":480.5769},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"What
+    about the past?"}}],"_UID":"103e383e-221a-4675-8986-56f72c64cecd","_position":{"x":864.3154,"y":603.7441},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"conditions":[{"valueA":{"_name":"hasAnActiveQuest","_targetVariableID":"98b25433-f9d2-4825-be2e-bde4eea66cee"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},{"valueA":{"_name":"hasAnActiveQuest","_targetVariableID":"98b25433-f9d2-4825-be2e-bde4eea66cee"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"_position":{"x":800.6763,"y":793.007},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"12"},{"conditions":[{"valueA":{"_type":"System.Enum","_name":"currentQuest","_targetVariableID":"43fd7c31-45cb-4883-a5e6-ee8a023f67bb"},"valueB":{"_type":"Questing+Town+Quest","_value":{"$content":1,"$type":"Questing+Town+Quest"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"},{"valueA":{"_type":"System.Enum","_name":"currentQuest","_targetVariableID":"43fd7c31-45cb-4883-a5e6-ee8a023f67bb"},"valueB":{"_type":"Questing+Town+Quest","_value":{"$content":2,"$type":"Questing+Town+Quest"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"},{"valueA":{"_type":"System.Enum","_name":"currentQuest","_targetVariableID":"43fd7c31-45cb-4883-a5e6-ee8a023f67bb"},"valueB":{"_type":"Questing+Town+Quest","_value":{"$content":3,"$type":"Questing+Town+Quest"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"}],"_position":{"x":144.082,"y":1081.045},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"13"},{"conditions":[{"valueA":{"_name":"progressLevelOfCurrentQuest","_targetVariableID":"65f9739d-c7f2-46c4-ba6b-e5e8671ba11d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},{"valueA":{"_name":"progressLevelOfCurrentQuest","_targetVariableID":"65f9739d-c7f2-46c4-ba6b-e5e8671ba11d"},"valueB":{"_value":1},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"}],"_position":{"x":-749.2603,"y":1452.535},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"14"},{"statement":{"_text":"The
+    wickedness grows."},"_position":{"x":-953.3763,"y":1596.503},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"15"},{"statement":{"_text":"The
+    hungry crows sought the people that stood in their way."},"_position":{"x":-978.377,"y":1674.503},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"16"},{"statement":{"_text":"So
+    they descended on the one who could do their bidding without notice. "},"_position":{"x":-973.3769,"y":1761.503},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"17"},{"statement":{"_text":"Corrupting
+    his thoughts."},"_position":{"x":-931.3765,"y":1841.503},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"18"},{"statement":{"_text":"And
+    through him they invoked their wicked will. Using him to kill the judge in the
+    night."},"_position":{"x":-967.3771,"y":1923.503},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"19"},{"statement":{"_text":"Then
+    they tore the judge''s carcass limb from limb. And feasted on his remains"},"_position":{"x":-954.3772,"y":2002.503},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"20"},{"statement":{"_text":"A
+    sacrifice to their forsaken god."},"_position":{"x":-945.3787,"y":2089.504},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"21"},{"statement":{"_text":"..."},"_position":{"x":-520.6514,"y":2425.708},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"22"},{"statement":{"_text":"The
+    wickedness grows."},"_position":{"x":-571.9133,"y":2518.708},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"23"},{"statement":{"_text":"Expose
+    the darkness, or succumb to its vile malefactors."},"_position":{"x":-587.6514,"y":2620.702},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"24"},{"_action":{"method":{"_baseInfo":"LadyInBlack|StartQuestProgress|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":-584.031,"y":2716.118},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"25"},{"statement":{"_text":"The
+    wickedness grows."},"_position":{"x":-609.5836,"y":1591.321},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"26"},{"statement":{"_text":"Fear
+    not the man once controlled."},"_position":{"x":-639.5601,"y":1676.74},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"27"},{"statement":{"_text":"Even
+    though his mind was corrupted before. He will do no harm now."},"_position":{"x":-641.6922,"y":1759.79},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"28"},{"statement":{"_text":"They
+    no longer have need of him"},"_position":{"x":-615.8049,"y":1851.041},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"29"},{"statement":{"_text":"GIve
+    him this. "},"_position":{"x":-578.4382,"y":1932.666},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"30"},{"statement":{"_text":"May
+    the sword once used for evil, help you cut away the rot of this town."},"_position":{"x":-616.6031,"y":2017.438},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"31"},{"_action":{"method":{"_baseInfo":"Spawner|Spawn|System.Void","_paramsInfo":"System.Int32"},"parameters":[{"_type":"System.Int32","_value":{"$content":0,"$type":"System.Int32"}}],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":-625.3282,"y":2126.775},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"32"},{"conditions":[{"valueA":{"_name":"progressLevelOfCurrentQuest","_targetVariableID":"65f9739d-c7f2-46c4-ba6b-e5e8671ba11d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},{"valueA":{"_name":"progressLevelOfCurrentQuest","_targetVariableID":"65f9739d-c7f2-46c4-ba6b-e5e8671ba11d"},"valueB":{"_value":1},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"}],"_position":{"x":-213.0222,"y":1460.831},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"33"},{"statement":{"_text":"The
+    wickedness grows."},"_position":{"x":-319.1044,"y":1582.56},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"34"},{"statement":{"_text":"I
+    was once a crow like them."},"_position":{"x":-318.3575,"y":1667.693},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"35"},{"statement":{"_text":"Even
+    though I left their coven. I still feel the burn of their watchful eyes."},"_position":{"x":-318.6387,"y":1749.804},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"36"},{"statement":{"_text":"And
+    the memory of their vile curses."},"_position":{"x":-312.9226,"y":1835.872},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"37"},{"statement":{"_text":"Take
+    heed,They act once more..."},"_position":{"x":-314.4105,"y":1915.22},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"38"},{"statement":{"_text":"Cursing
+    the soil where crops grow."},"_position":{"x":-309.9641,"y":2003.489},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"39"},{"statement":{"_text":"To
+    inflict their holy war on me."},"_position":{"x":-296.4268,"y":2080.929},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"40"},{"statement":{"_text":"I''m
+    am sorry you have been caught in the crossfire."},"_position":{"x":-303.3736,"y":2158.732},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"41"},{"statement":{"_text":"The
+    wickedness grows."},"_position":{"x":-34.58325,"y":1588.998},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"42"},{"statement":{"_text":"Poison
+    is a tale as old as time. Kings and Queens have fallen victim to its taste."},"_position":{"x":-31.56152,"y":1664.913},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"43"},{"statement":{"_text":"The
+    perpetrators are thus criminals of the state."},"_position":{"x":-23.39929,"y":1743.479},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"44"},{"statement":{"_text":"Your
+    perprator is no different. They are a criminal."},"_position":{"x":-14.15625,"y":1825.125},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"45"},{"statement":{"_text":"Bring
+    you information to the sherrif. He will help you uncover this vulture."},"_position":{"x":-19.71228,"y":1908.686},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"46"},{"conditions":[{"valueA":{"_name":"progressLevelOfCurrentQuest","_targetVariableID":"65f9739d-c7f2-46c4-ba6b-e5e8671ba11d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},{"valueA":{"_name":"progressLevelOfCurrentQuest","_targetVariableID":"65f9739d-c7f2-46c4-ba6b-e5e8671ba11d"},"valueB":{"_value":1},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"}],"_position":{"x":492.9497,"y":1419.283},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"47"},{"statement":{"_text":"The
+    wickedness grows."},"_position":{"x":278.4976,"y":1630.817},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"48"},{"statement":{"_text":"The
+    crows have eyes that are black, filled with darkness"},"_position":{"x":270.7085,"y":1711.903},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"49"},{"statement":{"_text":"The
+    soldiers of evil hidden in our town are no different"},"_position":{"x":280.0707,"y":1797.942},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"50"},{"statement":{"_text":"The
+    coming of their dark lord requires a sacrifice."},"_position":{"x":276.9257,"y":1873.429},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"51"},{"statement":{"_text":"A
+    sacrifice where children play."},"_position":{"x":299.9108,"y":1959.865},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"52"},{"statement":{"_text":"But
+    they are squeamish. Something you can take advantage of."},"_position":{"x":283.9117,"y":2041.532},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"53"},{"statement":{"_text":"Let
+    us hope they have not gotten more bold."},"_position":{"x":296.8068,"y":2123.055},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"54"},{"statement":{"_text":"The
+    wickedness grows."},"_position":{"x":594.4857,"y":1612.436},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"55"},{"statement":{"_text":"I
+    think we are too late"},"_position":{"x":629.4617,"y":1702.409},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"56"},{"statement":{"_text":"They
+    target those in power."},"_position":{"x":628.1868,"y":1782.716},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"57"},{"statement":{"_text":"Those
+    with money."},"_position":{"x":649.8567,"y":1868.121},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"58"},{"statement":{"_text":"Among
+    you, the wealthy have been taken off of the chess board. Inside of their home."},"_position":{"x":642.2087,"y":1948.428},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"59"},{"statement":{"_text":"See
+    to their fatal condition."},"_position":{"x":660.0547,"y":2028.734},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"60"},{"_action":{"method":{"_baseInfo":"LadyInBlack|ActivateNewRandomQuest|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":177.7673,"y":948.598},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"61"},{"statement":{"_text":"(Gained
+    Minor Favor)"},"_UID":"a8817f5b-45f2-4f1e-b10e-c25574953026","_tag":"Gain Minor
+    Favor","_position":{"x":-1330.508,"y":84.4162},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"62"},{"_action":{"method":{"_baseInfo":"Dialuage|GainMinorFavor|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_UID":"77680b23-84b7-42e9-9e2e-b0d981c43560","_position":{"x":-1325.62,"y":183.4165},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"63"},{"statement":{"_text":"(Gained
+    Major Favor)"},"_UID":"40327d8b-68f2-4354-8ec5-9c2913c7354e","_name":"","_tag":"Gain
+    Major Favor","_position":{"x":-1055.513,"y":80.7039},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"64"},{"_action":{"method":{"_baseInfo":"Dialuage|GainMajorFavor|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_UID":"5bad782e-c32e-4287-9415-fdb85f778278","_position":{"x":-1050.625,"y":179.7042},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"65"},{"statement":{"_text":"(Lost
+    Minor Favor)"},"_UID":"5b60f0a3-08f4-4b76-b228-0e4f2cdf9449","_tag":"Lost Minor
+    Favor","_position":{"x":-771.8303,"y":86.3194},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"66"},{"_action":{"method":{"_baseInfo":"Dialuage|LoseMinorFavor|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_UID":"17bc70ec-9baf-4d27-8aec-ae00a4d7b68b","_position":{"x":-778.9425,"y":183.3195},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"67"},{"statement":{"_text":"(Lost
+    Major Favor)"},"_UID":"645eea84-8a48-4326-ab4a-95676be01d55","_tag":"Lost Major
+    Favor","_position":{"x":-510.8302,"y":86.3194},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"68"},{"_action":{"method":{"_baseInfo":"Dialuage|LoseMajorFavor|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_UID":"7b31ca50-4016-4a02-b5cc-751bd0915d60","_position":{"x":-515.9424,"y":184.3195},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"69"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"61"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"33"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"47"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"26"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"15"},"_targetNode":{"$ref":"16"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"16"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"19"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"20"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"22"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"23"},"_targetNode":{"$ref":"24"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"24"},"_targetNode":{"$ref":"25"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"26"},"_targetNode":{"$ref":"27"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"27"},"_targetNode":{"$ref":"28"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"28"},"_targetNode":{"$ref":"29"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"29"},"_targetNode":{"$ref":"30"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"31"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"32"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"32"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"33"},"_targetNode":{"$ref":"34"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"33"},"_targetNode":{"$ref":"42"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"34"},"_targetNode":{"$ref":"35"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"35"},"_targetNode":{"$ref":"36"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"36"},"_targetNode":{"$ref":"37"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"37"},"_targetNode":{"$ref":"38"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"39"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"40"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"40"},"_targetNode":{"$ref":"41"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"41"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"42"},"_targetNode":{"$ref":"43"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"43"},"_targetNode":{"$ref":"44"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"44"},"_targetNode":{"$ref":"45"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"45"},"_targetNode":{"$ref":"46"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"46"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"47"},"_targetNode":{"$ref":"48"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"47"},"_targetNode":{"$ref":"55"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"48"},"_targetNode":{"$ref":"49"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"50"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"50"},"_targetNode":{"$ref":"51"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"51"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"52"},"_targetNode":{"$ref":"53"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"53"},"_targetNode":{"$ref":"54"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"54"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"55"},"_targetNode":{"$ref":"56"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"56"},"_targetNode":{"$ref":"57"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"57"},"_targetNode":{"$ref":"58"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"59"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"59"},"_targetNode":{"$ref":"60"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"60"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"61"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"62"},"_targetNode":{"$ref":"63"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"64"},"_targetNode":{"$ref":"65"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"66"},"_targetNode":{"$ref":"67"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"68"},"_targetNode":{"$ref":"69"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 364, y: -244}
+    _zoomFactor: 0.25002876
+  _firstActivation: 0
+  _enableAction: 1
+  _disableAction: 2
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: -9144149633550173534}
+--- !u!114 &2748782247982346700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  initialChatComplete: 0
+  completedTalkingTo: 0
+  person: {fileID: 11400000, guid: c98db9532ae26f64cb7b6f9dd13ef1cd, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: 0583c81ab33d08d42bf243bc8dd59a4f, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 1
+--- !u!114 &8691793057313305186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808eb9a637cbdb94d905c033134e9bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialaugeChoice: 1
+  rolls:
+  - favorLevel: 0
+    disliked: 60
+    neutral: 30
+    important: 10
+    secret: 0
+  - favorLevel: 1
+    disliked: 40
+    neutral: 40
+    important: 20
+    secret: 0
+  - favorLevel: 2
+    disliked: 0
+    neutral: 70
+    important: 30
+    secret: 0
+  - favorLevel: 3
+    disliked: 0
+    neutral: 50
+    important: 50
+    secret: 0
+  - favorLevel: 4
+    disliked: 0
+    neutral: 30
+    important: 60
+    secret: 10
+--- !u!114 &622850279409869296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locations:
+  - Hotel
+  - Sherriffs
+  - Park
+  - Bakery
+  - Store
+  - Diner
+  - Library
+  - Courthouse
+  - Mansion
+  - Offices
+  - Trail
+  - Farm
+  - Forest
+  - Rundown House
+  activities:
+  - went shopping
+  - visited some family
+  - met some new friends
+  - watched the sunrise
+  - got some groceries
+  - tried some new food
+  - went on a walk
+  - was almost late to work
+  - saw some people dancing in the forest
+  - saw a faint glow in the forest
+  - heard some whispering in the room next to me at night
+  - took a nice shower
+  - did my laundry
+  - ate breakfast
+  - heard some lovely singing on my walk
+  - saw some crows eating bread
+  - went stargazing
+  - stayed up late doing some work
+--- !u!114 &2261850633766986948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b045267dda96ea446a76cd1e387948ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  single: 1
+  multi: 0
+  multiSpawnAllAtOnce: 0
+  multiSpawnSelectSingle: 0
+  prefab: {fileID: 7019842021708274137, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+  prefabs: []
+  location: {fileID: 5697004476810092418}
+--- !u!114 &1316212875097786116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65e6e2952159964e8be2218e8fb80a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <quests>k__BackingField:
+  - rid: 5167629423535456489
+  - rid: 5167629423535456494
+  - rid: 5167629423535456499
+  _section: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 5167629423535456489
+      type: {class: Quest, ns: , asm: Assembly-CSharp}
+      data:
+        active: 0
+        section: 1
+        type:
+          rid: 5167629423535456490
+        progression:
+        - rid: 5167629423535456491
+        - rid: 5167629423535456492
+        - rid: 5167629423535456493
+    - rid: 5167629423535456490
+      type: {class: Questing/Town, ns: , asm: Assembly-CSharp}
+      data:
+        TypedQuest: 1
+    - rid: 5167629423535456491
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 7781131134454421346}
+              m_TargetAssemblyTypeName: EventLinker, Assembly-CSharp
+              m_MethodName: ExecuteEvent
+              m_Mode: 3
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5167629423535456492
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5167629423535456493
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5167629423535456494
+      type: {class: Quest, ns: , asm: Assembly-CSharp}
+      data:
+        active: 0
+        section: 1
+        type:
+          rid: 5167629423535456495
+        progression:
+        - rid: 5167629423535456496
+        - rid: 5167629423535456497
+        - rid: 5167629423535456498
+    - rid: 5167629423535456495
+      type: {class: Questing/Town, ns: , asm: Assembly-CSharp}
+      data:
+        TypedQuest: 2
+    - rid: 5167629423535456496
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 7781131134454421346}
+              m_TargetAssemblyTypeName: EventLinker, Assembly-CSharp
+              m_MethodName: ExecuteEvent
+              m_Mode: 3
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5167629423535456497
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5167629423535456498
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5167629423535456499
+      type: {class: Quest, ns: , asm: Assembly-CSharp}
+      data:
+        active: 0
+        section: 1
+        type:
+          rid: 5167629423535456500
+        progression:
+        - rid: 5167629423535456501
+        - rid: 5167629423535456502
+        - rid: 5167629423535456503
+    - rid: 5167629423535456500
+      type: {class: Questing/Town, ns: , asm: Assembly-CSharp}
+      data:
+        TypedQuest: 3
+    - rid: 5167629423535456501
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 7781131134454421346}
+              m_TargetAssemblyTypeName: EventLinker, Assembly-CSharp
+              m_MethodName: ExecuteEvent
+              m_Mode: 3
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5167629423535456502
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5167629423535456503
+      type: {class: Quest/ProgressionEvent, ns: , asm: Assembly-CSharp}
+      data:
+        completed: 0
+        completeEvent:
+          m_PersistentCalls:
+            m_Calls: []
+--- !u!114 &1955912521524013698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b045267dda96ea446a76cd1e387948ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  single: 0
+  multi: 1
+  multiSpawnAllAtOnce: 0
+  multiSpawnSelectSingle: 1
+  prefab: {fileID: 0}
+  prefabs: []
+  location: {fileID: 0}
+--- !u!114 &7781131134454421346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab08b2cdfa1cdf43a11a1257ef92bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+  - {fileID: 164951281822018270}
+--- !u!1 &7904466343369297884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2275732511205854095}
+  - component: {fileID: 2415088646848103831}
+  - component: {fileID: 1720990228321647102}
+  m_Layer: 0
+  m_Name: obj (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2275732511205854095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904466343369297884}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.1961255, z: 0}
+  m_LocalScale: {x: 0.7967103, y: 0.79671, z: 0.7967103}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2379640947552331762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2415088646848103831
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904466343369297884}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1720990228321647102
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904466343369297884}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
