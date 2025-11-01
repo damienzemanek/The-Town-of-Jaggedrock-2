@@ -1,9 +1,21 @@
+using DependencyInjection;
 using UnityEngine;
+using Extensions;
 
-public class CursedRoom : MonoBehaviour
+public class CursedRoom : RuntimeInjectableMonoBehaviour
 {
-    public bool cursed;
-    public ParticleSystem frostEffect;
+    #region Privates
+    [Inject] Referencer referencer;
+    ParticleSystem frostEffect;
+    #endregion
+
+    [SerializeField] bool _cursed;
+    public bool cursed { get => _cursed; set => _cursed = value; }
+
+    private void Start()
+    {
+        frostEffect = referencer.frostEffect.TryGet<ParticleSystem>();
+    }
 
     public void Uncurse()
     {

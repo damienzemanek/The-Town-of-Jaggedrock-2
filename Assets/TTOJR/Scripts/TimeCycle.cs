@@ -10,6 +10,16 @@ using Extensions;
 
 public class TimeCycle : MonoBehaviour, IDependencyProvider
 {
+    [TabGroup("Day")][SerializeField] int day;
+    [TabGroup("Day")] public UnityEvent OnDayStart;
+    [TabGroup("Day")][SerializeField] List<UnityEventPlus> dayEvents;
+
+    [TabGroup("Night")][SerializeField] int night;
+    [TabGroup("Night")] public UnityEvent OnNightStart;
+    [TabGroup("Night")][SerializeField] List<UnityEventPlus> nightEvents;
+
+
+
     [Serializable]
     public class Period
     {
@@ -46,14 +56,24 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     public List<Period> periods = new List<Period>();
     public Period GetCurrentPeriod() => (periods.Count > 0) ? periods.Last() : null;
 
-    public UnityEvent OnDayStart;
-    public UnityEvent OnNightStart;
-
     private void Awake()
     {
         instance = this;
         initialIntensity = dayLight.intensity;
         periods = new List<Period>();
+    }
+
+    public void TakeOnNightEvents(List<UnityEventPlus> events)
+    {
+        if (events == null) this.Error("Please assign events to give TimeCycle");
+        while (nightEvents.Count < events.Count)
+            nightEvents.Add(new UnityEventPlus());
+
+        for(int i = 0 ; i < events.Count; i++)
+        {
+            UnityEventPlus e = events[i]; if (e == null) continue;
+            nightEvents[i] = events[i];
+        }
     }
 
 
@@ -72,6 +92,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     [SerializeField] bool isDay = true;
     public bool timeFrozen = false;
     public bool transitioning = false;
+
 
     private void Start() => SetToDay();
 
@@ -115,20 +136,30 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
 
     void SetToNight()
     {
+        night++;
         GetCurrentPeriod()?.Complete();
         isDay = false;
         NewNight();
         dayLight.intensity = nightIntensity;
         OnNightStart?.Invoke();
+
+        if (night > 0 && night <= nightEvents.Count)
+            nightEvents[night - 1]?.InvokeWithDelay(this);
+
+
     }
 
     void SetToDay()
     {
+        day++;
         GetCurrentPeriod()?.Complete();
         isDay = true;
         NewDay();
         dayLight.intensity = initialIntensity;
         OnDayStart?.Invoke();
+        if (day > 0 && day <= dayEvents.Count)
+            dayEvents[day - 1]?.InvokeWithDelay(this);
+
     }
 
     void FadeDayLightToNight()
@@ -157,5 +188,6 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
 
     public bool IsDay() => (GetCurrentPeriod().type == TimeCycle.Period.Type.Day);
     public bool IsNight() => (GetCurrentPeriod().type == TimeCycle.Period.Type.Night);
+
 
 }

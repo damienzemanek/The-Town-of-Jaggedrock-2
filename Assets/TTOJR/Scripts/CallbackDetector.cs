@@ -36,6 +36,12 @@ public class CallbackDetector : Detector, IAssigner
     bool singleCbCheck() => (functionality == CallbackFunctionality.singleCallback);
     bool toggleCbCheck() => (functionality == CallbackFunctionality.toggleCallback);
 
+    public CallbackDetector Init(bool? enter = null, bool? stay = null, bool? exit = null)
+    {
+        base.Init(enter, stay, exit);
+        return this;
+    }
+
     private void Awake()
     {
         if(toggleCbCheck())

@@ -12,8 +12,10 @@ public class Despawner : MonoBehaviour, IDependencyProvider
     [Provide] Despawner Provide() => this;
     [Inject] TimeCycle time;
 
-    [SerializeField] List<GameObject> spawnedNPCs;
+    [SerializeField] List<GameObject> _spawnedNPCs;
     [SerializeField] List<GameObject> disabledNPCs;
+
+    public List<GameObject> spawnedNPCs { get => _spawnedNPCs; private set => _spawnedNPCs = value; }
 
     private void Awake()
     {

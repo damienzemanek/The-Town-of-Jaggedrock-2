@@ -4,9 +4,12 @@ using System.Collections;
 using Sirenix.OdinInspector;
 using DependencyInjection;
 using Extensions;
+using UnityEngine.Events;
 
-public class NPC_Spawner : MonoBehaviour
+public class NPC_Spawner : MonoBehaviour, IDependencyProvider
 {
+    [Provide] public NPC_Spawner Provide() => this;
+
     public bool onlySpawnFirstResident = false;
     [ShowIf("onlySpawnFirstResident")] public float spawnCount;
     public Transform spawnPoint;
@@ -14,6 +17,7 @@ public class NPC_Spawner : MonoBehaviour
     public List<GameObject> spawnResidentPoolForCycle;
     public float delayBetweenSpawns;
     [ReadOnly] public int currentSpawnedResidents; //cant be bigger than the pool
+    public UnityEvent spawningCompleteHook;
 
     [Inject] Despawner despawner;
     [Inject] TimeCycle time;
@@ -25,6 +29,8 @@ public class NPC_Spawner : MonoBehaviour
 
         if (spawnArea == null) throw new System.Exception("NPC_Spawner: spawn area not set");
     }
+
+
 
 
     private void OnEnable()
@@ -72,6 +78,10 @@ public class NPC_Spawner : MonoBehaviour
                 yield return new WaitForSeconds(delayBetweenSpawns);
                 currentSpawnedResidents++;
             }
+
+        this.Log("Spawning Hook");
+        spawningCompleteHook?.Invoke();
+
     }
 
     void Spawn(GameObject prefab)

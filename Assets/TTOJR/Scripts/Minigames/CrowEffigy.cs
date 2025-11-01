@@ -1,19 +1,22 @@
 using DependencyInjection;
+using Extensions;
 using UnityEngine;
 
 public class CrowEffigy : RuntimeInjectableMonoBehaviour
 {
-    CursedRoom room;
-    CallbackDetector cbDetector;
+    #region Privates
     [Inject] Interactor interactor;
+    CallbackDetector cbDetector;
+    CursedRoom _room;
+    #endregion
+
+    public CursedRoom room { get => _room; set => _room = value;}
+
 
     protected override void OnInstantiate()
     {
         base.OnInstantiate();
-        room = transform.parent.GetComponentInChildren<CursedRoom>() ??
-            throw new System.Exception($"Crow Effigy: No Cursed Room Found");
-        cbDetector = GetComponent<CallbackDetector>() ?? throw new System.Exception
-            ("Crow Effigy: No Callback Detector Found");
+        cbDetector = this.TryGetOrAdd<CallbackDetector>().Init(enter: true, exit: true);
 
         AssignEffigyUseCallback();
     }

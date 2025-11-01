@@ -27,13 +27,22 @@ public class Detector : MonoBehaviour
     [HideInInspector] public GameObject casterObject { get => obj; set => obj = value; }
     [HideInInspector] public GameObject colliderObject { get => obj; set => obj = value; }
 
-    [PropertyOrder(0)][FoldoutGroup("Enable Unity Events")][SerializeField] protected bool onEnter;
+    [PropertyOrder(0)][FoldoutGroup("Enable Unity Events")][SerializeField] public bool onEnter;
     [PropertyOrder(1)][FoldoutGroup("Enable Unity Events")][ShowIf("onEnter")] public UnityEvent Enter;
-    [PropertyOrder(2)][FoldoutGroup("Enable Unity Events")][SerializeField] protected bool onStay;
+    [PropertyOrder(2)][FoldoutGroup("Enable Unity Events")][SerializeField] public bool onStay;
     [PropertyOrder(3)][FoldoutGroup("Enable Unity Events")][ShowIf("onStay")] public UnityEvent Stay;
-    [PropertyOrder(4)][FoldoutGroup("Enable Unity Events")][SerializeField] protected bool onExit;
+    [PropertyOrder(4)][FoldoutGroup("Enable Unity Events")][SerializeField] public bool onExit;
     [PropertyOrder(5)][FoldoutGroup("Enable Unity Events")][ShowIf("onExit")] public UnityEvent Exit;
     [PropertySpace(spaceBefore: 2)]
+
+    public Detector Init(bool? enter = null, bool? stay = null, bool? exit = null)
+    {
+        onEnter = enter ?? false;
+        onStay = stay ?? false;
+        onExit = exit ?? false;
+        return this;
+    }
+
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (!collisionDetector) return;

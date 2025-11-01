@@ -8,6 +8,11 @@ namespace Extensions
     public static class EnumerateEX
     {
 
+        public static float Rand(this Vector2 v)
+        {
+            return UnityEngine.Random.Range(v.x, v.y);
+        }
+
         #region Privates
 
         #endregion

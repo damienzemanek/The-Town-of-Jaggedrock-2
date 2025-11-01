@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Linq;
 using DesignPatterns.CreationalPatterns;
 using System.Collections;
+using Extensions;
 
 namespace DependencyInjection
 {
@@ -149,6 +150,8 @@ namespace DependencyInjection
             //Store for all the methods of the provider
             var methods = provider.GetType().GetMethods(k_bindingFlags);
 
+            int providedCount = 0;
+
             //Find the methods marked with [Provide]
             foreach (var method in methods)
             {
@@ -166,10 +169,15 @@ namespace DependencyInjection
                 {
                     registry.Add(returnType, providedInstance);
                     Debug.Log($"DI: (3)         Registered {returnType.Name} from {provider.GetType().Name}");
+                    providedCount++;
                 }
                 else //Otherwise throw an expection
                     throw new Exception($"DI: (4) FAIL :Provider {provider.GetType().Name} returned null for {returnType.Name}");
             }
+
+            if(providedCount == 0)
+                this.Error($"DI: (0)         No [Provide] attributes found on provider {provider.GetType().Name}, even though its marked as a IDependancyProvider");
+
         }
 
 

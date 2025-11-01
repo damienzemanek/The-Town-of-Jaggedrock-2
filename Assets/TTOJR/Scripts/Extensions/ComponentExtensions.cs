@@ -64,6 +64,17 @@ namespace Extensions
             return false;
         }
 
+        public static bool Has<TComponent>(this Object obj) where TComponent : Component
+        {
+            if (obj is GameObject go)
+                if (go.GetComponent<TComponent>()) return true;
+
+            if (obj is Component comp)
+                if (comp.GetComponent<TComponent>()) return true;
+
+            return false;
+        }
+
     }
 
 }
