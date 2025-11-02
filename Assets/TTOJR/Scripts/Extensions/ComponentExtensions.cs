@@ -44,23 +44,27 @@ namespace Extensions
 
         public static TComponent TryGetOrAdd<TComponent>(this Object obj) where TComponent : Component
         {
-            return obj.Has(out TComponent comp) ? comp 
-                : (obj as GameObject)?.AddComponent<TComponent>()
-                ?? (obj as Component)?.gameObject.AddComponent<TComponent>();
+            if (obj is GameObject go)
+                return go.TryGetComponent<TComponent>(out TComponent c)
+                    ? c : go.AddComponent<TComponent>();
+
+            if(obj is Component comp)
+                return comp.TryGetComponent<TComponent>(out TComponent c2)
+                    ? c2 : comp.gameObject.AddComponent<TComponent>();
+
+            return null;
         }
 
         public static bool Has<TComponent>(this Object obj, out TComponent result) where TComponent : Component
         {
-            if(obj is GameObject go)
+            result = null;
+
+            if (obj is GameObject go)
                 if (go.TryGetComponent(out result)) return true;
             
             if(obj is Component comp)
                 if (comp.TryGetComponent(out result)) return true;
 
-            result = obj.GetComponent<TComponent>();
-            if (result) return true;
-
-            result = null;
             return false;
         }
 

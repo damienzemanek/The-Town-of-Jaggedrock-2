@@ -7,9 +7,12 @@ using Extensions;
 
 public class Detector : MonoBehaviour
 {
+    #region Privates
+    LayerMask locationMask;
+    #endregion
+
     [Title("Detector")]
     [PropertySpace(spaceBefore: 1)]
-    [field:InfoBox("Who can interact with me")] [field: SerializeField] public LayerMask locationMask { get; private set; }
     [FoldoutGroup("Detector Type")] public bool rayCastDetector;
     [FoldoutGroup("Detector Type")] public bool collisionDetector;
 
@@ -35,11 +38,20 @@ public class Detector : MonoBehaviour
     [PropertyOrder(5)][FoldoutGroup("Enable Unity Events")][ShowIf("onExit")] public UnityEvent Exit;
     [PropertySpace(spaceBefore: 2)]
 
+    private void Start()
+    {
+        locationMask = 1 << LayerMask.NameToLayer("Player");
+    }
+
     public Detector Init(bool? enter = null, bool? stay = null, bool? exit = null)
     {
         onEnter = enter ?? false;
         onStay = stay ?? false;
         onExit = exit ?? false;
+
+        if(onEnter) Enter = new UnityEvent();
+        if (onStay) Stay = new UnityEvent();
+        if (onExit) Exit = new UnityEvent();
         return this;
     }
 

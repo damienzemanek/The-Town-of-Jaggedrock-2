@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+using Extensions;
 
 [DefaultExecutionOrder(400)]
 public class Interactor : MonoBehaviour, IDependencyProvider
@@ -117,7 +118,11 @@ public class Interactor : MonoBehaviour, IDependencyProvider
         if (Physics.Raycast(ray, out RaycastHit hit, mainCamera.castDist, interactionMask))
         {
             RaycasterEvent?.Invoke(ray, hit);
-            hit.transform.gameObject.GetComponent<Detector>().OnRaycastedStay(gameObject);
+            print(hit);
+            print(hit.transform);
+            print(hit.transform.gameObject);
+            print(hit.transform.gameObject.TryGet<Detector>().name);
+            hit.transform.gameObject.TryGet<Detector>().OnRaycastedStay(gameObject);
         }
         else
             FailedRaycast?.Invoke();

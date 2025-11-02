@@ -1,25 +1,38 @@
+using System;
+using System.Linq;
 using DependencyInjection;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(CallbackDetector))]
-public class Searchable : RuntimeInjectableMonoBehaviour
+public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 {
-    [field:SerializeField] public float increment { get; private set; }
-    [field: SerializeField] public float progress { get; private set; }
-    [field: SerializeField] public float completeProgressValue { get; private set; }
-    [field: SerializeField] public bool complete { get; private set; }
-    [field: SerializeField] public UnityEvent completeEvent { get; private set; }
-
-    CallbackDetector cbDetector;
+    #region Privates
     [Inject] EntityControls controls;
     [Inject] Interactor interactor;
+    CallbackDetector cbDetector;
+    float increment;
+    Transform _foundLoc;
+    [SerializeField] bool _correct;
+    [SerializeField] float progress;
+    [SerializeField] float _timeToComplete;
+    #endregion
+
+    public bool correct { get => _correct; set => _correct = value; }
+    public Transform foundLoc { get => _foundLoc; set => _foundLoc = value; }
+    public float timeToComplete { get => _timeToComplete; set => _timeToComplete = value; }  
+    [field: SerializeField] public bool complete { get; private set; }
+    [field: SerializeField] public UnityEvent completeEvent { get; private set; }
 
     protected override void OnInstantiate()
     {
         base.OnInstantiate();
-        cbDetector = GetComponent<CallbackDetector>();
+        BuildDetector();
+        foundLoc = GetComponentsInChildren<Transform>()
+            .FirstOrDefault(t => t != transform);
+        increment = 0.1f;
         AssignSearchableCallbacks();
+
+        completeEvent = new UnityEvent();
     }
     public void IncreaseProgress()
     {
@@ -28,7 +41,7 @@ public class Searchable : RuntimeInjectableMonoBehaviour
 
         progress += increment;
 
-        if (progress > completeProgressValue)
+        if (progress > timeToComplete)
             Complete();
     }
 
@@ -37,10 +50,16 @@ public class Searchable : RuntimeInjectableMonoBehaviour
         progress = 0;
     }
 
+    public void SetAsCorrect(Action correctCompletionHook)
+    {
+        correct = true;
+        completeEvent.AddListener(() => correctCompletionHook?.Invoke());
+    }
+
     void Complete()
     {
         completeEvent?.Invoke();
-        progress = completeProgressValue;
+        progress = timeToComplete;
         complete = true;
         controls.ForceStopHold();
         cbDetector.rayCastDetector = false; //Turns the CBDetector Off
@@ -70,6 +89,16 @@ public class Searchable : RuntimeInjectableMonoBehaviour
     {
         cbDetector.useCallback.AddListener( () => IncreaseProgress());
         cbDetector.holdCancledCallback.AddListener( () => ResetProgress());
+    }
+
+    public void BuildDetector()
+    {
+        cbDetector = new CallbackDetector.Builder(gameObject)
+            .WithRaycast()
+            .WithEventHooks(enter: true, stay: true, exit: true)
+            .WithHoldingUse()
+            .Build();
+
     }
 
 }

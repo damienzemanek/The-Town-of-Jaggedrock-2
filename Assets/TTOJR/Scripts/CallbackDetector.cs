@@ -4,9 +4,21 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 using Extensions;
+using System;
 
 public class CallbackDetector : Detector, IAssigner
 {
+    #region Privates
+    public enum CallbackFunctionality
+    {
+        singleCallback,
+        toggleCallback
+    }
+    bool singleCbCheck() => (functionality == CallbackFunctionality.singleCallback);
+    bool toggleCbCheck() => (functionality == CallbackFunctionality.toggleCallback);
+
+    #endregion
+
     [Title("Callback Detector")]
     public CallbackFunctionality functionality;
     public bool holdingUseDetector;
@@ -28,18 +40,66 @@ public class CallbackDetector : Detector, IAssigner
     [ShowIf(nameof(toggleCbCheck))]
     [SerializeField]
     int currCallback = 0;
-    public enum CallbackFunctionality
-    {
-        singleCallback,
-        toggleCallback
-    }
-    bool singleCbCheck() => (functionality == CallbackFunctionality.singleCallback);
-    bool toggleCbCheck() => (functionality == CallbackFunctionality.toggleCallback);
 
-    public CallbackDetector Init(bool? enter = null, bool? stay = null, bool? exit = null)
+    public class Builder
     {
-        base.Init(enter, stay, exit);
-        return this;
+        readonly GameObject objOn;
+        readonly CallbackDetector cbd;
+
+        public Builder(GameObject on)
+        {
+            objOn = on ?? throw new System.ArgumentNullException(nameof(on));
+            cbd = objOn.TryGetOrAdd<CallbackDetector>();
+        }
+
+        public Builder WithRaycast()
+        {
+            cbd.rayCastDetector = true;
+            return this;
+        }
+
+        public Builder WithCollision()
+        {
+            cbd.collisionDetector = true;
+            return this;
+        }
+
+        public Builder WithEventHooks(bool? enter = null, bool? stay = null, bool? exit = null)
+        {
+            cbd.Init(enter, stay, exit);
+            cbd.useCallback = new UnityEvent();
+            return this;
+        }
+
+        public Builder WithHoldingUse(int toggleAmount = 2)
+        {
+            cbd.holdingUseDetector = true;
+            cbd.holdCancledCallback = new UnityEvent();
+
+            if (cbd.toggleCbCheck())
+            {
+                cbd.toggleUseCancledCallback = new UnityEvent[toggleAmount];
+                for (int i = 0; i < toggleAmount; i++)
+                    cbd.toggleUseCancledCallback[i] = new UnityEvent();
+            }
+
+            return this;
+        }
+
+        public Builder WithToggleCallback(int toggleAmount = 2)
+        {
+            cbd.functionality = CallbackFunctionality.toggleCallback;
+            cbd.toggleUseCallback = new UnityEvent[toggleAmount];
+            for(int i = 0; i < toggleAmount; i ++)
+                cbd.toggleUseCallback[i] = new UnityEvent();
+            return this;
+        }
+
+        public CallbackDetector Build()
+        {
+            cbd.useCallback = new UnityEvent();
+            return cbd;
+        }
     }
 
     private void Awake()
@@ -48,8 +108,8 @@ public class CallbackDetector : Detector, IAssigner
             for(int i = 0; i < toggleUseCallback.Length; i++)
                 toggleUseCallback[i].AddListener(ToggleCallback);
 
-        gameObject.layer = 7;
-        useCallback.AddListener(() => DebugUse());
+        gameObject.layer = LayerMask.NameToLayer("Interactable");
+        useCallback?.AddListener(() => DebugUse());
         DeAssign();
         Assign();
     }
@@ -151,7 +211,7 @@ public class CallbackDetector : Detector, IAssigner
                 Exit?.Invoke();
         base.OnDestroy();
         useCallback.RemoveAllListeners();
-        toggleUseCallback.ToList().ForEach(cb => cb.RemoveAllListeners());
+        toggleUseCallback?.ToList().ForEach(cb => cb.RemoveAllListeners());
         DeAssign();
     }
 
