@@ -101,4 +101,14 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 
     }
 
+    public void ComponentReset()
+    {
+        complete = false;
+        progress = 0;
+        correct = false;
+        completeEvent?.RemoveAllListeners();
+
+        Destroy(cbDetector);
+    }
+
 }

@@ -39,7 +39,35 @@ namespace Extensions
                 obj.Error($"Failed to Tryget {thisType} on {obj}");
                 return null;
             }
+        }
 
+        public static T OptionalGet<T>(this Object obj) where T : Component
+        {
+            string thisType = typeof(T).Name;
+
+            switch (obj)
+            {
+                case Component comp: return TryOnComponent(comp);
+                case GameObject go: return TryOnGameObject(go);
+                default: return (T)CannotTryGet(obj);
+            }
+
+            T TryOnComponent(Component comp)
+            {
+                if (comp.TryGetComponent<T>(out T found)) return found;
+                return null;
+            }
+
+            T TryOnGameObject(GameObject go)
+            {
+                if (go.TryGetComponent<T>(out T found)) return found;
+                return null;
+            }
+
+            object CannotTryGet(object obj)
+            {
+                return null;
+            }
         }
 
         public static TComponent TryGetOrAdd<TComponent>(this Object obj) where TComponent : Component

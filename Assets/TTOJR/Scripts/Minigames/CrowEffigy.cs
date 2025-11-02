@@ -44,6 +44,8 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         this.Log($"Destroying Effigy in room {room.name}");
         room.Uncurse();
         interactor.ToggleCanInteract(false);
+        DestroyedHook?.Invoke();
+        DestroyedHook?.RemoveAllListeners();
         Destroy(gameObject);
     }
 

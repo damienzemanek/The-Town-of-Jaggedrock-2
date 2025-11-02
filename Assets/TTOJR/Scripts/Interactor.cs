@@ -118,11 +118,7 @@ public class Interactor : MonoBehaviour, IDependencyProvider
         if (Physics.Raycast(ray, out RaycastHit hit, mainCamera.castDist, interactionMask))
         {
             RaycasterEvent?.Invoke(ray, hit);
-            print(hit);
-            print(hit.transform);
-            print(hit.transform.gameObject);
-            print(hit.transform.gameObject.TryGet<Detector>().name);
-            hit.transform.gameObject.TryGet<Detector>().OnRaycastedStay(gameObject);
+            hit.transform.gameObject.OptionalGet<Detector>()?.OnRaycastedStay(gameObject);
         }
         else
             FailedRaycast?.Invoke();
