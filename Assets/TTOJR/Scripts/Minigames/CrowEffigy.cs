@@ -24,7 +24,6 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         BuildDetector();
         gameObject.layer = LayerMask.NameToLayer("Interactable");
         AssignEffigyUseCallback();
-        AssignInteractorCallbacks();
         DestroyedHook = new UnityEvent();
         StartCoroutine(C_CheckIfDay());
     }
@@ -34,12 +33,6 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     {
         cbDetector.useCallback.AddListener(() => DestroyEffigy());
 
-    }
-    void AssignInteractorCallbacks()
-    {
-        cbDetector.Enter.AddListener(call: () => interactor.ToggleCanInteract(true));
-        cbDetector.Enter.AddListener(call: () => interactor.SetInteractText("Search (Hold E)"));
-        cbDetector.Exit.AddListener(call: () => interactor.ToggleCanInteract(false));
     }
 
     public void DestroyEffigy()
@@ -56,7 +49,8 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     {
         cbDetector = new CallbackDetector.Builder(gameObject)
             .WithRaycast()
-            .WithEventHooks(true, true, true)
+            .WithEventHooks(stay: true, exit: true)
+            .WithInteractAssignments(interactor, "Destroy (E)")
             .Build();
     }
 

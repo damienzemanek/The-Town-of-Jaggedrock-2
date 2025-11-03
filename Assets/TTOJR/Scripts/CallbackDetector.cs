@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using System.Linq;
 using Extensions;
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 public class CallbackDetector : Detector, IAssigner
 {
@@ -50,6 +51,7 @@ public class CallbackDetector : Detector, IAssigner
         {
             objOn = on ?? throw new System.ArgumentNullException(nameof(on));
             cbd = objOn.TryGetOrAdd<CallbackDetector>();
+            cbd.useCallback = new UnityEvent();
         }
 
         public Builder WithRaycast()
@@ -95,9 +97,22 @@ public class CallbackDetector : Detector, IAssigner
             return this;
         }
 
+        public Builder WithInteractAssignments(Interactor interactor, string interactMessage)
+        {
+            if(cbd.Stay == null) cbd.Stay = new UnityEvent();
+            if(cbd.Exit == null) cbd.Exit = new UnityEvent();
+            if(cbd.useCallback == null) cbd.useCallback = new UnityEvent();
+
+            cbd.Stay.AddListener(() => interactor.SetInteractText(interactMessage));
+            cbd.Stay.AddListener(() => interactor.ToggleCanInteract(true));
+            cbd.Exit.AddListener(() => interactor.ToggleCanInteract(false));
+            cbd.useCallback.AddListener(() => interactor.ToggleCanInteract(false));
+
+            return this;
+        }
+
         public CallbackDetector Build()
         {
-            cbd.useCallback = new UnityEvent();
             return cbd;
         }
     }
