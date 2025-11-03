@@ -13,12 +13,12 @@ public class AudioStepper : MonoBehaviour
     [SerializeField] bool randomize;
     bool going = false;
     #region Privates
-    AudioSource source;
+    [SerializeField] AudioSource source;
     #endregion
 
     private void Awake()
     {
-        source = this.TryGetOrAdd<AudioSource>();
+        if(!source) source = this.TryGetOrAdd<AudioSource>();
     }
 
     [SerializeField] List<AudioClip> audios;
