@@ -75,14 +75,14 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 
     void AssignInteractorCallbacks()
     {
-        cbDetector.Enter.AddListener(call: () => interactor.ToggleCanInteract(true));
-        cbDetector.Enter.AddListener(call: () => interactor.SetInteractText("Search (Hold E)"));
+        cbDetector.Stay.AddListener(call: () => interactor.ToggleCanInteract(true));
+        cbDetector.Stay.AddListener(call: () => interactor.SetInteractText("Search (Hold E)"));
         cbDetector.Exit.AddListener(call: () => interactor.ToggleCanInteract(false));
     }
     
     void AssignHoldingIntactorCallbacks()
     {
-        cbDetector.Enter.AddListener(() => interactor.SetHoldingInteraction(true));
+        cbDetector.Stay.AddListener(() => interactor.SetHoldingInteraction(true));
         cbDetector.Exit.AddListener(() => interactor.SetHoldingInteraction(false));
     }
     void AssignUseHoldBacks()
