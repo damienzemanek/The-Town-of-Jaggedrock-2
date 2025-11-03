@@ -25,6 +25,16 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     [TabGroup("Crow")] [SerializeReference, ReadOnly] CorruptEvent currentEvent;
     [TabGroup("Crow")] public GameObject flickerObj;
 
+    private void Start()
+    {
+        ResetAll();
+    }
+
+    void ResetAll()
+    {
+        flickerObj.SetActive(false);
+        currentEvent = null;
+    }
 
     public void StartCorruption()
     {

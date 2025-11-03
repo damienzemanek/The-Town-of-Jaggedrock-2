@@ -56,5 +56,17 @@ namespace Extensions
             else
                 Debug.LogError($"{Colorize($"[SCRIPT: {Bold(obj.GetType().Name)}]", ScriptColor)}: {msg}");
         }
+
+        public static void SetCheck(this object obj)
+        {
+            if (obj == null)
+                throw new System.ArgumentNullException($"{Colorize("[<null>]", NullColor)}: not set in inspector — please set");
+
+            if (obj is Object unityObj)
+                Debug.LogError($"{Colorize($"[SCRIPT: {Bold(unityObj.GetType().Name)}]", ScriptColor)} " +
+                               $"{Colorize($"[G.O.: {Bold(unityObj.name)}]", GameObjectColor)}: field not assigned in inspector");
+            else
+                Debug.LogError($"{Colorize($"[SCRIPT: {Bold(obj.GetType().Name)}]", ScriptColor)}: field not assigned in inspector");
+        }
     }
 }

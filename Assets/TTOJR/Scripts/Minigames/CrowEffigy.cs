@@ -1,3 +1,4 @@
+using System.Collections;
 using DependencyInjection;
 using Extensions;
 using Sirenix.OdinInspector;
@@ -8,6 +9,7 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 {
     #region Privates
     [Inject] Interactor interactor;
+    [Inject] TimeCycle timeCy;
     CallbackDetector cbDetector;
     CursedRoom _room;
     #endregion
@@ -24,6 +26,7 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         AssignEffigyUseCallback();
         AssignInteractorCallbacks();
         DestroyedHook = new UnityEvent();
+        StartCoroutine(C_CheckIfDay());
     }
 
 
@@ -55,6 +58,21 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
             .WithRaycast()
             .WithEventHooks(true, true, true)
             .Build();
+    }
+
+    IEnumerator C_CheckIfDay()
+    {
+        while (true)
+        {
+            yield return new WaitForEndOfFrame();
+
+            if(timeCy.IsDay())
+            {
+                DestroyedHook?.RemoveAllListeners();
+                Destroy(gameObject);
+                break;
+            }
+        }
     }
 
 }
