@@ -1,17 +1,23 @@
 using UnityEngine;
 using Extensions;
 using System.Collections;
+using ParadoxNotion.Design;
+using Sirenix.OdinInspector;
+using ShowIfAttribute = Sirenix.OdinInspector.ShowIfAttribute;
 
 public class AudioPlay : MonoBehaviour
 {
     [SerializeField] bool loop;
     [SerializeField] bool cutShort;
+    [SerializeField] bool multi;
+    bool single => !multi;
     [SerializeField] float shortTime;
     #region Privates
 
     #endregion
     [SerializeField] AudioSource source;
-    [SerializeField] AudioClip audio;
+    [SerializeField, ShowIf("single")] AudioClip audio;
+    [SerializeField, ShowIf("multi")] AudioClip[] audios;
 
     private void Awake()
     {
@@ -21,6 +27,13 @@ public class AudioPlay : MonoBehaviour
     {
         source.loop = loop;
         source.PlayOneShot(audio);
+        if (cutShort) StartCoroutine(C_Cutshort());
+    }
+
+    public void PlayMulti(int index)
+    {
+        source.loop = loop;
+        source.PlayOneShot(audios[index]);
         if (cutShort) StartCoroutine(C_Cutshort());
     }
 
