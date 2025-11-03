@@ -32,7 +32,6 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     void AssignEffigyUseCallback()
     {
         cbDetector.useCallback.AddListener(() => DestroyEffigy());
-
     }
 
     public void DestroyEffigy()

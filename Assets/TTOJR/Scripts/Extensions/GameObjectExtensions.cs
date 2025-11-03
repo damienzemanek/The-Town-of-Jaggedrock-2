@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace Extensions
@@ -8,6 +9,19 @@ namespace Extensions
         {
             gameObject.SetActive(val);
             return gameObject;
+        }
+
+        public static void FillWithChildren(this GameObject[] array, GameObject parent)
+        {
+            if (parent == null) return;
+
+            var children = parent.transform.Cast<Transform>()
+                .Select(t => t.gameObject)
+                .Take(array.Length)
+                .ToArray();
+
+            for (int i = 0; i < children.Length; i++)
+                array[i] = children[i];
         }
     }
 
