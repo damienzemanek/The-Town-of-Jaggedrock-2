@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using DependencyInjection;
 using Extensions;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 
@@ -18,9 +19,11 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     public bool corrupting { get => _corrupting; set => _corrupting = value; }
     [field: SerializeField] public Town resident { get; set; }
 
-    public Transform cursedAreaSpawnLoc;
-    [SerializeReference] public List<GameObject> searchables;
-    [SerializeReference, ReadOnly] CorruptEvent currentEvent;
+
+    [TabGroup("Crow")] public Transform cursedAreaSpawnLoc;
+    [TabGroup("Crow")] [SerializeReference] public List<GameObject> searchables;
+    [TabGroup("Crow")] [SerializeReference, ReadOnly] CorruptEvent currentEvent;
+    [TabGroup("Crow")] public GameObject flickerObj;
 
 
     public void StartCorruption()
@@ -46,9 +49,9 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     
     void CorruptComplete()
     {
-        corrupting = false;
-        if (!resident) return;
+        if (!resident) this.Error("No resident has been set");
         resident.IncreaseCorruption();
+        StopCorruption();
     }
 
     #region Methods
@@ -82,6 +85,9 @@ public class CrowEffigyEvent : CorruptEvent
         Searchable correctSearchable = loc.searchables.Rand().TryGet<Searchable>();
         correctSearchable.SetAsCorrect(() => SpawnEffigy(loc ,correctSearchable, room));
         this.Log($"Corrupted location {loc.name}, searchable {correctSearchable.name}");
+
+        loc.flickerObj.SetActive(true);
+
         return this;
     }
 
@@ -95,6 +101,7 @@ public class CrowEffigyEvent : CorruptEvent
     public override void StopCorrupt(CorruptonLocation loc)
     {
         loc.searchables.ForEach(s => s.TryGet<Searchable>().ComponentReset());
+        loc.flickerObj.SetActive(false);
         GameObject.Destroy(room.gameObject);
     }
 
