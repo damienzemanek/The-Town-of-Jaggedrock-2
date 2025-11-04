@@ -66,9 +66,37 @@ public class AudioPlay : MonoBehaviour
         if (cutShort) StartCoroutine(C_Cutshort());
     }
 
+    public void PlayForSeconds(AudioClip clip, float time, float fadeAtPercent)
+    {
+        source.clip = clip;
+        source.Play();
+        StartCoroutine(C_CutshortFade(time, fadeAtPercent));
+    }
+
     IEnumerator C_Cutshort()
     {
         yield return new WaitForSeconds(shortTime);
+        Stop();
+    }
+
+    IEnumerator C_CutshortFade(float time, float startFadingAtPercent)
+    {
+        startFadingAtPercent = Mathf.Clamp(startFadingAtPercent, 0, 100);
+
+        float vol = 1f;
+        float startFadingAtSeconds = time * (startFadingAtPercent / 100f);
+        float fadeOverSeconds = time - startFadingAtSeconds;
+        float delay = fadeOverSeconds / 100;
+
+        yield return new WaitForSeconds(startFadingAtSeconds);
+
+        while (vol > 0)
+        {
+            yield return new WaitForSeconds(delay);
+            vol -= 0.01f;
+            source.volume = vol;
+        }
+
         Stop();
     }
 

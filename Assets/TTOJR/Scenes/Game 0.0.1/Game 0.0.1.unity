@@ -79180,6 +79180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2a7bacad083ad4598d98e6916ad316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newPeriod:
+    m_PersistentCalls:
+      m_Calls: []
+  blackScreenTime: 5
   day: 0
   OnDayStart:
     m_PersistentCalls:

@@ -24,21 +24,24 @@ public class FadeScreen : MonoBehaviour
     {
         StartCoroutine(C_FadeInAndOut());
     }
-    public void FadeInAndOutCallback(Action callbackOnFadeOutComplete = null, Action callbackCompleted = null)
+    public void FadeInAndOutCallback(Action callbackOnFadeOutComplete = null, Action callbackCompleted = null, float blackScreenTime = 0f)
     {
-        StartCoroutine(C_FadeInAndOut(callbackOnFadeOutComplete, callbackCompleted));
+        StartCoroutine(C_FadeInAndOut(callbackOnFadeOutComplete, callbackCompleted, blackScreenTime));
     }
 
-    IEnumerator C_FadeInAndOut(Action callbackOnFadeOutComplete = null, Action callbackCompleted = null)
+    IEnumerator C_FadeInAndOut(Action callbackOnFadeOutComplete = null, Action callbackCompleted = null, float blackScreenTime = 0f)
     {
         if (isFading) yield break;
         yield return StartCoroutine(C_FadeToBlack());
         float fadeDuration = (1f / fadeStep) * incrementDelay;
         yield return new WaitForSeconds(fadeDuration * 0.5f);
-
         callbackOnFadeOutComplete?.Invoke();
+
+        if(blackScreenTime > 0f) yield return new WaitForSeconds(blackScreenTime);
+
         yield return StartCoroutine(C_FadeToVisible(callbackCompleted));
     }
+
 
 
     IEnumerator C_FadeToBlack()

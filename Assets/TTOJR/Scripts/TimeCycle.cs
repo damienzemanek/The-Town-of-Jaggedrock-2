@@ -10,6 +10,9 @@ using Extensions;
 
 public class TimeCycle : MonoBehaviour, IDependencyProvider
 {
+    [TabGroup("All Periods")] public UnityEvent newPeriodHook;
+    [TabGroup("All Periods")] public float blackScreenTime;
+
     [TabGroup("Day")][SerializeField] int day;
     [TabGroup("Day")] public UnityEvent OnDayStart;
     [TabGroup("Day")][SerializeField] List<UnityEventPlus> dayEvents;
@@ -61,6 +64,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         instance = this;
         initialIntensity = dayLight.intensity;
         periods = new List<Period>();
+        if (newPeriodHook == null) newPeriodHook = new UnityEvent();
     }
 
     public void TakeOnNightEvents(List<UnityEventPlus> events)
@@ -128,9 +132,11 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     void Transition()
     {
         FadeScreen fade = controls.TryGet<FadeScreen>();
+        newPeriodHook?.Invoke();
 
-        fade.FadeInAndOutCallback((isDay) ? SetToNight : SetToDay);
+        fade.FadeInAndOutCallback((isDay) ? SetToNight : SetToDay, null, blackScreenTime);
         currentTime = 0;
+
     }
 
 
