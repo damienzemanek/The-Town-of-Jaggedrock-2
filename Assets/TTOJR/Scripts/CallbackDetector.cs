@@ -111,6 +111,14 @@ public class CallbackDetector : Detector, IAssigner
             return this;
         }
 
+        public Builder WithUseHook(Action method)
+        {
+            if (cbd.useCallback == null) cbd.useCallback = new UnityEvent();
+
+            cbd.useCallback.AddListener(() => method?.Invoke());
+            return this;
+        }
+
         public CallbackDetector Build()
         {
             return cbd;

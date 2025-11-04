@@ -57,6 +57,7 @@ public class Detector : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        if (!enabled) return;
         if (!collisionDetector) return;
         if (!onEnter) return;
         if (!IsInLayer(other)) return;
@@ -69,6 +70,7 @@ public class Detector : MonoBehaviour
 
     protected virtual void OnTriggerStay(Collider other)
     {
+        if (!enabled) return;
         if (!collisionDetector) return;
         if (!IsInLayer(other)) return;
         somethingCollided = true;
@@ -82,6 +84,7 @@ public class Detector : MonoBehaviour
 
     protected virtual void OnTriggerExit(Collider other)
     {
+        if (!enabled) return;
         if (!collisionDetector) return;
         if (!onExit) return;
         if (!IsInLayer(other)) return;
@@ -110,6 +113,7 @@ public class Detector : MonoBehaviour
     GameObject casterBuffer = null;
     public virtual void OnRaycastedEnter(GameObject caster)
     {
+        if (!enabled) return;
         if (!rayCastDetector) return;
         if (!onEnter) return;
         if (!CasterInLayer(caster)) return;
@@ -125,6 +129,7 @@ public class Detector : MonoBehaviour
 
     public virtual void OnRaycastedStay(GameObject caster)
     {
+        if (!enabled) return;
         if (!rayCastDetector) return;
         if (!raycastEntered) OnRaycastedEnter(caster);
         CancelInvoke(nameof(DisableRaycasted));
@@ -144,6 +149,7 @@ public class Detector : MonoBehaviour
 
     public virtual void OnRaycastedExit(GameObject caster)
     {
+        if (!enabled) return;
         this.Log("Attempting to raycast exit");
         if (!rayCastDetector) return;
         if (!onExit) return;

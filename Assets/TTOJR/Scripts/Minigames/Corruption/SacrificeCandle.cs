@@ -7,22 +7,28 @@ public class SacrificeCandle : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 
     #region Privates
     [Inject] Interactor interactor;
+    Sacrifice mySacrifice;
     CallbackDetector cbd;
+    [SerializeField] GameObject fireEffect;
     #endregion
 
     public int givenNum;
-    public TextMeshProUGUI text;
+    public TextMeshPro text;
 
     protected override void OnInstantiate()
     {
         base.OnInstantiate();
         BuildDetector();
+        fireEffect.SetActive(true);
     }
 
-    SacrificeCandle InitializeCandle(int num)
+    public SacrificeCandle InitializeCandle(int num, Sacrifice _sacrifice)
     {
+        if(cbd) cbd.enabled = true;
+        fireEffect.SetActive(true);
         givenNum = num;
-        text.text = $"{num}";
+        text.text = "" + givenNum;
+        mySacrifice = _sacrifice;
         return this;
     }
 
@@ -30,9 +36,17 @@ public class SacrificeCandle : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     {
         cbd = new CallbackDetector.Builder(gameObject)
             .WithRaycast()
-            .WithEventHooks(stay: true, exit: false)
+            .WithEventHooks(stay: true, exit: true)
             .WithInteractAssignments(interactor, "Blow out (E)")
+            .WithUseHook(Blowout)
             .Build();
+    }
+
+    public void Blowout()
+    {
+        fireEffect.SetActive(false);
+        mySacrifice.AttemptToBlowout(givenNum);
+        cbd.enabled = false;
     }
 
 
