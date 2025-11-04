@@ -24,27 +24,29 @@ public class FadeScreen : MonoBehaviour
     {
         StartCoroutine(C_FadeInAndOut());
     }
-    public void FadeInAndOutCallback(Action callbackOnFadeOutComplete = null, Action callbackCompleted = null, float blackScreenTime = 0f)
+    public void FadeInAndOutCallback(Action? prehook = null, Action? midhook = null, Action? posthook = null, float? blackScreenTime = 0f)
     {
-        StartCoroutine(C_FadeInAndOut(callbackOnFadeOutComplete, callbackCompleted, blackScreenTime));
+        StartCoroutine(C_FadeInAndOut(prehook, midhook, posthook,  blackScreenTime));
     }
 
-    IEnumerator C_FadeInAndOut(Action callbackOnFadeOutComplete = null, Action callbackCompleted = null, float blackScreenTime = 0f)
+    IEnumerator C_FadeInAndOut(Action? prehook = null, Action? midhook = null, Action? posthook = null, float? blackScreenTime = 0f)
     {
         if (isFading) yield break;
-        yield return StartCoroutine(C_FadeToBlack());
+        prehook?.Invoke();
+
+        yield return StartCoroutine(C_FadeToBlack(midhook));
+
         float fadeDuration = (1f / fadeStep) * incrementDelay;
         yield return new WaitForSeconds(fadeDuration * 0.5f);
-        callbackOnFadeOutComplete?.Invoke();
 
-        if(blackScreenTime > 0f) yield return new WaitForSeconds(blackScreenTime);
+        if(blackScreenTime > 0f) yield return new WaitForSeconds((float)blackScreenTime);
 
-        yield return StartCoroutine(C_FadeToVisible(callbackCompleted));
+        yield return StartCoroutine(C_FadeToVisible(posthook));
     }
 
 
 
-    IEnumerator C_FadeToBlack()
+    IEnumerator C_FadeToBlack(Action? posthook = null)
     {
         isFading = true;
         Color fade = Color.black;
@@ -60,9 +62,10 @@ public class FadeScreen : MonoBehaviour
         fade.a = 1;
         panel.color = fade;
         isFading = false;
+        posthook?.Invoke();
     }
 
-    IEnumerator C_FadeToVisible(Action callback = null)
+    IEnumerator C_FadeToVisible(Action? posthook = null)
     {
         isFading = true;
         Color fade = Color.black;
@@ -78,6 +81,6 @@ public class FadeScreen : MonoBehaviour
         fade.a = 0;
         panel.color = fade;
         isFading = false;
-        callback?.Invoke();
+        posthook?.Invoke();
     }
 }

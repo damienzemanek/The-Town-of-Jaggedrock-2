@@ -1,6 +1,7 @@
 using UnityEngine;
 using DependencyInjection;
 using Extensions;
+using TMPro;
 
 public class NewPeriod : RuntimeInjectableMonoBehaviour, IAssigner
 {
@@ -17,22 +18,33 @@ public class NewPeriod : RuntimeInjectableMonoBehaviour, IAssigner
 
     public void Assign()
     {
-        timeCy.OnDayStart.AddListener(() => play.PlayForSeconds(
-            newDayAudio,
-            timeCy.blackScreenTime + 5f, //Go over slightly
-            80
-        ));
-
-        timeCy.OnNightStart.AddListener(() => play.PlayForSeconds(
-           newNightAudio,
-           timeCy.blackScreenTime,
-           80
-        ));
+        timeCy.newPeriodHook.AddListener(PlayNewPeriodAudios);
     }
 
     public void DeAssign()
     {
         throw new System.NotImplementedException();
+    }
+
+
+    void PlayNewPeriodAudios()
+    {
+        if (timeCy.IsDay())
+        {
+            play.PlayForSeconds(
+            newDayAudio,
+            timeCy.blackScreenTime + 9f, //Go over slightly
+            80
+            );
+        }
+        if (timeCy.IsNight())
+        {
+            play.PlayForSeconds(
+            newNightAudio,
+            timeCy.blackScreenTime + 5f,
+            80
+            );
+        }
     }
 
     #region Privates

@@ -4,6 +4,7 @@ using System.Collections;
 using ParadoxNotion.Design;
 using Sirenix.OdinInspector;
 using ShowIfAttribute = Sirenix.OdinInspector.ShowIfAttribute;
+using UnityEditor.Media;
 
 public class AudioPlay : MonoBehaviour
 {
@@ -84,6 +85,7 @@ public class AudioPlay : MonoBehaviour
         startFadingAtPercent = Mathf.Clamp(startFadingAtPercent, 0, 100);
 
         float vol = 1f;
+        source.volume = vol;
         float startFadingAtSeconds = time * (startFadingAtPercent / 100f);
         float fadeOverSeconds = time - startFadingAtSeconds;
         float delay = fadeOverSeconds / 100;

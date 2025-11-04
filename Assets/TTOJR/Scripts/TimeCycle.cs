@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using Extensions;
+using TMPro;
 
 public class TimeCycle : MonoBehaviour, IDependencyProvider
 {
@@ -16,6 +17,13 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     [TabGroup("Day")][SerializeField] int day;
     [TabGroup("Day")] public UnityEvent OnDayStart;
     [TabGroup("Day")][SerializeField] List<UnityEventPlus> dayEvents;
+    [TabGroup("Day")][SerializeField] TextMeshProUGUI newDayText;
+    [TabGroup("Day")][SerializeField] GameObject newDayObj;
+    [TabGroup("Day")][SerializeField] float delayOnDisplayTextDigits;
+    [TabGroup("Day")][SerializeField] AudioPlay newDayAudTyping;
+    [TabGroup("Day")][SerializeField] AudioClip newDayAud;
+
+
 
     [TabGroup("Night")][SerializeField] int night;
     [TabGroup("Night")] public UnityEvent OnNightStart;
@@ -73,7 +81,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         while (nightEvents.Count < events.Count)
             nightEvents.Add(new UnityEventPlus());
 
-        for(int i = 0 ; i < events.Count; i++)
+        for (int i = 0; i < events.Count; i++)
         {
             UnityEventPlus e = events[i]; if (e == null) continue;
             nightEvents[i] = events[i];
@@ -98,7 +106,12 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     public bool transitioning = false;
 
 
-    private void Start() => SetToDay();
+    private void Start()
+    {
+        SetToDay();
+        currentTime = 0;
+        newPeriodHook?.Invoke();
+    }
 
     public void Update()
     {
@@ -132,9 +145,13 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     void Transition()
     {
         FadeScreen fade = controls.TryGet<FadeScreen>();
-        newPeriodHook?.Invoke();
 
-        fade.FadeInAndOutCallback((isDay) ? SetToNight : SetToDay, null, blackScreenTime);
+        fade.FadeInAndOutCallback(
+            (isDay) ? SetToNight : SetToDay, 
+            midhook: () => newPeriodHook?.Invoke(), 
+            blackScreenTime: blackScreenTime
+        );
+
         currentTime = 0;
 
     }
@@ -158,6 +175,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     void SetToDay()
     {
         day++;
+        StartCoroutine(C_DisplayDayConcats());
         GetCurrentPeriod()?.Complete();
         isDay = true;
         NewDay();
@@ -166,6 +184,36 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         if (day > 0 && day <= dayEvents.Count)
             dayEvents[day - 1]?.InvokeWithDelay(this);
 
+    }
+
+    IEnumerator C_DisplayDayConcats()
+    {
+        newDayObj.SetActive(true);
+        newDayText.text = "";
+
+        string[] msg = {"D", "A", "Y", " "};
+
+        int digits = 0;
+        int neededDigits = 3;
+
+        yield return new WaitForSeconds(seconds: delayOnDisplayTextDigits);
+
+        while (digits <= neededDigits)
+        {
+            newDayAudTyping?.Play(newDayAud);
+            newDayText.text = newDayText.text + msg[digits];
+            yield return new WaitForSeconds(delayOnDisplayTextDigits);
+            digits++;
+        }
+
+        yield return new WaitForSeconds(delayOnDisplayTextDigits / 2);
+
+        newDayText.text = newDayText.text + day;
+
+        yield return new WaitForSeconds(delayOnDisplayTextDigits * 2.4f);
+
+        newDayObj.SetActive(value: false);
+        newDayText.text = "";
     }
 
     void FadeDayLightToNight()
