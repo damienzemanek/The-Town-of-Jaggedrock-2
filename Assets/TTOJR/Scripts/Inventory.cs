@@ -62,6 +62,7 @@ public class Inventory : MonoBehaviour, IDependencyProvider
     void PickupRaycast(Ray ray, RaycastHit hit)
     {
         if (!hit.transform.gameObject.GetComponent<Pickup>()) return;
+        if (IsInventoryFull()) return;
         //print("Pickup raycast");
         Debug.DrawLine(ray.origin, hit.point, Color.green);
         TogglePickup(true);
@@ -203,5 +204,7 @@ public class Inventory : MonoBehaviour, IDependencyProvider
     }
 
     public void ToggleInventoryVisability(bool val) => gridParent?.SetActive(val);
+
+    bool IsInventoryFull() => pickedUpItems.All(i => i != null);
 
 }

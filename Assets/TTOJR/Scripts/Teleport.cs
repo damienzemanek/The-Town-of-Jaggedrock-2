@@ -36,7 +36,7 @@ public class Teleport : MonoBehaviour
 
     public void FadeTeleport(FadeScreen fade)
     {
-        fade.FadeInAndOutCallback(() => 
+        fade.FadeInAndOutCallback(midhook: () => 
         {
             if (!tpLoc || !objToTeleport) { teleporting = false; return; }
             NavEX.Teleport(tpLoc, objToTeleport, out bool _teleporting);

@@ -25,6 +25,15 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     [field:TabGroup("Parameters")][field:SerializeField] public SO_Favor favor { get; private set; }
     [TabGroup("Parameters")] public bool willCompleteTalkingToAfterInitialDialauge;
 
+    [TabGroup("Visual")][SerializeField] GameObject needsTalkingEffectPrefab;
+    [TabGroup("Visual")][SerializeField] GameObject isTalkingEffectPrefab;
+    [TabGroup("Visual")][SerializeField, ReadOnly] GameObject needsTalkingEffect;
+    [TabGroup("Visual")][SerializeField, ReadOnly] GameObject isTalkingEffect;
+    [TabGroup("Visual")][SerializeField] Transform effectLoc;
+
+
+
+
 
     #region Node Canvas Connections----------------------
     public string personName { get => (person != null) ? person.personName : string.Empty; }
@@ -58,11 +67,16 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         actor = this.TryGet<DialogueActor>();
         AssignValuesForCallbackDetector();
         AssignDialaugeActorName();
+
+        if (needsTalkingEffect == null) needsTalkingEffect = Instantiate(needsTalkingEffectPrefab, effectLoc).SetActiveThen(false);
+        if (isTalkingEffect == null) isTalkingEffect = Instantiate(isTalkingEffectPrefab, effectLoc).SetActiveThen(false);
+
     }
 
     private void OnEnable()
     {
         completedTalkingTo = false;
+        needsTalkingEffect.SetActive(true);
     }
 
 
@@ -89,6 +103,13 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         LookAtWhoImTalkingTo();
         TalkeeLooksAtMe();
         FreezeTime(true);
+        EnableTalkingVisuals();
+    }
+
+    void EnableTalkingVisuals()
+    {
+        needsTalkingEffect.SetActive(false);
+        isTalkingEffect.SetActive(true);
     }
     void LookAtWhoImTalkingTo()
     {
@@ -134,6 +155,8 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
         FreezeTime(false);
         PotentiallyCompleteDialauge();
+        isTalkingEffect.SetActive(value: false);
+        if (completedTalkingTo) needsTalkingEffect.SetActive(false);
     }
     void AssignDialaugeActorName() => actor.AssignName(input_name: personName);
     void FreezeTime(bool val) => TimeCycle.instance.timeFrozen = val;

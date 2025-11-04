@@ -86,6 +86,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1531386911033884510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7436633160849039557}
+  m_Layer: 7
+  m_Name: effect loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7436633160849039557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531386911033884510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2379640947552331762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5903264447225073114
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +162,7 @@ Transform:
   m_Children:
   - {fileID: 134652333517317123}
   - {fileID: 2275732511205854095}
+  - {fileID: 7436633160849039557}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5679287963306251154
@@ -291,9 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <locationMask>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 8
   rayCastDetector: 1
   collisionDetector: 0
   obj: {fileID: 0}
@@ -530,6 +559,11 @@ MonoBehaviour:
   person: {fileID: 11400000, guid: fa5d8fa1c88af3a4099b5c726293322e, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: 9c9487c2710354841a5539c92b7a7a08, type: 2}
   willCompleteTalkingToAfterInitialDialauge: 1
+  needsTalkingEffectPrefab: {fileID: 7140804382919200485, guid: b2dafa599b050b24d99fd7ec34018472, type: 3}
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  needsTalkingEffect: {fileID: 0}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 7436633160849039557}
 --- !u!114 &8691793057313305186
 MonoBehaviour:
   m_ObjectHideFlags: 0
