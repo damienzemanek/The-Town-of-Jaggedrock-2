@@ -74,6 +74,21 @@ public sealed class PolaroidImage : ItemVariationData
     }
 }
 
+[Serializable]
+public sealed class Placable : ItemVariationData
+{
+    [field:SerializeField] GameObject objectToPlace { get; set; }
+    [SerializeReference, GUIColor("RGB(0, 1, 0)"), ReadOnly] PlaceLocation placeLocation;
+    public override object UseVariantGetData(List<ItemVariationData> variations)
+    {
+        placeLocation.Place(objectToPlace);
+
+        return variations?.OfType<Placable>()
+            .FirstOrDefault();
+    }
+}
+
+
 
 
 [Serializable]
@@ -176,57 +191,6 @@ public abstract class ItemFunctionality<T> : IItemFunctionality
     }
 }
 
-
-[Serializable]
-class Placeable : ItemFunctionality<Placeable.Data>
-{
-    [field: SerializeReference] public override Data data { get; set; }
-    [Serializable]
-#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
-    public class Data
-#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
-    {
-        public GameObject objectToPlace;
-        [SerializeReference, GUIColor("RGB(0, 1, 0)"), ReadOnly] public Transform placeLocation;
-        [SerializeReference, GUIColor("RGB(0, 1, 0)"), ReadOnly] public GameObject locationDetector;
-        public void SetPlaceLocation(Transform val) => placeLocation = val;
-        public void SetLocationDetector(GameObject val) => locationDetector = val;
-
-    }
-    public override bool CanUse_ThenUse(UnityEvent callback = null)
-    {
-        if (!VariantsAllowUse()) return false;
-
-        Debug.Log($"Item: Successfully Using {GetType()}");
-
-        Uses usesItem = GetData<Uses>();
-
-        //Variation Utilization
-        usesItem.Use();
-
-        //Functionality Utilization
-        callback?.Invoke();
-        GameObject spawned = UnityEngine.Object.Instantiate(
-            data.objectToPlace,
-            data.placeLocation.position,
-            Quaternion.identity,
-            data.placeLocation
-            );
-
-        if(data.locationDetector != null)
-            data.locationDetector.SetActive(false);
-
-        Debug.Log("Item: Used Placable Complete");
-        return true;
-    }
-
-    public override void UpdateFunctionalityData(object input)
-    {
-        var newData = (Placeable.Data)input;
-        data.SetPlaceLocation(newData.placeLocation);
-        data.SetLocationDetector(newData.locationDetector);
-    }
-}
 
 [Serializable]
 class DestinationUser : ItemFunctionality<DestinationUser.Data>
