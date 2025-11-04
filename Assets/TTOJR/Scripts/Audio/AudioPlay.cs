@@ -26,6 +26,7 @@ public class AudioPlay : MonoBehaviour
     }
     public void Play()
     {
+        this.Log("playing audio");
         source.loop = loop;
 
         if(!loop)

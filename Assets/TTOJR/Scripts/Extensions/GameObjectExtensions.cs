@@ -23,6 +23,16 @@ namespace Extensions
             for (int i = 0; i < children.Length; i++)
                 array[i] = children[i];
         }
+
+        public static GameObject[] Children(this Transform parent)
+        {
+            if (parent == null)
+                return System.Array.Empty<GameObject>();
+
+            return parent.Cast<Transform>()
+                .Select(t => t.gameObject)
+                .ToArray();
+        }
     }
 
 }

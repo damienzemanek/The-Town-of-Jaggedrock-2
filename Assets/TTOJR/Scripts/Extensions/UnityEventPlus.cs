@@ -22,6 +22,8 @@ public class UnityEventPlus
     [ShowIf(condition: "oneVal")] public float delay = 0;
     [ShowIf(condition: "randomValBetween")] public Vector2 random = Vector2.zero;
 
+    [TabGroup("Prereq")] public Func<bool> canCall;
+
     public UnityEvent get = new UnityEvent();
 
     public void InvokeWithDelay(MonoBehaviour mono)
@@ -34,11 +36,25 @@ public class UnityEventPlus
             mono.DelayedCall(() => get?.Invoke(), random.Rand());
 
     }
+    public void InvokeWithCondition(MonoBehaviour mono)
+    {
+        if (!mono) return;
+
+        if (canCall.Invoke()) get?.Invoke();
+    }
 
     public UnityEventPlus()
     {
         delay = 0;
         get = new UnityEvent();
+        canCall = () => true;
+    }
+
+    public UnityEventPlus(Func<bool> condition)
+    {
+        delay = 0;
+        get = new UnityEvent();
+        canCall = condition;
     }
 
     public bool oneVal => delayType == DelayType.oneVal;

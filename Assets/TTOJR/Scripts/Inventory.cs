@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DependencyInjection;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Interactor))]
@@ -21,10 +22,8 @@ public class Inventory : MonoBehaviour, IDependencyProvider
     [BoxGroup(group: "UI")][field: SerializeField] public GameObject gridParent { get; private set; }
     [BoxGroup(group: "UI")][field: SerializeField] public GameObject inventorySlotPrefab { get; private set; }
     [BoxGroup(group: "UI")][field: SerializeField] public Sprite emptyIcon { get; private set; }
-    [Provide] public Sprite ProvideEmptyIcon()
-    {
-        return emptyIcon;
-    }
+    [Provide] public Sprite ProvideEmptyIcon() => emptyIcon;
+    [Provide] Inventory Provide() => this;
 
     [BoxGroup(group: "UI")][SerializeField] int slotCount;
 
@@ -205,6 +204,7 @@ public class Inventory : MonoBehaviour, IDependencyProvider
 
     public void ToggleInventoryVisability(bool val) => gridParent?.SetActive(val);
 
-    bool IsInventoryFull() => pickedUpItems.All(i => i != null);
+    public bool IsInventoryFull() => pickedUpItems.All(i => i != null);
+    public bool IsInventoryNotFull() => pickedUpItems.Any(i => i == null);
 
 }

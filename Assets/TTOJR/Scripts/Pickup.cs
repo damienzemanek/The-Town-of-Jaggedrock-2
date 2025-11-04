@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using DependencyInjection;
+using Extensions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,10 +9,11 @@ using UnityEngine.Events;
 public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
 {
     [Inject] Interactor interactor;
+    [Inject] Inventory inv;
     [field: SerializeReference] public Item presetItem;
     [field: SerializeReference] public Item item { get; private set; }
 
-    public UnityEvent pickedUpEvent;
+    public UnityEventPlus pickedUpEvent;
     CallbackDetector cbDetector;
 
     public Action<Inventory, Item> assignBindings;
@@ -36,10 +38,12 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
 
         gameObject.layer = 7;
         AssignValuesForCallbackDetector();
+        pickedUpEvent.canCall = inv.IsInventoryNotFull; 
     }
 
     public void PickedUp(Inventory inv)
     {
+        if (inv.IsInventoryFull()) return;
         print($"Pickuped up item {item.type}");
 
         //Uses Applying References
@@ -49,8 +53,10 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
 
         assignBindings?.Invoke(inv, item);
 
-        pickedUpEvent?.Invoke();
-        Destroy(gameObject, 0.1f);
+        pickedUpEvent?.InvokeWithCondition(mono: this);
+        this.TryGet<MeshRenderer>().enabled = false;
+        transform.Children().ToList().ForEach(c => c.SetActive(false));
+        Destroy(gameObject, 0.5f);
     }
 
     public void AssignValuesForCallbackDetector()
