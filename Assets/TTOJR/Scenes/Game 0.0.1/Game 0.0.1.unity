@@ -10295,7 +10295,6 @@ MonoBehaviour:
       data:
         sacrificePrefab: {fileID: 7231928383409928179, guid: 2bf149f7f7bbe1e4cbe9cbc1acc5ef1f, type: 3}
         bloodDoorPrefab: {fileID: 3795737036633631720, guid: 0783b8b2a658eef409a81520d45377dd, type: 3}
-        cursedAreaPrefab: {fileID: 0}
 --- !u!1 &314874952
 GameObject:
   m_ObjectHideFlags: 0
@@ -81787,8 +81786,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951918756}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.68, y: 1.64, z: 8.48}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -5.84, y: 1.64, z: 30.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -81797,7 +81796,7 @@ Transform:
   - {fileID: 1524984620}
   - {fileID: 1322955010}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1951918759
 MonoBehaviour:
   m_ObjectHideFlags: 0
