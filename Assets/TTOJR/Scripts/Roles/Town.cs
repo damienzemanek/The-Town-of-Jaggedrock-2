@@ -8,9 +8,11 @@ using UnityEngine;
 public class Town : RuntimeInjectableMonoBehaviour
 {
     [SerializeField][Inject] public EntityControls player;
-    [SerializeField] bool _corrupted;
-    #region Privates
 
+    #region Privates
+    [Inject] TimeCycle timeCy;
+    [SerializeField] bool _corrupted;
+    bool hasSpawnedInCorruptedAlready = false;
     #endregion
 
     public List<Quest> activityQuests;
@@ -21,7 +23,6 @@ public class Town : RuntimeInjectableMonoBehaviour
     public GameObject playerObj { get => player.gameObject; set => _playerObj = value; }
 
     float _distToPlayer;
-
     public float distToPlayer
     {
         get
@@ -36,9 +37,24 @@ public class Town : RuntimeInjectableMonoBehaviour
     private void OnEnable()
     {
         playerObj = player.gameObject;
+
+        if (corrupted && timeCy.IsDay()) gameObject.SetActive(false); //Doesnt spawn corrupted Town during day
+        if (corrupted && timeCy.IsNight()) //Spawned corrupted can only spawn at night, and only once, then will revert back one corrupted levevl
+        {
+            if (!hasSpawnedInCorruptedAlready)
+                hasSpawnedInCorruptedAlready = true;
+            else
+            {
+                DisableCorruptedFunctionality();
+                corrupted = false;
+                currentCorruptionLevel--;
+                return;
+            }
+        }
+
         if (!corrupted && currentCorruptionLevel >= 3) Corrupt();
         if (corrupted) EnableCorruptedFunctionality();
-        else this.TryGet<NPC_Corrupted>().enabled = false;
+
     }
 
     [Button]
@@ -60,6 +76,19 @@ public class Town : RuntimeInjectableMonoBehaviour
         dialaugeActor.enabled = false;
         dialauge.enabled = false;
         npcMovement.enabled = false;
+    }
+
+    public void DisableCorruptedFunctionality()
+    {
+        var dialauge = this.TryGet<Dialuage>();
+        var npcMovement = this.TryGet<NPC_Movement>();
+        var dialaugeActor = this.TryGet<DialogueActor>();
+        var dialaugeTree = this.TryGet<DialogueTreeController>();
+
+        dialaugeTree.enabled = true;
+        dialaugeActor.enabled = true;
+        dialauge.enabled = true;
+        npcMovement.enabled = true;
     }
 
     public void BecomeResident()

@@ -1,14 +1,16 @@
 using System.Linq;
+using DependencyInjection;
 using Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Sacrifice : MonoBehaviour
+public class Sacrifice : RuntimeInjectableMonoBehaviour
 {
 
     #region Privates
     [SerializeField] bool complete;
+    [Inject] TimeCycle timeCy;
     #endregion
     public int[] generatedNumbers = new int[5];
     public SacrificeCandle[] correctPlacements;
@@ -29,6 +31,8 @@ public class Sacrifice : MonoBehaviour
         GenerateNumbers();
         ApplyMainNumbers();
         GiveNumbersToCandles();
+
+        timeCy.OnDayStart.AddListener(() => Destroy(gameObject));
     }
 
 
@@ -84,7 +88,6 @@ public class Sacrifice : MonoBehaviour
         stoppedHook?.Invoke();
         stoppedHook?.RemoveAllListeners();
         failedHook?.RemoveAllListeners();
-        this.DelayedCall(() => Destroy(gameObject), 0.2f);
     }
 
     public void ResetSacrifice()

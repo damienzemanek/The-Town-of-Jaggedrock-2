@@ -26,21 +26,43 @@ public class AudioPlay : MonoBehaviour
     public void Play()
     {
         source.loop = loop;
-        source.PlayOneShot(audio);
+
+        if(!loop)
+            source.PlayOneShot(audio);
+        else
+        {
+            source.clip = audio;
+            source.Play();
+        }
         if (cutShort) StartCoroutine(C_Cutshort());
     }
 
     public void PlayMulti(int index)
     {
         source.loop = loop;
-        source.PlayOneShot(audios[index]);
+        if (!loop)
+            source.PlayOneShot(clip: audios[index]);
+        else
+        {
+            source.clip = audios[index];
+            source.Play();
+        }
+
         if (cutShort) StartCoroutine(C_Cutshort());
     }
 
     public void Play(AudioClip clip)
     {
         source.loop = loop;
-        source.PlayOneShot(clip);
+
+        if (!loop)
+            source.PlayOneShot(clip);
+        else
+        {
+            source.clip = clip;
+            source.Play();
+        }
+
         if (cutShort) StartCoroutine(C_Cutshort());
     }
 
