@@ -37,6 +37,13 @@ public class AudioPlay : MonoBehaviour
         if (cutShort) StartCoroutine(C_Cutshort());
     }
 
+    public void Play(AudioClip clip)
+    {
+        source.loop = loop;
+        source.PlayOneShot(clip);
+        if (cutShort) StartCoroutine(C_Cutshort());
+    }
+
     IEnumerator C_Cutshort()
     {
         yield return new WaitForSeconds(shortTime);

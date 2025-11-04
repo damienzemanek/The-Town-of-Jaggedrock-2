@@ -24,6 +24,8 @@ public class Sacrifice : MonoBehaviour
         if(failedHook == null) failedHook = new UnityEvent();
         if(stoppedHook == null) stoppedHook = new UnityEvent();
 
+        currentCandle = 0;
+        correctInOrderCandles = 0;
         GenerateNumbers();
         ApplyMainNumbers();
         GiveNumbersToCandles();
@@ -70,16 +72,19 @@ public class Sacrifice : MonoBehaviour
 
 
         if (correctInOrderCandles == 5 && currentCandle >= 5)
-            this.DelayedCall(StopSacrifice, 3);
+            this.DelayedCall(StopSacrifice, 2);
 
         if (correctInOrderCandles < 5 && currentCandle >= 5)
-            this.DelayedCall(ResetSacrifice, 3);
+            this.DelayedCall(ResetSacrifice, 2);
     }
 
     public void StopSacrifice()
     {
         complete = true;
         stoppedHook?.Invoke();
+        stoppedHook?.RemoveAllListeners();
+        failedHook?.RemoveAllListeners();
+        this.DelayedCall(() => Destroy(gameObject), 0.2f);
     }
 
     public void ResetSacrifice()

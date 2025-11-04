@@ -129,31 +129,24 @@ public class SacrificeEvent : CorruptEvent
 {
     public GameObject sacrificePrefab;
     public GameObject bloodDoorPrefab;
-    public GameObject cursedAreaPrefab;
-
-
-    CursedRoom room;
 
     public override CorruptEvent StartCorrupt(CorruptonLocation loc)
     {
-        room = null;
-        room = GameObject.Instantiate(original: cursedAreaPrefab, loc.cursedAreaSpawnLoc).TryGet<CursedRoom>();
         loc.flickerObjs.ToList().ForEach(o => o.TryGet<ComponentFlicker>().FlickerActivate());
+        Spawn(loc);
 
         return this;
     }
 
-    void SpawnEffigy(CorruptonLocation loc, Searchable correctSearchable, CursedRoom room)
+    void Spawn(CorruptonLocation loc)
     {
-        CrowEffigy effigy = GameObject.Instantiate(sacrificePrefab, correctSearchable.foundLoc).TryGet<CrowEffigy>();
-        effigy.room = room;
-        effigy.DestroyedHook.AddListener(loc.StopCorruption);
+        Sacrifice sacrifice = GameObject.Instantiate(sacrificePrefab, loc.sacrificeSpawnLoc).TryGet<Sacrifice>();
+        sacrifice.stoppedHook.AddListener(loc.StopCorruption);
     }
 
     public override void StopCorrupt(CorruptonLocation loc)
     {
         loc.flickerObjs.ToList().ForEach(o => o.TryGet<ComponentFlicker>().FlickerDeactivate());
-        GameObject.Destroy(room.gameObject);
     }
 
 
