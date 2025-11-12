@@ -1,7 +1,8 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public interface ICallbackUser 
 {
-    void AssignValuesForCallbackDetector();
+    public void AssignValuesForCallbackDetector(string interactText);
 
 }

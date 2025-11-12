@@ -9,6 +9,7 @@ using static Questing.Activity;
 using Extensions;
 using NUnit.Framework;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
 
 public static class Questing
@@ -122,11 +123,20 @@ public class Quest
     
     }
 
-    public bool active = false;
-    public Questing.Section section = Questing.Section.None;
-    [SerializeReference] public Questing.QuestType type;
+    [PropertyOrder(0)] public bool active = false;
+    [PropertyOrder(1)] [field: ShowInInlineEditors] [ShowInInspector]
+    public int currentProggressLevel
+    {
+        get
+        {
+            int index = Array.FindLastIndex(progression, p => p.completed == true);
+            return (index == -1) ? 0 : index;
+        }
+    }
+    [PropertyOrder(2)] public Questing.Section section = Questing.Section.None;
+    [PropertyOrder(3)][SerializeReference] public Questing.QuestType type;
 
-    [SerializeReference] public ProgressionEvent[] progression;
+    [PropertyOrder(4)][SerializeReference] public ProgressionEvent[] progression;
 
     public class QuestBuilder
     {
@@ -180,14 +190,6 @@ public class Quest
         progression.Last().completed == true : 
         false;
 
-    public int currentProggressLevel
-    {
-        get
-        {
-            int index = Array.FindIndex(progression, p => p.completed == true);
-            return (index == -1) ? 0 : index;
-        }
-    }
 
     public void Activate() => active = true;
 

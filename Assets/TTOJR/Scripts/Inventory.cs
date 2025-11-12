@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DependencyInjection;
+using Extensions;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
@@ -89,6 +90,7 @@ public class Inventory : MonoBehaviour, IDependencyProvider
 
     void Pickup()
     {
+        if(potentialItem == null) { this.Log("No Potential item found to pickup, returning early"); return; }
         Item newItem = potentialItem.item;
         int newIndex = 0;
         for (int i = 0; i < pickedUpItems.Length; i++)

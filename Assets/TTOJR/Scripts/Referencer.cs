@@ -9,6 +9,7 @@ public class Referencer : MonoBehaviour, IDependencyProvider
     #endregion
 
     public GameObject frostEffect;
+    public AudioPlay pickupPlayer;
 
 
     #region Methods

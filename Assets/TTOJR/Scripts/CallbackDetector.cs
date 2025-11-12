@@ -44,9 +44,12 @@ public class CallbackDetector : Detector, IAssigner
 
     public class Builder
     {
-        readonly GameObject objOn;
-        readonly CallbackDetector cbd;
+        protected GameObject objOn;
+        protected virtual CallbackDetector cbd { get; set; }
 
+        public Builder()
+        {
+        }
         public Builder(GameObject on)
         {
             objOn = on ?? throw new System.ArgumentNullException(nameof(on));
@@ -72,6 +75,8 @@ public class CallbackDetector : Detector, IAssigner
             cbd.useCallback = new UnityEvent();
             return this;
         }
+
+
 
         public Builder WithHoldingUse(int toggleAmount = 2)
         {
@@ -119,7 +124,34 @@ public class CallbackDetector : Detector, IAssigner
             return this;
         }
 
-        public CallbackDetector Build()
+        public Builder WithEnterHook(Action method)
+        {
+            cbd.onEnter = true;
+            if (cbd.Enter == null) cbd.Enter = new UnityEvent();
+
+            cbd.Enter.AddListener(() => method?.Invoke());
+            return this;
+        }
+
+        public Builder WithStayHook(Action method)
+        {
+            cbd.onStay = true;
+            if (cbd.Stay == null) cbd.Stay = new UnityEvent();
+
+            cbd.Stay.AddListener(() => method?.Invoke());
+            return this;
+        }
+
+        public Builder WithExitHook(Action method)
+        {
+            cbd.onExit = true;
+            if (cbd.Exit == null) cbd.Exit = new UnityEvent();
+            
+            cbd.Exit.AddListener(() => method?.Invoke());
+            return this;
+        }
+
+        public virtual CallbackDetector Build()
         {
             return cbd;
         }

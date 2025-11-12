@@ -24,8 +24,10 @@ MonoBehaviour:
     - rid: 1805014473166815343
       type: {class: Placable, ns: , asm: Assembly-CSharp}
       data:
-        usable: 0
-        <objectToPlace>k__BackingField: {fileID: 8394245784127067830, guid: ccb37ab4da9a9d44a85845ca97f443db, type: 3}
+        usable: 1
+        <inv>k__BackingField: {fileID: 0}
+        <interactor>k__BackingField: {fileID: 0}
+        <objectToPlace>k__BackingField: {fileID: 2361832078258529956, guid: 9574e2a27bdac624c93fe0ecf4c7fe6e, type: 3}
         placeLocation: {fileID: 0}
     - rid: 5167628920622416233
       type: {class: DestinationUser, ns: , asm: Assembly-CSharp}
@@ -38,3 +40,4 @@ MonoBehaviour:
       type: {class: DestinationUser/Data, ns: , asm: Assembly-CSharp}
       data:
         <useDestination>k__BackingField: {fileID: 0}
+        <objectToPlace>k__BackingField: {fileID: 0}

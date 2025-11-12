@@ -39,6 +39,7 @@ public abstract class Questholder<TQuestEnum> : RuntimeInjectableMonoBehaviour w
        currentQuest = SyncCurrentQuest();
     }
 
+    [Button]
     public void StartQuestProgress() => currentQuestReferece.progression[0].Complete();
 
     public void IncreaseProgressionOfCurrentQuest() => currentQuestReferece.progression.FirstOrDefault(p => p.completed == false).Complete();

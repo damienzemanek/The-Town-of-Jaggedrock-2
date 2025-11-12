@@ -15,7 +15,9 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     public Transform spawnPoint;
     public NPC_Area spawnArea;
     public List<GameObject> spawnResidentPoolForCycle;
-    public float delayBetweenSpawns;
+    [SerializeField] float delayBetweenSpawns;
+    [SerializeField] float delayToStartSpawning;
+
     [ReadOnly] public int currentSpawnedResidents; //cant be bigger than the pool
     public UnityEvent spawningCompleteHook;
 
@@ -57,7 +59,7 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     }
     IEnumerator C_SpawningCycle()
     {
-        yield return new WaitForSeconds(delayBetweenSpawns);
+        yield return new WaitForSeconds(delayToStartSpawning);
 
         if (onlySpawnFirstResident)
             while (currentSpawnedResidents < spawnCount)

@@ -5,27 +5,45 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using Extensions;
+using UnityEngine.EventSystems;
 
 [Serializable]
 public abstract class ItemVariationData 
 {
     public bool usable = false;
+    public abstract bool conditionsAllowUse { get; }
 
-    protected Interactor interactor;
-    public virtual ItemVariationData Clone()
-        => (ItemVariationData)CloneUtility.DeepClonePolymorph(this);
+    [field: SerializeField] [field: ReadOnly] public Inventory inv { get; set; }
+    [field: SerializeField][field: ReadOnly] public Interactor interactor { get; set; }
+
+    public void WithDependancies(Inventory _inv, Interactor _interactor)
+    {
+        inv = _inv; 
+        interactor = _interactor;
+    }
+
+
+    public virtual ItemVariationData Clone() => (ItemVariationData)CloneUtility.DeepClonePolymorph(this);
     public virtual void Reset() { }
-    public virtual ItemVariationData UpdateValueThenGet(ItemVariationData newVariationData = null) => this;
-    public virtual bool AllowUse() => true;
-    public virtual void SetInteractor(Interactor interactor) => this.interactor = interactor;
-    public virtual object UseVariantGetData(List<ItemVariationData> variations) => throw new NotImplementedException();
+
+    // Template method UpdateValue
+    // Part of a LINQ chain
+    public void UpdateData(ItemVariationData newVariationData = null)
+    {
+        if(newVariationData != null) usable = newVariationData.usable;
+        UpdateDataImplementation(newVariationData);
+    }
+
+    protected abstract ItemVariationData UpdateDataImplementation(ItemVariationData newVariationData = null);
+
+    public virtual object UseVariant(List<ItemVariationData> variations) => throw new NotImplementedException();
 }
 
 
 [Serializable]
 public sealed class Uses : ItemVariationData
 {
-    [field: SerializeField] public Inventory inv { get; set; }
+    [field: SerializeField] public override bool conditionsAllowUse => (uses > 0);
     [field: SerializeField] public bool usedUp { get; set; }
     [field: SerializeField] public int uses { get; set; }
     [field: SerializeField] public int initialUses { get; set; }
@@ -36,9 +54,7 @@ public sealed class Uses : ItemVariationData
         uses = initialUses;
     }
 
-    public override bool AllowUse() => (uses > 0);
-
-    public override ItemVariationData UpdateValueThenGet(ItemVariationData newVariationData = null)
+    protected override ItemVariationData UpdateDataImplementation(ItemVariationData newVariationData = null)
     {
         Use();
         return this;
@@ -65,27 +81,51 @@ public sealed class PolaroidImage : ItemVariationData
 {
     [field: SerializeField] public Sprite sprite;
 
-    public override object UseVariantGetData(List<ItemVariationData> variations)
+    public override bool conditionsAllowUse => true;
+
+    public override object UseVariant(List<ItemVariationData> variations)
     {
         this.Log("Using variant");
         return variations?.OfType<PolaroidImage>()
             .FirstOrDefault()
             .sprite;
     }
+    protected override ItemVariationData UpdateDataImplementation(ItemVariationData newVariationData = null) => throw new NotImplementedException();
 }
 
 [Serializable]
 public sealed class Placable : ItemVariationData
 {
+     Color GetPlaceColor() => placeLocation == null ? Color.red : Color.green;
     [field:SerializeField] GameObject objectToPlace { get; set; }
-    [SerializeReference, GUIColor("RGB(0, 1, 0)"), ReadOnly] PlaceLocation placeLocation;
-    public override object UseVariantGetData(List<ItemVariationData> variations)
-    {
-        placeLocation.Place(objectToPlace);
+    public override bool conditionsAllowUse => (objectToPlace != null 
+                                                && placeLocation != null 
+                                                && inv != null);
 
-        return variations?.OfType<Placable>()
-            .FirstOrDefault();
+    [SerializeReference, GUIColor(nameof(GetPlaceColor))] PlaceLocation placeLocation;
+
+    protected override ItemVariationData UpdateDataImplementation(ItemVariationData newVariationData = null)
+    {
+        if(newVariationData is Placable p)
+        {
+            placeLocation = p.placeLocation;
+        }
+
+        return this;
     }
+
+    //Used in a LINQ chain
+    //Uses the variant data
+    public override object UseVariant(List<ItemVariationData> inventoryVariations)
+    {
+        if (conditionsAllowUse)
+        {
+            placeLocation.Place(objectToPlace);
+            inv.RemoveCurrentSelectedItem();
+        }
+        return inventoryVariations?.OfType<Placable>().FirstOrDefault();
+    }
+
 }
 
 
@@ -150,7 +190,7 @@ public class Item : ScriptableObject
 [field: Serializable]
 public interface IItemFunctionality 
 {
-    public abstract bool CanUse_ThenUse(UnityEvent callback = null);
+    public abstract bool UseIfVariantsAllow(UnityEvent extraFunctionalityHook = null);
     public abstract void UpdateFunctionalityData(object newData);
     [field: SerializeReference] public List<ItemVariationData> variations { get; set; }
     public IItemFunctionality Clone();
@@ -162,9 +202,20 @@ public abstract class ItemFunctionality<T> : IItemFunctionality
 {
     public bool VariantsAllowUse()
     {
-        ItemVariationData dataBlocked = variations.FirstOrDefault(v => v.AllowUse() == false);
+        ItemVariationData dataBlocked = variations.FirstOrDefault(v => v.conditionsAllowUse == false);
         if (dataBlocked == null) return true;
         else return false;
+    }
+
+    public object UseVariansThatAreUsable()
+    {
+        //Variation Utilization
+        object useInput = variations?
+            .Where(v => v.usable)
+            .Select(v => useInput = v.UseVariant(variations))
+            .FirstOrDefault(x => x != null);
+
+        return useInput;
     }
 
     public T GetData<T>() where T: ItemVariationData
@@ -172,7 +223,7 @@ public abstract class ItemFunctionality<T> : IItemFunctionality
         return variations.OfType<T>().FirstOrDefault();
     }
 
-    public abstract bool CanUse_ThenUse(UnityEvent callback = null);
+    public abstract bool UseIfVariantsAllow(UnityEvent callback = null);
     public abstract void UpdateFunctionalityData(object newData);
     [field: SerializeReference] public List<ItemVariationData> variations { get; set; }
     public abstract T data { get; set; }
@@ -201,26 +252,32 @@ class DestinationUser : ItemFunctionality<DestinationUser.Data>
     public class Data
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword
     {
-        [field:SerializeField, GUIColor("RGB(0, 1, 0)")]  public Destination useDestination { get; private set; }
+        Color GetUseDestColor() => useDestination == null ? Color.red : Color.green;
+
+        [field:SerializeField, GUIColor(nameof(GetUseDestColor))]  public Destination useDestination { get; private set; }
         public void SetUseLocation(Destination val) => useDestination = val;
+        [field: SerializeField] GameObject objectToPlace { get; set; }
     }
 
-    public override bool CanUse_ThenUse(UnityEvent callback = null)
+    public override bool UseIfVariantsAllow(UnityEvent callback = null)
     {
-        if (!VariantsAllowUse()) return false;
+        //Variants won't determine if a destination can be used (due to placeable variant functionality)
+        //if (!VariantsAllowUse()) return false;
 
         Debug.Log($"Item: Successfully Using {GetType()}");
 
         //Variation Utilization
-
+        UseVariansThatAreUsable();
 
         //Functionality Utilization
         callback?.Invoke();
-        if (data.useDestination == null) throw new System.Exception(
-            "Item: (Destination User) does not have a destination set");
 
-        if (!data.useDestination.preventContact)
-            data.useDestination.MakeContact();
+        if (data.useDestination == null) this.Log("Item: (Destination User) does not have a destination set");
+
+        //Sometimes the cbd wont have a use destination
+        if(data.useDestination != null)
+            if (!data.useDestination.preventContact)
+                data.useDestination.MakeContact();
 
         return true;
     }
@@ -256,14 +313,16 @@ public class Gun : ItemFunctionality<Gun.Data>
 
         void BindControls(EntityControls controls, Gun gun)
         {
-            controls.mouse1 += () => gun.CanUse_ThenUse();
+            controls.mouse1 += () => gun.UseIfVariantsAllow();
         }
 
     }
 
-    public override bool CanUse_ThenUse(UnityEvent callback = null)
+    public override bool UseIfVariantsAllow(UnityEvent extraFunctionalityHook = null)
     {
         if (!VariantsAllowUse()) return false;
+        UseVariansThatAreUsable();
+
         Uses usesData = GetData<Uses>();
 
         Debug.Log($"Item: Successfully Using {GetType()}");
@@ -272,7 +331,7 @@ public class Gun : ItemFunctionality<Gun.Data>
         usesData.Use();
 
         //Functionality Utilization
-        callback?.Invoke();
+        extraFunctionalityHook?.Invoke();
 
         if (!Fire(data)) Debug.Log("Item: (Gun) Missed");
 
@@ -351,7 +410,7 @@ public class InventoryUsable : ItemFunctionality<InventoryUsable.Data>
             this.Log("Attempting InvUsable Use");
 
             if (CanBeUsed.Invoke())
-                pickedUpInvUsable.CanUse_ThenUse();
+                pickedUpInvUsable.UseIfVariantsAllow();
             else
                 this.Log("Failed Use");
 
@@ -359,22 +418,17 @@ public class InventoryUsable : ItemFunctionality<InventoryUsable.Data>
     }
 
 
-    public override bool CanUse_ThenUse(UnityEvent callback = null)
+    public override bool UseIfVariantsAllow(UnityEvent calextraFunctionalityHook = null)
     {
         if (!VariantsAllowUse()) return false;
 
         this.Log($"Successfully Using {GetType().Name}");
 
-        
-        //Variation Utilization
-        object useInput = variations?
-            .Where(v => v.usable)
-            .Select(v => useInput = v.UseVariantGetData(variations))
-            .FirstOrDefault(x => x != null);
-        
+        object useInput = UseVariansThatAreUsable();
+
 
         //Functionality Utilization
-        callback?.Invoke();
+        calextraFunctionalityHook?.Invoke();
 
         if (!data.use) { this.Error("No Use variable Found"); return false; }
 

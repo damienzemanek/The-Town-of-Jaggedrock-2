@@ -65,7 +65,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         dialaugeController = this.TryGet<DialogueTreeController>();
         dialaugeChooser = this.TryGet<DialaugeChooser>();
         actor = this.TryGet<DialogueActor>();
-        AssignValuesForCallbackDetector();
+        AssignValuesForCallbackDetector("Talk (E)");
         AssignDialaugeActorName();
 
         if (needsTalkingEffect == null) needsTalkingEffect = Instantiate(needsTalkingEffectPrefab, effectLoc).SetActiveThen(false);
@@ -80,9 +80,9 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     }
 
 
-    public void AssignValuesForCallbackDetector()
+    public void AssignValuesForCallbackDetector(string interactText)
     {
-        detector.Enter.AddListener(() => interactor.SetInteractText("Talk (E)"));
+        detector.Enter.AddListener(() => interactor.SetInteractText(interactText));
         detector.Enter.AddListener(() => interactor.ToggleCanInteract(true));
         detector.Exit.AddListener(call: () => interactor.ToggleCanInteract(false));
         detector.useCallback.AddListener(() => interactor.ToggleCanInteract(false));
@@ -166,5 +166,11 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     }
 
     public void CompleteDialague() => completedTalkingTo = true;
+
+    public void SetTalkEffectsActive(bool val)
+    {
+        needsTalkingEffect.SetActive(val);
+        isTalkingEffect.SetActive(val);
+    }
 }
 

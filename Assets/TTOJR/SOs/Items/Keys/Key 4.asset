@@ -16,15 +16,24 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 901a0a3cc4d664849afdcbd9dda381bf, type: 3}
   functionality:
     rid: 5167628920622416234
-  canHold: 0
+  canPhysicallyHold: 0
   itemObj: {fileID: 0}
   references:
     version: 2
     RefIds:
+    - rid: 1805014494900912231
+      type: {class: Placable, ns: , asm: Assembly-CSharp}
+      data:
+        usable: 1
+        <inv>k__BackingField: {fileID: 0}
+        <interactor>k__BackingField: {fileID: 0}
+        <objectToPlace>k__BackingField: {fileID: 2361832078258529956, guid: 0854ea297cabb6d42bddfd51b4a0c434, type: 3}
+        placeLocation: {fileID: 0}
     - rid: 5167628920622416234
       type: {class: DestinationUser, ns: , asm: Assembly-CSharp}
       data:
-        <variations>k__BackingField: []
+        <variations>k__BackingField:
+        - rid: 1805014494900912231
         <data>k__BackingField:
           rid: 5167628920622416254
     - rid: 5167628920622416254

@@ -11,6 +11,8 @@ public class AudioStepper : MonoBehaviour
     [SerializeField] float speed = 1f;
     [SerializeField] bool linear;
     [SerializeField] bool randomize;
+    [SerializeField] bool delay;
+    [SerializeField, ShowIf("delay")] Vector2 delayAmount = Vector2.zero;
     bool going = false;
     #region Privates
     [SerializeField] AudioSource source;
@@ -28,7 +30,7 @@ public class AudioStepper : MonoBehaviour
         source.pitch = speed;
         going = true;
         StopAllCoroutines();
-        if(linear) StartCoroutine(C_PlayLinear());
+        if(linear && !delay) StartCoroutine(C_PlayLinear());
         else if(randomize) StartCoroutine(C_PlayRandomized());
     }
 
@@ -40,10 +42,13 @@ public class AudioStepper : MonoBehaviour
         while (going)
         {
             source.PlayOneShot(audios[num]);
-            yield return new WaitForSeconds((audios[num].length / speed) + 0.01f);
+            yield return new WaitForSeconds((audios[index: num].length / speed) + 0.01f);
+            yield return new WaitForSeconds(seconds: delayAmount.Rand());
+
             num = (num < audios.Count - 1) ? num + 1 : 0;
         }
     }
+
 
     IEnumerator C_PlayRandomized()
     {
@@ -53,6 +58,8 @@ public class AudioStepper : MonoBehaviour
 
             source.PlayOneShot(audios[num]);
             yield return new WaitForSeconds((audios[num].length / speed) + 0.01f);
+            yield return new WaitForSeconds(delayAmount.Rand());
+
             num = (num < audios.Count - 1) ? num + 1 : 0;
         }
     }

@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a967fdf03c8d3649896e4a8550d8295, type: 3}
-  m_Name: Assylum Escapee
+  m_Script: {fileID: 11500000, guid: 4be5d0d7de9995f43b03318a5bb58cd5, type: 3}
+  m_Name: Psychiatric Patient
   m_EditorClassIdentifier: 
-  _personName: ???
-  excludeSelfFromGetRandomPersonNamne: 1
-  role: 5
+  _favor: 0

@@ -176,6 +176,50 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 5963152820177870665}
   m_maskType: 0
+--- !u!1 &6440854175626817322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839710603195981204}
+  - component: {fileID: 8402053779776310371}
+  m_Layer: 0
+  m_Name: 'EVENT: QUEST_MANIA_ONE_2'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &839710603195981204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440854175626817322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2277993917761738522}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8402053779776310371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440854175626817322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a113d0517569b46ae5e3b2f93436b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7019842021708274137
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +236,7 @@ GameObject:
   - component: {fileID: 1919262817888415855}
   - component: {fileID: 3297302030972494012}
   - component: {fileID: 7913458171090807985}
-  - component: {fileID: 1008143149466977221}
+  - component: {fileID: 3405024148169431394}
   m_Layer: 7
   m_Name: Pickup_ QuestManiaOne
   m_TagString: Untagged
@@ -214,6 +258,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8026105931476366914}
+  - {fileID: 839710603195981204}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2776658087179577352
@@ -324,21 +369,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presetItem: {fileID: 11400000, guid: c96ae157a63e58349a3bc46ee5857c15, type: 2}
   <item>k__BackingField: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 8554ad42fbc6fd240af4bc602145e5a5, type: 3}
   pickedUpEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1008143149466977221}
-        m_TargetAssemblyTypeName: Achieve, Assembly-CSharp
-        m_MethodName: Acheivement
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+    delayType: 0
+    delay: 0
+    random: {x: 0, y: 0}
+    get:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3405024148169431394}
+          m_TargetAssemblyTypeName: EventLinker, Assembly-CSharp
+          m_MethodName: ExecuteEvent
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &3297302030972494012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,20 +401,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <locationMask>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 8
   rayCastDetector: 1
   collisionDetector: 0
   obj: {fileID: 0}
   raycasted: 0
   somethingCollided: 0
   raycastEntered: 0
-  onEnter: 1
+  onEnter: 0
   Enter:
     m_PersistentCalls:
       m_Calls: []
-  onStay: 0
+  onStay: 1
   Stay:
     m_PersistentCalls:
       m_Calls: []
@@ -398,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f67715e555e8f47bcdfa15f4ce6ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1008143149466977221
+--- !u!114 &3405024148169431394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -407,6 +454,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7019842021708274137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4109ae2d57547564fa8bf2e6c1c13dc3, type: 3}
+  m_Script: {fileID: 11500000, guid: dab08b2cdfa1cdf43a11a1257ef92bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  events:
+  - {fileID: 8402053779776310371}

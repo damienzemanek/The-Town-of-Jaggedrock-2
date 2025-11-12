@@ -11,11 +11,19 @@ public class NPC_Corrupted : MonoBehaviour
     #region Privates
     [SerializeField] GameObject attackObj;
     [SerializeField] float attackLength;
+    [SerializeField] AudioPlay attackAudioPlayer;
+    [SerializeField] AudioClip[] attackAudioClips;
     bool attacking = false;
 
     #endregion
 
     private void Awake()
+    {
+        attackAudioPlayer = this.TryGet<AudioPlay>();
+        if (attackAudioClips == null || attackAudioClips.Length == 0) this.Error("Attack audio clips need setting");
+    }
+
+    private void OnEnable()
     {
         attackObj.SetActive(false);
     }
@@ -31,6 +39,7 @@ public class NPC_Corrupted : MonoBehaviour
 
         attacking = true;
         attackObj.SetActive(true);
+        attackAudioPlayer.PlayRand(attackAudioClips);
         yield return new WaitForSeconds(attackLength);
         attackObj.SetActive(false);
         attacking = false;

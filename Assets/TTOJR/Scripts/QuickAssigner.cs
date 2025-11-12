@@ -12,21 +12,21 @@ public class QuickAssigner : MonoBehaviour
 
     private void OnEnable()
     {
-        pickup.assignBindings += GunAssign;
-        pickup.assignBindings += InventoryUsableAssign;
+        pickup.physicalUseHookPoint += PhysicallyUseGun;
+        pickup.physicalUseHookPoint += PhysicallyUseInventoryUsable;
 
     }
 
     private void OnDisable()
     {
-        pickup.assignBindings -= GunAssign;
-        pickup.assignBindings -= InventoryUsableAssign;
+        pickup.physicalUseHookPoint -= PhysicallyUseGun;
+        pickup.physicalUseHookPoint -= PhysicallyUseInventoryUsable;
 
     }
 
     public IItemFunctionality functionality;
 
-    public void GunAssign(Inventory inv, Item pickedUpItem)
+    public void PhysicallyUseGun(Inventory inv, Item pickedUpItem)
     {
         if (pickedUpItem.functionality is not Gun pickedUpGun) return;
 
@@ -39,7 +39,7 @@ public class QuickAssigner : MonoBehaviour
         pickedUpGun.UpdateFunctionalityData(newData);
     }
 
-    public void InventoryUsableAssign(Inventory inv, Item pickedUpItem)
+    public void PhysicallyUseInventoryUsable(Inventory inv, Item pickedUpItem)
     {
         if (pickedUpItem.functionality is not InventoryUsable pickedUpUsable) return;
 

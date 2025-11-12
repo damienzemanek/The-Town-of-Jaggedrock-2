@@ -10,13 +10,13 @@ using Random = UnityEngine.Random;
 using Extensions;
 
 
-public class LadyInBlack : Questholder<Questing.Town.Quest>
+public class LadyInBlack : Questholder<Questing.Town.Quest>, IDependencyProvider, IEventRecipient
 {
-
     #region Privates
     [Inject] TimeCycle time;
     [Inject] Despawner despawner;
     LocationRandomizer locations;
+    [Provide] LadyInBlack Provide() => this;
     #endregion
     public Questing.Section _section = Questing.Section.TOWN;
     public override Questing.Section Section
@@ -60,6 +60,10 @@ public class LadyInBlack : Questholder<Questing.Town.Quest>
     }
 
 
+
     #endregion
+
+
+    public bool mania_one_progression_two_flag = false;
 
 }

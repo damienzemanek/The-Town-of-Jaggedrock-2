@@ -11,6 +11,7 @@ public class AudioPlay : MonoBehaviour
     [SerializeField] bool loop;
     [SerializeField] bool cutShort;
     [SerializeField] bool multi;
+    [SerializeField] bool enforcePlayOneShot;
     bool single => !multi;
     [SerializeField] float shortTime;
     #region Privates
@@ -39,6 +40,22 @@ public class AudioPlay : MonoBehaviour
         if (cutShort) StartCoroutine(C_Cutshort());
     }
 
+    public void PlayRand(AudioClip[] clips)
+    {
+        this.Log("playing audio");
+        source.loop = loop;
+
+        if (!loop)
+            source.PlayOneShot(clips.Rand());
+        else
+        {
+            source.clip = clips.Rand();
+            source.Play();
+        }
+        if (cutShort) StartCoroutine(C_Cutshort());
+    }
+
+
     public void PlayMulti(int index)
     {
         source.loop = loop;
@@ -55,6 +72,13 @@ public class AudioPlay : MonoBehaviour
 
     public void Play(AudioClip clip)
     {
+        if (enforcePlayOneShot)
+        {
+            source.PlayOneShot(clip);
+            if (cutShort) StartCoroutine(routine: C_Cutshort());
+            return;
+        }
+
         source.loop = loop;
 
         if (!loop)
@@ -65,7 +89,7 @@ public class AudioPlay : MonoBehaviour
             source.Play();
         }
 
-        if (cutShort) StartCoroutine(C_Cutshort());
+        if (cutShort) StartCoroutine(routine: C_Cutshort());
     }
 
     public void PlayForSeconds(AudioClip clip, float time, float fadeAtPercent)
