@@ -7,9 +7,11 @@ public class TownQuestGiver : Questholder<Questing.Activity.Quest>, IEventRecipi
     #region Privates
     [Inject] TimeCycle time;
     [Inject] Despawner despawner;
-    [SerializeField] Town townie;    
+    [SerializeField] Town _townie;    
     
     LocationRandomizer locations;
+
+    public Town townie { get => _townie; set => _townie = value; }
 
     #endregion
     public Questing.Section _section = Questing.Section.ACTIVITY;

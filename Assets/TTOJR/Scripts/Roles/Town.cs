@@ -17,7 +17,6 @@ public class Town : RuntimeInjectableMonoBehaviour
     [SerializeField] bool hasSpawnedInCorruptedAlready = false;
     #endregion
 
-    public List<Quest> activityQuests;
     public float regularSpeed = 3.5f;
     public float baseCorruptedSpeed = 2f;
     public int currentCorruptionLevel = 0;
