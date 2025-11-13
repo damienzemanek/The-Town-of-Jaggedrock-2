@@ -25,8 +25,8 @@ public class Teleport : MonoBehaviour
         print("Teleport: Attempting TP");
         if (objToTeleport == null) SetObjectToTeleportFromDetector();
 
-        if (objToTeleport.TryGetComponent<FadeScreen>(out FadeScreen fade))
-            FadeTeleport(fade);
+        if (objToTeleport.Has(out TeleportFader tpFader))
+            FadeTeleport(tpFader.fadeScreenRef);
         else
         {
             NavEX.Teleport(tpLoc, objToTeleport, out bool _teleporting);

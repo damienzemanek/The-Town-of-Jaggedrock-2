@@ -13,6 +13,8 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
 {
     [TabGroup("All Periods")] public UnityEvent newPeriodHook;
     [TabGroup("All Periods")] public float blackScreenTime;
+    [TabGroup("All Periods")] public FadeScreen fade;
+
 
     [TabGroup("Day")][SerializeField] int day;
     [TabGroup("Day")][SerializeField] float dayStartDisplayDelay = 5f;
@@ -148,16 +150,16 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
 
     void Transition()
     {
-        FadeScreen fade = controls.Get<FadeScreen>();
+        float fadeTime = blackScreenTime;
+        if (isDay) fadeTime += dayStartDisplayDelay;
 
         fade.FadeInAndOutCallback(
             (isDay) ? SetToNight : SetToDay,
             midhook: () => newPeriodHook?.Invoke(),
-            blackScreenTime: blackScreenTime + dayStartDisplayDelay
+            blackScreenTime: fadeTime
         );
 
         currentTime = 0;
-
     }
 
 

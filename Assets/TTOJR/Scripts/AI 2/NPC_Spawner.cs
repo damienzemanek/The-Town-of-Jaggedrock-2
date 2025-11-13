@@ -117,15 +117,20 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
 
         //Spawn half the people at night
         if (time.IsNight())
-            amountToSpawn = maxPeoplePerPeriod / 2;
-            
-        while(currentSpawnedResidents < amountToSpawn)
+            amountToSpawn = (maxPeoplePerPeriod / 2) - 1;
+
+
+        while (currentSpawnedResidents < amountToSpawn)
         {
             this.Log($"Attempting to spawn {despawner.disabledNPCs[0].name}");
 
             //Spawn roles first
             List<GameObject> roles = despawner.disabledNPCs.Where(n => !n.Has<Town>()).ToList();
-            roles.ForEach(r => Spawn(r));
+            roles.ForEach(r =>
+            {
+                Spawn(r);
+                currentSpawnedResidents++;
+            });
 
             //Then spawn townies
             Spawn(despawner.disabledNPCs.Rand());

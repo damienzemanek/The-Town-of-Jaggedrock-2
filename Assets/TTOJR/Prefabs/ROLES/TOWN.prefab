@@ -258,7 +258,7 @@ MonoBehaviour:
   agent: {fileID: 7954968831088163592}
   residentAreaMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   delayUseArea: 2
   stopped: 0
   usingArea: 0

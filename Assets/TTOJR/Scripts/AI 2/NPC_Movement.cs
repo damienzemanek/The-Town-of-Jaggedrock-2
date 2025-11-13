@@ -108,6 +108,7 @@ public class NPC_Movement : MonoBehaviour
     //This will get the area we are currently in
     private void OnTriggerStay(Collider other)
     {
+        print("aaaaaaaaaaa");
         if (((1 << other.gameObject.layer) & residentAreaMask) == 0) return;
         if (!other.gameObject.TryGetComponent<NPC_Area>(out NPC_Area area)) return;
         lastAreaInContact = area;
