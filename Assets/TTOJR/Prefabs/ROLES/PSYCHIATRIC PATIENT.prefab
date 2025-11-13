@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 2748782247982346700}
   - component: {fileID: 8691793057313305186}
   - component: {fileID: 622850279409869296}
+  - component: {fileID: 1502587870445684659}
   m_Layer: 7
   m_Name: PSYCHIATRIC PATIENT
   m_TagString: NPC
@@ -540,6 +541,19 @@ MonoBehaviour:
   - saw some crows eating bread
   - went stargazing
   - stayed up late doing some work
+--- !u!114 &1502587870445684659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69eb741d8569f3c45907e87e7137944b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mania_give_information: 0
 --- !u!1 &7904466343369297884
 GameObject:
   m_ObjectHideFlags: 0

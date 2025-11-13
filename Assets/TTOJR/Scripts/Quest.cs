@@ -76,17 +76,19 @@ public static class Questing
         public Hotel(Quest q) : base(q) { }
     }
 
+
     [Serializable]
     public class Activity : QuestType<Activity.Quest>
     {
         public enum Quest
         {
             None,
-            CLEANROOM,
+            CLEAN_RESTROOM,
             REPAIRELECTRICITY,
+            RESTOCK
         }
         public static int size { get => EnumEX<Quest>.Size(); }
-        public static int[] progressionLengths = { 0, 3, 3, 3 };
+        public static int[] progressionLengths = { 0, 2, 2, 2 };
 
         public Activity() : base(default) { }
         public Activity(Quest q) : base(q) { }

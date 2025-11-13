@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 7642541335631054512}
   - component: {fileID: 7709756697095318383}
   - component: {fileID: 8906179311168842671}
+  - component: {fileID: 4158459347966405133}
   m_Layer: 7
   m_Name: TOWN
   m_TagString: NPC
@@ -689,6 +690,18 @@ MonoBehaviour:
   personITalkAbout: {fileID: 0}
   isResident: 0
   roomNum: -1
+--- !u!114 &4158459347966405133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903264447225073114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbf64b9e6598b347838616d7d84f74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7904466343369297884
 GameObject:
   m_ObjectHideFlags: 0
