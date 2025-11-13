@@ -109,8 +109,6 @@ GameObject:
   - component: {fileID: 2748782247982346700}
   - component: {fileID: 8691793057313305186}
   - component: {fileID: 622850279409869296}
-  - component: {fileID: 6290132505579821175}
-  - component: {fileID: 1681719094995506283}
   m_Layer: 7
   m_Name: PSYCHIATRIC PATIENT
   m_TagString: NPC
@@ -341,17 +339,9 @@ MonoBehaviour:
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{"Dialogue Tree Controller":{"_value":1,"_name":"Dialogue
     Tree Controller","_id":"6c4d9e71-f1bb-4a5e-a079-849b7be4db25","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.DialogueTrees.DialogueTreeController,
-    NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"RandLoc":{"_propertyPath":"LocationRandomizer.RandLoc","_name":"RandLoc","_id":"6e8ab097-a04f-4677-a28e-1b2d54f1bff9","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"RandLocExcludeHotel":{"_propertyPath":"LocationRandomizer.RandLocExcludeHotel","_name":"RandLocExcludeHotel","_id":"92e76660-2214-4e94-adb6-2bf7c48375dc","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"personName":{"_propertyPath":"Dialuage.personName","_name":"personName","_id":"60a4a1fb-8ab5-419f-9a1c-37bb8d63c121","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"randPersonName":{"_propertyPath":"Dialuage.randPersonName","_name":"randPersonName","_id":"3ae41356-d7f3-42d6-be74-c711ccd68a9e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"personName":{"_propertyPath":"Dialuage.personName","_name":"personName","_id":"60a4a1fb-8ab5-419f-9a1c-37bb8d63c121","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"dialaugeChoice":{"_propertyPath":"DialaugeChooser.dialaugeChoice","_name":"dialaugeChoice","_id":"89050d4b-8394-459f-94f3-b2c64cb0037b","$type":"NodeCanvas.Framework.Variable`1[[DialaugeChooser+DialaugeChoice,
-    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"personITalkAboutsGroupingTrait":{"_propertyPath":"Dialuage.personITalkAboutsGroupingTrait","_name":"personITalkAboutsGroupingTrait","_id":"5a2deb3a-798d-40bb-a63a-fa19e32f0736","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"personITalkAboutsName":{"_propertyPath":"Dialuage.personITalkAboutsName","_name":"personITalkAboutsName","_id":"fd3d5f98-5453-40ae-ad4e-ede694e55697","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"myGroupingTrait":{"_propertyPath":"Dialuage.myGroupingTrait","_name":"myGroupingTrait","_id":"6921b1fe-e939-424a-ae9d-4f8f40a16088","$type":"NodeCanvas.Framework.Variable`1[[SO_Person+GroupingTrait,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"initialChatComplete":{"_propertyPath":"Dialuage.initialChatComplete","_name":"initialChatComplete","_id":"64e09dd7-b5ac-42c0-a672-486bdf9bdac3","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentCorruptionLevel":{"_propertyPath":"Town.currentCorruptionLevel","_name":"currentCorruptionLevel","_id":"a218a731-09bd-4fcd-80e4-f2fe7749f53c","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"corrupted":{"_propertyPath":"Town.corrupted","_name":"corrupted","_id":"a1dae13e-f3c4-4034-b25e-132b7d477d2e","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
@@ -362,37 +352,13 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: -6235299643011096383}
-  - _json: '{"_propertyPath":"LocationRandomizer.RandLoc","_name":"RandLoc","_id":"6e8ab097-a04f-4677-a28e-1b2d54f1bff9","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_propertyPath":"LocationRandomizer.RandLocExcludeHotel","_name":"RandLocExcludeHotel","_id":"92e76660-2214-4e94-adb6-2bf7c48375dc","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
   - _json: '{"_propertyPath":"Dialuage.personName","_name":"personName","_id":"60a4a1fb-8ab5-419f-9a1c-37bb8d63c121","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_propertyPath":"Dialuage.randPersonName","_name":"randPersonName","_id":"3ae41356-d7f3-42d6-be74-c711ccd68a9e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_propertyPath":"DialaugeChooser.dialaugeChoice","_name":"dialaugeChoice","_id":"89050d4b-8394-459f-94f3-b2c64cb0037b","$type":"NodeCanvas.Framework.Variable`1[[DialaugeChooser+DialaugeChoice,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
-  - _json: '{"_propertyPath":"Dialuage.personITalkAboutsGroupingTrait","_name":"personITalkAboutsGroupingTrait","_id":"5a2deb3a-798d-40bb-a63a-fa19e32f0736","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_propertyPath":"Dialuage.personITalkAboutsName","_name":"personITalkAboutsName","_id":"fd3d5f98-5453-40ae-ad4e-ede694e55697","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_propertyPath":"Dialuage.myGroupingTrait","_name":"myGroupingTrait","_id":"6921b1fe-e939-424a-ae9d-4f8f40a16088","$type":"NodeCanvas.Framework.Variable`1[[SO_Person+GroupingTrait,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
   - _json: '{"_propertyPath":"Dialuage.initialChatComplete","_name":"initialChatComplete","_id":"64e09dd7-b5ac-42c0-a672-486bdf9bdac3","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_propertyPath":"Town.currentCorruptionLevel","_name":"currentCorruptionLevel","_id":"a218a731-09bd-4fcd-80e4-f2fe7749f53c","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_propertyPath":"Town.corrupted","_name":"corrupted","_id":"a1dae13e-f3c4-4034-b25e-132b7d477d2e","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &2217963900361797958
@@ -574,50 +540,6 @@ MonoBehaviour:
   - saw some crows eating bread
   - went stargazing
   - stayed up late doing some work
---- !u!114 &6290132505579821175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903264447225073114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aad115aca74ce3c4891b3f6de0b4aae8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"dynamic":true,"_position":{"x":250.416,"y":22.21431},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_condition":{"valueA":{"_name":"corrupted","_targetVariableID":"a1dae13e-f3c4-4034-b25e-132b7d477d2e"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":52.50658,"y":193.8704},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"1"},{"dynamic":true,"desires":[{"considerations":[{"input":{"_name":"distToPlayer","_targetVariableID":"8f7b43c6-e17d-4585-838f-86c5d743768e"},"function":{"_value":{"keys":[{"time":0.0,"value":0.002349854,"tangentMode":34,"inTangent":0.9976501,"outTangent":0.9976501},{"time":1.0,"value":1.0,"tangentMode":34,"inTangent":0.9976501,"outTangent":0.9976501}],"preWrapMode":8,"postWrapMode":8}},"inputMin":{"_value":11.0},"inputMax":{"_value":50.0}}]},{"considerations":[{"input":{"_name":"distToPlayer","_targetVariableID":"8f7b43c6-e17d-4585-838f-86c5d743768e"},"function":{"_value":{"keys":[{"time":0.000103252,"value":2.771057E-05,"tangentMode":0,"inTangent":4.90456,"outTangent":4.90456},{"time":0.5083333,"value":1.0,"tangentMode":34,"inTangent":-0.06331241,"outTangent":-0.06331241},{"time":0.9835168,"value":0.004878854,"tangentMode":0,"inTangent":-5.770767,"outTangent":-5.770767}],"preWrapMode":8,"postWrapMode":8}},"inputMin":{"_value":4.0},"inputMax":{"_value":11.0}}]},{"considerations":[{"input":{"_name":"distToPlayer","_targetVariableID":"8f7b43c6-e17d-4585-838f-86c5d743768e"},"function":{"_value":{"keys":[{"time":0.008335114,"value":1.0,"tangentMode":34,"inTangent":-1.020799,"outTangent":-1.020799},{"time":0.9833374,"value":0.004718781,"tangentMode":34,"inTangent":-1.020799,"outTangent":-1.020799}],"preWrapMode":8,"postWrapMode":8}},"inputMin":{},"inputMax":{"_value":4.0}}]}],"_position":{"x":365.0,"y":225.0},"$type":"NodeCanvas.BehaviourTrees.PrioritySelector","$version":1,"$id":"2"},{"_action":{"speed":{"_value":4.0},"keepDistance":{"_value":0.1},"minWanderDistance":{"_value":5.0},"maxWanderDistance":{"_value":20.0},"$type":"NodeCanvas.Tasks.Actions.Wander"},"_position":{"x":106.0,"y":378.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"_action":{"actions":[{"target":{"_name":"playerObj","_targetVariableID":"7dfbddc5-6646-481b-8139-6ebe0beb36b0"},"speed":{"_value":4.0},"stopDistance":{"_value":0.1},"$type":"NodeCanvas.Tasks.Actions.MoveTowards"},{"lookTarget":{"_name":"playerObj","_targetVariableID":"7dfbddc5-6646-481b-8139-6ebe0beb36b0"},"$type":"NodeCanvas.Tasks.Actions.LookAt"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":316.0,"y":379.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_action":{"method":{"_baseInfo":"NPC_Corrupted|Attack|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":479.0,"y":376.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2","$version":1},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2","$version":1},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2","$version":1},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2","$version":1},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"playerObj":{"_propertyPath":"Town.playerObj","_name":"playerObj","_id":"7dfbddc5-6646-481b-8139-6ebe0beb36b0","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"distToPlayer":{"_propertyPath":"Town.distToPlayer","_name":"distToPlayer","_id":"8f7b43c6-e17d-4585-838f-86c5d743768e","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
-  _boundGraphObjectReferences: []
-  _boundGraphSource:
-    _version: 3.33
-    _category: 
-    _comments: 
-    _translation: {x: 19, y: 28}
-    _zoomFactor: 1
-  _firstActivation: 0
-  _enableAction: 0
-  _disableAction: 0
-  _lockBoundGraphPrefabOverrides: 1
-  _preInitializeSubGraphs: 0
-  _updateMode: 0
-  _graph: {fileID: 0}
-  _blackboard: {fileID: -9144149633550173534}
---- !u!114 &1681719094995506283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903264447225073114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a6c8d81ae43e5489ed2198c2a18175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mania_one_quest_flag_one: 0
 --- !u!1 &7904466343369297884
 GameObject:
   m_ObjectHideFlags: 0

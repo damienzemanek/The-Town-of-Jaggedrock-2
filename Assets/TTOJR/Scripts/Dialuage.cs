@@ -32,20 +32,9 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     [TabGroup("Visual")][SerializeField] Transform effectLoc;
 
 
-
-
-
-    #region Node Canvas Connections----------------------
+    public SO_Person so_person { get => person; set => person = value; }
     public string personName { get => (person != null) ? person.personName : string.Empty; }
-    public string randPersonName { get => (person != null) ? person.GetRandomPersonName() : string.Empty; }
-
-    public SO_Person.GroupingTrait myGroupingTrait { get => (person != null) ? person.groupingTrait : SO_Person.GroupingTrait.None; }
-
-    public string personITalkAboutsGroupingTrait { get => (person != null) ? person.GetMyPersonITalkAboutsGroupingTrait() : string.Empty; }
-    public string personITalkAboutsName { get => (person != null) ? person.GetMyPersonITalkAboutsName() : string.Empty; }
     public SO_Favor.FavorStatus GetFavorStatus => favor.status;
-
-    #endregion--------------------------------------------
 
     #region Privs
     CallbackDetector detector;
@@ -70,7 +59,6 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
         if (needsTalkingEffect == null) needsTalkingEffect = Instantiate(needsTalkingEffectPrefab, effectLoc).SetActiveThen(false);
         if (isTalkingEffect == null) isTalkingEffect = Instantiate(isTalkingEffectPrefab, effectLoc).SetActiveThen(false);
-
     }
 
     private void OnEnable()

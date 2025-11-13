@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Photographer
   m_EditorClassIdentifier: 
   _personName: Katie
-  excludeSelfFromGetRandomPersonNamne: 0
+  excludeSelfFromGetRandomPersonNamne: 1
   role: 4
   groupingTrait: 2
-  myPersonITalkAbout: {fileID: 11400000, guid: 957baae8a79c5ca48a12fc5efae0b7b4, type: 2}

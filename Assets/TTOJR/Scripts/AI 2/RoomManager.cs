@@ -38,6 +38,11 @@ public class RoomManager : MonoBehaviour
             GameObject chosen = townNPCS.Rand();
             this.Log($"room {room.name} to npc {chosen.name}");
             AssignARoom(room, chosen);
+            if(chosen.TryGetComponent(out IdentifiableInformationSystem iis))
+            {
+                iis.isResident = true;
+                iis.roomNum = room.roomNum;
+            }
             townNPCS.Remove(chosen);
         }
 

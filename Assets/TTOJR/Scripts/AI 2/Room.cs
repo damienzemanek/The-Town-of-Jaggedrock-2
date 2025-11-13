@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
 
     #endregion
 
+    [SerializeField] public int roomNum;
     [SerializeField] Town resident;
 
     public void SetResident(Town _resident)

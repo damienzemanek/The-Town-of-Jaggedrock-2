@@ -27,6 +27,8 @@ public class LocationRandomizer : MonoBehaviour
     }
 
     public string[] locations; //Display Names
+    public static Locations[] frequentLocations; //Display Names
+
 
     public string[] activities =
     {
@@ -51,7 +53,22 @@ public class LocationRandomizer : MonoBehaviour
     };
 
 
-    private void Awake() => SetLocs();
+    private void Awake()
+    {
+        if (frequentLocations == null || frequentLocations.Length == 0)
+            frequentLocations = new Locations[]
+            {
+                RandLocEnumExclude(Locations.Hotel),
+                RandLocEnumExclude(Locations.Hotel),
+                RandLocEnumExclude(Locations.Hotel),
+                RandLocEnumExclude(Locations.Hotel)
+            };
+        SetLocs();
+
+
+
+
+    }
     private void OnValidate() => SetLocs();
     static string ConvertLocEnumToFormattedString(Locations loc) =>
         Regex.Replace(loc.ToString(), "([a-z])([A-Z])", "$1 $2");

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,8 @@ using Random = UnityEngine.Random;
 public class SO_Person : ScriptableObject
 {
     [SerializeField] string _personName;
+    [SerializeField] bool _isCoven = false;
+
     public bool excludeSelfFromGetRandomPersonNamne;
     public enum CharacterRole
     {
@@ -33,13 +36,11 @@ public class SO_Person : ScriptableObject
     public GroupingTrait groupingTrait;
 
     public string personName { get => _personName; }
+    public bool isCoven { get => _isCoven; set => _isCoven = value; }
+
+
 
     public static List<SO_Person> allPersons;
-    public SO_Person myPersonITalkAbout;
-
-    public void SetMyPersonITalkAbout() => myPersonITalkAbout = GetRandomPerson();
-    public string GetMyPersonITalkAboutsGroupingTrait() => myPersonITalkAbout.groupingTrait.ToString();
-    public string GetMyPersonITalkAboutsName() => myPersonITalkAbout.personName;
 
 
     private void OnEnable()
@@ -51,17 +52,7 @@ public class SO_Person : ScriptableObject
         if(!allPersons.Contains(this))
             allPersons.Add(this);
 
-        SetMyPersonITalkAbout();
     }
 
-    public string GetRandomPersonName() => GetRandomPerson().personName;
-
-    public SO_Person GetRandomPerson()
-    {
-        var excludeSelf = allPersons.Where(p => p != this).ToList();
-        if (excludeSelf.Count == 0) return null;
-
-        return excludeSelf[Random.Range(0, excludeSelf.Count)];
-    }
 
 }

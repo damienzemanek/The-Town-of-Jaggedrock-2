@@ -14,9 +14,18 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     [ShowIf("onlySpawnFirstResident")] public float spawnCount;
     public Transform spawnPoint;
     public NPC_Area spawnArea;
-    public List<GameObject> spawnResidentPoolForCycle;
+    [TabGroup("Prefabs")] public List<GameObject> rolePrefabs;
+    [TabGroup("Prefabs")] public GameObject townPrefab;
+
+
+    [TabGroup("Data")] public List<SO_Person> townieData;
+    [TabGroup("Data"), ReadOnly] public List<SO_Person> usedTownieData;
+
     [SerializeField] float delayBetweenSpawns;
     [SerializeField] float delayToStartSpawning;
+    [SerializeField] int townPopulationWithCov;
+    [SerializeField] int roomsCount;
+    [SerializeField, ReadOnly] int spawnedAtRoom;
 
     [ReadOnly] public int currentSpawnedResidents; //cant be bigger than the pool
     public UnityEvent spawningCompleteHook;
@@ -24,14 +33,38 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     [Inject] Despawner despawner;
     [Inject] TimeCycle time;
 
+    private void Awake()
+    {
+        usedTownieData.MakeShallowCopyOf(townieData);
+        rolePrefabs.Ensure();
+        townieData.Ensure();
+        if (spawningCompleteHook == null) spawningCompleteHook = new();
+    }
+
     private void Start()
     {
-        if (spawnResidentPoolForCycle == null || spawnResidentPoolForCycle.Count <= 0)
-            Debug.LogError("NPC_Spawner: Residents not set, put residents to spawn");
-
         if (spawnArea == null) throw new System.Exception("NPC_Spawner: spawn area not set");
     }
 
+
+    void SpawnTownies()
+    {
+        for (int i = 0; i < townPopulationWithCov; i++)
+        {
+            GameObject spawnedTownie = InstantiateNPC(townPrefab).gameObject.SetActiveThen(false);
+            spawnedTownie.TryGet<Dialuage>().so_person = usedTownieData.RandAndRemove();
+            despawner.SaveToBeDespawned(spawnedTownie);
+        }
+    }
+
+    void SpawnRoles()
+    {
+        for (int i = 0; i < rolePrefabs.Count; i++)
+        {
+            GameObject spawnedRole = InstantiateNPC(rolePrefabs[i]).gameObject.SetActiveThen(false);
+            despawner.SaveToBeDespawned(spawnedRole);
+        }
+    }
 
 
 
@@ -48,42 +81,33 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
 
     void StartSpawning()
     {
-        currentSpawnedResidents = 0;
-        SetSpawnAmount();
-        StartCoroutine(C_SpawningCycle());
-    }
-    void SetSpawnAmount()
-    {
-        if (!onlySpawnFirstResident)
-            spawnCount = spawnResidentPoolForCycle.Count;
-    }
-    IEnumerator C_SpawningCycle()
-    {
-        yield return new WaitForSeconds(delayToStartSpawning);
 
-        if (onlySpawnFirstResident)
-            while (currentSpawnedResidents < spawnCount)
-            {
-                if (spawnResidentPoolForCycle[0] == null)
-                    throw new System.Exception("NPC_Spawner: Set the first NPC_Movement in the pool");
+        SpawnTownies();
+        SpawnRoles();
 
-                Spawn(spawnResidentPoolForCycle[0]);
-                currentSpawnedResidents++;
-                yield return new WaitForSeconds(delayBetweenSpawns);
-            }
-        else
-            while (currentSpawnedResidents < spawnResidentPoolForCycle.Count)
-            {
-                if (spawnResidentPoolForCycle[currentSpawnedResidents] == null)
-                    throw new System.IndexOutOfRangeException(tag);
-                Spawn(spawnResidentPoolForCycle[currentSpawnedResidents]);
-                yield return new WaitForSeconds(delayBetweenSpawns);
-                currentSpawnedResidents++;
-            }
+        for (int i = 0; i < townPopulationWithCov; i++)
+            despawner.SaveToBeDespawned(InstantiateNPC(townPrefab).gameObject.SetActiveThen(false));
 
-        this.Log("Spawning Hook");
         spawningCompleteHook?.Invoke();
 
+
+        StartCoroutine(C_SpawningCycle());
+
+    }
+
+    IEnumerator C_SpawningCycle()
+    {
+        currentSpawnedResidents = 0;
+        yield return new WaitForSeconds(delayToStartSpawning);
+
+        while (currentSpawnedResidents < despawner.spawnedNPCs.Count)
+        {
+            Spawn(despawner.spawnedNPCs[currentSpawnedResidents]);
+            yield return new WaitForSeconds(delayBetweenSpawns);
+            currentSpawnedResidents++;
+        }
+
+        this.Log("Spawning Hook");
     }
 
     void Spawn(GameObject prefab)
@@ -105,11 +129,14 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
 
     NPC_Movement InstantiateNPC(GameObject npcPrefab)
     {
-        return Instantiate(npcPrefab,
+        NPC_Movement spawned = Instantiate(npcPrefab,
                 spawnPoint.transform.position,
                 Quaternion.identity,
                 null
                 ).gameObject.GetComponent<NPC_Movement>();
+
+
+        return spawned;
     }
 
     NPC_Movement PoolEnable(GameObject pooledNPC)

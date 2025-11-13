@@ -42,12 +42,16 @@ public class Town : RuntimeInjectableMonoBehaviour
         hasSpawnedInCorruptedAlready = false;
     }
 
+    private void Awake()
+    {
+        playerObj = player.gameObject;
+    }
+
     private void OnEnable()
     {
         if (!corrupted && currentCorruptionLevel >= 3) Corrupt();
         if (corrupted) EnableCorruptedFunctionality();
 
-        playerObj = player.gameObject;
 
         print("1");
 

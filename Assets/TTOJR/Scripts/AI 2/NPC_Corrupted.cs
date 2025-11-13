@@ -19,7 +19,7 @@ public class NPC_Corrupted : MonoBehaviour
 
     private void Awake()
     {
-        attackAudioPlayer = this.TryGet<AudioPlay>();
+        attackAudioPlayer = this.TryGetOrAdd<AudioPlay>();
         if (attackAudioClips == null || attackAudioClips.Length == 0) this.Error("Attack audio clips need setting");
     }
 
