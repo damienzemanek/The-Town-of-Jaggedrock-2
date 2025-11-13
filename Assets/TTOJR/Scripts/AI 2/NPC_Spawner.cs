@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using DependencyInjection;
 using Extensions;
 using UnityEngine.Events;
+using System.Linq;
 
 public class NPC_Spawner : MonoBehaviour, IDependencyProvider
 {
@@ -25,6 +26,7 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     [SerializeField] float delayBetweenSpawns;
     [SerializeField] float delayToStartSpawning;
     [SerializeField] int townPopulationWithCov;
+    [SerializeField] int maxPeoplePerPeriod = 8;
     [SerializeField] int roomsCount;
     [SerializeField, ReadOnly] int spawnedAtRoom;
 
@@ -110,12 +112,23 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
         currentSpawnedResidents = 0;
         yield return new WaitForSeconds(delayToStartSpawning);
 
-        int amountToSpawn = despawner.disabledNPCs.Count;
+
+        int amountToSpawn = maxPeoplePerPeriod;
+
+        //Spawn half the people at night
+        if (time.IsNight())
+            amountToSpawn = maxPeoplePerPeriod / 2;
+            
         while(currentSpawnedResidents < amountToSpawn)
         {
             this.Log($"Attempting to spawn {despawner.disabledNPCs[0].name}");
 
-            Spawn(despawner.disabledNPCs[0]);
+            //Spawn roles first
+            List<GameObject> roles = despawner.disabledNPCs.Where(n => !n.Has<Town>()).ToList();
+            roles.ForEach(r => Spawn(r));
+
+            //Then spawn townies
+            Spawn(despawner.disabledNPCs.Rand());
             yield return new WaitForSeconds(delayBetweenSpawns);
             currentSpawnedResidents++;
 
