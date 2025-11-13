@@ -5,9 +5,12 @@ using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.AI;
 using Extensions;
+using DependencyInjection;
 
-public class NPC_Movement : MonoBehaviour
+public class NPC_Movement : RuntimeInjectableMonoBehaviour
 {
+    [Inject] Despawner despawner;
+
     public NavMeshAgent agent;
     public LayerMask residentAreaMask;
     public float delayUseArea;
@@ -17,25 +20,35 @@ public class NPC_Movement : MonoBehaviour
     public float retryCooldown = 1.5f;
     [ReadOnly] public float nextRetryTime = 0f;
     [ReadOnly] public float stopCheckProgressValue = 0f;
-    [ReadOnly] public NPC_Area lastAreaInContact;
+    [ReadOnly] public NPC_Area area;
 
+
+    protected override void OnInstantiate()
+    {
+        base.OnInstantiate();
+    }
 
     public void UseSpawnArea(NPC_Area spawnArea)
     {
-        lastAreaInContact = spawnArea;
-        StartCoroutine(UseArea(spawnArea));
+        if (area == null)
+        {
+            area = spawnArea;
+
+            StartCoroutine(UseArea(spawnArea));
+        }
     }
 
 
     void TryUseArea()
     {
+        if (!stopped) return;
         if (usingArea) return;
-        if (lastAreaInContact == null) Debug.Log("NPC_Movement: last are in contact null");
+        if (area == null) Debug.Log("NPC_Movement: last are in contact null");
         if (agent == null) Debug.Log("NPC_Movement: Does not have an agent (null)");
         if (!agent.isOnNavMesh) return;
         if (agent.pathPending) return;
 
-        StartCoroutine(UseArea(lastAreaInContact));
+        StartCoroutine(UseArea(area));
         nextRetryTime = Time.time + retryCooldown;
         stopCheckProgressValue = 0f;
     }
@@ -66,7 +79,12 @@ public class NPC_Movement : MonoBehaviour
         if(Time.time >= nextRetryTime)
         {
             if (stopped) TryUseArea();
-            else if (stopCheckProgressValue > stuckTimeout) TryUseArea();
+            else if (stopCheckProgressValue > stuckTimeout)
+            {
+                //Keep going
+                agent.isStopped = false;
+                agent.SetDestination(agent.destination);
+            }
         }
     }
 
@@ -95,10 +113,10 @@ public class NPC_Movement : MonoBehaviour
 
     void StopInArea()
     {
-        if (lastAreaInContact == null) this.Error("StopInArea failed, lastAreaInContact is NULL");
-        if (lastAreaInContact.whoIsHere != null)
-            if (!lastAreaInContact.whoIsHere.Contains(this))
-                lastAreaInContact.whoIsHere.Add(this);
+        if (area != null) 
+            if (area.whoIsHere != null)
+                if (!area.whoIsHere.Contains(this))
+                    area.whoIsHere.Add(this);
 
         this.Log("Stopped Moving");
         stopped = true;
@@ -108,25 +126,28 @@ public class NPC_Movement : MonoBehaviour
     //This will get the area we are currently in
     private void OnTriggerStay(Collider other)
     {
-        print("aaaaaaaaaaa");
+        if (!stopped) return;
+        this.Log("chosen area");
         if (((1 << other.gameObject.layer) & residentAreaMask) == 0) return;
-        if (!other.gameObject.TryGetComponent<NPC_Area>(out NPC_Area area)) return;
-        lastAreaInContact = area;
+        if (!other.gameObject.Has(out NPC_Area _area)) return;
+        area = _area;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (((1 << other.gameObject.layer) & residentAreaMask) == 0) return;
-        if (!other.gameObject.TryGetComponent<NPC_Area>(out NPC_Area area)) return;
+        if (!other.gameObject.Has(out NPC_Area _area)) return;
         area.whoIsHere?.Remove(this);
     }
 
 
     private void OnDisable()
     {
-        if (lastAreaInContact != null)
-            lastAreaInContact.whoIsHere?.Remove(this);
+        if (area != null)
+            area.whoIsHere?.Remove(this);
     }
+
+    public void Despawn() => despawner.DirectDisable(gameObject);
 
 
 

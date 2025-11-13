@@ -8,7 +8,7 @@ using UnityEngine.AI;
 
 public class NPC_Area : MonoBehaviour
 {
-    [SerializeReference] public HashSet<NPC_Movement> whoIsHere = new HashSet<NPC_Movement>();
+    [SerializeReference] public List<NPC_Movement> whoIsHere = new List<NPC_Movement>();
     [Required] [SerializeReference] public ActionChoices choices;
 
     public float fixedY;

@@ -48,6 +48,8 @@ public class EvilInformationManager : MonoBehaviour
 
         GameObject randTown = despawner.disabledNPCs.Where(npc => npc.Has<Town>())
             .ToList()
+            .Where(npc => !npc.Get<IdentifiableInformationSystem>().isResident)
+            .ToList()
             .Rand();
 
         if (!randTown.TryGetComponent(out Dialuage dialauge)) return;

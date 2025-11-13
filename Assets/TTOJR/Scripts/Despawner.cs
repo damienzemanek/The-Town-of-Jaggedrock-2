@@ -73,12 +73,20 @@ public class Despawner : MonoBehaviour, IDependencyProvider
         spawnedNPCs.Remove(match);
     }
 
-    void DirectEnable(GameObject go)
+    public void DirectEnable(GameObject go)
     {
         if (!go) return;
         disabledNPCs.Remove(go);
         spawnedNPCs.Add(go);
         go.SetActive(true);
+    }
+
+    public void DirectDisable(GameObject go)
+    {
+        if (!go) return;
+        disabledNPCs.Add(go);
+        spawnedNPCs.Remove(go);
+        go.SetActive(false);
     }
 
     public bool TryGetFromPool(GameObject prefab, out GameObject match)

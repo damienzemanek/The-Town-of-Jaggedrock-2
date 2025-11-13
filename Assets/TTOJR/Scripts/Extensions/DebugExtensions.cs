@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace Extensions
@@ -11,6 +14,24 @@ namespace Extensions
         static string Colorize(string text, string colorHex) => $"<color={colorHex}>{text}</color>";
         static string Bold(string text) => $"<b>{text}</b>";
 
+        public static void Log<T>(this List<T> ts)
+        {
+            if (ts == null)
+            {
+                Debug.Log($"{Colorize("[<null>]", NullColor)}: List is null");
+                return;
+            }
+
+            if (ts.Count == 0)
+            {
+                Debug.Log($"{Colorize("[<empty>]", NullColor)}: List count is 0");
+                return;
+            }
+
+
+            string line = string.Join(", ", ts.Select(x => x?.ToString() ?? "null"));
+            Debug.Log(line);
+        }
 
 
         public static void Log(this object obj, string msg = "")

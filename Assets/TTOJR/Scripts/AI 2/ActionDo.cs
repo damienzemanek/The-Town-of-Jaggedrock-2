@@ -58,3 +58,21 @@ public class WalkTo : ActionDo
         agent.SetDestination(destination.GetARandLocation());
     }
 }
+
+
+[Serializable]
+public class Despawn : ActionDo
+{
+    public override void Execute(NPC_Area area)
+    {
+        this.Log($"(Despawning) in area {area}");
+        DespawnMe();
+    }
+
+    void DespawnMe()
+    {
+        agent.isStopped = true;
+        NPC_Movement.stopped = true;
+        NPC_Movement.Despawn();
+    }
+}

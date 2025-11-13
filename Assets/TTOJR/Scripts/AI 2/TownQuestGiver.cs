@@ -28,8 +28,6 @@ public class TownQuestGiver : Questholder<Questing.Activity.Quest>, IEventRecipi
         set => _currentQuestBacking = value;
     }
 
-    //[field: SerializeReference] public List<Quest> hotelQuests;
-
 
     #region Class Methods
     protected override void OnInstantiate()
