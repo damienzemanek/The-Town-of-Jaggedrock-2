@@ -15,6 +15,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     [TabGroup("All Periods")] public float blackScreenTime;
 
     [TabGroup("Day")][SerializeField] int day;
+    [TabGroup("Day")][SerializeField] float dayStartDisplayDelay = 5f;
     [TabGroup("Day")] public UnityEvent OnDayStart;
     [TabGroup("Day")][SerializeField] List<UnityEventPlus> dayEvents;
     [TabGroup("Day")][SerializeField] TextMeshProUGUI newDayText;
@@ -150,9 +151,9 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         FadeScreen fade = controls.Get<FadeScreen>();
 
         fade.FadeInAndOutCallback(
-            (isDay) ? SetToNight : SetToDay, 
-            midhook: () => newPeriodHook?.Invoke(), 
-            blackScreenTime: blackScreenTime
+            (isDay) ? SetToNight : SetToDay,
+            midhook: () => newPeriodHook?.Invoke(),
+            blackScreenTime: blackScreenTime + dayStartDisplayDelay
         );
 
         currentTime = 0;
@@ -191,6 +192,8 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
 
     IEnumerator C_DisplayDayConcats()
     {
+        yield return new WaitForSeconds(dayStartDisplayDelay);
+        
         newDayObj.SetActive(true);
         newDayText.text = "";
 

@@ -68,7 +68,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
         if (!resident) this.Error("No resident has been set");
         resident.IncreaseCorruption();
         StopCorruption();
-        CorruptionManager.instance.onCorrupted?.Invoke();
+        CorruptionManager.instance.CorruptCompelte();
     }
 
     #region Methods

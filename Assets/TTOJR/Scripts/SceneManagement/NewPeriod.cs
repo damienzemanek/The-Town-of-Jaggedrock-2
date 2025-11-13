@@ -9,6 +9,7 @@ public class NewPeriod : RuntimeInjectableMonoBehaviour, IAssigner
     [SerializeField] AudioPlay play;
     [SerializeField] AudioClip newDayAudio;
     [SerializeField] AudioClip newNightAudio;
+    [SerializeField] float delayToPlayAudio = 2f;
 
     protected override void OnInstantiate()
     {
@@ -31,11 +32,11 @@ public class NewPeriod : RuntimeInjectableMonoBehaviour, IAssigner
     {
         if (timeCy.IsDay())
         {
+            this.DelayedCall(() => 
             play.PlayForSeconds(
             newDayAudio,
             timeCy.blackScreenTime + 9f, //Go over slightly
-            80
-            );
+            80), delayToPlayAudio);
         }
         if (timeCy.IsNight())
         {

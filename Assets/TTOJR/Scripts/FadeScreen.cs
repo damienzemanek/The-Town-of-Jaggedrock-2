@@ -83,4 +83,18 @@ public class FadeScreen : MonoBehaviour
         isFading = false;
         posthook?.Invoke();
     }
+
+    public void SetVisble()
+    {
+        Color color = panel.color;
+        color.a = 0f;
+        panel.color = color;
+    }
+
+    public void SetOpaque()
+    {
+        Color color = panel.color;
+        color.a = 1f;
+        panel.color = color;
+    }
 }

@@ -23,6 +23,7 @@ public class CorruptionManager : MonoBehaviour
     public UnityEvent onCorrupted;
 
 
+
     private void Awake()
     {
         instance = this;
@@ -33,6 +34,15 @@ public class CorruptionManager : MonoBehaviour
             this.Error("Corrupt Events not set, please assign");
     }
 
+    private void OnEnable()
+    {
+        onCorrupted.AddListener(AfflictResidentDisplay);
+    }
+
+    private void OnDisable()
+    {
+        onCorrupted.RemoveAllListeners();
+    }
 
 
     public void CorruptRandom()
@@ -40,7 +50,15 @@ public class CorruptionManager : MonoBehaviour
         corruptionLocations.Rand().StartCorruption();
     }
 
+
     [Button]
+    public void CorruptCompelte()
+    {
+        this.Log("Corrupt Complete");
+        onCorrupted?.Invoke();
+        AfflictResidentDisplay();
+    }
+
     public void AfflictResidentDisplay()
     {
         afflictBg.gameObject.SetActive(true);
@@ -55,7 +73,11 @@ public class CorruptionManager : MonoBehaviour
         {
             afflictFadeInto.gameObject.SetActive(false);
             afflictVisual.SetActive(false);
-            afflictBg.FadeToVisible(() => afflictBg.gameObject.SetActive(false));
+            afflictBg.FadeToVisible(() =>
+            {
+                afflictBg.gameObject.SetActive(false);
+                afflictBg.SetOpaque();
+            });
 
         });
     }

@@ -10,10 +10,12 @@ public class AudioPlay : MonoBehaviour
 {
     [SerializeField] bool loop;
     [SerializeField] bool cutShort;
+    [SerializeField] bool fade;
     [SerializeField] bool multi;
     [SerializeField] bool enforcePlayOneShot;
     bool single => !multi;
     [SerializeField] float shortTime;
+    [SerializeField] float fadeoutTime = 1f;
     #region Privates
 
     #endregion
@@ -92,6 +94,10 @@ public class AudioPlay : MonoBehaviour
         if (cutShort) StartCoroutine(routine: C_Cutshort());
     }
 
+    public void PlayFadeAtHalf(AudioClip clip) => PlayForSeconds(clip, clip.length, clip.length / 2);
+    public void PlayFadeAtThreeQuarters(AudioClip clip) => PlayForSeconds(clip, clip.length, clip.length - (clip.length * 0.25f));
+
+
     public void PlayForSeconds(AudioClip clip, float time, float fadeAtPercent)
     {
         source.clip = clip;
@@ -104,6 +110,7 @@ public class AudioPlay : MonoBehaviour
         yield return new WaitForSeconds(shortTime);
         Stop();
     }
+
 
     IEnumerator C_CutshortFade(float time, float startFadingAtPercent)
     {
@@ -125,6 +132,8 @@ public class AudioPlay : MonoBehaviour
         }
 
         Stop();
+
+        source.volume = 1f;
     }
 
     public void Stop()
