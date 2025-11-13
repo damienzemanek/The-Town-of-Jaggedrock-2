@@ -13,9 +13,11 @@ public class Despawner : MonoBehaviour, IDependencyProvider
     [Inject] TimeCycle time;
 
     [SerializeField] List<GameObject> _spawnedNPCs;
-    [SerializeField] List<GameObject> disabledNPCs;
+    [SerializeField] List<GameObject> _disabledNPCs;
 
     public List<GameObject> spawnedNPCs { get => _spawnedNPCs; private set => _spawnedNPCs = value; }
+    public List<GameObject> disabledNPCs { get => _disabledNPCs; private set => _disabledNPCs = value; }
+
 
     private void Awake()
     {
@@ -38,6 +40,13 @@ public class Despawner : MonoBehaviour, IDependencyProvider
         if (!go) return;
         spawnedNPCs.Add(go);
         disabledNPCs.Remove(go);
+    }
+
+    public void SaveAsDespawned(GameObject go)
+    {
+        if (!go) return;
+        disabledNPCs.Add(go);
+        spawnedNPCs.Remove(go);
     }
 
     public void DisableAllNPCS()
@@ -64,13 +73,21 @@ public class Despawner : MonoBehaviour, IDependencyProvider
         spawnedNPCs.Remove(match);
     }
 
+    void DirectEnable(GameObject go)
+    {
+        if (!go) return;
+        disabledNPCs.Remove(go);
+        spawnedNPCs.Add(go);
+        go.SetActive(true);
+    }
+
     public bool TryGetFromPool(GameObject prefab, out GameObject match)
     {
         match = null;
         if (!prefab) return false;
 
         if (disabledNPCs.Count <= 0) return false;
-        string lookingForName = prefab.TryGet<Dialuage>().personName;
+        string lookingForName = prefab.Get<Dialuage>().personName;
 
 
         match = disabledNPCs.FirstOrDefault(npc => 
@@ -96,9 +113,20 @@ public class Despawner : MonoBehaviour, IDependencyProvider
         time.OnNightStart?.RemoveAllListeners();
     }
 
+    void ReEnableResidentsImmediately()
+    {
+        disabledNPCs.Where(o => o.Has<Town>())
+            .ToList()
+            .Where(o => o.Get<IdentifiableInformationSystem>().isResident)
+            .ToList()
+            .ForEach(o => DirectEnable(o));
+
+    }
+
     void StartNewDayOrNight()
     {
         DisableAllNPCS();
+        ReEnableResidentsImmediately();
     }
     
 }

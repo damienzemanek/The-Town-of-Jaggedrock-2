@@ -28,9 +28,9 @@ public class SO_Person : ScriptableObject
     {
         None,
         Anxious,
-        Hopefull,
+        Loud,
         Nervous,
-        Morbid
+        Clumsy
     }
     public CharacterRole role;
     public GroupingTrait groupingTrait;

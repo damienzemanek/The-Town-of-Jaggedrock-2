@@ -7,7 +7,7 @@ public class QuickAssigner : MonoBehaviour
     Pickup pickup;
     private void Awake()
     {
-        pickup = this.TryGet<Pickup>();
+        pickup = this.Get<Pickup>();
     }
 
     private void OnEnable()
@@ -31,8 +31,8 @@ public class QuickAssigner : MonoBehaviour
         if (pickedUpItem.functionality is not Gun pickedUpGun) return;
 
         Gun.Data newData = new Gun.Data();
-        Raycaster caster = inv.TryGet<Raycaster>();
-        EntityControls controls = inv.TryGet<EntityControls>();
+        Raycaster caster = inv.Get<Raycaster>();
+        EntityControls controls = inv.Get<EntityControls>();
 
         newData.SetCaster(caster);
         newData.SetControlsBindGun(controls, pickedUpGun);
@@ -43,8 +43,8 @@ public class QuickAssigner : MonoBehaviour
     {
         if (pickedUpItem.functionality is not InventoryUsable pickedUpUsable) return;
 
-        EntityControls controls = inv.TryGet<EntityControls>();
-        Use use = inv.TryGet<Use>();
+        EntityControls controls = inv.Get<EntityControls>();
+        Use use = inv.Get<Use>();
 
         InventoryUsable.Data newData = new InventoryUsable.Data(
             use,

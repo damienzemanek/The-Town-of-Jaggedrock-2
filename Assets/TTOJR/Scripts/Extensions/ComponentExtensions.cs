@@ -8,7 +8,7 @@ namespace Extensions
 {
     public static class ComponentEX
     {
-        public static T TryGet<T>(this Object obj) where T : Component
+        public static T Get<T>(this Object obj) where T : Component
         {
             string thisType = typeof(T).Name;
 
@@ -22,21 +22,21 @@ namespace Extensions
             T TryOnComponent(Component comp)
             {
                 if (comp.TryGetComponent<T>(out T found)) return found;
-                obj.Error($"Failed to TryGet {thisType} on {found}");
+                obj.Error($"Failed to Get {thisType} on {found}");
                 return null;
             }
 
             T TryOnGameObject(GameObject go)
             {
                 if (go.TryGetComponent<T>(out T found)) return found;
-                go.Error($"Failed to TryGet{thisType} on {found}");
+                go.Error($"Failed to Get{thisType} on {found}");
 
                 return null;
             }
 
             object CannotTryGet(object obj)
             {
-                obj.Error($"Failed to Tryget {thisType} on {obj}");
+                obj.Error($"Failed to Get {thisType} on {obj}");
                 return null;
             }
         }

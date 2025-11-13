@@ -68,7 +68,7 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
         referencer.pickupPlayer.Play(pickupSound);
 
         pickedUpEvent?.InvokeWithCondition(mono: this);
-        this.TryGet<MeshRenderer>().enabled = false;
+        this.Get<MeshRenderer>().enabled = false;
         transform.Children().ToList().ForEach(c => c.SetActive(false));
         Destroy(gameObject);
     }

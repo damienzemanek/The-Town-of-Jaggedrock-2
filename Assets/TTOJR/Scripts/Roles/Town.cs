@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 
+[DefaultExecutionOrder(300)]
 public class Town : RuntimeInjectableMonoBehaviour
 {
     [SerializeField][Inject] public EntityControls player;
@@ -37,15 +38,17 @@ public class Town : RuntimeInjectableMonoBehaviour
         set => _distToPlayer = value;
     }
 
+    protected override void OnInstantiate()
+    {
+        base.OnInstantiate();
+        playerObj = player.gameObject;
+    }
+
     private void Start()
     {
         hasSpawnedInCorruptedAlready = false;
     }
 
-    private void Awake()
-    {
-        playerObj = player.gameObject;
-    }
 
     private void OnEnable()
     {
@@ -115,28 +118,28 @@ public class Town : RuntimeInjectableMonoBehaviour
 
     public void EnableCorruptedFunctionality()
     {
-        var dialauge = this.TryGet<Dialuage>();
-        var npcMovement = this.TryGet<NPC_Movement>();
-        var dialaugeActor = this.TryGet<DialogueActor>();
-        var dialaugeTree = this.TryGet<DialogueTreeController>();
-        var cbd = this.TryGet<CallbackDetector>();
+        var dialauge = this.Get<Dialuage>();
+        var npcMovement = this.Get<NPC_Movement>();
+        var dialaugeActor = this.Get<DialogueActor>();
+        var dialaugeTree = this.Get<DialogueTreeController>();
+        var cbd = this.Get<CallbackDetector>();
 
         dialaugeTree.enabled = false;
         dialaugeActor.enabled = false;
         dialauge.enabled = false;
         npcMovement.enabled = false;
         cbd.enabled = false;
-        this.TryGet<Dialuage>().SetTalkEffectsActive(false);
-        this.TryGet<NavMeshAgent>().speed = baseCorruptedSpeed;
+        this.Get<Dialuage>().SetTalkEffectsActive(false);
+        this.Get<NavMeshAgent>().speed = baseCorruptedSpeed;
     }
 
     public void DisableCorruptedFunctionality()
     {
-        var dialauge = this.TryGet<Dialuage>();
-        var npcMovement = this.TryGet<NPC_Movement>();
-        var dialaugeActor = this.TryGet<DialogueActor>();
-        var dialaugeTree = this.TryGet<DialogueTreeController>();
-        var cbd = this.TryGet<CallbackDetector>();
+        var dialauge = this.Get<Dialuage>();
+        var npcMovement = this.Get<NPC_Movement>();
+        var dialaugeActor = this.Get<DialogueActor>();
+        var dialaugeTree = this.Get<DialogueTreeController>();
+        var cbd = this.Get<CallbackDetector>();
 
 
         dialaugeTree.enabled = true;
@@ -144,7 +147,7 @@ public class Town : RuntimeInjectableMonoBehaviour
         dialauge.enabled = true;
         npcMovement.enabled = true;
         cbd.enabled = true;
-        this.TryGet<NavMeshAgent>().speed = regularSpeed;
+        this.Get<NavMeshAgent>().speed = regularSpeed;
 
     }
 

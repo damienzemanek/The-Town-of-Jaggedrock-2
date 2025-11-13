@@ -38,7 +38,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
 
     void ResetAll()
     {
-        flickerObjs.ToList().ForEach(o => o.TryGet<ComponentFlicker>().FlickerDeactivate());
+        flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
         currentEvent = null;
     }
 
@@ -68,6 +68,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
         if (!resident) this.Error("No resident has been set");
         resident.IncreaseCorruption();
         StopCorruption();
+        CorruptionManager.instance.onCorrupted?.Invoke();
     }
 
     #region Methods
@@ -97,27 +98,27 @@ public class CrowEffigyEvent : CorruptEvent
     {
         room = null;
         loc.searchables.ForEach(s => s.AddComponent<Searchable>().timeToComplete = timeToSearch);
-        room = GameObject.Instantiate(original: cursedAreaPrefab, loc.cursedAreaSpawnLoc).TryGet<CursedRoom>();
-        Searchable correctSearchable = loc.searchables.Rand().TryGet<Searchable>();
+        room = GameObject.Instantiate(original: cursedAreaPrefab, loc.cursedAreaSpawnLoc).Get<CursedRoom>();
+        Searchable correctSearchable = loc.searchables.Rand().Get<Searchable>();
         correctSearchable.SetAsCorrect(() => SpawnEffigy(loc ,correctSearchable, room));
         this.Log($"Corrupted location {loc.name}, searchable {correctSearchable.name}");
 
-        loc.flickerObjs.ToList().ForEach(o => o.TryGet<ComponentFlicker>().FlickerActivate());
+        loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerActivate());
 
         return this;
     }
 
     void SpawnEffigy(CorruptonLocation loc ,Searchable correctSearchable, CursedRoom room)
     {
-        CrowEffigy effigy = GameObject.Instantiate(crowEffigyPrefab, correctSearchable.foundLoc).TryGet<CrowEffigy>();
+        CrowEffigy effigy = GameObject.Instantiate(crowEffigyPrefab, correctSearchable.foundLoc).Get<CrowEffigy>();
         effigy.room = room;
         effigy.DestroyedHook.AddListener(loc.StopCorruption);
     }
 
     public override void StopCorrupt(CorruptonLocation loc)
     {
-        loc.searchables.ForEach(s => s.TryGet<Searchable>().ComponentReset());
-        loc.flickerObjs.ToList().ForEach(o => o.TryGet<ComponentFlicker>().FlickerDeactivate());
+        loc.searchables.ForEach(s => s.Get<Searchable>().ComponentReset());
+        loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
         GameObject.Destroy(room.gameObject);
     }
 
@@ -132,7 +133,7 @@ public class SacrificeEvent : CorruptEvent
 
     public override CorruptEvent StartCorrupt(CorruptonLocation loc)
     {
-        loc.flickerObjs.ToList().ForEach(o => o.TryGet<ComponentFlicker>().FlickerActivate());
+        loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerActivate());
         Spawn(loc);
 
         return this;
@@ -140,13 +141,13 @@ public class SacrificeEvent : CorruptEvent
 
     void Spawn(CorruptonLocation loc)
     {
-        Sacrifice sacrifice = GameObject.Instantiate(sacrificePrefab, loc.sacrificeSpawnLoc).TryGet<Sacrifice>();
+        Sacrifice sacrifice = GameObject.Instantiate(sacrificePrefab, loc.sacrificeSpawnLoc).Get<Sacrifice>();
         sacrifice.stoppedHook.AddListener(loc.StopCorruption);
     }
 
     public override void StopCorrupt(CorruptonLocation loc)
     {
-        loc.flickerObjs.ToList().ForEach(o => o.TryGet<ComponentFlicker>().FlickerDeactivate());
+        loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
     }
 
 

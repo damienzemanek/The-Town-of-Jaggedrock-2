@@ -43,7 +43,10 @@ public class EvilInformationManager : MonoBehaviour
     public void SelectCoven()
     {
         if (covenSelected) return;
-        GameObject randTown = despawner.spawnedNPCs.Where(npc => npc.Has<Town>())
+
+        this.Log("" + despawner.disabledNPCs.Count);
+
+        GameObject randTown = despawner.disabledNPCs.Where(npc => npc.Has<Town>())
             .ToList()
             .Rand();
 

@@ -73,6 +73,9 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         initialIntensity = dayLight.intensity;
         periods = new List<Period>();
         if (newPeriodHook == null) newPeriodHook = new UnityEvent();
+
+        if (OnNightStart == null) OnNightStart = new();
+        if(OnDayStart == null) OnDayStart = new();
     }
 
     public void TakeOnNightEvents(List<UnityEventPlus> events)
@@ -144,7 +147,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
 
     void Transition()
     {
-        FadeScreen fade = controls.TryGet<FadeScreen>();
+        FadeScreen fade = controls.Get<FadeScreen>();
 
         fade.FadeInAndOutCallback(
             (isDay) ? SetToNight : SetToDay, 

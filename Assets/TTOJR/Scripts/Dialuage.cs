@@ -48,18 +48,20 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     protected override void OnInstantiate()
     {
         base.OnInstantiate();
-        detector = this.TryGet<CallbackDetector>();
-        movement = this.TryGet<NPC_Movement>();
-        agent = this.TryGet<NavMeshAgent>();
-        dialaugeController = this.TryGet<DialogueTreeController>();
-        dialaugeChooser = this.TryGet<DialaugeChooser>();
-        actor = this.TryGet<DialogueActor>();
+        detector = this.Get<CallbackDetector>();
+        movement = this.Get<NPC_Movement>();
+        agent = this.Get<NavMeshAgent>();
+        dialaugeController = this.Get<DialogueTreeController>();
+        dialaugeChooser = this.Get<DialaugeChooser>();
+        actor = this.Get<DialogueActor>();
         AssignValuesForCallbackDetector("Talk (E)");
         AssignDialaugeActorName();
 
         if (needsTalkingEffect == null) needsTalkingEffect = Instantiate(needsTalkingEffectPrefab, effectLoc).SetActiveThen(false);
         if (isTalkingEffect == null) isTalkingEffect = Instantiate(isTalkingEffectPrefab, effectLoc).SetActiveThen(false);
     }
+
+    public void Init() => OnInstantiate();
 
     private void OnEnable()
     {
@@ -113,8 +115,8 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     void TogglePlayerMovement(bool val) => playerControls.canMove = val;
     void TalkeeLooksAtMe()
     {
-        Look look = playerControls.TryGet<Look>();
-        Inventory inv = playerControls.TryGet<Inventory>();
+        Look look = playerControls.Get<Look>();
+        Inventory inv = playerControls.Get<Inventory>();
 
         playerControls.headDirection.transform.LookAt(transform.position.With(y: 3));
         look.ToggleCursorUsability(true);
@@ -129,8 +131,8 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     }
     void StopDialauge(bool success)
     {
-        Look look = playerControls.TryGet<Look>();
-        Inventory inv = playerControls.TryGet<Inventory>();
+        Look look = playerControls.Get<Look>();
+        Inventory inv = playerControls.Get<Inventory>();
 
         TogglePlayerMovement(true);
         look.ToggleCursorUsability(false);

@@ -63,7 +63,7 @@ public class DialaugeChooser : MonoBehaviour
 
     private void Awake()
     {
-        dialuage = this.TryGet<Dialuage>();
+        dialuage = this.Get<Dialuage>();
     }
 
 

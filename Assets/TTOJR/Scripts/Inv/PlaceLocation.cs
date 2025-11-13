@@ -17,7 +17,7 @@ public class PlaceLocation : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     {
         base.OnInstantiate();
         BuildDetector();
-        invUpdater = this.TryGet<InventoryUpdater>();
+        invUpdater = this.Get<InventoryUpdater>();
     }
 
     public void Place(GameObject go)

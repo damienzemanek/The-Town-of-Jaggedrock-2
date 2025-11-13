@@ -21,6 +21,7 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     [TabGroup("Data")] public List<SO_Person> townieData;
     [TabGroup("Data"), ReadOnly] public List<SO_Person> usedTownieData;
 
+    [SerializeField] bool initialSpawnComplete = false;
     [SerializeField] float delayBetweenSpawns;
     [SerializeField] float delayToStartSpawning;
     [SerializeField] int townPopulationWithCov;
@@ -39,11 +40,26 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
         rolePrefabs.Ensure();
         townieData.Ensure();
         if (spawningCompleteHook == null) spawningCompleteHook = new();
+
     }
 
     private void Start()
     {
         if (spawnArea == null) throw new System.Exception("NPC_Spawner: spawn area not set");
+        //need to wait until the time cycle sets it to day
+        this.DelayedCall(() =>
+        {
+            InitialSpawn();
+            spawningCompleteHook?.Invoke();
+        }, 0.1f);
+    }
+
+    void InitialSpawn()
+    {
+        if (initialSpawnComplete) return;
+        SpawnTownies();
+        SpawnRoles();
+        initialSpawnComplete = true;
     }
 
 
@@ -52,8 +68,10 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
         for (int i = 0; i < townPopulationWithCov; i++)
         {
             GameObject spawnedTownie = InstantiateNPC(townPrefab).gameObject.SetActiveThen(false);
-            spawnedTownie.TryGet<Dialuage>().so_person = usedTownieData.RandAndRemove();
-            despawner.SaveToBeDespawned(spawnedTownie);
+            spawnedTownie.Get<Dialuage>().so_person = usedTownieData.RandAndRemove();
+            spawnedTownie.Get<Dialuage>().Init();
+
+            despawner.SaveAsDespawned(spawnedTownie);
         }
     }
 
@@ -62,7 +80,8 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
         for (int i = 0; i < rolePrefabs.Count; i++)
         {
             GameObject spawnedRole = InstantiateNPC(rolePrefabs[i]).gameObject.SetActiveThen(false);
-            despawner.SaveToBeDespawned(spawnedRole);
+            spawnedRole.Get<Dialuage>().Init();
+            despawner.SaveAsDespawned(spawnedRole);
         }
     }
 
@@ -82,15 +101,6 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     void StartSpawning()
     {
 
-        SpawnTownies();
-        SpawnRoles();
-
-        for (int i = 0; i < townPopulationWithCov; i++)
-            despawner.SaveToBeDespawned(InstantiateNPC(townPrefab).gameObject.SetActiveThen(false));
-
-        spawningCompleteHook?.Invoke();
-
-
         StartCoroutine(C_SpawningCycle());
 
     }
@@ -100,29 +110,39 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
         currentSpawnedResidents = 0;
         yield return new WaitForSeconds(delayToStartSpawning);
 
-        while (currentSpawnedResidents < despawner.spawnedNPCs.Count)
+        int amountToSpawn = despawner.disabledNPCs.Count;
+        while(currentSpawnedResidents < amountToSpawn)
         {
-            Spawn(despawner.spawnedNPCs[currentSpawnedResidents]);
+            this.Log($"Attempting to spawn {despawner.disabledNPCs[0].name}");
+
+            Spawn(despawner.disabledNPCs[0]);
             yield return new WaitForSeconds(delayBetweenSpawns);
             currentSpawnedResidents++;
+
         }
 
-        this.Log("Spawning Hook");
+
+        this.Log("Spawning complete");
+
     }
 
     void Spawn(GameObject prefab)
     {
         NPC_Movement newNPC;
 
-        if (despawner.TryGetFromPool(prefab, out GameObject pooled))
-            newNPC = PoolEnable(pooled);
-        else
-        {
-            newNPC = InstantiateNPC(prefab);
-            despawner.SaveToBeDespawned(newNPC.gameObject);
-        }
+        if (!despawner.TryGetFromPool(prefab, out GameObject pooled)) return;
+       
+        newNPC = PoolEnable(pooled);
 
-        SpawnNPCAtSpawnPoint(newNPC.gameObject);
+        //Role characters dont have iis
+        if(!newNPC.Has(out IdentifiableInformationSystem iis)) SpawnNPCAtSpawnPoint(newNPC.gameObject);
+        
+        //townies that are not residents
+        if(newNPC.Has(out Town town))
+            if (town.Get<IdentifiableInformationSystem>().isResident == false)
+                SpawnNPCAtSpawnPoint(newNPC.gameObject);
+
+
         if (newNPC.isActiveAndEnabled) newNPC.UseSpawnArea(spawnArea);
         else this.Log("New NPC was set false");
     }
@@ -141,8 +161,8 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
 
     NPC_Movement PoolEnable(GameObject pooledNPC)
     {
-        this.Log($"Enabling {pooledNPC.TryGet<Dialuage>().personName}");
-        return pooledNPC.SetActiveThen(true).TryGet<NPC_Movement>();
+        this.Log($"Enabling {pooledNPC.Get<Dialuage>().personName}");
+        return pooledNPC.SetActiveThen(true).Get<NPC_Movement>();
     }
 
     void SpawnNPCAtSpawnPoint(GameObject newNPC) => NavEX.Teleport(spawnPoint, newNPC, out _);

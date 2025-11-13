@@ -43,7 +43,7 @@ public class Photographer : RuntimeInjectableMonoBehaviour, IDependencyProvider,
     protected override void OnInstantiate()
     {
         base.OnInstantiate();
-        locations = this.TryGet<LocationRandomizer>();
+        locations = this.Get<LocationRandomizer>();
     }
 
     private void OnEnable()

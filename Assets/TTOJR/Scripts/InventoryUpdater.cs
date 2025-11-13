@@ -16,7 +16,7 @@ public class InventoryUpdater : MonoBehaviour
 
     private void Start()
     {
-        if (detector == null) detector = this.TryGet<PreRequisiteCallbackDetector>();
+        if (detector == null) detector = this.Get<PreRequisiteCallbackDetector>();
         if (itemDataPhases == null) this.Error("Item data phases not set");
         if (!detector.lookingForChangesToItem) this.Error("Prereq detector looking for changes to item is null");
 

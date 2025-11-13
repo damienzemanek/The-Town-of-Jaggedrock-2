@@ -14,7 +14,7 @@ public class CursedRoom : RuntimeInjectableMonoBehaviour
 
     private void Start()
     {
-        frostEffect = referencer.frostEffect.TryGet<ParticleSystem>();
+        frostEffect = referencer.frostEffect.Get<ParticleSystem>();
         OutOfRange();
         cursed = true;
     }

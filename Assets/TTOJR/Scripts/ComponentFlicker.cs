@@ -31,7 +31,7 @@ public class ComponentFlicker : MonoBehaviour
 
     private void Awake()
     {
-        if(componentFlicker) light = this.TryGet<Light>();
+        if(componentFlicker) light = this.Get<Light>();
         children = new GameObject[transform.childCount];
         children.FillWithChildren(gameObject);
         if (componentFlicker) light.enabled = leaveOn;

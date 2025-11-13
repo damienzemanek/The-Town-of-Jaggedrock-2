@@ -10,19 +10,19 @@ public class FadeScreen : MonoBehaviour
     public float incrementDelay = 0.03f;
     public float fadeStep = 0.02f;
 
-    public void FadeToBlack()
+    public void FadeToBlack(Action? posthook = null)
     {
-        StartCoroutine(C_FadeToBlack());
+        StartCoroutine(C_FadeToBlack(posthook));
     }
 
-    public void FadeToVisible()
+    public void FadeToVisible(Action? posthook = null)
     {
-        StartCoroutine(C_FadeToVisible());
+        StartCoroutine(C_FadeToVisible(posthook));
     }
 
-    public void FadeInAndOut()
+    public void FadeInAndOut(Action? posthook = null)
     {
-        StartCoroutine(C_FadeInAndOut());
+        StartCoroutine(C_FadeInAndOut(posthook));
     }
     public void FadeInAndOutCallback(Action? prehook = null, Action? midhook = null, Action? posthook = null, float? blackScreenTime = 0f)
     {
@@ -49,7 +49,7 @@ public class FadeScreen : MonoBehaviour
     IEnumerator C_FadeToBlack(Action? posthook = null)
     {
         isFading = true;
-        Color fade = Color.black;
+        Color fade = panel.color;
         fade.a = 0;
         float increment = 0;
         while (increment < 0.95f)
@@ -68,7 +68,7 @@ public class FadeScreen : MonoBehaviour
     IEnumerator C_FadeToVisible(Action? posthook = null)
     {
         isFading = true;
-        Color fade = Color.black;
+        Color fade = panel.color;
         fade.a = 1;
         float increment = 1;
         while (increment > 0.05f)
