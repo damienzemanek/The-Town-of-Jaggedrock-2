@@ -11,21 +11,33 @@ public class NPC_Corrupted : MonoBehaviour
     #region Privates
     [SerializeField] GameObject attackObj;
     [SerializeField] float attackLength;
-    [SerializeField] AudioPlay attackAudioPlayer;
+    [SerializeField] AudioPlay audioPlay;
     [SerializeField] AudioClip[] attackAudioClips;
+    [SerializeField] AudioClip[] growlAmbienceClips;
+
     bool attacking = false;
 
     #endregion
 
     private void Awake()
     {
-        attackAudioPlayer = this.TryGetOrAdd<AudioPlay>();
+        audioPlay = this.TryGetOrAdd<AudioPlay>();
         if (attackAudioClips == null || attackAudioClips.Length == 0) this.Error("Attack audio clips need setting");
     }
 
     private void OnEnable()
     {
         attackObj.SetActive(false);
+        StartCoroutine(C_CorruptedAmbienceNoises());
+    }
+
+    public IEnumerator C_CorruptedAmbienceNoises()
+    {
+        while (gameObject.activeInHierarchy)
+        {
+            yield return new WaitForSeconds(EnumerateEX.Rand(3, 5));
+            audioPlay.PlayRand(growlAmbienceClips);
+        }
     }
 
     public void Attack()
@@ -39,7 +51,7 @@ public class NPC_Corrupted : MonoBehaviour
 
         attacking = true;
         attackObj.SetActive(true);
-        attackAudioPlayer.PlayRand(attackAudioClips);
+        audioPlay.PlayRand(attackAudioClips);
         yield return new WaitForSeconds(attackLength);
         attackObj.SetActive(false);
         attacking = false;

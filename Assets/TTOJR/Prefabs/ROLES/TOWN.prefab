@@ -267,7 +267,7 @@ MonoBehaviour:
   retryCooldown: 1.5
   nextRetryTime: 0
   stopCheckProgressValue: 0
-  lastAreaInContact: {fileID: 0}
+  area: {fileID: 0}
 --- !u!114 &5011224887782839587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,10 +652,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackObj: {fileID: 8644977704012163356}
   attackLength: 1
-  attackAudioPlayer: {fileID: 0}
+  audioPlay: {fileID: 0}
   attackAudioClips:
-  - {fileID: 8300000, guid: 2cb5280dab017a94093353f2dbf8c9b2, type: 3}
   - {fileID: 8300000, guid: a5a35712c9fff64468c177bfd9c74894, type: 3}
+  growlAmbienceClips: []
 --- !u!114 &7709756697095318383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,6 +926,7 @@ GameObject:
   - component: {fileID: 6672274188335248707}
   - component: {fileID: 557680117743130743}
   - component: {fileID: 6706403521126799476}
+  - component: {fileID: 7076918896342179690}
   m_Layer: 7
   m_Name: atkobj
   m_TagString: Untagged
@@ -1016,9 +1017,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7076918896342179690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644977704012163356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619b27dd16894554e9875a7ef8665886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

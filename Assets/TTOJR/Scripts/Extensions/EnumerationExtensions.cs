@@ -14,6 +14,11 @@ namespace Extensions
             return UnityEngine.Random.Range(v.x, v.y);
         }
 
+        public static float Rand(float min, float max)
+        {
+            return UnityEngine.Random.Range(min, max);
+        }
+
         #region Privates
 
         #endregion
