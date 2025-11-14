@@ -150,12 +150,6 @@ public class Town : RuntimeInjectableMonoBehaviour
 
     }
 
-    public void BecomeResident()
-    {
-
-    }
-
-
     #region Methods
         
     #endregion

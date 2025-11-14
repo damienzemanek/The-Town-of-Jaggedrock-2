@@ -30,8 +30,11 @@ public class StandHere : ActionDo
     IEnumerator Stand(NPC_Area area)
     {
         this.Log($"(Standing) at area {area.gameObject.name}");
-        agent.isStopped = true;
-        agent.velocity = Vector3.zero;
+        if (agent.isOnNavMesh)
+        {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+        }
         float standFor = UnityEngine.Random.Range(minInclusive: timeStanding.x, timeStanding.y);
         yield return new WaitForSeconds(seconds: standFor);
         fromChoices.DoAnAction(area);

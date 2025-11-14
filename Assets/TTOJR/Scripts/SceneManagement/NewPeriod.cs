@@ -30,7 +30,8 @@ public class NewPeriod : RuntimeInjectableMonoBehaviour, IAssigner
 
     void PlayNewPeriodAudios()
     {
-        if (timeCy.IsDay())
+        //Swapped cause it has not yet switched (its called in the prehook, the actual new period is called in the midhook)
+        if (timeCy.IsNight())
         {
             this.DelayedCall(() => 
             play.PlayForSeconds(
@@ -38,7 +39,7 @@ public class NewPeriod : RuntimeInjectableMonoBehaviour, IAssigner
             timeCy.blackScreenTime + 9f, //Go over slightly
             80), delayToPlayAudio);
         }
-        if (timeCy.IsNight())
+        if (timeCy.IsDay())
         {
             play.PlayForSeconds(
             newNightAudio,

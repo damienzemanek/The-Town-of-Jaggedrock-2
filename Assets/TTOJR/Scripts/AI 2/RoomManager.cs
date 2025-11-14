@@ -91,7 +91,14 @@ public class RoomManager : MonoBehaviour
         residents.Add(new ResidentWithRoom(npc, room));
     }
 
-    public void TeleportBackToRooms() => residents.ForEach(r => r.SendToRoom());
+    public void TeleportBackToRooms()
+    {
+        residents.ForEach(r =>
+        {
+            r.SendToRoom();
+            r.resident.Get<NPC_Movement>().area = r.room.area;
+        });
+    }
 
     #region Methods
 

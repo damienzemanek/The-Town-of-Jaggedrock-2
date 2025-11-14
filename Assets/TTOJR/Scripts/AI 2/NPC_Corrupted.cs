@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using DependencyInjection;
 using Extensions;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,7 @@ public class NPC_Corrupted : MonoBehaviour
 {
 
     #region Privates
+    [ShowInInspector, ReadOnly] Town town;
     [SerializeField] GameObject attackObj;
     [SerializeField] float attackLength;
     [SerializeField] AudioPlay audioPlay;
@@ -21,6 +23,7 @@ public class NPC_Corrupted : MonoBehaviour
 
     private void Awake()
     {
+        town = this.Get<Town>();
         audioPlay = this.TryGetOrAdd<AudioPlay>();
         if (attackAudioClips == null || attackAudioClips.Length == 0) this.Error("Attack audio clips need setting");
     }
@@ -28,15 +31,17 @@ public class NPC_Corrupted : MonoBehaviour
     private void OnEnable()
     {
         attackObj.SetActive(false);
-        StartCoroutine(C_CorruptedAmbienceNoises());
+        if(town.corrupted) StartCoroutine(C_CorruptedAmbienceNoises());
     }
 
     public IEnumerator C_CorruptedAmbienceNoises()
     {
         while (gameObject.activeInHierarchy)
         {
-            yield return new WaitForSeconds(EnumerateEX.Rand(3, 5));
-            audioPlay.PlayRand(growlAmbienceClips);
+            AudioClip audio = growlAmbienceClips.Rand();
+
+            yield return new WaitForSeconds(audio.length);
+            audioPlay.Play(audio);
         }
     }
 

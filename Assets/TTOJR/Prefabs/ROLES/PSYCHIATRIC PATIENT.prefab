@@ -261,7 +261,7 @@ MonoBehaviour:
   retryCooldown: 1.5
   nextRetryTime: 0
   stopCheckProgressValue: 0
-  lastAreaInContact: {fileID: 0}
+  area: {fileID: 0}
 --- !u!114 &5011224887782839587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,10 +392,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
   _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"conditions":[null],"_UID":"3dbe52a7-48a7-40c7-b394-9c6573369dd0","_position":{"x":617.0597,"y":-44.47571},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"0"},{"_action":{"method":{"_baseInfo":"DialaugeChooser|SetDialaugeChoice|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_UID":"30553741-2224-424e-a4bb-ebc994c5374c","_position":{"x":574.9299,"y":72.16531},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"1"},{"conditions":[{"valueA":{"_name":"initialChatComplete","_targetVariableID":"64e09dd7-b5ac-42c0-a672-486bdf9bdac3"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},null],"_UID":"1dfb8320-5a80-4534-866f-aeceeba4713d","_position":{"x":623.4867,"y":170.7624},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_UID":"43d506ae-6ba6-4658-840c-50b99077ac73","_position":{"x":146.0,"y":-17.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"What
-    do you want..?"},"_position":{"x":128.0,"y":84.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"statement":{"_text":"Go
-    away. I don''t talk anyone"},"_position":{"x":90.0,"y":183.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"_action":{"boolVariable":{"_name":"initialChatComplete","_targetVariableID":"64e09dd7-b5ac-42c0-a672-486bdf9bdac3"},"$type":"NodeCanvas.Tasks.Actions.SetBoolean"},"_position":{"x":100.0,"y":272.0},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"6"},{"statement":{"_text":"I
-    thought I said go away"},"_position":{"x":581.9935,"y":336.4632},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"statement":{"_text":"Or
-    else I''ll gut you like a dog"},"_position":{"x":579.2144,"y":419.2931},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"8"},{"conditions":[],"_position":{"x":641.0,"y":534.0},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"9"},{"childOptions":[{"weight":{"_value":1.0}},{"weight":{"_value":1.0}},{"weight":{"_value":1.0}},{"weight":{"_value":1.0}}],"_UID":"f52d8c5e-0527-4884-963b-4948ce98772d","_position":{"x":-1692.607,"y":771.7872},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"10"},{"statement":{"_text":"I
+    do you want..?"},"_position":{"x":129.0,"y":90.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"statement":{"_text":"Go
+    away."},"_position":{"x":90.0,"y":185.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"_action":{"boolVariable":{"_name":"initialChatComplete","_targetVariableID":"64e09dd7-b5ac-42c0-a672-486bdf9bdac3"},"$type":"NodeCanvas.Tasks.Actions.SetBoolean"},"_position":{"x":100.0,"y":272.0},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"6"},{"statement":{"_text":"I
+    thought I said go away"},"_position":{"x":581.9937,"y":336.4633},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"statement":{"_text":"I''ll
+    only talk to you if you give me something I want."},"_position":{"x":580.3991,"y":419.2931},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"8"},{"conditions":[],"_position":{"x":641.0,"y":534.0},"$type":"NodeCanvas.DialogueTrees.MultipleConditionNode","$id":"9"},{"childOptions":[{"weight":{"_value":1.0}},{"weight":{"_value":1.0}},{"weight":{"_value":1.0}},{"weight":{"_value":1.0}}],"_UID":"f52d8c5e-0527-4884-963b-4948ce98772d","_position":{"x":-1692.607,"y":771.7872},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"10"},{"statement":{"_text":"I
     don''t like the way your looking at me"},"_UID":"3fd43edb-ad3f-4857-bf29-394563d6db79","_position":{"x":-2188.643,"y":977.9683},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"11"},{"statement":{"_text":"Cursed
     be you. Leave me."},"_UID":"4c80cdd5-de90-496d-b467-b8741e234033","_position":{"x":-2184.085,"y":828.3414},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"12"},{"statement":{"_text":"Don''t
     talk to me man..."},"_UID":"56f3d34f-63b2-4a8e-992e-7e8cf2b3bb63","_position":{"x":-2161.103,"y":753.8575},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"},{"statement":{"_text":"Go
@@ -423,8 +423,8 @@ MonoBehaviour:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 211.56468, y: 141.52216}
-    _zoomFactor: 0.5749054
+    _translation: {x: -55, y: 200}
+    _zoomFactor: 0.84414977
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2

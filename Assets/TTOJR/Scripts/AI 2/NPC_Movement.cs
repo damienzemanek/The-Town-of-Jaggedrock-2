@@ -18,7 +18,6 @@ public class NPC_Movement : RuntimeInjectableMonoBehaviour
     public bool usingArea = false;
     public float stuckTimeout = 8f;
     public float retryCooldown = 1.5f;
-    [ReadOnly] public float nextRetryTime = 0f;
     [ReadOnly] public float stopCheckProgressValue = 0f;
     [ReadOnly] public NPC_Area area;
 
@@ -49,7 +48,6 @@ public class NPC_Movement : RuntimeInjectableMonoBehaviour
         if (agent.pathPending) return;
 
         StartCoroutine(UseArea(area));
-        nextRetryTime = Time.time + retryCooldown;
         stopCheckProgressValue = 0f;
     }
     
@@ -76,7 +74,7 @@ public class NPC_Movement : RuntimeInjectableMonoBehaviour
 
         CheckIfStoppedSetStopped();
 
-        if(Time.time >= nextRetryTime)
+        if(Time.time >= stuckTimeout)
         {
             if (stopped) TryUseArea();
             else if (stopCheckProgressValue > stuckTimeout)

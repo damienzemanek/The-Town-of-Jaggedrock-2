@@ -109,7 +109,6 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
 
     IEnumerator C_SpawningCycle()
     {
-        currentSpawnedResidents = 0;
         yield return new WaitForSeconds(delayToStartSpawning);
 
 
@@ -117,30 +116,40 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
 
         //Spawn half the people at night
         if (time.IsNight())
+        {
+            this.Log("Spawning half, it is night");
             amountToSpawn = (maxPeoplePerPeriod / 2) - 1;
+
+        }
+        currentSpawnedResidents = 0;
+
+        //Spawn roles first
+        List<GameObject> roles = despawner.disabledNPCs.Where(n => !n.Has<Town>()).ToList();
+        this.Log($"Spawning roles: we have {roles.Count} many");
+        roles.ForEach(r =>
+        {
+            Spawn(r);
+            currentSpawnedResidents++;
+            this.Log($"Spawning {r.name}, this is number {currentSpawnedResidents}");
+        });
+
+        yield return null;
 
 
         while (currentSpawnedResidents < amountToSpawn)
         {
-            this.Log($"Attempting to spawn {despawner.disabledNPCs[0].name}");
-
-            //Spawn roles first
-            List<GameObject> roles = despawner.disabledNPCs.Where(n => !n.Has<Town>()).ToList();
-            roles.ForEach(r =>
-            {
-                Spawn(r);
-                currentSpawnedResidents++;
-            });
+            GameObject npcToSpawn = despawner.disabledNPCs.Rand();
 
             //Then spawn townies
-            Spawn(despawner.disabledNPCs.Rand());
-            yield return new WaitForSeconds(delayBetweenSpawns);
+            Spawn(npcToSpawn);
+            this.Log($"Spawning : {npcToSpawn.name}, this is number {currentSpawnedResidents}");
             currentSpawnedResidents++;
+            yield return new WaitForSeconds(delayBetweenSpawns);
 
         }
 
 
-        this.Log("Spawning complete");
+        this.Log($"Spawning complete, spawned {currentSpawnedResidents}, this is number {currentSpawnedResidents}");
 
     }
 
@@ -161,7 +170,12 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
                 SpawnNPCAtSpawnPoint(newNPC.gameObject);
 
 
-        if (newNPC.isActiveAndEnabled) newNPC.UseSpawnArea(spawnArea);
+        if (newNPC.isActiveAndEnabled)
+        {
+            this.Log("Npc spawned");
+            newNPC.area = spawnArea;
+            newNPC.UseSpawnArea(spawnArea);
+        }
         else this.Log("New NPC was set false");
     }
 

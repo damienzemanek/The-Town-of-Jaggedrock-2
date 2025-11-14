@@ -153,9 +153,14 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         float fadeTime = blackScreenTime;
         if (isDay) fadeTime += dayStartDisplayDelay;
 
+
         fade.FadeInAndOutCallback(
-            (isDay) ? SetToNight : SetToDay,
-            midhook: () => newPeriodHook?.Invoke(),
+            prehook: () => newPeriodHook?.Invoke(),
+            midhook: () =>
+            {
+                if (isDay) SetToNight();
+                else SetToDay();
+            },
             blackScreenTime: fadeTime
         );
 
