@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Extensions;
 using TMPro;
+using Sirenix.Utilities;
 
 public class TimeCycle : MonoBehaviour, IDependencyProvider
 {
@@ -63,7 +64,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     [Inject] EntityControls controls;
     [Provide] TimeCycle Provide() => this;
     public static TimeCycle instance;
-    public Light dayLight;
+    public List<Light> dayLights;
     public float nightIntensity = 0f;
     float initialIntensity;
 
@@ -73,7 +74,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     private void Awake()
     {
         instance = this;
-        initialIntensity = dayLight.intensity;
+        initialIntensity = dayLights[0].intensity;
         periods = new List<Period>();
         if (newPeriodHook == null) newPeriodHook = new UnityEvent();
 
@@ -174,7 +175,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         GetCurrentPeriod()?.Complete();
         isDay = false;
         NewNight();
-        dayLight.intensity = nightIntensity;
+        dayLights.ForEach(l => l.intensity = nightIntensity); 
         OnNightStart?.Invoke();
 
         if (night > 0 && night <= nightEvents.Count)
@@ -190,7 +191,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         GetCurrentPeriod()?.Complete();
         isDay = true;
         NewDay();
-        dayLight.intensity = initialIntensity;
+        dayLights.ForEach(l => l.intensity = initialIntensity);
         OnDayStart?.Invoke();
         if (day > 0 && day <= dayEvents.Count)
             dayEvents[day - 1]?.InvokeWithDelay(this);
@@ -237,7 +238,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         if (currentTime >= fadeStart)
         {
             float t = Mathf.InverseLerp(fadeStart, fadeEnd, currentTime);
-            dayLight.intensity = Mathf.Lerp(initialIntensity, nightIntensity, t);
+            dayLights.ForEach(l => l.intensity = Mathf.Lerp(initialIntensity, nightIntensity, t));
         }
     }
 
@@ -249,7 +250,7 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
         if (currentTime >= fadeStart)
         {
             float t = Mathf.InverseLerp(fadeStart, fadeEnd, currentTime);
-            dayLight.intensity = Mathf.Lerp(nightIntensity, initialIntensity, t);
+            dayLights.ForEach(l => l.intensity = Mathf.Lerp(nightIntensity, initialIntensity, t));
         }
     }
 
