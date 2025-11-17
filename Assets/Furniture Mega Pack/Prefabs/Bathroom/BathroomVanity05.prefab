@@ -129,6 +129,8 @@ GameObject:
   - component: {fileID: 3032065897253228360}
   - component: {fileID: 2250220479604794827}
   - component: {fileID: 3154671270952701553}
+  - component: {fileID: 5730994957345837298}
+  - component: {fileID: 5441649398249020925}
   m_Layer: 0
   m_Name: BathroomVanity05_model
   m_TagString: Untagged
@@ -207,6 +209,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5730994957345837298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425163788877657792}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010393561, y: 0.0046388544, z: 0.008897811}
+  m_Center: {x: 8.008078e-17, y: -2.6517544e-10, z: 0.0044489056}
+--- !u!208 &5441649398249020925
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425163788877657792}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.0050000004, y: 0.002, z: 0.004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.004}
+  m_TimeToStationary: 0.5
 --- !u!1 &4913016321265886819
 GameObject:
   m_ObjectHideFlags: 0

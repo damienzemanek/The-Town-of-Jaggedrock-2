@@ -301,6 +301,8 @@ GameObject:
   - component: {fileID: 2299018726760950538}
   - component: {fileID: 9036762507416413852}
   - component: {fileID: 563871411250948868}
+  - component: {fileID: 7473023387347663393}
+  - component: {fileID: 6020465773595953066}
   m_Layer: 0
   m_Name: Drawer40_Body
   m_TagString: Untagged
@@ -383,6 +385,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7473023387347663393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307537310979517229}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01570426, y: 0.0059269276, z: 0.01074238}
+  m_Center: {x: 0.00000000372529, y: 4.9475934e-10, z: 0.00537119}
+--- !u!208 &6020465773595953066
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307537310979517229}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.008, y: 0.003, z: 0.0050000004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.0050000004}
+  m_TimeToStationary: 0.5
 --- !u!1 &6328573556333434072
 GameObject:
   m_ObjectHideFlags: 0
