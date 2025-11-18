@@ -89,9 +89,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     {
         if (completedTalkingTo) return;
         StartDialauge();
-        DisableMyMovement();
         TogglePlayerMovement(false);
-        LookAtWhoImTalkingTo();
         TalkeeLooksAtMe();
         FreezeTime(true);
         EnableTalkingVisuals();
@@ -102,16 +100,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         needsTalkingEffect.SetActive(false);
         isTalkingEffect.SetActive(true);
     }
-    void LookAtWhoImTalkingTo()
-    {
-        transform.LookAtPosThenMyTransform(playerControls.transform.position.With(y: 0))
-            .WithEuler(x: 0, z: 0);
-    }
-    void DisableMyMovement()
-    {
-        movement.enabled = false;
-        agent.enabled = false;
-    }
+
 
     void TogglePlayerMovement(bool val) => playerControls.canMove = val;
     void TalkeeLooksAtMe()

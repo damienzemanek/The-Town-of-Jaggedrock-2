@@ -26,48 +26,12 @@ public class Room : MonoBehaviour
         tp = this.Get<Teleport>();
     }
 
-    private void OnEnable()
-    {
-        time.OnDayStart.AddListener(GoOutsideRoom);
-    }
-
-    private void OnDisable()
-    {
-        time.OnDayStart.RemoveListener(GoOutsideRoom);
-    }
-
     public void SetResident(Town _resident)
     {
         tp.objToTeleport = _resident.gameObject;
         resident = _resident;
-        AssignResidentToLocations();
     }
 
-    void AssignResidentToLocations()
-    {
-        List<IResidentLocation> locations = gameObject.GetComponentsInChildren<MonoBehaviour>()
-            .OfType<IResidentLocation>()
-            .ToList();
-
-        if(locations != null && locations.Count > 0) 
-            locations.ForEach(l => l.resident = resident);
-
-    }
-
-    public void TelportBack() => tp.DoTeleport();
-
-    public void GoOutsideRoom()
-    {
-        if (!resident) return;
-
-        if (!resident.gameObject.Has(out NPC_Movement npc))
-        {
-            this.Log("EARLY RETURN: Did not find a room");
-            return;
-        }
-        npc.area = outsideRoomArea;
-        npc.agent.SetDestination(outsideRoomArea.GetARandLocation());
-    }
 
     #region Methods
         

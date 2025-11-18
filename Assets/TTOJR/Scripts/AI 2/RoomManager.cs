@@ -33,7 +33,6 @@ public class RoomManager : MonoBehaviour
             room = _room;
         }
 
-        public void SendToRoom() => room.TelportBack();
     }
 
     private void Awake()
@@ -96,9 +95,7 @@ public class RoomManager : MonoBehaviour
     {
         foreach(ResidentWithRoom r in residents)
         {
-            r.SendToRoom();
-            r.resident.Get<NPC_Movement>().area = r.room.tpBackArea;
-            r.resident.Get<NPC_Movement>().DirectUseArea(r.room.outsideRoomArea);
+
         }
     }
 
