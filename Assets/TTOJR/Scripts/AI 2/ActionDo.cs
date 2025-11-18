@@ -8,11 +8,28 @@ using Extensions;
 [Serializable]
 public abstract class ActionDo 
 {
+    [SerializeField] public bool complete = false;
+
     [field: HideInInspector] [field:ReadOnly] [field:SerializeField] public NavMeshAgent agent { get; protected set; }
     [field: HideInInspector][field: ReadOnly][field: SerializeField] public NPC_Movement NPC_Movement { get; protected set; }
     [field:HideInInspector][field: SerializeField] public ActionChoices fromChoices { get; set; }
 
-    public abstract void Execute(NPC_Area area);
+    public ActionDo(ActionDo orig)
+    {
+        complete = false;
+        agent = orig.agent;
+        NPC_Movement = orig.NPC_Movement;
+        fromChoices = orig.fromChoices;
+    }
+
+    public void Execute(NPC_Area area)
+    {
+        complete = false;
+        ExecuteImplement(area);
+    }
+
+    public abstract void ExecuteImplement(NPC_Area area);
+
     public void SetAgent(NavMeshAgent agent) => this.agent = agent;
     public void SetResident(NPC_Movement NPC_Movement) => this.NPC_Movement = NPC_Movement;
 }
@@ -22,7 +39,12 @@ public abstract class ActionDo
 public class StandHere : ActionDo
 {
     [SerializeField] public Vector2 timeStanding = new Vector2(3, 6);
-    public override void Execute(NPC_Area area)
+
+    public StandHere(ActionDo orig) : base(orig)
+    {
+    }
+
+    public override void ExecuteImplement(NPC_Area area)
     {
         NPC_Movement.StartCoroutine(Stand(area));
     }
@@ -38,44 +60,59 @@ public class StandHere : ActionDo
         float standFor = UnityEngine.Random.Range(minInclusive: timeStanding.x, timeStanding.y);
         yield return new WaitForSeconds(seconds: standFor);
         fromChoices.DoAnAction(area);
+        
+        complete = true;
     }
 
 
 }
 
-[Serializable]
-public class WalkTo : ActionDo
-{
-    [field:Required] [field:SerializeField] public NPC_Area destination { get; protected set; }
-    public override void Execute(NPC_Area area)
-    {
-        this.Log($"(Walking) to area {destination} from area {area}");
-        Walk();
-    }
+//[Serializable]
+//public class WalkTo : ActionDo
+//{
+//    [field:Required] [field:SerializeField] public NPC_Area destination { get; protected set; }
+//    public override void ExecuteImplement(NPC_Area area)
+//    {
+//        this.Log($"(Walking) to area {destination} from area {area}");
+//        NPC_Movement.StartCoroutine(Walk());
+//    }
 
-    void Walk()
-    {
-        if (!agent.isActiveAndEnabled) return;
-        agent.isStopped = false;
-        NPC_Movement.stopped = false;
-        agent.SetDestination(destination.GetARandLocation());
-    }
-}
+//    IEnumerator Walk()
+//    {
+//        if (!agent.isActiveAndEnabled) yield break;
+//        if (destination == null)
+//        {
+//            this.Error("Destination not set on NPC_Area Action: WalkTo");
+//            yield break;
+//        }
 
 
-[Serializable]
-public class Despawn : ActionDo
-{
-    public override void Execute(NPC_Area area)
-    {
-        this.Log($"(Despawning) in area {area}");
-        DespawnMe();
-    }
+//        agent.isStopped = false;
+//        agent.SetDestination(destination.GetARandLocation());
 
-    void DespawnMe()
-    {
-        agent.isStopped = true;
-        NPC_Movement.stopped = true;
-        NPC_Movement.Despawn();
-    }
-}
+//        yield return new WaitUntil(() =>
+//            !agent.pathPending &&
+//            agent.remainingDistance <= agent.stoppingDistance &&
+//            (!agent.hasPath || agent.velocity.sqrMagnitude <= 0.001f)
+//        );
+
+//        complete = true;
+//    }
+//}
+
+
+//[Serializable]
+//public class Despawn : ActionDo
+//{
+//    public override void ExecuteImplement(NPC_Area area)
+//    {
+//        DespawnMe();
+//    }
+
+//    void DespawnMe()
+//    {
+//        agent.isStopped = true;
+//        NPC_Movement.Despawn();
+//        complete = true;
+//    }
+//}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 264768542258274003}
   - component: {fileID: 4819217023180054715}
   m_Layer: 0
-  m_Name: CursedArea
+  m_Name: CursedAreaPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

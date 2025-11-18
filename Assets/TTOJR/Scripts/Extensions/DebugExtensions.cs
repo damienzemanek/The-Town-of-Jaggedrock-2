@@ -43,10 +43,10 @@ namespace Extensions
             }
 
             if (obj is Object unityObj)
-                Debug.Log($"{Colorize($"[SCRIPT: {Bold(unityObj.GetType().Name)}]", ScriptColor)} " +
-                          $"{Colorize($"[G.O.: {Bold(unityObj.name)}]", GameObjectColor)}: {msg}");
+                Debug.Log($"{Colorize($"[{Bold(unityObj.GetType().Name)}]", ScriptColor)} " +
+                          $"{Colorize($"[{Bold(unityObj.name)}]", GameObjectColor)}: {msg}");
             else
-                Debug.Log($"{Colorize($"[SCRIPT: {Bold(obj.GetType().Name)}]", ScriptColor)}: {msg}");
+                Debug.Log($"{Colorize($"[{Bold(obj.GetType().Name)}]", ScriptColor)}: {msg}");
         }
 
         public static void Warn(this object obj, string msg = "")
@@ -58,10 +58,10 @@ namespace Extensions
             }
 
             if (obj is Object unityObj)
-                Debug.LogWarning($"{Colorize($"[SCRIPT: {Bold(unityObj.GetType().Name)}]", ScriptColor)} " +
-                                 $"{Colorize($"[G.O.: {Bold(unityObj.name)}]", GameObjectColor)}: {msg}");
+                Debug.LogWarning($"{Colorize($"{Bold(unityObj.GetType().Name)}]", ScriptColor)} " +
+                                 $"{Colorize($"{Bold(unityObj.name)}]", GameObjectColor)}: {msg}");
             else
-                Debug.LogWarning($"{Colorize($"[SCRIPT: {Bold(obj.GetType().Name)}]", ScriptColor)}: {msg}");
+                Debug.LogWarning($"{Colorize($"{Bold(obj.GetType().Name)}]", ScriptColor)}: {msg}");
         }
         public static void Error(this object obj, string msg = "")
         {

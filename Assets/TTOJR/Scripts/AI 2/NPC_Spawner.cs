@@ -87,7 +87,7 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
         }
     }
 
-
+    #region Observes/Subscribes
 
     private void OnEnable()
     {
@@ -98,6 +98,21 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     {
         RemoveSpawnEvents();   
     }
+
+    void AssignSpawnEvents()
+    {
+        this.Log("Assigning spawn events");
+        time.OnDayStart?.AddListener(StartSpawning);
+        time.OnNightStart?.AddListener(StartSpawning);
+    }
+
+    void RemoveSpawnEvents()
+    {
+        time.OnDayStart?.RemoveAllListeners();
+        time.OnNightStart?.RemoveAllListeners();
+    }
+
+    #endregion
 
 
     void StartSpawning()
@@ -169,13 +184,6 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
             if (town.Get<IdentifiableInformationSystem>().isResident == false)
                 SpawnNPCAtSpawnPoint(newNPC.gameObject);
 
-
-        if (newNPC.isActiveAndEnabled)
-        {
-            this.Log("Npc spawned");
-            newNPC.area = spawnArea;
-            newNPC.UseSpawnArea(spawnArea);
-        }
         else this.Log("New NPC was set false");
     }
 
@@ -198,17 +206,4 @@ public class NPC_Spawner : MonoBehaviour, IDependencyProvider
     }
 
     void SpawnNPCAtSpawnPoint(GameObject newNPC) => NavEX.Teleport(spawnPoint, newNPC, out _);
-
-    void AssignSpawnEvents()
-    {
-        this.Log("Assigning spawn events");
-        time.OnDayStart?.AddListener(StartSpawning);
-        time.OnNightStart?.AddListener(StartSpawning);
-    }
-
-    void RemoveSpawnEvents()
-    {
-        time.OnDayStart?.RemoveAllListeners();
-        time.OnNightStart?.RemoveAllListeners();
-    }
 }

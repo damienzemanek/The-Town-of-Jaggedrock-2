@@ -2178,7 +2178,7 @@ GameObject:
   - component: {fileID: 1751110257875059797}
   - component: {fileID: 5846012230697102398}
   m_Layer: 0
-  m_Name: Sacrifice
+  m_Name: SacrificePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

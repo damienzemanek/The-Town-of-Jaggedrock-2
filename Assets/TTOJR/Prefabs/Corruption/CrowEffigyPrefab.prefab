@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4751118374533915768}
   - component: {fileID: 8520859176943999442}
   m_Layer: 7
-  m_Name: Effigy
+  m_Name: CrowEffigyPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

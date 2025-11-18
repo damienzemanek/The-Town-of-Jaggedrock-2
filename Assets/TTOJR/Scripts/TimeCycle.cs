@@ -12,29 +12,7 @@ using Sirenix.Utilities;
 
 public class TimeCycle : MonoBehaviour, IDependencyProvider
 {
-    [TabGroup("All Periods")] public UnityEvent newPeriodHook;
-    [TabGroup("All Periods")] public float blackScreenTime;
-    [TabGroup("All Periods")] public FadeScreen fade;
-
-
-    [TabGroup("Day")][SerializeField] int day;
-    [TabGroup("Day")][SerializeField] float dayStartDisplayDelay = 5f;
-    [TabGroup("Day")] public UnityEvent OnDayStart;
-    [TabGroup("Day")][SerializeField] List<UnityEventPlus> dayEvents;
-    [TabGroup("Day")][SerializeField] TextMeshProUGUI newDayText;
-    [TabGroup("Day")][SerializeField] GameObject newDayObj;
-    [TabGroup("Day")][SerializeField] float delayOnDisplayTextDigits;
-    [TabGroup("Day")][SerializeField] AudioPlay newDayAudTyping;
-    [TabGroup("Day")][SerializeField] AudioClip newDayAud;
-
-
-
-    [TabGroup("Night")][SerializeField] int night;
-    [TabGroup("Night")] public UnityEvent OnNightStart;
-    [TabGroup("Night")][SerializeField] List<UnityEventPlus> nightEvents;
-
-
-
+    #region Member Classes
     [Serializable]
     public class Period
     {
@@ -59,11 +37,34 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
             complete = true;
         }
     }
-
+    #endregion
 
     [Inject] EntityControls controls;
     [Provide] TimeCycle Provide() => this;
-    public static TimeCycle instance;
+
+
+    [TabGroup("All Periods")] public NewPeriod newPeriod;
+    [TabGroup("All Periods")] public FadeScreen fade;
+
+
+    [TabGroup("Day")][SerializeField, ReadOnly] int day;
+    [TabGroup("Day")] public float dayBlackScreenTime;
+    [TabGroup("Day")][SerializeField] float dayStartDisplayDelay = 5f;
+    [TabGroup("Day")] public UnityEvent OnDayStart;
+    [TabGroup("Day")][SerializeField] List<UnityEventPlus> dayEvents;
+    [TabGroup("Day")][SerializeField] TextMeshProUGUI newDayText;
+    [TabGroup("Day")][SerializeField] GameObject newDayObj;
+    [TabGroup("Day")][SerializeField] float delayOnDisplayTextDigits;
+    [TabGroup("Day")][SerializeField] AudioPlay newDayAudTyping;
+    [TabGroup("Day")][SerializeField] AudioClip newDayAud;
+
+
+
+    [TabGroup("Night")][SerializeField, ReadOnly] int night;
+    [TabGroup("Night")] public float nightBlackScreenTime;
+    [TabGroup("Night")] public UnityEvent OnNightStart;
+    [TabGroup("Night")][SerializeField] List<UnityEventPlus> nightEvents;
+
     public List<Light> dayLights;
     public float nightIntensity = 0f;
     float initialIntensity;
@@ -73,13 +74,12 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
 
     private void Awake()
     {
-        instance = this;
         initialIntensity = dayLights[0].intensity;
         periods = new List<Period>();
-        if (newPeriodHook == null) newPeriodHook = new UnityEvent();
 
         if (OnNightStart == null) OnNightStart = new();
         if(OnDayStart == null) OnDayStart = new();
+
     }
 
     public void TakeOnNightEvents(List<UnityEventPlus> events)
@@ -108,16 +108,17 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
     public float nightLengthInMinutes = 3f * 60f;
 
     [Title("States")]
-    [SerializeField] bool isDay = true;
+    [SerializeField] bool isDay = false;
     public bool timeFrozen = false;
     public bool transitioning = false;
 
 
     private void Start()
     {
+        isDay = false;
         SetToDay();
         currentTime = 0;
-        newPeriodHook?.Invoke();
+        newPeriod.PlayDay();
     }
 
     public void Update()
@@ -151,12 +152,13 @@ public class TimeCycle : MonoBehaviour, IDependencyProvider
 
     void Transition()
     {
-        float fadeTime = blackScreenTime;
-        if (isDay) fadeTime += dayStartDisplayDelay;
+        float fadeTime = 0;
+        if (isDay) fadeTime = dayBlackScreenTime;
+        else fadeTime = nightBlackScreenTime;
 
 
         fade.FadeInAndOutCallback(
-            prehook: () => newPeriodHook?.Invoke(),
+            prehook: () => newPeriod?.PlayNewPeriodAudios(),
             midhook: () =>
             {
                 if (isDay) SetToNight();

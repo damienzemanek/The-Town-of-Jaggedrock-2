@@ -11,6 +11,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     #region Privates
     [Inject] EntityControls playerControls;
     [Inject] Interactor interactor;
+    [Inject] TimeCycle timeCycle;
     #endregion
 
 
@@ -149,7 +150,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         if (completedTalkingTo) needsTalkingEffect.SetActive(false);
     }
     void AssignDialaugeActorName() => actor.AssignName(input_name: personName);
-    void FreezeTime(bool val) => TimeCycle.instance.timeFrozen = val;
+    void FreezeTime(bool val) => timeCycle.timeFrozen = val;
     void PotentiallyCompleteDialauge()
     {
         if (willCompleteTalkingToAfterInitialDialauge) CompleteDialague();

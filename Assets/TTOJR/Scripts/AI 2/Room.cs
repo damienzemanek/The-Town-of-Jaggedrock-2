@@ -8,16 +8,17 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    [Inject] TimeCycle time;
+
+    [SerializeField] public int roomNum;
+    [SerializeField] public NPC_Area tpBackArea;
+    [SerializeField] public NPC_Area outsideRoomArea;
 
     #region Privates
     [ShowInInspector, ReadOnly] Teleport tp;
     [SerializeField, ReadOnly] Town resident;
-    [Inject] TimeCycle time;
     #endregion
 
-    [SerializeField] public int roomNum;
-    [SerializeField] public NPC_Area area;
-    [SerializeField] public NPC_Area outsideRoomArea;
 
 
     private void Awake()
@@ -64,7 +65,6 @@ public class Room : MonoBehaviour
             this.Log("EARLY RETURN: Did not find a room");
             return;
         }
-        npc.stopped = false;
         npc.area = outsideRoomArea;
         npc.agent.SetDestination(outsideRoomArea.GetARandLocation());
     }

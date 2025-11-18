@@ -6,6 +6,7 @@ using Extensions;
 using NUnit.Framework;
 using UnityEngine;
 
+[DefaultExecutionOrder(1)]
 public class RoomManager : MonoBehaviour
 {
 
@@ -93,11 +94,12 @@ public class RoomManager : MonoBehaviour
 
     public void TeleportBackToRooms()
     {
-        residents.ForEach(r =>
+        foreach(ResidentWithRoom r in residents)
         {
             r.SendToRoom();
-            r.resident.Get<NPC_Movement>().area = r.room.area;
-        });
+            r.resident.Get<NPC_Movement>().area = r.room.tpBackArea;
+            r.resident.Get<NPC_Movement>().DirectUseArea(r.room.outsideRoomArea);
+        }
     }
 
     #region Methods

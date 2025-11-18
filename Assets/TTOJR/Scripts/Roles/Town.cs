@@ -53,16 +53,8 @@ public class Town : RuntimeInjectableMonoBehaviour
     {
         if (!corrupted && currentCorruptionLevel >= 3) Corrupt();
         if (corrupted) EnableCorruptedFunctionality();
-
-
-        print("1");
-
-        if (corrupted) print("corrupted");
-        if (timeCy.IsDay()) print("time day");
-
         if (corrupted && timeCy.IsDay()) //Doesnt spawn corrupted Town during day
         {
-            print("2");
 
             if (!hasSpawnedInCorruptedAlready)
             {
@@ -72,7 +64,6 @@ public class Town : RuntimeInjectableMonoBehaviour
             else
             {
                 RevertCorruption();
-                print("3");
 
                 return;
             }
@@ -80,8 +71,6 @@ public class Town : RuntimeInjectableMonoBehaviour
 
         if (corrupted && timeCy.IsNight()) //Spawned corrupted can only spawn at night, and only once, then will revert back one corrupted levevl
         {
-            print("4");
-
             if (!hasSpawnedInCorruptedAlready)
             {
                 hasSpawnedInCorruptedAlready = true;
@@ -90,14 +79,10 @@ public class Town : RuntimeInjectableMonoBehaviour
             else
             {
                 RevertCorruption();
-                print(message: "5");
-
                 return;
 
             }
         }
-        print("6");
-
     }
 
     void RevertCorruption()

@@ -1,0 +1,61 @@
+[33m410d0ca[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m map changes
+[33m4c13760[m lighting
+[33m5b45abe[m map
+[33m064d02d[m mapp 3
+[33mdea1b3d[m map basic compeklte
+[33mc0f1cc3[m map 2
+[33m42d0ff1[m map 1
+[33m93371ae[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmodels[m[33m)[m models import
+[33m48507e6[m 11/14 start
+[33m6001778[m sounds
+[33m2d6b62c[m before attacking triggers
+[33m814dea1[m npc movement fixes
+[33m17b61b5[m conitnueing town quests
+[33macc5abe[m townie activities 1st iter
+[33m92e4891[m tp fade fix
+[33m4f582e3[m spawn differences
+[33mce3d840[m audio imports, adjustments to AI rooms
+[33m6d63f56[m affliction
+[33m5ea4c3d[m town scope down
+[33mcba36c2[m pre - town dialauge changes
+[33m74026d1[m key changes
+[33mc84e24e[m audio changes, picking up items
+[33m20b59b6[m retro arsenal vfx import
+[33m29e85de[m fade day count, more audio
+[33mabde910[m black screen time and transition audio attempt 1
+[33m840613b[m spawn alterations
+[33m3e3769b[m sacrifice complete, corrupted town changes
+[33m0554d76[m sacrifice complete att 1
+[33m2450696[m sacrifice corruption event continue
+[33m48f6fec[m sacrifice corruption even initial
+[33me3b6e5c[m effigy interact fix, detector builder changes
+[33m27b8c5e[m corrupted npc ai initial
+[33mafe185f[m Audio fixes
+[33m6d32990[m audio play script changes
+[33mdf2d2d8[m Map changes
+[33md47acca[m hallway lights initial
+[33mc1d26e4[m fixed ambience aud
+[33m74d373b[m night corruption basic functionality complete
+[33mf0a8e39[m corruption event: effigy
+[33me92d749[m corruption initial
+[33m09bf2d4[m mmm
+[33m3bf3e2a[m sdaefdasd
+[33m7ef4ea2[m 21213123123
+[33me0bbf83[m 19
+[33mba3de77[m Create electric power04 loop.wav.meta
+[33mf4c0158[m 17
+[33m4d4182b[m 15
+[33me76f60d[m 14
+[33m4807870[m 13
+[33m3910195[m 12
+[33ma9e53a3[m 11
+[33m1d39f6b[m 10
+[33mcaaa83c[m 9
+[33mdaaedcd[m 8
+[33m6d8eb4b[m 7
+[33me2a00aa[m 6
+[33mdc38d4d[m 4
+[33m14f62e7[m 3
+[33m00c9e38[m (2)
+[33mdd17ccd[m Porting old files over (1)
+[33mf92dd62[m Initial commit

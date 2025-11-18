@@ -10,12 +10,14 @@ public class ActionChoices
 {
     public List<WeightedAction> actions;
 
-    public void DoAnAction(NPC_Area area)
+    public ActionDo DoAnAction(NPC_Area area)
     {
         WeightedAction wa = DetermineActionToExecute();
         wa.action.Execute(area);
 
         this.Log($"Executing action: {wa.action.GetType().ToString()}");
+
+        return wa.action;
         
     }
 

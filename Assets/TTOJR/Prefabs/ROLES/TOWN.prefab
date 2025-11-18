@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 8744624707574587565}
   - component: {fileID: 7953465503095966787}
   - component: {fileID: 9011192281063177126}
-  - component: {fileID: 5011224887782839587}
   - component: {fileID: 8840392011632752183}
   - component: {fileID: -9144149633550173534}
   - component: {fileID: 2217963900361797958}
@@ -112,7 +111,6 @@ GameObject:
   - component: {fileID: 549753003264323700}
   - component: {fileID: 6290132505579821175}
   - component: {fileID: 7642541335631054512}
-  - component: {fileID: 7709756697095318383}
   - component: {fileID: 8906179311168842671}
   - component: {fileID: 4158459347966405133}
   m_Layer: 7
@@ -256,36 +254,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b44b68d91639274d9ac8ecab40286e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAction:
+    rid: -2
   agent: {fileID: 7954968831088163592}
   residentAreaMask:
     serializedVersion: 2
     m_Bits: 64
   delayUseArea: 2
-  stopped: 0
+  inAnArea: 0
   usingArea: 0
   stuckTimeout: 8
-  retryCooldown: 1.5
   stopCheckProgressValue: 0
   area: {fileID: 0}
---- !u!114 &5011224887782839587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903264447225073114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03bc8063c9e95401f9a8a38bc716750d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Method: 0
-  m_Curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &8840392011632752183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,25 +644,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fb68dbe9f1827cb46a0a53981c3156f0, type: 3}
   - {fileID: 8300000, guid: 6fbd18f3aac6bb5498cc0bc24fe3fa00, type: 3}
   - {fileID: 8300000, guid: ca09315806f5ec346afd886e4f9b99f0, type: 3}
---- !u!114 &7709756697095318383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903264447225073114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65025c7fb69bbf47af936767de76ed4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  linear: 0
-  randomize: 0
-  delay: 0
-  delayAmount: {x: 0, y: 0}
-  source: {fileID: 0}
-  audios: []
 --- !u!114 &8906179311168842671
 MonoBehaviour:
   m_ObjectHideFlags: 0

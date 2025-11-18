@@ -32,6 +32,8 @@ public class Teleport : MonoBehaviour
             NavEX.Teleport(tpLoc, objToTeleport, out bool _teleporting);
             teleporting = _teleporting;
         }
+
+        this.Log($"Succesfully teleported obj {objToTeleport.name}");
     }
 
     public void FadeTeleport(FadeScreen fade)

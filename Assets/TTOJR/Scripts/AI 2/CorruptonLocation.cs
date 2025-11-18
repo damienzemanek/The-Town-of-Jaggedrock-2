@@ -8,6 +8,7 @@ using Extensions;
 using SingularityGroup.HotReload;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
+using Unity.Collections;
 using UnityEngine;
 using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 
@@ -16,13 +17,15 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
 
     #region Privates
     [Inject] TimeCycle timeCy;
-    [SerializeField] bool _corrupting;
+    [SerializeField] Transform _cursedAreaSpawnLoc;
+    [SerializeField, ReadOnly] bool _corrupting;
+    [SerializeField, ReadOnly] Town _resident;
     [SerializeReference, ReadOnly] CorruptEvent currentEvent;
     #endregion
 
     public bool corrupting { get => _corrupting; set => _corrupting = value; }
-    [field: SerializeField] public Town resident { get; set; }
-    public Transform cursedAreaSpawnLoc;
+    public Town resident { get => _resident; set => _resident = value; }  
+    public Transform cursedAreaSpawnLoc { get => _cursedAreaSpawnLoc; set => _cursedAreaSpawnLoc = value; }
 
     [TabGroup("Crow")] [SerializeReference] public List<GameObject> searchables;
     [TabGroup("Crow")] public GameObject[] flickerObjs;

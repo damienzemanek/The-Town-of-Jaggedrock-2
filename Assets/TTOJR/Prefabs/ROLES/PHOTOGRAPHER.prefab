@@ -159,11 +159,8 @@ GameObject:
   - component: {fileID: 2379640947552331762}
   - component: {fileID: 5679287963306251154}
   - component: {fileID: -4213842099056564933}
-  - component: {fileID: 7954968831088163592}
-  - component: {fileID: 8744624707574587565}
   - component: {fileID: 7953465503095966787}
   - component: {fileID: 9011192281063177126}
-  - component: {fileID: 5011224887782839587}
   - component: {fileID: 8840392011632752183}
   - component: {fileID: -9144149633550173534}
   - component: {fileID: 2217963900361797958}
@@ -247,48 +244,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 2
---- !u!195 &7954968831088163592
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903264447225073114}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.86
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120000
-  m_StoppingDistance: 0.1
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 3.09
-  m_BaseOffset: 1.6
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &8744624707574587565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903264447225073114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!114 &7953465503095966787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,37 +269,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b44b68d91639274d9ac8ecab40286e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 7954968831088163592}
+  currentAction:
+    rid: -2
+  agent: {fileID: 0}
   residentAreaMask:
     serializedVersion: 2
     m_Bits: 64
   delayUseArea: 2
-  stopped: 0
+  inAnArea: 0
   usingArea: 0
   stuckTimeout: 8
-  retryCooldown: 1.5
-  nextRetryTime: 0
   stopCheckProgressValue: 0
   area: {fileID: 0}
---- !u!114 &5011224887782839587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903264447225073114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03bc8063c9e95401f9a8a38bc716750d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Method: 0
-  m_Curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &8840392011632752183
 MonoBehaviour:
   m_ObjectHideFlags: 0
