@@ -9,7 +9,6 @@ using DependencyInjection;
 
 public class NPC_Movement : RuntimeInjectableMonoBehaviour
 {
-    [Inject] Despawner despawner;
     [ShowInInspector] [SerializeReference] ActionDo currentAction;
 
     public NavMeshAgent agent;
@@ -95,7 +94,6 @@ public class NPC_Movement : RuntimeInjectableMonoBehaviour
         area = null;
     }
 
-    public void Despawn() => despawner.DirectDisable(gameObject);
 
 
 

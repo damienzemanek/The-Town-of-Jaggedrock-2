@@ -81082,6 +81082,7 @@ GameObject:
   - component: {fileID: 741436419}
   - component: {fileID: 741436418}
   - component: {fileID: 741436417}
+  - component: {fileID: 741436425}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -81311,6 +81312,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741436415}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &741436425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741436415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d71fb7c52372e244baf2e69a9d0d116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Cube
+  _portrait: {fileID: 0}
+  _dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+  _dialogueOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &741537753
 GameObject:
   m_ObjectHideFlags: 0
@@ -165890,40 +165907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3559cc34e166e0346acf00132f3c7597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onlySpawnFirstResident: 0
-  spawnCount: 1
-  spawnPoint: {fileID: 2141645221}
-  spawnArea: {fileID: 95433864}
-  rolePrefabs:
-  - {fileID: 5903264447225073114, guid: d07a7cb48b1113a4bbc47f531371f62f, type: 3}
-  - {fileID: 5903264447225073114, guid: d2c3accf64ec6c44a9efe672e784d780, type: 3}
-  - {fileID: 5903264447225073114, guid: 113dae4b024b46f46b4ce335004b3f78, type: 3}
-  townPrefab: {fileID: 5903264447225073114, guid: c2743ae1c26f9ff4086c6a566e6cfc29, type: 3}
-  townieData:
-  - {fileID: 11400000, guid: 5d62d39584c0ab6489866496d1a2f620, type: 2}
-  - {fileID: 11400000, guid: a869b872590baaa408a4d698e41b202a, type: 2}
-  - {fileID: 11400000, guid: b55e3c5804fc0d3498e9cb39bc9db032, type: 2}
-  - {fileID: 11400000, guid: 57cf3c21ce6cf8640a5d6f778c7e2ffa, type: 2}
-  - {fileID: 11400000, guid: a71f30b46ee20f044987b8817843a2ba, type: 2}
-  - {fileID: 11400000, guid: 1e466df9be6e33440880b9619328e4f4, type: 2}
-  - {fileID: 11400000, guid: e5fdf307fd0d6a14eb2c95a69875f547, type: 2}
-  - {fileID: 11400000, guid: 32251e1c3b97c684d9704978bdac24b4, type: 2}
-  - {fileID: 11400000, guid: 19d8cd95bd326bf43b2ae8047361a20a, type: 2}
-  - {fileID: 11400000, guid: d43de7aa79dbf3f4b8e0650001951be7, type: 2}
-  - {fileID: 11400000, guid: 815bd3142839e9d4485d78a7565765a3, type: 2}
-  - {fileID: 11400000, guid: 957baae8a79c5ca48a12fc5efae0b7b4, type: 2}
-  usedTownieData: []
-  initialSpawnComplete: 0
-  delayBetweenSpawns: 0.5
-  delayToStartSpawning: 1
-  townPopulationWithCov: 12
-  maxPeoplePerPeriod: 3
-  roomsCount: 6
-  spawnedAtRoom: 0
-  currentSpawnedResidents: 0
-  spawningCompleteHook:
-    m_PersistentCalls:
-      m_Calls: []
+  day: 0
+  night: 0
+  npcs:
+  - {fileID: 0}
 --- !u!4 &1614152008
 Transform:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class EvilInformationManager : MonoBehaviour
 
     #region Privates
     NPC_Spawner spawner;
-    Despawner despawner;
     #endregion
 
     [SerializeField] bool covenSelected;
@@ -26,27 +25,18 @@ public class EvilInformationManager : MonoBehaviour
     private void Awake()
     {
         if(spawner == null) spawner = FindFirstObjectByType<NPC_Spawner>();
-        if(despawner == null) despawner = FindFirstObjectByType<Despawner>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        spawner.spawningCompleteHook?.AddListener(call: SelectCoven);
-    }
-
-    private void OnDisable()
-    {
-        spawner.spawningCompleteHook?.RemoveListener(call: SelectCoven);
-
+        SelectCoven();
     }
 
     public void SelectCoven()
     {
         if (covenSelected) return;
 
-        this.Log("" + despawner.disabledNPCs.Count);
-
-        GameObject randTown = despawner.disabledNPCs.Where(npc => npc.Has<Town>())
+        GameObject randTown = spawner.npcs.Where(npc => npc.Has<Town>())
             .ToList()
             .Where(npc => !npc.Get<IdentifiableInformationSystem>().isResident)
             .ToList()

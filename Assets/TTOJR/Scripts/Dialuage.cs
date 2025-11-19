@@ -39,10 +39,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
     #region Privs
     CallbackDetector detector;
-    NPC_Movement movement;
-    NavMeshAgent agent;
     DialogueTreeController dialaugeController;
-    DialaugeChooser dialaugeChooser;
     DialogueActor actor;
     #endregion
 
@@ -50,10 +47,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     {
         base.OnInstantiate();
         detector = this.Get<CallbackDetector>();
-        movement = this.Get<NPC_Movement>();
-        agent = this.Get<NavMeshAgent>();
         dialaugeController = this.Get<DialogueTreeController>();
-        dialaugeChooser = this.Get<DialaugeChooser>();
         actor = this.Get<DialogueActor>();
         AssignValuesForCallbackDetector("Talk (E)");
         AssignDialaugeActorName();
@@ -128,9 +122,6 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         look.ToggleCursorUsability(false);
         look.ToggleUpdateMouseLooking(true);
         inv.ToggleInventoryVisability(true);
-
-        movement.enabled = true;
-        agent.enabled = true;
         inConvo = false;
 
         FreezeTime(false);

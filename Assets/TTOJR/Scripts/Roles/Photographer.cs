@@ -11,7 +11,6 @@ public class Photographer : RuntimeInjectableMonoBehaviour, IDependencyProvider,
     #region Privates
     [Provide] Photographer Provide() => this;
     [Inject] TimeCycle time;
-    [Inject] Despawner despawner;
     LocationRandomizer locations;
     #endregion
 
@@ -68,7 +67,7 @@ public class Photographer : RuntimeInjectableMonoBehaviour, IDependencyProvider,
     {
         if (time.IsNight())
         {
-            despawner.DisableNPC(gameObject);
+            gameObject.SetActive(false);
             return true;
         }
         return false;

@@ -14,7 +14,6 @@ public class LadyInBlack : Questholder<Questing.Town.Quest>, IDependencyProvider
 {
     #region Privates
     [Inject] TimeCycle time;
-    [Inject] Despawner despawner;
     LocationRandomizer locations;
     [Provide] LadyInBlack Provide() => this;
     #endregion
@@ -53,7 +52,7 @@ public class LadyInBlack : Questholder<Questing.Town.Quest>, IDependencyProvider
     {
         if (time.IsDay())
         {
-            despawner.DisableNPC(gameObject);
+            gameObject.SetActive(false);
             return true;
         }
         return false;

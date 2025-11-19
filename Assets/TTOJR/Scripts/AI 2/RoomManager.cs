@@ -12,7 +12,6 @@ public class RoomManager : MonoBehaviour
 
     #region Privates
     [Inject] NPC_Spawner spawner;
-    [Inject] Despawner despawner;
     [Inject] TimeCycle time;
     #endregion
 
@@ -57,7 +56,7 @@ public class RoomManager : MonoBehaviour
         if (rooms == null || rooms.Count == 0)
             rooms = gameObject.GetComponentsInChildren<Room>().ToList();
 
-        spawner.spawningCompleteHook.AddListener(AssignRooms);
+        AssignRooms();
     }
 
 
@@ -65,7 +64,7 @@ public class RoomManager : MonoBehaviour
     {
         this.Log("Assining rooms");
 
-        List<GameObject> townNPCS = despawner.disabledNPCs
+        List<GameObject> townNPCS = spawner.npcs
             .Where(g => g.Has<Town>())
             .ToList();
 
