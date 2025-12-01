@@ -41808,6 +41808,37 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &294250592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294250593}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &294250593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294250592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.04, z: 0.075}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1561917808}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &298922320
 GameObject:
   m_ObjectHideFlags: 0
@@ -42736,6 +42767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3828a3c7e6da4f54da7d7cd76804e16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lost: 0
   afflictBg: {fileID: 321544502}
   afflictFadeInto: {fileID: 982168006}
   afflictVisual: {fileID: 1788331285}
@@ -42769,6 +42801,7 @@ MonoBehaviour:
     corruptHook:
       m_PersistentCalls:
         m_Calls: []
+  scene: {fileID: 0}
   corrMats:
   - {fileID: 2100000, guid: 64b341c3a2c7c594789cc65e65a4c167, type: 2}
   - {fileID: 2100000, guid: b7c4ba55833a57f41aeab65863ad6ad8, type: 2}
@@ -42788,7 +42821,7 @@ MonoBehaviour:
     - rid: 5706327937544880346
       type: {class: CrowEffigyEvent, ns: , asm: Assembly-CSharp}
       data:
-        duration: 2
+        duration: 50
         currentTime: 0
         timeToSearch: 4
         cursedAreaPrefab: {fileID: 7147925429486397494, guid: cdef0894f58238142a45cdf6c60e29b9, type: 3}
@@ -42796,7 +42829,7 @@ MonoBehaviour:
     - rid: 5706327937544880347
       type: {class: SacrificeEvent, ns: , asm: Assembly-CSharp}
       data:
-        duration: 2
+        duration: 50
         currentTime: 0
         sacrificePrefab: {fileID: 7231928383409928179, guid: 2bf149f7f7bbe1e4cbe9cbc1acc5ef1f, type: 3}
         bloodDoorPrefab: {fileID: 0}
@@ -45717,6 +45750,37 @@ Transform:
   - {fileID: 866335803}
   - {fileID: 586909802}
   m_Father: {fileID: 1666199009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &351428180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351428181}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &351428181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351428180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.788, z: 0.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1571030344}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &353853599
 PrefabInstance:
@@ -57035,6 +57099,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 36974350}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &542766303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542766304}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542766304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542766303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.685414, z: -0, w: 0.7281536}
+  m_LocalPosition: {x: -0.114, y: 1.837, z: 0.234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7213225783698661993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543380492
 GameObject:
   m_ObjectHideFlags: 0
@@ -67606,6 +67701,37 @@ MonoBehaviour:
       data:
         <useDestination>k__BackingField: {fileID: 0}
         <objectToPlace>k__BackingField: {fileID: 0}
+--- !u!1 &652156590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652156591}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652156591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652156590}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.06915707, z: -0, w: 0.9976058}
+  m_LocalPosition: {x: 0.008, y: 1.896, z: -0.055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1481538702}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &652198095
 GameObject:
   m_ObjectHideFlags: 0
@@ -103296,6 +103422,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1891771270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &966477868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966477869}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &966477869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966477868}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.883, z: 0.121}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1695323941863118863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &967321888
 GameObject:
   m_ObjectHideFlags: 0
@@ -104063,7 +104220,7 @@ RectTransform:
   m_GameObject: {fileID: 982168004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0796, y: 1.0796, z: 1.0796}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 321544499}
@@ -106188,6 +106345,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1539542361}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1022890847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022890848}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022890848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022890847}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.163, y: 1.562, z: -0.575}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1415879033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1029016839
 GameObject:
@@ -123484,6 +123672,37 @@ Transform:
   - {fileID: 1279997931}
   m_Father: {fileID: 2056781745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1296716347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296716348}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1296716348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296716347}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.861, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1581313025}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1298193631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134484,6 +134703,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 683823649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411533609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411533610}
+  - component: {fileID: 1411533611}
+  m_Layer: 0
+  m_Name: Scene Changer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1411533610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411533609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1461140145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411533611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411533609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10548183851b3d54ab756d7e31fc167a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1412469483
 GameObject:
   m_ObjectHideFlags: 0
@@ -134689,6 +134952,8 @@ GameObject:
   - component: {fileID: 1415879035}
   - component: {fileID: 1415879034}
   - component: {fileID: 1415879039}
+  - component: {fileID: 1415879041}
+  - component: {fileID: 1415879040}
   m_Layer: 0
   m_Name: 1
   m_TagString: NPC
@@ -134734,6 +134999,7 @@ Transform:
   - {fileID: 2101211550}
   - {fileID: 1787013969}
   - {fileID: 1073936678}
+  - {fileID: 1022890848}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: 0, y: -2.217, z: 0}
 --- !u!114 &1415879034
@@ -134879,10 +135145,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 268672545}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &1415879040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415879031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: 5d62d39584c0ab6489866496d1a2f620, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: 1d08bb660e82bd44c9f438fb2c8de769, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 1022890848}
+--- !u!114 &1415879041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415879031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1416134174
 GameObject:
   m_ObjectHideFlags: 0
@@ -138300,6 +138626,7 @@ Transform:
   - {fileID: 2129823187}
   - {fileID: 1804202370}
   - {fileID: 314483175}
+  - {fileID: 1411533610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1465893659
@@ -139891,6 +140218,8 @@ GameObject:
   - component: {fileID: 1481538704}
   - component: {fileID: 1481538703}
   - component: {fileID: 1481538708}
+  - component: {fileID: 1481538710}
+  - component: {fileID: 1481538709}
   m_Layer: 0
   m_Name: 3
   m_TagString: NPC
@@ -139936,6 +140265,7 @@ Transform:
   - {fileID: 36974350}
   - {fileID: 810089394}
   - {fileID: 1683751445}
+  - {fileID: 652156591}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: 0, y: 5.714, z: 0}
 --- !u!114 &1481538703
@@ -140081,10 +140411,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 1500629742}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &1481538709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481538700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: b55e3c5804fc0d3498e9cb39bc9db032, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: becce65815be1c5489c5fe0f016fb26d, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 652156591}
+--- !u!114 &1481538710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481538700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!43 &1481617106
 Mesh:
   m_ObjectHideFlags: 0
@@ -140889,7 +141279,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3646280339332966899, guid: 32627e5a67db05c4aa6b26f45cd7debd, type: 3}
+  - {fileID: 2100000, guid: 64b341c3a2c7c594789cc65e65a4c167, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144085,6 +144475,8 @@ GameObject:
   - component: {fileID: 1561917810}
   - component: {fileID: 1561917809}
   - component: {fileID: 1561917814}
+  - component: {fileID: 1561917816}
+  - component: {fileID: 1561917815}
   m_Layer: 0
   m_Name: 8
   m_TagString: NPC
@@ -144130,6 +144522,7 @@ Transform:
   - {fileID: 1578119295}
   - {fileID: 235512367}
   - {fileID: 209397837}
+  - {fileID: 294250593}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: 0, y: 89.494, z: 0}
 --- !u!114 &1561917809
@@ -144275,10 +144668,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 1108822433}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &1561917815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561917806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: 32251e1c3b97c684d9704978bdac24b4, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: ae8bd02668cc2304ab93a006e4d290dd, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 294250593}
+--- !u!114 &1561917816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561917806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1562048906
 GameObject:
   m_ObjectHideFlags: 0
@@ -144819,6 +145272,8 @@ GameObject:
   - component: {fileID: 1571030346}
   - component: {fileID: 1571030345}
   - component: {fileID: 1571030350}
+  - component: {fileID: 1571030352}
+  - component: {fileID: 1571030351}
   m_Layer: 0
   m_Name: 6
   m_TagString: NPC
@@ -144864,6 +145319,7 @@ Transform:
   - {fileID: 1869850708}
   - {fileID: 862740996}
   - {fileID: 402235844}
+  - {fileID: 351428181}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: 0, y: 43.895, z: 0}
 --- !u!114 &1571030345
@@ -145009,10 +145465,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 896949629}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &1571030351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571030342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: 1e466df9be6e33440880b9619328e4f4, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: d3c56c1de48dff546a52c99db56fc010, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 351428181}
+--- !u!114 &1571030352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571030342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1571180298
 GameObject:
   m_ObjectHideFlags: 0
@@ -145489,6 +146005,8 @@ GameObject:
   - component: {fileID: 1581313027}
   - component: {fileID: 1581313026}
   - component: {fileID: 1581313031}
+  - component: {fileID: 1581313033}
+  - component: {fileID: 1581313032}
   m_Layer: 0
   m_Name: 7
   m_TagString: NPC
@@ -145534,6 +146052,7 @@ Transform:
   - {fileID: 683823649}
   - {fileID: 1695316519}
   - {fileID: 1141519807}
+  - {fileID: 1296716348}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: 0, y: 46.995, z: 0}
 --- !u!114 &1581313026
@@ -145679,10 +146198,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 1493387822}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &1581313032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581313023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: e5fdf307fd0d6a14eb2c95a69875f547, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: e7926b98cd18a0a4181885a9e0873d3e, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 1296716348}
+--- !u!114 &1581313033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581313023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1581571211
 GameObject:
   m_ObjectHideFlags: 0
@@ -161575,6 +162154,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2064686073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1606547140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606547141}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1606547141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606547140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.845, z: -0.134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1030254389074863505}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1607972453
 Mesh:
   m_ObjectHideFlags: 0
@@ -168271,6 +168881,8 @@ GameObject:
   - component: {fileID: 1708027896}
   - component: {fileID: 1708027895}
   - component: {fileID: 1708027900}
+  - component: {fileID: 1708027902}
+  - component: {fileID: 1708027901}
   m_Layer: 0
   m_Name: 5
   m_TagString: NPC
@@ -168316,6 +168928,7 @@ Transform:
   - {fileID: 820305886}
   - {fileID: 1547071751}
   - {fileID: 1863354026}
+  - {fileID: 1737455190}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: -84.734, y: -179.566, z: 0}
 --- !u!114 &1708027895
@@ -168461,10 +169074,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 254578467}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &1708027901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708027892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: a71f30b46ee20f044987b8817843a2ba, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: 88a26d981f68c5d49b88eb32399e1a6a, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 1737455190}
+--- !u!114 &1708027902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708027892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &1709115046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169800,6 +170473,37 @@ Transform:
   m_Children:
   - {fileID: 1571180299}
   m_Father: {fileID: 108953837}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1737455189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1737455190}
+  m_Layer: 0
+  m_Name: Effect Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1737455190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737455189}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.485, z: 0.615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1708027894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737459527
 GameObject:
@@ -174008,7 +174712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 0
-  stepBetweenCorruptEvents: 2
+  stepBetweenCorruptEvents: 80
   timeFrozen: 0
 --- !u!4 &1804202370
 Transform:
@@ -223620,6 +224324,8 @@ GameObject:
   - component: {fileID: 6389515214586773485}
   - component: {fileID: 6389515214586773484}
   - component: {fileID: 6389515214586773489}
+  - component: {fileID: 6389515214586773491}
+  - component: {fileID: 6389515214586773490}
   m_Layer: 0
   m_Name: 9
   m_TagString: NPC
@@ -224834,6 +225540,7 @@ Transform:
   - {fileID: 8322814938415597783}
   - {fileID: 1955182354262188243}
   - {fileID: 7547313819500729515}
+  - {fileID: 1606547141}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: 0, y: -130.782, z: 0}
 --- !u!4 &1035051276443823868
@@ -226389,6 +227096,7 @@ Transform:
   - {fileID: 7659399050860229961}
   - {fileID: 209700172379692365}
   - {fileID: 8175795988713417013}
+  - {fileID: 966477869}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: 0, y: -147.494, z: 0}
 --- !u!4 &1699562861418828642
@@ -227428,6 +228136,8 @@ GameObject:
   - component: {fileID: 4712784944647799415}
   - component: {fileID: 4712784944647799414}
   - component: {fileID: 4712784944647799419}
+  - component: {fileID: 4712784944647799421}
+  - component: {fileID: 4712784944647799420}
   m_Layer: 0
   m_Name: 4
   m_TagString: NPC
@@ -234615,10 +235325,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 9127106158929018150}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &4712784944647799420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075262811101397685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: 57cf3c21ce6cf8640a5d6f778c7e2ffa, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: 7bdcb2a3463ecc946bd49347c22c45ad, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 966477869}
+--- !u!114 &4712784944647799421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075262811101397685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &4723720361928840426
 GameObject:
   m_ObjectHideFlags: 0
@@ -237801,10 +238571,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 7449741573867241656}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &6389515214586773490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362507077042077483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: 19d8cd95bd326bf43b2ae8047361a20a, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: fd53a8fda074dd341bbaa936b5a0dd8d, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 1606547141}
+--- !u!114 &6389515214586773491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362507077042077483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &6397166956841978808
 GameObject:
   m_ObjectHideFlags: 0
@@ -239886,6 +240716,7 @@ Transform:
   - {fileID: 1861711082394455855}
   - {fileID: 8175308432962545451}
   - {fileID: 210479119805764435}
+  - {fileID: 542766304}
   m_Father: {fileID: 1682869593}
   m_LocalEulerAnglesHint: {x: 0, y: 84.32, z: 0}
 --- !u!1 &7225363010636564181
@@ -241772,6 +242603,8 @@ GameObject:
   - component: {fileID: 8021287031881365717}
   - component: {fileID: 8021287031881365716}
   - component: {fileID: 8021287031881365721}
+  - component: {fileID: 8021287031881365723}
+  - component: {fileID: 8021287031881365722}
   m_Layer: 0
   m_Name: 2
   m_TagString: NPC
@@ -241922,10 +242755,70 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 951517599735547712}
   _corrupted: 0
-  hasSpawnedInCorruptedAlready: 0
-  regularSpeed: 3.5
-  baseCorruptedSpeed: 2
   currentCorruptionLevel: 0
+--- !u!114 &8021287031881365722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8021287031881365715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fe4a4c5b8540f4fbb462dcd46ef205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inConvo: 0
+  person: {fileID: 11400000, guid: a869b872590baaa408a4d698e41b202a, type: 2}
+  <favor>k__BackingField: {fileID: 11400000, guid: d630fe26cd4ca68489a0bb3cf5315e51, type: 2}
+  willCompleteTalkingToAfterInitialDialauge: 0
+  isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
+  isTalkingEffect: {fileID: 0}
+  effectLoc: {fileID: 542766304}
+--- !u!114 &8021287031881365723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8021287031881365715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastDetector: 1
+  collisionDetector: 0
+  obj: {fileID: 0}
+  raycasted: 0
+  somethingCollided: 0
+  raycastEntered: 0
+  onEnter: 0
+  Enter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit: 1
+  Exit:
+    m_PersistentCalls:
+      m_Calls: []
+  functionality: 0
+  holdingUseDetector: 0
+  useCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  holdCancledCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleUseCallback: []
+  toggleUseCancledCallback: []
+  currCallback: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &8029489855365982261
 GameObject:
   m_ObjectHideFlags: 0

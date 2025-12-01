@@ -5,29 +5,25 @@ using NodeCanvas.DialogueTrees;
 using Sirenix.OdinInspector;
 using Extensions;
 
+[DefaultExecutionOrder(1)]
 [RequireComponent(typeof(CallbackDetector))]
 public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 {
     #region Privates
-    [Inject] EntityControls playerControls;
-    [Inject] Interactor interactor;
+    [Inject] [ReadOnly, ShowInInspector] EntityControls playerControls;
+    [Inject] [ReadOnly, ShowInInspector] Interactor interactor;
     #endregion
 
 
 #pragma warning disable IDE0052 
     [TabGroup("Readonly"), ReadOnly, SerializeField] bool inConvo = false;
-    [TabGroup("Readonly"), SerializeField] public bool initialChatComplete = false;
-    [TabGroup("Readonly"), ReadOnly, SerializeField] public bool completedTalkingTo = false;
 
 #pragma warning restore IDE0052 
 
     [TabGroup("Parameters")][SerializeField] SO_Person person;
     [field:TabGroup("Parameters")][field:SerializeField] public SO_Favor favor { get; private set; }
-    [TabGroup("Parameters")] public bool willCompleteTalkingToAfterInitialDialauge;
 
-    [TabGroup("Visual")][SerializeField] GameObject needsTalkingEffectPrefab;
     [TabGroup("Visual")][SerializeField] GameObject isTalkingEffectPrefab;
-    [TabGroup("Visual")][SerializeField, ReadOnly] GameObject needsTalkingEffect;
     [TabGroup("Visual")][SerializeField, ReadOnly] GameObject isTalkingEffect;
     [TabGroup("Visual")][SerializeField] Transform effectLoc;
 
@@ -51,16 +47,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         AssignValuesForCallbackDetector("Talk (E)");
         AssignDialaugeActorName();
 
-        if (needsTalkingEffect == null) needsTalkingEffect = Instantiate(needsTalkingEffectPrefab, effectLoc).SetActiveThen(false);
         if (isTalkingEffect == null) isTalkingEffect = Instantiate(isTalkingEffectPrefab, effectLoc).SetActiveThen(false);
-    }
-
-    public void Init() => OnInstantiate();
-
-    private void OnEnable()
-    {
-        completedTalkingTo = false;
-        needsTalkingEffect.SetActive(true);
     }
 
 
@@ -80,18 +67,18 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
     void DialaugeUsage()
     {
-        if (completedTalkingTo) return;
+        if(CorruptionManager.instance.lost)
+        {
+            CorruptionManager.instance.TransitionToLoseScreen();
+            return;
+        }
+
         StartDialauge();
         TogglePlayerMovement(false);
         TalkeeLooksAtMe();
-        EnableTalkingVisuals();
+        SetTalkEffectsActive(true);
     }
 
-    void EnableTalkingVisuals()
-    {
-        needsTalkingEffect.SetActive(false);
-        isTalkingEffect.SetActive(true);
-    }
 
 
     void TogglePlayerMovement(bool val) => playerControls.canMove = val;
@@ -122,21 +109,12 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         inv.ToggleInventoryVisability(true);
         inConvo = false;
 
-        PotentiallyCompleteDialauge();
         isTalkingEffect.SetActive(value: false);
-        if (completedTalkingTo) needsTalkingEffect.SetActive(false);
     }
     void AssignDialaugeActorName() => actor.AssignName(input_name: personName);
-    void PotentiallyCompleteDialauge()
-    {
-        if (willCompleteTalkingToAfterInitialDialauge) CompleteDialague();
-    }
-
-    public void CompleteDialague() => completedTalkingTo = true;
 
     public void SetTalkEffectsActive(bool val)
     {
-        needsTalkingEffect.SetActive(val);
         isTalkingEffect.SetActive(val);
     }
 }

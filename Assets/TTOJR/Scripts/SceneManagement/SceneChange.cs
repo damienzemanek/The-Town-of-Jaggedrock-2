@@ -12,9 +12,13 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene(num);
     }
 
+    public void ChangeScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 
     #region Methods
-        
+
     #endregion
 
 }

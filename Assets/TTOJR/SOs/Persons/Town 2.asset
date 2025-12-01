@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a967fdf03c8d3649896e4a8550d8295, type: 3}
   m_Name: Town 2
   m_EditorClassIdentifier: 
-  _personName: Emily
+  _personName: Sherrif
+  _isCoven: 0
   excludeSelfFromGetRandomPersonNamne: 0
   role: 0
   groupingTrait: 1

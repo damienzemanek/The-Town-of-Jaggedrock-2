@@ -10,6 +10,7 @@ using UnityEngine.Events;
 public class CorruptionManager : MonoBehaviour
 {
     public static CorruptionManager instance;
+    public bool lost = false;
 
     [Serializable]
     public struct CorruptEvent
@@ -30,7 +31,8 @@ public class CorruptionManager : MonoBehaviour
     [TabGroup("Locations")] public List<CorruptonLocation> corruptionLocations;
     [TabGroup("Types of Events")][SerializeReference] public List<CorruptEventType> corruptEventTypes;
     [TabGroup("Actual Events")] public List<CorruptEvent> corruptionEvents;
-
+    
+    [SerializeField] SceneChange scene;
     public Material[] corrMats = new Material[3];
     public Material fullyCorrupt;
     public Material finishedGameMat;
@@ -41,6 +43,7 @@ public class CorruptionManager : MonoBehaviour
 
     private void Awake()
     {
+        lost = false;
         instance = this;
         if(onCorrupted == null) onCorrupted = new UnityEvent();
         if (corruptionLocations == null || corruptionLocations.Count == 0)
@@ -114,6 +117,12 @@ public class CorruptionManager : MonoBehaviour
         chandelierMat?.DisableKeyword("_EMISSION");
 
         TimeCycle.Instance.timeFrozen = true;
+        lost = true;
+    }
+
+    public void TransitionToLoseScreen()
+    {
+        scene.ChangeScene("Lose");
     }
 
 

@@ -171,6 +171,7 @@ public class SacrificeEvent : CorruptEventType
     public override void StopCorrupt(CorruptonLocation loc)
     {
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
+
     }
 
 

@@ -86,6 +86,7 @@ public class Sacrifice : RuntimeInjectableMonoBehaviour
         stoppedHook?.Invoke();
         stoppedHook?.RemoveAllListeners();
         failedHook?.RemoveAllListeners();
+        this.DelayedCall(() => Destroy(gameObject), 5);
     }
 
     public void ResetSacrifice()
