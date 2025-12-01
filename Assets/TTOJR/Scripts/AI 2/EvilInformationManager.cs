@@ -8,7 +8,7 @@ public class EvilInformationManager : MonoBehaviour
 {
 
     #region Privates
-    NPC_Spawner spawner;
+    NPCs npcs;
     #endregion
 
     [SerializeField] bool covenSelected;
@@ -24,7 +24,7 @@ public class EvilInformationManager : MonoBehaviour
 
     private void Awake()
     {
-        if(spawner == null) spawner = FindFirstObjectByType<NPC_Spawner>();
+        if(npcs == null) npcs = FindFirstObjectByType<NPCs>();
     }
 
     private void Start()
@@ -34,20 +34,20 @@ public class EvilInformationManager : MonoBehaviour
 
     public void SelectCoven()
     {
-        if (covenSelected) return;
+        //if (covenSelected) return;
 
-        GameObject randTown = spawner.npcs.Where(npc => npc.Has<Town>())
-            .ToList()
-            .Where(npc => !npc.Get<IdentifiableInformationSystem>().isResident)
-            .ToList()
-            .Rand();
+        //////GameObject randTown = npcs.npcs.Where(npc => npc.Has<Town>())
+        //////    .ToList()
+        //////    .Where(npc => !npc.Get<IdentifiableInformationSystem>().isResident)
+        //////    .ToList()
+        //////    .Rand();
 
-        if (!randTown.TryGetComponent(out Dialuage dialauge)) return;
+        ////if (!randTown.TryGetComponent(out Dialuage dialauge)) return;
 
-        person = dialauge.so_person;
-        person.isCoven = true;
+        //person = dialauge.so_person;
+        //person.isCoven = true;
 
-        covenSelected = true;
+        //covenSelected = true;
     }
 
     #region Methods

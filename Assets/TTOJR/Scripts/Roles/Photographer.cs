@@ -10,7 +10,6 @@ public class Photographer : RuntimeInjectableMonoBehaviour, IDependencyProvider,
 {
     #region Privates
     [Provide] Photographer Provide() => this;
-    [Inject] TimeCycle time;
     LocationRandomizer locations;
     #endregion
 
@@ -38,22 +37,13 @@ public class Photographer : RuntimeInjectableMonoBehaviour, IDependencyProvider,
     public bool givenCorrectLocation { get => GetWasGivenTheCorrectLocationOnThePreviousDay(); }
     public LocationRandomizer.Locations theCorrectLocation { get => GetWasGivenTheCorrectLocationTheLocation(); }
 
-#region Class Methods 
     protected override void OnInstantiate()
     {
         base.OnInstantiate();
         locations = this.Get<LocationRandomizer>();
     }
 
-    private void OnEnable()
-    {
-        if (WontShowUpAtNightAndIsNight()) return;
-        DetermineIfPlayerGaveCorrectLocation();
-        SetNewLocationIWantToPhotograph();
-    }
-#endregion
 
-#region Methods
     public bool GetWasGivenTheCorrectLocationOnThePreviousDay() 
         => (playerGaveCorrectLocationOnDay.Count > 0) ? playerGaveCorrectLocationOnDay.Last().playerGaveCorrectLocation : false;
     public LocationRandomizer.Locations GetWasGivenTheCorrectLocationTheLocation()
@@ -63,28 +53,16 @@ public class Photographer : RuntimeInjectableMonoBehaviour, IDependencyProvider,
     void SetNewLocationIWantToPhotograph() => locationIWantToPhotograph = locations.RandLocEnumExclude(LocationRandomizer.Locations.Hotel);
     public void PlayerGivenPhotographerALocation() => givenLoc = true;
 
-    bool WontShowUpAtNightAndIsNight()
-    {
-        if (time.IsNight())
-        {
-            gameObject.SetActive(false);
-            return true;
-        }
-        return false;
-    }
 
     void DetermineIfPlayerGaveCorrectLocation()
     {
-        if (time.periods.Count <= 1) return;
-        if (time.GetCurrentPeriod().type == TimeCycle.Period.Type.Night) return;
-
         bool correct = (locationIWantToPhotograph == locationGivenByPlayerToPhotograph);
         PhotographerDayData newPhotographerData = new PhotographerDayData(correct, locationGivenByPlayerToPhotograph);
         playerGaveCorrectLocationOnDay.Add(newPhotographerData);
 
         givenLoc = false;
     }
-    #endregion
+
 
     #region LadyInBlackLinks
 

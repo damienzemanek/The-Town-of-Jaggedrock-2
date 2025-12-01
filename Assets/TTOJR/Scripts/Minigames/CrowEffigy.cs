@@ -9,7 +9,6 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 {
     #region Privates
     [Inject] Interactor interactor;
-    [Inject] TimeCycle timeCy;
     CallbackDetector cbDetector;
     CursedRoom _room;
     #endregion
@@ -25,7 +24,6 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         gameObject.layer = LayerMask.NameToLayer("Interactable");
         AssignEffigyUseCallback();
         DestroyedHook = new UnityEvent();
-        StartCoroutine(C_CheckIfDay());
     }
 
 
@@ -53,19 +51,5 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
             .Build();
     }
 
-    IEnumerator C_CheckIfDay()
-    {
-        while (true)
-        {
-            yield return new WaitForEndOfFrame();
-
-            if(timeCy.IsDay())
-            {
-                DestroyedHook?.RemoveAllListeners();
-                Destroy(gameObject);
-                break;
-            }
-        }
-    }
 
 }

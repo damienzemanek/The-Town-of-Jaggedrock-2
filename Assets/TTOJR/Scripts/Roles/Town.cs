@@ -10,9 +10,9 @@ using UnityEngine.AI;
 public class Town : RuntimeInjectableMonoBehaviour
 {
     [SerializeField][Inject] public EntityControls player;
+    [SerializeField] public Renderer obj;
 
     #region Privates
-    [Inject] TimeCycle timeCy;
     [SerializeField] bool _corrupted;
     [SerializeField] bool hasSpawnedInCorruptedAlready = false;
     #endregion
@@ -49,42 +49,6 @@ public class Town : RuntimeInjectableMonoBehaviour
     }
 
 
-    private void OnEnable()
-    {
-        if (!corrupted && currentCorruptionLevel >= 3) Corrupt();
-        if (corrupted) EnableCorruptedFunctionality();
-        if (corrupted && timeCy.IsDay()) //Doesnt spawn corrupted Town during day
-        {
-
-            if (!hasSpawnedInCorruptedAlready)
-            {
-                gameObject.SetActive(false);
-                return;
-            }
-            else
-            {
-                RevertCorruption();
-
-                return;
-            }
-        }
-
-        if (corrupted && timeCy.IsNight()) //Spawned corrupted can only spawn at night, and only once, then will revert back one corrupted levevl
-        {
-            if (!hasSpawnedInCorruptedAlready)
-            {
-                hasSpawnedInCorruptedAlready = true;
-                return;
-            }
-            else
-            {
-                RevertCorruption();
-                return;
-
-            }
-        }
-    }
-
     void RevertCorruption()
     {
         DisableCorruptedFunctionality();
@@ -96,6 +60,15 @@ public class Town : RuntimeInjectableMonoBehaviour
     public void IncreaseCorruption()
     {
         currentCorruptionLevel++;
+        if (currentCorruptionLevel < CorruptionManager.instance.corrMats.Length)
+            obj.Get<Renderer>().material = CorruptionManager.instance.corrMats[currentCorruptionLevel];
+
+        if (currentCorruptionLevel > 2)
+        {
+            corrupted = true;
+            obj.Get<Renderer>().material = CorruptionManager.instance.fullyCorrupt;
+            CorruptionManager.instance.LoseGame();
+        }
     }
 
     public void Corrupt() => corrupted = true;

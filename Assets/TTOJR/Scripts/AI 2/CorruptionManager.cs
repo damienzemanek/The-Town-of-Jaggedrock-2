@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Extensions;
@@ -10,19 +11,33 @@ public class CorruptionManager : MonoBehaviour
 {
     public static CorruptionManager instance;
 
+    [Serializable]
+    public struct CorruptEvent
+    {
+        public bool isRandom;
+        bool isntRandom { get => !isRandom; }
+        [ShowIf("isntRandom")] public UnityEvent corruptHook;
+    }
 
     #region Privates
     [SerializeField] FadeScreen afflictBg;
     [SerializeField] FadeScreen afflictFadeInto;
     [SerializeField] GameObject afflictVisual;
+    [SerializeField] int currentCorruption;
     #endregion
 
-    public List<CorruptonLocation> corruptionLocations;
-    [SerializeReference] public List<CorruptEvent> corruptEvents;
+    [TabGroup("Residents")] public List<Town> residents;
+    [TabGroup("Locations")] public List<CorruptonLocation> corruptionLocations;
+    [TabGroup("Types of Events")][SerializeReference] public List<CorruptEventType> corruptEventTypes;
+    [TabGroup("Actual Events")] public List<CorruptEvent> corruptionEvents;
+
+    public Material[] corrMats = new Material[3];
+    public Material fullyCorrupt;
+    public Material finishedGameMat;
+    public Material chandelierMat;
+    public List<GameObject> lights;
 
     public UnityEvent onCorrupted;
-
-
 
     private void Awake()
     {
@@ -30,7 +45,7 @@ public class CorruptionManager : MonoBehaviour
         if(onCorrupted == null) onCorrupted = new UnityEvent();
         if (corruptionLocations == null || corruptionLocations.Count == 0)
             corruptionLocations = gameObject.GetComponentsInChildren<CorruptonLocation>().ToList();
-        if (corruptEvents == null || corruptEvents.Count == 0)
+        if (corruptEventTypes == null || corruptEventTypes.Count == 0)
             this.Error("Corrupt Events not set, please assign");
     }
 
@@ -44,14 +59,17 @@ public class CorruptionManager : MonoBehaviour
         onCorrupted.RemoveAllListeners();
     }
 
+    public void CorruptNext()
+    {
+        if (corruptionEvents[currentCorruption].isRandom) CorruptRandom();
+        else throw new NotImplementedException("Non random corrupt events not implemented yet");
+    }
 
     public void CorruptRandom()
     {
         corruptionLocations.Rand().StartCorruption();
     }
 
-
-    [Button]
     public void CorruptCompelte()
     {
         this.Log("Corrupt Complete");
@@ -80,6 +98,22 @@ public class CorruptionManager : MonoBehaviour
             });
 
         });
+    }
+
+    public void LoseGame()
+    {
+        foreach(Town resident in residents)
+            if(!resident.corrupted)
+                resident.obj.Get<Renderer>().material = finishedGameMat;
+
+        foreach (GameObject l in lights)
+        {
+            l.gameObject.SetActive(false);
+        }
+
+        chandelierMat?.DisableKeyword("_EMISSION");
+
+        TimeCycle.Instance.timeFrozen = true;
     }
 
 

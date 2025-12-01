@@ -9,255 +9,44 @@ using UnityEngine.Events;
 using Extensions;
 using TMPro;
 using Sirenix.Utilities;
+using DesignPatterns.CreationalPatterns;
 
-public class TimeCycle : MonoBehaviour, IDependencyProvider
+public class TimeCycle : Singleton<TimeCycle>
 {
     #region Member Classes
-    [Serializable]
-    public class Period
-    {
-        public enum Type
-        {
-            Day,
-            Night
-        }
-        public Type type;
-        public bool inProgress;
-        public bool complete;
-
-        public Period(Type type)
-        {
-            this.type = type;
-            inProgress = true;
-            complete = false;
-        }
-        public void Complete()
-        {
-            inProgress = false;
-            complete = true;
-        }
-    }
     #endregion
 
     [Inject] EntityControls controls;
-    [Provide] TimeCycle Provide() => this;
-
-
-    [TabGroup("All Periods")] public NewPeriod newPeriod;
-    [TabGroup("All Periods")] public FadeScreen fade;
-
-
-    [TabGroup("Day")][SerializeField, ReadOnly] int day;
-    [TabGroup("Day")] public float dayBlackScreenTime;
-    [TabGroup("Day")][SerializeField] float dayStartDisplayDelay = 5f;
-    [TabGroup("Day")] public UnityEvent OnDayStart;
-    [TabGroup("Day")][SerializeField] List<UnityEventPlus> dayEvents;
-    [TabGroup("Day")][SerializeField] TextMeshProUGUI newDayText;
-    [TabGroup("Day")][SerializeField] GameObject newDayObj;
-    [TabGroup("Day")][SerializeField] float delayOnDisplayTextDigits;
-    [TabGroup("Day")][SerializeField] AudioPlay newDayAudTyping;
-    [TabGroup("Day")][SerializeField] AudioClip newDayAud;
-
-
-
-    [TabGroup("Night")][SerializeField, ReadOnly] int night;
-    [TabGroup("Night")] public float nightBlackScreenTime;
-    [TabGroup("Night")] public UnityEvent OnNightStart;
-    [TabGroup("Night")][SerializeField] List<UnityEventPlus> nightEvents;
-
-    public List<Light> dayLights;
-    public float nightIntensity = 0f;
-    float initialIntensity;
-
-    public List<Period> periods = new List<Period>();
-    public Period GetCurrentPeriod() => (periods.Count > 0) ? periods.Last() : null;
-
-    private void Awake()
-    {
-        initialIntensity = dayLights[0].intensity;
-        periods = new List<Period>();
-
-        if (OnNightStart == null) OnNightStart = new();
-        if(OnDayStart == null) OnDayStart = new();
-
-    }
-
-    public void TakeOnNightEvents(List<UnityEventPlus> events)
-    {
-        if (events == null) this.Error("Please assign events to give TimeCycle");
-        while (nightEvents.Count < events.Count)
-            nightEvents.Add(new UnityEventPlus());
-
-        for (int i = 0; i < events.Count; i++)
-        {
-            UnityEventPlus e = events[i]; if (e == null) continue;
-            nightEvents[i] = events[i];
-        }
-    }
-
-
 
     public float currentTime;
-
-    [Title("Fade Settings")]
-    [Range(0f, 100f)] public float dayFadeStartPercent = 75f;
-    [Range(0f, 100f)] public float nightFadeStartPercent = 75f;
-
-    [Title("Cycle Lengths (Minutes)")]
-    public float dayLengthInMinutes = 5f * 60f;
-    public float nightLengthInMinutes = 3f * 60f;
-
-    [Title("States")]
-    [SerializeField] bool isDay = false;
+    public float stepBetweenCorruptEvents = 80f;
     public bool timeFrozen = false;
-    public bool transitioning = false;
 
-
-    private void Start()
+    private void FixedUpdate()
     {
-        isDay = false;
-        SetToDay();
-        currentTime = 0;
-        newPeriod.PlayDay();
-    }
-
-    public void Update()
-    {
-        if (timeFrozen || transitioning) return;
+        if (timeFrozen) return;
         currentTime += Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.KeypadMultiply)) currentTime += 9999999f;
-
-        if (isDay) CheckDay();
-        if (!isDay) CheckNight();
+        if (CorruptAvaliable()) Corrupt();
     }
 
-    void NewDay() => periods.Add(new Period(Period.Type.Day));
-    void NewNight() => periods.Add(new Period(Period.Type.Night));
-
-    void CheckDay()
+    bool CorruptAvaliable()
     {
-        FadeDayLightToNight();
-        if (currentTime > dayLengthInMinutes * 60)
-            Transition();
+        if (currentTime > stepBetweenCorruptEvents) return true;
+        else return false;
     }
 
-    void CheckNight()
+    void Corrupt()
     {
-        FadeNightLightToDay(); 
-
-        if (currentTime > nightLengthInMinutes * 60)
-            Transition();
-    }
-
-    void Transition()
-    {
-        float fadeTime = 0;
-        if (isDay) fadeTime = dayBlackScreenTime;
-        else fadeTime = nightBlackScreenTime;
-
-
-        fade.FadeInAndOutCallback(
-            prehook: () => newPeriod?.PlayNewPeriodAudios(),
-            midhook: () =>
-            {
-                if (isDay) SetToNight();
-                else SetToDay();
-            },
-            blackScreenTime: fadeTime
-        );
-
         currentTime = 0;
+        CorruptionManager.instance.CorruptNext();
     }
 
-
-    void SetToNight()
+    [Button]
+    void AutoCorrupt()
     {
-        night++;
-        GetCurrentPeriod()?.Complete();
-        isDay = false;
-        NewNight();
-        dayLights.ForEach(l => l.intensity = nightIntensity); 
-        OnNightStart?.Invoke();
-
-        if (night > 0 && night <= nightEvents.Count)
-            nightEvents[night - 1]?.InvokeWithDelay(this);
-
-
+        currentTime = stepBetweenCorruptEvents;
     }
 
-    void SetToDay()
-    {
-        day++;
-        StartCoroutine(C_DisplayDayConcats());
-        GetCurrentPeriod()?.Complete();
-        isDay = true;
-        NewDay();
-        dayLights.ForEach(l => l.intensity = initialIntensity);
-        OnDayStart?.Invoke();
-        if (day > 0 && day <= dayEvents.Count)
-            dayEvents[day - 1]?.InvokeWithDelay(this);
-
-    }
-
-    IEnumerator C_DisplayDayConcats()
-    {
-        yield return new WaitForSeconds(dayStartDisplayDelay);
-        
-        newDayObj.SetActive(true);
-        newDayText.text = "";
-
-        string[] msg = {"D", "A", "Y", " "};
-
-        int digits = 0;
-        int neededDigits = 3;
-
-        yield return new WaitForSeconds(seconds: delayOnDisplayTextDigits);
-
-        while (digits <= neededDigits)
-        {
-            newDayAudTyping?.Play(newDayAud);
-            newDayText.text = newDayText.text + msg[digits];
-            yield return new WaitForSeconds(delayOnDisplayTextDigits);
-            digits++;
-        }
-
-        yield return new WaitForSeconds(delayOnDisplayTextDigits / 2);
-
-        newDayText.text = newDayText.text + day;
-
-        yield return new WaitForSeconds(delayOnDisplayTextDigits * 2.4f);
-
-        newDayObj.SetActive(value: false);
-        newDayText.text = "";
-    }
-
-    void FadeDayLightToNight()
-    {
-        float fadeStart = (dayFadeStartPercent / 100f) * (dayLengthInMinutes * 60f);
-        float fadeEnd = dayLengthInMinutes * 60f;
-
-        if (currentTime >= fadeStart)
-        {
-            float t = Mathf.InverseLerp(fadeStart, fadeEnd, currentTime);
-            dayLights.ForEach(l => l.intensity = Mathf.Lerp(initialIntensity, nightIntensity, t));
-        }
-    }
-
-    void FadeNightLightToDay()
-    {
-        float fadeStart = (nightFadeStartPercent / 100f) * (nightLengthInMinutes * 60f);
-        float fadeEnd = nightLengthInMinutes * 60f;
-
-        if (currentTime >= fadeStart)
-        {
-            float t = Mathf.InverseLerp(fadeStart, fadeEnd, currentTime);
-            dayLights.ForEach(l => l.intensity = Mathf.Lerp(nightIntensity, initialIntensity, t));
-        }
-    }
-
-    public bool IsDay() => (GetCurrentPeriod().type == TimeCycle.Period.Type.Day);
-    public bool IsNight() => (GetCurrentPeriod().type == TimeCycle.Period.Type.Night);
 
 
 }

@@ -10,7 +10,6 @@ public class Sacrifice : RuntimeInjectableMonoBehaviour
 
     #region Privates
     [SerializeField] bool complete;
-    [Inject] TimeCycle timeCy;
     #endregion
     public int[] generatedNumbers = new int[5];
     public SacrificeCandle[] correctPlacements;
@@ -32,7 +31,6 @@ public class Sacrifice : RuntimeInjectableMonoBehaviour
         ApplyMainNumbers();
         GiveNumbersToCandles();
 
-        timeCy.OnDayStart.AddListener(() => Destroy(gameObject));
     }
 
 

@@ -5,6 +5,7 @@ using Extensions;
 using UnityEngine;
 using UnityEngine.Events;
 
+[DefaultExecutionOrder(1)]
 [RequireComponent(typeof(CallbackDetector))]
 public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
 {

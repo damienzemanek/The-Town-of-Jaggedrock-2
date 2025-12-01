@@ -13,7 +13,6 @@ using Extensions;
 public class LadyInBlack : Questholder<Questing.Town.Quest>, IDependencyProvider, IEventRecipient
 {
     #region Privates
-    [Inject] TimeCycle time;
     LocationRandomizer locations;
     [Provide] LadyInBlack Provide() => this;
     #endregion
@@ -40,27 +39,9 @@ public class LadyInBlack : Questholder<Questing.Town.Quest>, IDependencyProvider
         base.OnInstantiate();
     }
 
-    private void OnEnable()
-    {
-        if (WontShowUpAtDayAndIsDay()) return;
-    }
+
 #endregion
 
-
-#region Methods
-    bool WontShowUpAtDayAndIsDay()
-    {
-        if (time.IsDay())
-        {
-            gameObject.SetActive(false);
-            return true;
-        }
-        return false;
-    }
-
-
-
-    #endregion
 
 
     public bool mania_one_progression_two_flag = false;

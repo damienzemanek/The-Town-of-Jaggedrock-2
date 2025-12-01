@@ -5,7 +5,6 @@ using UnityEngine;
 public class TownQuestGiver : Questholder<Questing.Activity.Quest>, IEventRecipient
 {
     #region Privates
-    [Inject] TimeCycle time;
     [Inject] Despawner despawner;
     [SerializeField] Town _townie;    
     

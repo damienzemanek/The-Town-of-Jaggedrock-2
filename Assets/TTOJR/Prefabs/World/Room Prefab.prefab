@@ -3212,6 +3212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1557627984733898304}
+  - component: {fileID: 2529736170133068974}
   m_Layer: 0
   m_Name: Room Prefab
   m_TagString: Untagged
@@ -3240,6 +3241,39 @@ Transform:
   - {fileID: 7001000334260725129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2529736170133068974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7334506282169942344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af40bf78d95a504e82e4d2f8a0d80ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cursedAreaSpawnLoc: {fileID: 2330310109717972610}
+  _corrupting: 0
+  _resident: {fileID: 0}
+  currentEvent:
+    rid: -2
+  searchables:
+  - {fileID: 6754081773541451532}
+  - {fileID: 4268494694477322070}
+  - {fileID: 1126731859784588218}
+  - {fileID: 7094322377748050715}
+  - {fileID: 7124044763132202159}
+  flickerObjs:
+  - {fileID: 0}
+  - {fileID: 0}
+  sacrificeSpawnLoc: {fileID: 6839561313569391695}
+  doorBloodSpawnLoc: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &7525748955499415073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,11 +3435,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8824890651568087491}
-  - component: {fileID: 5621875031597241622}
-  - component: {fileID: 2145909132386965822}
-  - component: {fileID: 7859019596539295102}
   m_Layer: 0
-  m_Name: 'Room & Corruption '
+  m_Name: Corruption Interaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3430,69 +3461,6 @@ Transform:
   - {fileID: 2976980060696219214}
   m_Father: {fileID: 1557627984733898304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5621875031597241622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7824658161036255231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b65f6ed62755e44392a63ba11fd20df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomNum: 1
-  tpBackArea: {fileID: 0}
-  outsideRoomArea: {fileID: 0}
-  resident: {fileID: 0}
---- !u!114 &2145909132386965822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7824658161036255231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1af40bf78d95a504e82e4d2f8a0d80ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cursedAreaSpawnLoc: {fileID: 2330310109717972610}
-  _corrupting: 0
-  _resident: {fileID: 0}
-  currentEvent:
-    rid: -2
-  searchables:
-  - {fileID: 6754081773541451532}
-  - {fileID: 4268494694477322070}
-  - {fileID: 1126731859784588218}
-  - {fileID: 7094322377748050715}
-  - {fileID: 7124044763132202159}
-  flickerObjs:
-  - {fileID: 0}
-  - {fileID: 0}
-  sacrificeSpawnLoc: {fileID: 6839561313569391695}
-  doorBloodSpawnLoc: {fileID: 0}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
---- !u!114 &7859019596539295102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7824658161036255231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b170bafe28e13c409db088240e3d8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tpLoc: {fileID: 2976980060696219214}
-  objToTeleport: {fileID: 0}
 --- !u!1 &8044992293396120687
 GameObject:
   m_ObjectHideFlags: 0

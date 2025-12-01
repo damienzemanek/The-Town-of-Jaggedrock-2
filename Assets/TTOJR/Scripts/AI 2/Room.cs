@@ -8,15 +8,13 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [Inject] TimeCycle time;
-
     [SerializeField] public int roomNum;
     [SerializeField] public NPC_Area tpBackArea;
     [SerializeField] public NPC_Area outsideRoomArea;
 
     #region Privates
     [ShowInInspector, ReadOnly] Teleport tp;
-    [SerializeField, ReadOnly] Town resident;
+    [SerializeField] Town resident;
     #endregion
 
 

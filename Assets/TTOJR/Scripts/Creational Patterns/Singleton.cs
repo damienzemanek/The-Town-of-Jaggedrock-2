@@ -19,7 +19,7 @@ namespace CreationalPatterns{
                     if (instance == null)
                     {
                         instance = FindAnyObjectByType<T>();
-                        if(instance != null)
+                        if(instance == null)
                         {
                             GameObject obj = new GameObject();
                             obj.name = typeof(T).Name + " Auto Generated";

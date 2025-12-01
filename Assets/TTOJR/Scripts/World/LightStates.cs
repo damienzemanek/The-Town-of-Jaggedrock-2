@@ -8,8 +8,6 @@ using UnityEngine;
 [DefaultExecutionOrder(400)]
 public class LightStates : MonoBehaviour
 {
-    [Inject] TimeCycle time;
-
     [Serializable]
     public class States
     {
@@ -31,18 +29,6 @@ public class LightStates : MonoBehaviour
 
     public List<States> states;
     public List<Light> lights;
-
-    public void OnEnable()
-    {
-        time.OnNightStart.AddListener(() => SetIntensity(States.State.Dim));
-        time.OnDayStart.AddListener(() => SetIntensity(States.State.Full));
-    }
-
-    private void OnDisable()
-    {
-        time.OnNightStart.RemoveAllListeners();
-        time.OnDayStart.RemoveAllListeners();
-    }
 
     void SetIntensity(States.State toState)
     {

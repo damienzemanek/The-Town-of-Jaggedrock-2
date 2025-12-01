@@ -16,11 +16,10 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
 {
 
     #region Privates
-    [Inject] TimeCycle timeCy;
     [SerializeField] Transform _cursedAreaSpawnLoc;
     [SerializeField, ReadOnly] bool _corrupting;
-    [SerializeField, ReadOnly] Town _resident;
-    [SerializeReference, ReadOnly] CorruptEvent currentEvent;
+    [SerializeField] Town _resident;
+    [SerializeReference, ReadOnly] CorruptEventType currentEvent;
     #endregion
 
     public bool corrupting { get => _corrupting; set => _corrupting = value; }
@@ -45,6 +44,16 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
         currentEvent = null;
     }
 
+    private void FixedUpdate()
+    {
+        if (!corrupting) return;
+        if (currentEvent == null) return;
+
+        currentEvent.currentTime -= Time.deltaTime;
+
+        if (currentEvent.currentTime < 0) CorruptComplete();
+    }
+
     public void StartCorruption()
     {
         this.Log($"Starting Corruption");
@@ -54,8 +63,8 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     IEnumerator C_CorruptEvent()
     {
         corrupting = true;
-        currentEvent = CorruptionManager.instance.corruptEvents.Rand().StartCorrupt(this);
-        yield return new WaitForSeconds((timeCy.nightLengthInMinutes * 60) - timeCy.currentTime);
+        currentEvent = CorruptionManager.instance.corruptEventTypes.Rand().StartCorrupt(this);
+        yield return new WaitForSeconds(60);
         if (corrupting) CorruptComplete();
     }
 
@@ -65,9 +74,11 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
         currentEvent.StopCorrupt(this);
         currentEvent = null;
     }
-    
+
+    [Button]
     void CorruptComplete()
     {
+        if (currentEvent != null) currentEvent.currentTime = 0;
         if (!resident) this.Error("No resident has been set");
         resident.IncreaseCorruption();
         StopCorruption();
@@ -82,14 +93,23 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
 
 
 [Serializable]
-public abstract class CorruptEvent
+public abstract class CorruptEventType
 {
-    public abstract CorruptEvent StartCorrupt(CorruptonLocation loc);
+    public float duration;
+    [ReadOnly] public float currentTime;
+
+    public CorruptEventType StartCorrupt(CorruptonLocation loc)
+    {
+        currentTime = duration;
+        return StartCorruptImplementation(loc);
+    }
+
+    public abstract CorruptEventType StartCorruptImplementation(CorruptonLocation loc);
     public abstract void StopCorrupt(CorruptonLocation loc);
 }
 
 [Serializable]
-public class CrowEffigyEvent : CorruptEvent
+public class CrowEffigyEvent : CorruptEventType
 {
     public float timeToSearch = 4f;
     public GameObject cursedAreaPrefab;
@@ -97,7 +117,7 @@ public class CrowEffigyEvent : CorruptEvent
 
     CursedRoom room;
 
-    public override CorruptEvent StartCorrupt(CorruptonLocation loc)
+    public override CorruptEventType StartCorruptImplementation(CorruptonLocation loc)
     {
         room = null;
         loc.searchables.ForEach(s => s.AddComponent<Searchable>().timeToComplete = timeToSearch);
@@ -129,12 +149,12 @@ public class CrowEffigyEvent : CorruptEvent
 }
 
 [Serializable]
-public class SacrificeEvent : CorruptEvent
+public class SacrificeEvent : CorruptEventType
 {
     public GameObject sacrificePrefab;
     public GameObject bloodDoorPrefab;
 
-    public override CorruptEvent StartCorrupt(CorruptonLocation loc)
+    public override CorruptEventType StartCorruptImplementation(CorruptonLocation loc)
     {
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerActivate());
         Spawn(loc);
