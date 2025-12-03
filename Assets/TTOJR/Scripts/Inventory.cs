@@ -154,7 +154,7 @@ public class Inventory : MonoBehaviour, IDependencyProvider
         TryToEnableItemObject(num, pickedUpItems[num]);
 
         //Set all locational PreReqs to either (T or F) based on this item.
-        PreRequisiteCallbackDetector.hasItemPreRequisite.Invoke(pickedUpItems[num], true);
+        this.DelayedCall(() => PreRequisiteCallbackDetector.hasItemPreRequisite.Invoke(pickedUpItems[num], true), 0.1f);
 
 
 

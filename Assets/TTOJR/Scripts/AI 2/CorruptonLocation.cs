@@ -94,14 +94,16 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
 
     public void SpawnNote()
     {
+        this.Log("Spawning note");
         int rand = Random.Range(1, 4); 
+        GameObject spawnedNote = null;
         if(rand == 1)
         {
-            Instantiate(EvilInformationManager.Instance.GetTraitNote(), noteSpawnLoc);
+            spawnedNote = Instantiate(EvilInformationManager.Instance.GetTraitNote(), noteSpawnLoc);
         }
         else if(rand == 2)
         {
-            Instantiate(EvilInformationManager.Instance.GetFrequentNote(), noteSpawnLoc);
+            spawnedNote =Instantiate(EvilInformationManager.Instance.GetFrequentNote(), noteSpawnLoc);
         }
         else if(rand == 3)
         {
@@ -110,8 +112,9 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
                 SpawnNote();
                 return;
             }
-            Instantiate(EvilInformationManager.Instance.GetHintPrefab(), noteSpawnLoc);
+            spawnedNote =Instantiate(EvilInformationManager.Instance.GetHintPrefab(), noteSpawnLoc);
         }
+        this.Log($"Spawned note {spawnedNote.name}");
 
     }
 
@@ -138,6 +141,7 @@ public abstract class CorruptEventType
     public abstract CorruptEventType StartCorruptImplementation(CorruptonLocation loc);
     public void StopCorrupt(CorruptonLocation loc)
     {
+        this.Log("Player stopped corrupt");
         loc.SpawnNote();
         StopCorruptImplementation(loc);
     }

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using TMPro;
 using Extensions;
 
-[DefaultExecutionOrder(400)]
+[DefaultExecutionOrder(0)]
 public class Interactor : MonoBehaviour, IDependencyProvider
 {
     [Provide] public Interactor Provide() => this;

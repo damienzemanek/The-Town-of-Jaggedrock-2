@@ -10,14 +10,16 @@ using UnityEngine.Events;
 
 public class PreRequisiteCallbackDetector : CallbackDetector
 {
-    [SerializeField] bool hasPreRequisite;
+    [SerializeField] bool _hasPreRequisite;
     [field:SerializeField] public Item lookingForChangesToItem { get; set; }
+    public bool hasPreRequisite { get => _hasPreRequisite; set => _hasPreRequisite = value; }
 
     //Calls the hasItemPreqrequisite to NOT has the item. calls it with null (no item) and sets it to (false)
     public static void HasItemPrequisitesReset() => hasItemPreRequisite?.Invoke(null, false);
 
     //Hook slot to check if the player has the item required
     public static Action<Item, bool> hasItemPreRequisite;
+
 
     //1 -> Has items
 
@@ -57,7 +59,7 @@ public class PreRequisiteCallbackDetector : CallbackDetector
     //Hook for setting hasPreRequisite
     void SetPreRequisite(Item item, bool val)
     {
-        if (lookingForChangesToItem == null) { this.Error("Prereq callback detector looking for item not set"); return; }
+        if (lookingForChangesToItem == null) { this.Warn("Prereq callback detector looking for item not set"); return; }
         this.Log("Checking if the player has the needed");
 
         //If thers no item, the player does not have the prerequisite

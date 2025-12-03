@@ -324,9 +324,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presetItem: {fileID: 11400000, guid: f8c7a3bd93b32604d8b29db686d9c4f3, type: 2}
   <item>k__BackingField: {fileID: 0}
+  pickupSound: {fileID: 0}
   pickedUpEvent:
-    m_PersistentCalls:
-      m_Calls: []
+    delayType: 0
+    delay: 0
+    random: {x: 0, y: 0}
+    get:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &3297302030972494012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,9 +344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fed3c532c8d0748955304ea520904c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <locationMask>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 8
   rayCastDetector: 1
   collisionDetector: 0
   obj: {fileID: 0}
@@ -399,4 +401,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loop: 0
+  cutShort: 0
+  fade: 0
+  multi: 0
+  enforcePlayOneShot: 0
+  shortTime: 0
+  fadeoutTime: 1
+  source: {fileID: 0}
   audio: {fileID: 8300000, guid: 000a79c2edebb70418d17bfa53e1f4ce, type: 3}
+  audios: []

@@ -18,7 +18,7 @@ public class InventoryUpdater : MonoBehaviour
     {
         if (detector == null) detector = this.Get<PreRequisiteCallbackDetector>();
         if (itemDataPhases == null) this.Error("Item data phases not set");
-        if (!detector.lookingForChangesToItem) this.Error("Prereq detector looking for changes to item is null");
+        if (!detector.lookingForChangesToItem) this.Warn("Prereq detector looking for changes to item is null");
 
 
         itemDataPhases.Where(i => i.type != detector.lookingForChangesToItem.type)?
@@ -86,8 +86,8 @@ public class InventoryUpdater : MonoBehaviour
     public void UseItem()
     {
         Inventory inv = detector.casterObject.gameObject.GetComponent<Inventory>();
-        print(inv);
         Item invItem = inv.GetCurrentItem();
+        this.Log($"Using item {invItem.name}");
 
         if (invItem == null) return;
         if (invItem.functionality.GetType() != detector.lookingForChangesToItem.functionality.GetType())
@@ -98,6 +98,19 @@ public class InventoryUpdater : MonoBehaviour
 
         print($"Inventory: UPDATER using item {invItem.type.ToString()} which is a {invItem.functionality.GetType()}");
         invItem.functionality.UseIfVariantsAllow(functionalityUseItemCallback);
+    }
+
+    public void RemoveItem()
+    {
+        Inventory inv = detector.casterObject.gameObject.GetComponent<Inventory>();
+        Item invItem = inv.GetCurrentItem();
+        this.Log($"Removing item {invItem.name}");
+
+        if (invItem == null) return;
+
+        print($"Inventory: REMOVING item {invItem.type.ToString()} which is a {invItem.functionality.GetType()}");
+        inv.RemoveCurrentSelectedItem();
+
     }
 
 }
