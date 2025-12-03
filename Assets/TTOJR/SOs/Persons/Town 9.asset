@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _personName: Kacey
   excludeSelfFromGetRandomPersonNamne: 0
-  role: 0
-  groupingTrait: 3
+  trait: 0
+  frequent: 2

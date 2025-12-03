@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Town 5
   m_EditorClassIdentifier: 
   _personName: Shopkeeper
-  _isCoven: 0
   excludeSelfFromGetRandomPersonNamne: 0
-  role: 0
-  groupingTrait: 2
+  trait: 0
+  frequent: 1

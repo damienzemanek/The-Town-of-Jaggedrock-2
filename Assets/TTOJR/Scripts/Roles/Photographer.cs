@@ -35,7 +35,6 @@ public class Photographer : RuntimeInjectableMonoBehaviour, IDependencyProvider,
     [SerializeField] bool givenLoc;
 #pragma warning restore IDE0052 // Remove unread private members
     public bool givenCorrectLocation { get => GetWasGivenTheCorrectLocationOnThePreviousDay(); }
-    public LocationRandomizer.Locations theCorrectLocation { get => GetWasGivenTheCorrectLocationTheLocation(); }
 
     protected override void OnInstantiate()
     {
@@ -46,11 +45,8 @@ public class Photographer : RuntimeInjectableMonoBehaviour, IDependencyProvider,
 
     public bool GetWasGivenTheCorrectLocationOnThePreviousDay() 
         => (playerGaveCorrectLocationOnDay.Count > 0) ? playerGaveCorrectLocationOnDay.Last().playerGaveCorrectLocation : false;
-    public LocationRandomizer.Locations GetWasGivenTheCorrectLocationTheLocation()
-        => (playerGaveCorrectLocationOnDay.Count > 0) ? playerGaveCorrectLocationOnDay.Last().correctLocation : LocationRandomizer.Locations.Hotel;
 
-
-    void SetNewLocationIWantToPhotograph() => locationIWantToPhotograph = locations.RandLocEnumExclude(LocationRandomizer.Locations.Hotel);
+    void SetNewLocationIWantToPhotograph() => locationIWantToPhotograph = locations.RandLocEnum();
     public void PlayerGivenPhotographerALocation() => givenLoc = true;
 
 

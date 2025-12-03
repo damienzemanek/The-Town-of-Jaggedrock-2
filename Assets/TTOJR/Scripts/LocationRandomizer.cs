@@ -11,21 +11,11 @@ public class LocationRandomizer : MonoBehaviour
 {
     public enum Locations
     {
-        Hotel,
-        Sherriffs,
         Park,
         Bakery,
-        Store,
-        Diner,
-        Library,
-        Courthouse,
-        Mansion,
-        Offices,
-        Trail,
-        Farm,
-        Forest,
         RundownHouse
     }
+    public Locations _frequent;
 
     public enum Trait
     {
@@ -34,8 +24,8 @@ public class LocationRandomizer : MonoBehaviour
         Worried,
         Calm,
     }
-
     public Trait _trait;
+
 
     public string trait =>
         (_trait == Trait.Anxious) ? "I get anxious sometimes" :
@@ -44,8 +34,11 @@ public class LocationRandomizer : MonoBehaviour
         (_trait == Trait.Calm) ? "Im usually a very calm person" :
         "";
 
-    [HideInInspector] public string[] locations; //Display Names
-    public static Locations[] frequentLocations; //Display Names
+    public string frequent =>
+        (_frequent == Locations.Park) ? "In my free time I hang around the park" :
+        (_frequent == Locations.Bakery) ? "The bakery always has some treats that I like" :
+        (_frequent == Locations.RundownHouse) ? "I like visiting near that rundown old house" :
+        "";
 
     [ShowInInspector, ReadOnly] public string[] activitiesT { get => setActivitiesT; }
     readonly string[] setActivitiesT =
@@ -147,36 +140,14 @@ public class LocationRandomizer : MonoBehaviour
     };
 
 
-    private void Awake()
-    {
-        if (frequentLocations == null || frequentLocations.Length == 0)
-            frequentLocations = new Locations[]
-            {
-                RandLocEnumExclude(Locations.Hotel),
-                RandLocEnumExclude(Locations.Hotel),
-                RandLocEnumExclude(Locations.Hotel),
-                RandLocEnumExclude(Locations.Hotel)
-            };
-        SetLocs();
-    }
     private void OnValidate()
     {
-        if(locations == null || locations.Length == 0)
-            SetLocs();
+
         if(town == null)
             town = this.Get<Town>();
 
     }
-    static string ConvertLocEnumToFormattedString(Locations loc) =>
-        Regex.Replace(loc.ToString(), "([a-z])([A-Z])", "$1 $2");
 
-    void SetLocs() => locations = Enum.GetValues(typeof(Locations))
-                        .Cast<Locations>()
-                        .Select(ConvertLocEnumToFormattedString)
-                        .ToArray();
-
-    public string loc { get => locations.Rand(); }
-    public string locEH => locations[(int)RandLocEnumExclude(Locations.Hotel)];
     public Locations RandLocEnumExclude(params Locations[] exclude) => EnumEX<Locations>.Rand(exclude);
     public Locations RandLocEnum() => EnumEX<Locations>.Rand();
 
@@ -186,6 +157,7 @@ public class LocationRandomizer : MonoBehaviour
     public string introspectC => introspectionC.Rand();
     public string introspect => (town == null) ? "" : 
         (town.isCoven) ? introspectC : introspectT;
+
 
     public Town town;
 

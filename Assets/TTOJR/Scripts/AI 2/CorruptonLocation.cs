@@ -10,6 +10,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using Unity.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 
 public class CorruptonLocation : MonoBehaviour, IResidentLocation
@@ -23,7 +24,8 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     #endregion
 
     public bool corrupting { get => _corrupting; set => _corrupting = value; }
-    public Town resident { get => _resident; set => _resident = value; }  
+    public Town resident { get => _resident; set => _resident = value; }
+    public Transform noteSpawnLoc;
     public Transform cursedAreaSpawnLoc { get => _cursedAreaSpawnLoc; set => _cursedAreaSpawnLoc = value; }
 
     [TabGroup("Crow")] [SerializeReference] public List<GameObject> searchables;
@@ -32,7 +34,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     [TabGroup("Sacrifice")] public Transform sacrificeSpawnLoc;
     [TabGroup("Sacrifice")] public Transform doorBloodSpawnLoc;
 
-    private void OnEnable()
+    private void Awake()
     {
         if (resident == null) this.Error("Resident not assigned");
         resident.isResident = true;
@@ -90,6 +92,29 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
         CorruptionManager.instance.CorruptCompelte();
     }
 
+    public void SpawnNote()
+    {
+        int rand = Random.Range(1, 4); 
+        if(rand == 1)
+        {
+            Instantiate(EvilInformationManager.Instance.GetTraitNote(), noteSpawnLoc);
+        }
+        else if(rand == 2)
+        {
+            Instantiate(EvilInformationManager.Instance.GetFrequentNote(), noteSpawnLoc);
+        }
+        else if(rand == 3)
+        {
+            if (EvilInformationManager.Instance.hasAllHints)
+            {
+                SpawnNote();
+                return;
+            }
+            Instantiate(EvilInformationManager.Instance.GetHintPrefab(), noteSpawnLoc);
+        }
+
+    }
+
     #region Methods
 
     #endregion
@@ -102,6 +127,7 @@ public abstract class CorruptEventType
 {
     public float duration;
     [ReadOnly] public float currentTime;
+    public Transform noteSpawnLocation;
 
     public CorruptEventType StartCorrupt(CorruptonLocation loc)
     {
@@ -110,7 +136,13 @@ public abstract class CorruptEventType
     }
 
     public abstract CorruptEventType StartCorruptImplementation(CorruptonLocation loc);
-    public abstract void StopCorrupt(CorruptonLocation loc);
+    public void StopCorrupt(CorruptonLocation loc)
+    {
+        loc.SpawnNote();
+        StopCorruptImplementation(loc);
+    }
+    public abstract void StopCorruptImplementation(CorruptonLocation loc);
+
 }
 
 [Serializable]
@@ -143,7 +175,7 @@ public class CrowEffigyEvent : CorruptEventType
         effigy.DestroyedHook.AddListener(loc.StopCorruption);
     }
 
-    public override void StopCorrupt(CorruptonLocation loc)
+    public override void StopCorruptImplementation(CorruptonLocation loc)
     {
         loc.searchables.ForEach(s => s.Get<Searchable>().ComponentReset());
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
@@ -173,7 +205,7 @@ public class SacrificeEvent : CorruptEventType
         sacrifice.stoppedHook.AddListener(loc.StopCorruption);
     }
 
-    public override void StopCorrupt(CorruptonLocation loc)
+    public override void StopCorruptImplementation(CorruptonLocation loc)
     {
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
 

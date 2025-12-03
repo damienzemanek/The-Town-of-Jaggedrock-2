@@ -32,7 +32,6 @@ public class Town : RuntimeInjectableMonoBehaviour
     {
         base.OnInstantiate();
         playerObj = player.gameObject;
-        isResident = false;
     }
 
 

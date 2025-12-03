@@ -14,6 +14,7 @@ public class SO_Person : ScriptableObject
 
     public bool excludeSelfFromGetRandomPersonNamne;
     public LocationRandomizer.Trait trait;
+    public LocationRandomizer.Locations frequent;
     public string personName { get => _personName; }
     public static List<SO_Person> allPersons;
 

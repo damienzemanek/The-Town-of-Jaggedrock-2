@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _personName: Joseph
   excludeSelfFromGetRandomPersonNamne: 0
-  role: 0
-  groupingTrait: 2
+  trait: 0
+  frequent: 1

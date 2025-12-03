@@ -2768,6 +2768,37 @@ Transform:
   - {fileID: 1705323313059535955}
   m_Father: {fileID: 1557627984733898304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5492249830618004880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3571259429820839966}
+  m_Layer: 0
+  m_Name: Note Spawn Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3571259429820839966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5492249830618004880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.08597, y: -6.0337605, z: 14.738735}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8824890651568087491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5777213795425122411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,6 +3289,7 @@ MonoBehaviour:
   _resident: {fileID: 0}
   currentEvent:
     rid: -2
+  noteSpawnLoc: {fileID: 3571259429820839966}
   searchables:
   - {fileID: 6754081773541451532}
   - {fileID: 4268494694477322070}
@@ -3459,6 +3491,7 @@ Transform:
   - {fileID: 2330310109717972610}
   - {fileID: 6839561313569391695}
   - {fileID: 2976980060696219214}
+  - {fileID: 3571259429820839966}
   m_Father: {fileID: 1557627984733898304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8044992293396120687

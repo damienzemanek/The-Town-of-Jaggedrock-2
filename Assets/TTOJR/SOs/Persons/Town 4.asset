@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Town 4
   m_EditorClassIdentifier: 
   _personName: Photographer
-  _isCoven: 0
   excludeSelfFromGetRandomPersonNamne: 0
-  role: 0
-  groupingTrait: 2
+  trait: 0
+  frequent: 1
