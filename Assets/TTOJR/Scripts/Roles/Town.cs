@@ -14,10 +14,16 @@ public class Town : RuntimeInjectableMonoBehaviour
 
     #region Privates
     [SerializeField] bool _corrupted;
+    [SerializeField] bool _isCoven;
+    [SerializeField] bool _isResident;
+
     #endregion
 
     public int currentCorruptionLevel = 0;
     public bool corrupted { get => _corrupted; set => _corrupted = value; }
+    public bool isCoven { get => _isCoven; set => _isCoven = value; }
+    public bool isResident { get => _isResident; set => _isResident = value; }
+
 
     GameObject _playerObj;
     public GameObject playerObj { get => player.gameObject; set => _playerObj = value; }
@@ -26,6 +32,7 @@ public class Town : RuntimeInjectableMonoBehaviour
     {
         base.OnInstantiate();
         playerObj = player.gameObject;
+        isResident = false;
     }
 
 
@@ -46,9 +53,14 @@ public class Town : RuntimeInjectableMonoBehaviour
 
     public void Corrupt() => corrupted = true;
 
+    public void ConvertToCoven()
+    {
+        isCoven = true;
+
+    }
 
     #region Methods
-        
+
     #endregion
 
 }

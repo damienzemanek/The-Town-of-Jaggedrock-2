@@ -32,6 +32,11 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     [TabGroup("Sacrifice")] public Transform sacrificeSpawnLoc;
     [TabGroup("Sacrifice")] public Transform doorBloodSpawnLoc;
 
+    private void OnEnable()
+    {
+        if (resident == null) this.Error("Resident not assigned");
+        resident.isResident = true;
+    }
 
     private void Start()
     {

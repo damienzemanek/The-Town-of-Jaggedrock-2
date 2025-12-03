@@ -11,35 +11,10 @@ using Random = UnityEngine.Random;
 public class SO_Person : ScriptableObject
 {
     [SerializeField] string _personName;
-    [SerializeField] bool _isCoven = false;
 
     public bool excludeSelfFromGetRandomPersonNamne;
-    public enum CharacterRole
-    {
-        Town,
-        Coven,
-        Sherrif,
-        LadyInBlack,
-        Photographer,
-        AssylumEscapee
-    }
-
-    public enum GroupingTrait
-    {
-        None,
-        Anxious,
-        Loud,
-        Nervous,
-        Clumsy
-    }
-    public CharacterRole role;
-    public GroupingTrait groupingTrait;
-
+    public LocationRandomizer.Trait trait;
     public string personName { get => _personName; }
-    public bool isCoven { get => _isCoven; set => _isCoven = value; }
-
-
-
     public static List<SO_Person> allPersons;
 
 
@@ -53,6 +28,7 @@ public class SO_Person : ScriptableObject
             allPersons.Add(this);
 
     }
+
 
 
 }

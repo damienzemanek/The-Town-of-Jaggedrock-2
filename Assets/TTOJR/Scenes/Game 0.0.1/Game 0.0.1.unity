@@ -41833,7 +41833,7 @@ Transform:
   m_GameObject: {fileID: 294250592}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.04, z: 0.075}
+  m_LocalPosition: {x: 0, y: 1.22, z: 0.075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42821,7 +42821,7 @@ MonoBehaviour:
     - rid: 5706327937544880346
       type: {class: CrowEffigyEvent, ns: , asm: Assembly-CSharp}
       data:
-        duration: 50
+        duration: 40
         currentTime: 0
         timeToSearch: 4
         cursedAreaPrefab: {fileID: 7147925429486397494, guid: cdef0894f58238142a45cdf6c60e29b9, type: 3}
@@ -42829,7 +42829,7 @@ MonoBehaviour:
     - rid: 5706327937544880347
       type: {class: SacrificeEvent, ns: , asm: Assembly-CSharp}
       data:
-        duration: 50
+        duration: 40
         currentTime: 0
         sacrificePrefab: {fileID: 7231928383409928179, guid: 2bf149f7f7bbe1e4cbe9cbc1acc5ef1f, type: 3}
         bloodDoorPrefab: {fileID: 0}
@@ -45776,7 +45776,7 @@ Transform:
   m_GameObject: {fileID: 351428180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.788, z: 0.32}
+  m_LocalPosition: {x: 0, y: 1.968, z: 0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57124,7 +57124,7 @@ Transform:
   m_GameObject: {fileID: 542766303}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.685414, z: -0, w: 0.7281536}
-  m_LocalPosition: {x: -0.114, y: 1.837, z: 0.234}
+  m_LocalPosition: {x: -0.114, y: 2.017, z: 0.234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67726,7 +67726,7 @@ Transform:
   m_GameObject: {fileID: 652156590}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.06915707, z: -0, w: 0.9976058}
-  m_LocalPosition: {x: 0.008, y: 1.896, z: -0.055}
+  m_LocalPosition: {x: 0.008, y: 2.076, z: -0.055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103447,7 +103447,7 @@ Transform:
   m_GameObject: {fileID: 966477868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.883, z: 0.121}
+  m_LocalPosition: {x: -0, y: 2.063, z: 0.121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106371,7 +106371,7 @@ Transform:
   m_GameObject: {fileID: 1022890847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.163, y: 1.562, z: -0.575}
+  m_LocalPosition: {x: -0.163, y: 1.78, z: -0.575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -123697,7 +123697,7 @@ Transform:
   m_GameObject: {fileID: 1296716347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.861, z: 0}
+  m_LocalPosition: {x: 0, y: 2.041, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -135014,6 +135014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 0
   locations:
   - Hotel
   - Sherriffs
@@ -135029,25 +135030,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 1415879039}
 --- !u!114 &1415879035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135061,13 +135044,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":399.6962,"y":28.03665},"$type":"NodeCanvas.DialogueTrees.StatementNode"},{"statement":{"_text":"Hello."},"_position":{"x":148.8051,"y":100.2201},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":132.8051,"y":194.2201},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}}],"_position":{"x":102.8051,"y":298.2201},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":-12.19495,"y":473.2201},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[activityT]."},"_position":{"x":-44.19495,"y":583.2201},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":307.8051,"y":471.2201},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[introspect]."},"_position":{"x":317.8051,"y":577.2201},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"}],"connections":[{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 0, y: 0}
+    _translation: {x: 291, y: 246}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 1
@@ -135106,9 +135092,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!65 &1415879038
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -135145,6 +135143,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 268672545}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &1415879040
 MonoBehaviour:
@@ -135161,7 +135160,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: 5d62d39584c0ab6489866496d1a2f620, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: 1d08bb660e82bd44c9f438fb2c8de769, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 1022890848}
@@ -140280,6 +140278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 1
   locations:
   - Hotel
   - Sherriffs
@@ -140295,25 +140294,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 1481538708}
 --- !u!114 &1481538704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140343,9 +140324,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1481538706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140359,7 +140352,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":499.0,"y":476.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":483.0,"y":570.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}}],"_position":{"x":453.0,"y":674.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":338.0,"y":849.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"[activityT]."},"_position":{"x":306.0,"y":959.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":658.0,"y":847.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"5"},{"statement":{"_text":"[introspect]."},"_position":{"x":668.0,"y":953.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
@@ -140411,6 +140407,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 1500629742}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &1481538709
 MonoBehaviour:
@@ -140427,7 +140424,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: b55e3c5804fc0d3498e9cb39bc9db032, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: becce65815be1c5489c5fe0f016fb26d, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 652156591}
@@ -144537,6 +144533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 3
   locations:
   - Hotel
   - Sherriffs
@@ -144552,25 +144549,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 1561917814}
 --- !u!114 &1561917810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144600,9 +144579,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1561917812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144616,14 +144607,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":499.0,"y":476.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":483.0,"y":570.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}}],"_position":{"x":453.0,"y":674.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":338.0,"y":849.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"[activityT]."},"_position":{"x":306.0,"y":959.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":658.0,"y":847.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"5"},{"statement":{"_text":"[introspect]."},"_position":{"x":668.0,"y":953.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 0, y: 0}
-    _zoomFactor: 1
+    _translation: {x: 168, y: 0}
+    _zoomFactor: 0.4834678
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -144668,6 +144662,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 1108822433}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &1561917815
 MonoBehaviour:
@@ -144684,7 +144679,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: 32251e1c3b97c684d9704978bdac24b4, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: ae8bd02668cc2304ab93a006e4d290dd, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 294250593}
@@ -145334,6 +145328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 2
   locations:
   - Hotel
   - Sherriffs
@@ -145349,25 +145344,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 1571030350}
 --- !u!114 &1571030346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145397,9 +145374,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1571030348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145413,7 +145402,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":499.0,"y":476.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":483.0,"y":570.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}}],"_position":{"x":453.0,"y":674.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":338.0,"y":849.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"[activityT]."},"_position":{"x":306.0,"y":959.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":658.0,"y":847.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"5"},{"statement":{"_text":"[introspect]."},"_position":{"x":668.0,"y":953.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
@@ -145465,6 +145457,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 896949629}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &1571030351
 MonoBehaviour:
@@ -145481,7 +145474,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: 1e466df9be6e33440880b9619328e4f4, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: d3c56c1de48dff546a52c99db56fc010, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 351428181}
@@ -146067,6 +146059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 3
   locations:
   - Hotel
   - Sherriffs
@@ -146082,25 +146075,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 1581313031}
 --- !u!114 &1581313027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146130,9 +146105,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1581313029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146146,14 +146133,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":572.6221,"y":559.1837},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":556.6221,"y":653.1837},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}}],"_position":{"x":526.6221,"y":757.1837},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":411.6221,"y":932.1837},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"[activityT]."},"_position":{"x":379.6221,"y":1042.184},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":731.6221,"y":930.1837},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"5"},{"statement":{"_text":"[introspect]."},"_position":{"x":741.6221,"y":1036.184},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 0, y: 0}
-    _zoomFactor: 1
+    _translation: {x: 308, y: 167}
+    _zoomFactor: 0.31123307
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -146198,6 +146188,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 1493387822}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &1581313032
 MonoBehaviour:
@@ -146214,7 +146205,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: e5fdf307fd0d6a14eb2c95a69875f547, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: e7926b98cd18a0a4181885a9e0873d3e, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 1296716348}
@@ -162179,7 +162169,7 @@ Transform:
   m_GameObject: {fileID: 1606547140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.845, z: -0.134}
+  m_LocalPosition: {x: 0, y: 2.025, z: -0.134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -168943,6 +168933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 2
   locations:
   - Hotel
   - Sherriffs
@@ -168958,25 +168949,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 1708027900}
 --- !u!114 &1708027896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169006,9 +168979,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1708027898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169022,7 +169007,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":499.0,"y":476.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":483.0,"y":570.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}}],"_position":{"x":453.0,"y":674.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":338.0,"y":849.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"[activityT]."},"_position":{"x":306.0,"y":959.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":658.0,"y":847.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"5"},{"statement":{"_text":"[introspect]."},"_position":{"x":668.0,"y":953.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
@@ -169074,6 +169062,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 254578467}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &1708027901
 MonoBehaviour:
@@ -169090,7 +169079,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: a71f30b46ee20f044987b8817843a2ba, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: 88a26d981f68c5d49b88eb32399e1a6a, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 1737455190}
@@ -170499,7 +170487,7 @@ Transform:
   m_GameObject: {fileID: 1737455189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.485, z: 0.615}
+  m_LocalPosition: {x: -0, y: 1.501, z: 0.794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -174712,7 +174700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 0
-  stepBetweenCorruptEvents: 80
+  stepBetweenCorruptEvents: 60
   timeFrozen: 0
 --- !u!4 &1804202370
 Transform:
@@ -205919,6 +205907,66 @@ Transform:
   - {fileID: 1841457272}
   m_Father: {fileID: 1038873058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2047437553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -26.123499
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.45422
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277993917761738522, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019842021708274137, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      propertyPath: m_Name
+      value: Pickup_ Polaroid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4565596379986712571, guid: 46aa968959496b145821ba9430eb4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 46aa968959496b145821ba9430eb4967, type: 3}
 --- !u!1 &2047902445
 GameObject:
   m_ObjectHideFlags: 0
@@ -235194,6 +235242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 1
   locations:
   - Hotel
   - Sherriffs
@@ -235209,25 +235258,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 4712784944647799419}
 --- !u!114 &4712784944647799415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235257,9 +235288,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &4712784944647799417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235273,7 +235316,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":499.0,"y":476.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":483.0,"y":570.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}}],"_position":{"x":453.0,"y":674.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":338.0,"y":849.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"[activityT]."},"_position":{"x":306.0,"y":959.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":658.0,"y":847.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"5"},{"statement":{"_text":"[introspect]."},"_position":{"x":668.0,"y":953.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
@@ -235325,6 +235371,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 9127106158929018150}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &4712784944647799420
 MonoBehaviour:
@@ -235341,7 +235388,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: 57cf3c21ce6cf8640a5d6f778c7e2ffa, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: 7bdcb2a3463ecc946bd49347c22c45ad, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 966477869}
@@ -238440,6 +238486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 0
   locations:
   - Hotel
   - Sherriffs
@@ -238455,25 +238502,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 6389515214586773489}
 --- !u!114 &6389515214586773485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238503,9 +238532,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"fb59b3b4-77b8-40a8-a5a6-478f9ca50705","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"3878346c-c7a0-45ca-bbe1-9c91ff9feadc","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"458209a5-6df4-46ab-8607-8dfe98c81562","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"trait":{"_propertyPath":"LocationRandomizer.trait","_name":"trait","_id":"6bcd5674-0d55-467b-9fc9-ca2bb651af40","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"fb59b3b4-77b8-40a8-a5a6-478f9ca50705","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"3878346c-c7a0-45ca-bbe1-9c91ff9feadc","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"458209a5-6df4-46ab-8607-8dfe98c81562","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.trait","_name":"trait","_id":"6bcd5674-0d55-467b-9fc9-ca2bb651af40","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &6389515214586773487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238519,13 +238564,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":52.0,"y":-31.80499},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":36.0,"y":62.19501},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}},{"statement":{"_text":"[Ask about them]"}}],"_position":{"x":6.0,"y":166.195},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":-109.0,"y":341.195},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"[activityT]."},"_position":{"x":-141.0,"y":451.195},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":211.0,"y":339.195},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"5"},{"statement":{"_text":"[introspect]."},"_position":{"x":221.0,"y":445.195},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":516.0,"y":316.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"7"},{"statement":{"_text":"[trait]."},"_position":{"x":548.0,"y":447.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"8"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 0, y: 0}
+    _translation: {x: 30, y: -66}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 1
@@ -238571,6 +238619,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 7449741573867241656}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &6389515214586773490
 MonoBehaviour:
@@ -238587,7 +238636,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: 19d8cd95bd326bf43b2ae8047361a20a, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: fd53a8fda074dd341bbaa936b5a0dd8d, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 1606547141}
@@ -242624,6 +242672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3870f004d2d234985c2fe0d02aca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trait: 0
   locations:
   - Hotel
   - Sherriffs
@@ -242639,25 +242688,7 @@ MonoBehaviour:
   - Farm
   - Forest
   - Rundown House
-  activities:
-  - went shopping
-  - visited some family
-  - met some new friends
-  - watched the sunrise
-  - got some groceries
-  - tried some new food
-  - went on a walk
-  - was almost late to work
-  - saw some people dancing in the forest
-  - saw a faint glow in the forest
-  - heard some whispering in the room next to me at night
-  - took a nice shower
-  - did my laundry
-  - ate breakfast
-  - heard some lovely singing on my walk
-  - saw some crows eating bread
-  - went stargazing
-  - stayed up late doing some work
+  town: {fileID: 8021287031881365721}
 --- !u!114 &8021287031881365717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242687,9 +242718,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"mname":{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"activityT":{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"introspect":{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Dialuage.mname","_name":"mname","_id":"4f81bd2a-b08d-4433-a04c-4f6a9c4912e5","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.activityT","_name":"activityT","_id":"a8528d92-3a59-43df-8953-910f7ec0442b","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.introspect","_name":"introspect","_id":"ee3fb8a8-f0a5-4257-85d1-ce1c66754a35","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &8021287031881365719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242703,7 +242746,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello."},"_position":{"x":499.0,"y":476.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"I''m
+    [mname]. "},"_position":{"x":483.0,"y":570.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Ask
+    about what they''ve been doing lately]"}},{"statement":{"_text":"[Ask about something
+    random]"}}],"_position":{"x":453.0,"y":674.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":338.0,"y":849.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"3"},{"statement":{"_text":"[activityT]."},"_position":{"x":306.0,"y":959.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":658.0,"y":847.0},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"5"},{"statement":{"_text":"[introspect]."},"_position":{"x":668.0,"y":953.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
@@ -242755,6 +242801,7 @@ MonoBehaviour:
   player: {fileID: 1951918760}
   obj: {fileID: 951517599735547712}
   _corrupted: 0
+  _isCoven: 0
   currentCorruptionLevel: 0
 --- !u!114 &8021287031881365722
 MonoBehaviour:
@@ -242771,7 +242818,6 @@ MonoBehaviour:
   inConvo: 0
   person: {fileID: 11400000, guid: a869b872590baaa408a4d698e41b202a, type: 2}
   <favor>k__BackingField: {fileID: 11400000, guid: d630fe26cd4ca68489a0bb3cf5315e51, type: 2}
-  willCompleteTalkingToAfterInitialDialauge: 0
   isTalkingEffectPrefab: {fileID: 6111370000559117796, guid: 91684c2bd66bae64fa7cc9f4c79f4d60, type: 3}
   isTalkingEffect: {fileID: 0}
   effectLoc: {fileID: 542766304}
@@ -245308,3 +245354,4 @@ SceneRoots:
   - {fileID: 1001005878}
   - {fileID: 1682869593}
   - {fileID: 1461140145}
+  - {fileID: 2047437553}

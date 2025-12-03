@@ -22,7 +22,7 @@ public class IdentifiableInformationSystem : MonoBehaviour
     public string personITalkAboutsName { get => (personITalkAbout != null) ? GetPersonITalkAboutsName() : string.Empty; }
 
     public void SetPersonITalkAbout() => personITalkAbout = GetRandomPersonRemoveFromList();
-    public string GetPersonITalkAboutsGroupingTrait() => personITalkAbout.groupingTrait.ToString();
+    public string GetPersonITalkAboutsGroupingTrait() => personITalkAbout.trait.ToString();
     public string GetPersonITalkAboutsName() => personITalkAbout.personName;
 
     private void Awake()

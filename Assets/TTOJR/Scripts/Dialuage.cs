@@ -29,7 +29,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
 
     public SO_Person so_person { get => person; set => person = value; }
-    public string personName { get => (person != null) ? person.personName : string.Empty; }
+    public string mname { get => (person != null) ? person.personName : string.Empty; }
     public SO_Favor.FavorStatus GetFavorStatus => favor.status;
 
     #region Privs
@@ -53,8 +53,8 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
     public void AssignValuesForCallbackDetector(string interactText)
     {
-        detector.Enter.AddListener(() => interactor.SetInteractText(interactText));
-        detector.Enter.AddListener(() => interactor.ToggleCanInteract(true));
+        detector.Stay.AddListener(() => interactor.SetInteractText(interactText));
+        detector.Stay.AddListener(() => interactor.ToggleCanInteract(true));
         detector.Exit.AddListener(call: () => interactor.ToggleCanInteract(false));
         detector.useCallback.AddListener(() => interactor.ToggleCanInteract(false));
         detector.useCallback.AddListener(DialaugeUsage);
@@ -75,19 +75,19 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
         StartDialauge();
         TogglePlayerMovement(false);
-        TalkeeLooksAtMe();
+        PlayerLooksAtMe();
         SetTalkEffectsActive(true);
     }
 
 
 
     void TogglePlayerMovement(bool val) => playerControls.canMove = val;
-    void TalkeeLooksAtMe()
+    void PlayerLooksAtMe()
     {
         Look look = playerControls.Get<Look>();
         Inventory inv = playerControls.Get<Inventory>();
 
-        playerControls.headDirection.transform.LookAt(transform.position.With(y: 3));
+        playerControls.headDirection.transform.LookAt(transform.position.With(y: 4f));
         look.ToggleCursorUsability(true);
         look.ToggleUpdateMouseLooking(false);
         inv.ToggleInventoryVisability(false);
@@ -111,7 +111,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
         isTalkingEffect.SetActive(value: false);
     }
-    void AssignDialaugeActorName() => actor.AssignName(input_name: personName);
+    void AssignDialaugeActorName() => actor.AssignName(input_name: mname);
 
     public void SetTalkEffectsActive(bool val)
     {

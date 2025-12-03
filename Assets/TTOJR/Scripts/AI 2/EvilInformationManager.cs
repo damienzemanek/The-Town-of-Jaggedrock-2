@@ -2,7 +2,7 @@ using Extensions;
 using UnityEngine;
 using System.Linq;
 using System.Collections;
-using NUnit.Framework;
+using Sirenix.OdinInspector;
 
 public class EvilInformationManager : MonoBehaviour
 {
@@ -11,19 +11,22 @@ public class EvilInformationManager : MonoBehaviour
     NPCs npcs;
     #endregion
 
-    [SerializeField] bool covenSelected;
+    [SerializeField] bool covenSelected = false;
 
-    [SerializeField] SO_Person person;
-    [SerializeField] IdentifiableInformationSystem iis;
+    [SerializeField, ReadOnly] Dialuage chosenCoven;
+    [SerializeField, ReadOnly] IdentifiableInformationSystem iis;
 
 
-    public string groupingTrait => person.groupingTrait.ToString();
+    public string groupingTrait => chosenCoven.so_person.trait.ToString();
+    public string activityHint => npcs.npcList.FirstOrDefault(n => n.Get<Dialuage>().so_person == chosenCoven).Get<LocationRandomizer>().activityC;
+
     public LocationRandomizer.Locations frequent => iis.frequentLocation;
     public bool isResident => iis.isResident;
 
 
     private void Awake()
     {
+        covenSelected = false;
         if(npcs == null) npcs = FindFirstObjectByType<NPCs>();
     }
 
@@ -34,24 +37,20 @@ public class EvilInformationManager : MonoBehaviour
 
     public void SelectCoven()
     {
-        //if (covenSelected) return;
+        Town potentialCoven = npcs.npcList.Rand().Get<Town>();
 
-        //////GameObject randTown = npcs.npcs.Where(npc => npc.Has<Town>())
-        //////    .ToList()
-        //////    .Where(npc => !npc.Get<IdentifiableInformationSystem>().isResident)
-        //////    .ToList()
-        //////    .Rand();
+        while (potentialCoven != null && !potentialCoven.isResident)
+            potentialCoven = npcs.npcList.Rand().Get<Town>();
 
-        ////if (!randTown.TryGetComponent(out Dialuage dialauge)) return;
+        if (potentialCoven == null) return;
 
-        //person = dialauge.so_person;
-        //person.isCoven = true;
-
-        //covenSelected = true;
+        potentialCoven.ConvertToCoven();
+        chosenCoven = potentialCoven.Get<Dialuage>();
+        covenSelected = true;
     }
 
     #region Methods
-        
+
     #endregion
 
 }
