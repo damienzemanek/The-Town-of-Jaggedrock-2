@@ -80,6 +80,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
         corrupting = false;
         currentEvent.StopCorrupt(this);
         currentEvent = null;
+        TimeCycle.Instance.IncreaseDifficulty();
     }
 
     [Button]

@@ -24,12 +24,6 @@ public class Room : MonoBehaviour
         tp = this.Get<Teleport>();
     }
 
-    public void SetResident(Town _resident)
-    {
-        tp.objToTeleport = _resident.gameObject;
-        resident = _resident;
-    }
-
 
     #region Methods
         

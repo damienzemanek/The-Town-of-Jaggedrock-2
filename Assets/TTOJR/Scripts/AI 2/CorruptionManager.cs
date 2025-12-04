@@ -78,6 +78,7 @@ public class CorruptionManager : MonoBehaviour
         this.Log("Corrupt Complete");
         onCorrupted?.Invoke();
         AfflictResidentDisplay();
+        TimeCycle.Instance.DecreaseDifficulty();
     }
 
     public void AfflictResidentDisplay()

@@ -447,8 +447,7 @@ public class InventoryUsable : ItemFunctionality<InventoryUsable.Data>
     {
         if(inv.GetCurrentItem() == null) return false;
         bool check = inv.GetCurrentItem().functionality == this;
-
-        this.Log($"CheckCanBeUsed = [{inv.GetCurrentItem().functionality}] == [{this}] : {check},");
+        this.Log($"Comparing inv item ({inv.GetCurrentItem().type.ToString()}) to ({this}) : [{inv.GetCurrentItem().functionality}] == [{this}] : {check},");
         return check;
     }
 }

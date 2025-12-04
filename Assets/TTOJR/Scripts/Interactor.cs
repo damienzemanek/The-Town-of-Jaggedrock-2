@@ -29,6 +29,13 @@ public class Interactor : MonoBehaviour, IDependencyProvider
 
     public Action<Ray, RaycastHit> RaycasterEvent;
     public Action FailedRaycast;
+    public NavEX.Teleportable tpable;
+
+    private void Awake()
+    {
+        tpable.objToTeleport = gameObject;
+        tpable.isTeleporting = false;
+    }
 
     private void OnEnable()
     {
@@ -59,6 +66,8 @@ public class Interactor : MonoBehaviour, IDependencyProvider
     {
         this.canInteract = canInteract;
         interactDisplay.SetActive(canInteract);
+        if (!canInteract)
+            InteractEvent = null;
     }
     public void SetInteractText(string text)
     {
@@ -87,10 +96,17 @@ public class Interactor : MonoBehaviour, IDependencyProvider
     }
     public void Interact()
     {
+        this.Log("ATTEMPTING INTERACT");
         if (canInteract)
         {
+
+
             InteractEvent?.Invoke();
-            print("Interactor: Interacted callback");
+            this.Log("Interacted callback");
+            if(!holdInteraction)
+                ToggleCanInteract(false);
+
+            this.Log("INTERACT SUCCESSFULL");
         }
     }
     public void InteractHold()

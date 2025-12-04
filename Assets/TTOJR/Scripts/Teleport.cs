@@ -1,5 +1,4 @@
 using System.Collections;
-using System.ComponentModel;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,9 +6,8 @@ using Extensions;
 
 public class Teleport : MonoBehaviour
 {
-    bool teleporting;
     public Transform tpLoc;
-    [Sirenix.OdinInspector.ReadOnly] public GameObject objToTeleport;
+    [Sirenix.OdinInspector.ReadOnly] public NavEX.Teleportable tpable;
     Detector detector;
 
     private void Awake()
@@ -19,38 +17,36 @@ public class Teleport : MonoBehaviour
     }
     public void DoTeleport()
     {
-        if (teleporting) return;
+        this.Log("Teleport: Attempting TP");
 
-        teleporting = true;
-        print("Teleport: Attempting TP");
-        if (objToTeleport == null) SetObjectToTeleportFromDetector();
+        if(tpable.isTeleporting)
+        { this.Log($"EARLY RETURN: tpable {tpable.objToTeleport.name} is already teleporting"); return; }
 
-        if (objToTeleport.Has(out TeleportFader tpFader))
+        if (tpable.objToTeleport == null) SetObjectToTeleportFromDetector();
+
+        if (tpable.objToTeleport.Has(out TeleportFader tpFader))
             FadeTeleport(tpFader.fadeScreenRef);
         else
-        {
-            NavEX.Teleport(tpLoc, objToTeleport, out bool _teleporting);
-            teleporting = _teleporting;
-        }
+            NavEX.Teleport(tpLoc, ref tpable);
 
-        this.Log($"Succesfully teleported obj {objToTeleport.name}");
+
+        this.Log($"Succesfully teleported obj {tpable.objToTeleport.name}");
     }
 
     public void FadeTeleport(FadeScreen fade)
     {
         fade.FadeInAndOutCallback(midhook: () => 
         {
-            if (!tpLoc || !objToTeleport) { teleporting = false; return; }
-            NavEX.Teleport(tpLoc, objToTeleport, out bool _teleporting);
-            teleporting = _teleporting;
+            if (!tpLoc || !tpable.objToTeleport) { tpable.isTeleporting = false; return; }
+            NavEX.Teleport(tpLoc, ref tpable);
         });
     }
 
-    public void SetObjectToTeleport(GameObject GO) => objToTeleport = GO;
+    public void SetObjectToTeleport(GameObject GO) => tpable.objToTeleport = GO;
     public void SetObjectToTeleportFromDetector()
     {
         if (detector.colliderObject == null)
             Debug.LogError("Teleport: Cannot assign obj to teleport, its null from detector");
-        objToTeleport = detector.colliderObject;
+        tpable.objToTeleport = detector.colliderObject;
     }
 }

@@ -196,11 +196,18 @@ public class Inventory : MonoBehaviour, IDependencyProvider
 
     public Item GetCurrentItem()
     {
-        if (pickedUpItems.Length <= 0) return null;
-        if (pickedUpItems.Length <= selectItem) return null;
-        if (pickedUpItems[selectItem] != null) 
-            return pickedUpItems[selectItem];
+        if (pickedUpItems.Length <= 0)
+        { this.Log("Couldnt get item, I dont have any items"); return null; }
+        if (pickedUpItems.Length <= selectItem)
+        { this.Log("Couldnt get item, item is not in range"); return null; }
 
+        if (pickedUpItems[selectItem] != null)
+        {
+            this.Log($"Got item {pickedUpItems[selectItem].type.ToString()} in slot {selectItem}");
+            return pickedUpItems[selectItem];
+        }
+
+        this.Log("Couldnt get item, that item slot is null");
         return null;
     }
 

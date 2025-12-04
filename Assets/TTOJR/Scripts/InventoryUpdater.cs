@@ -87,9 +87,9 @@ public class InventoryUpdater : MonoBehaviour
     {
         Inventory inv = detector.casterObject.gameObject.GetComponent<Inventory>();
         Item invItem = inv.GetCurrentItem();
-        this.Log($"Using item {invItem.name}");
+        this.Log($"Using item {invItem.type.ToString()}");
 
-        if (invItem == null) return;
+        if (invItem == null) { this.Warn("EARLY RETURN, Using Item ITEM was null"); return; }
         if (invItem.functionality.GetType() != detector.lookingForChangesToItem.functionality.GetType())
         {
             Debug.LogWarning($"InventoryUpdater: Trying to use Item that is NOT the same type" +
@@ -104,7 +104,7 @@ public class InventoryUpdater : MonoBehaviour
     {
         Inventory inv = detector.casterObject.gameObject.GetComponent<Inventory>();
         Item invItem = inv.GetCurrentItem();
-        this.Log($"Removing item {invItem.name}");
+        this.Log($"Removing item {invItem.type.ToString()}");
 
         if (invItem == null) return;
 
