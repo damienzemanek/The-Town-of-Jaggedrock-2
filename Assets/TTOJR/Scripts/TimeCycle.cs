@@ -37,7 +37,7 @@ public class TimeCycle : Singleton<TimeCycle>
 
     private void Start()
     {
-        currentTime = 50f;
+        currentTime = 25f;
         ambience.PlayGeneralAmbience();
     }
 

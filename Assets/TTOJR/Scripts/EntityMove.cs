@@ -9,6 +9,7 @@ public class EntityMove : MonoBehaviour
     Rigidbody rb;
     [SerializeField] float speedMultiplier; float origSpeed;
     [SerializeField] float maxVel;
+    [SerializeField] public bool canMove = false;
 
     [Button]
     void UpdateOrigSpeed()
@@ -27,8 +28,10 @@ public class EntityMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveEntity();
+        if(canMove) MoveEntity();
     }
+
+    public void SetCanMove(bool val) => canMove = val;
 
     void MoveEntity()
     {

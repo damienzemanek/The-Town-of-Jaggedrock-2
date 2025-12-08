@@ -42667,6 +42667,7 @@ GameObject:
   - component: {fileID: 309241000}
   - component: {fileID: 309241003}
   - component: {fileID: 309241004}
+  - component: {fileID: 309241005}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -42900,6 +42901,62 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &309241005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309240998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e754d1f0efcd049b683853e932b0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awake: 0
+  onenable: 1
+  start: 0
+  update: 0
+  fixedupdate: 0
+  OnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOnEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 744949282}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 744949286}
+        m_TargetAssemblyTypeName: TypeoutMulti, Assembly-CSharp
+        m_MethodName: StartTypeout
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFixedUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &310396539
 GameObject:
   m_ObjectHideFlags: 0
@@ -80405,7 +80462,6 @@ GameObject:
   - component: {fileID: 744949285}
   - component: {fileID: 744949284}
   - component: {fileID: 744949286}
-  - component: {fileID: 744949287}
   m_Layer: 5
   m_Name: Intro
   m_TagString: Untagged
@@ -80432,8 +80488,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -45.563904, y: -18.385796}
+  m_SizeDelta: {x: 123.3477, y: 80.2787}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &744949284
 MonoBehaviour:
@@ -80485,15 +80541,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dfb8431797ceb4cb0aed8f7c3b8f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postHook:
+  AfterAllTypeoutsComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1951918759}
+        m_TargetAssemblyTypeName: EntityMove, Assembly-CSharp
+        m_MethodName: SetCanMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   panelFade:
     targ: {fileID: 744949282}
     step: 0.01
     delay: 0.04
     delayToStartFading: 0
     finalPercentage: 1
+  delayBetweenTypes: 1
   type:
   - textfade:
       targ: {fileID: 1040003061}
@@ -80522,50 +80591,6 @@ MonoBehaviour:
     tmps: {fileID: 724964498}
     text: Find, and kill them before they corrupt the rest of the town
     delay: 0.1
---- !u!114 &744949287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744949282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8e754d1f0efcd049b683853e932b0f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  awake: 0
-  onenable: 1
-  start: 0
-  update: 0
-  fixedupdate: 0
-  OnAwake:
-    m_PersistentCalls:
-      m_Calls: []
-  OnOnEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 744949286}
-        m_TargetAssemblyTypeName: TypeoutMulti, Assembly-CSharp
-        m_MethodName: StartTypeout
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  OnFixedUpdate:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!43 &745042640
 Mesh:
   m_ObjectHideFlags: 0
@@ -194687,6 +194712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 55
   maxVel: 10
+  canMove: 0
 --- !u!114 &1951918760
 MonoBehaviour:
   m_ObjectHideFlags: 0

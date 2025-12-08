@@ -10,7 +10,7 @@ using static Extensions.FadeEX;
 
 public class TypeoutMulti : MonoBehaviour
 {
-    public UnityEvent postHook;
+    public UnityEvent AfterAllTypeoutsComplete;
     public FadeSettings panelFade;
     [SerializeField] float delayBetweenTypes;
 
@@ -43,7 +43,9 @@ public class TypeoutMulti : MonoBehaviour
 
     void FadeOutSelf()
     {
+        print("Fading out self");
         StartCoroutine(C_FadeToTransparent(panelFade));
+        AfterAllTypeoutsComplete?.Invoke();
     }
 
     public IEnumerator Type(Action posthook = null)
@@ -68,9 +70,12 @@ public class TypeoutMulti : MonoBehaviour
             }
 
             yield return new WaitForSeconds(delayBetweenTypes);
+            print("Completed a typeou");
+
         }
 
         posthook?.Invoke();
+        print("Completed all typeioyts");
     }
 }
 

@@ -16,10 +16,12 @@ public class AudioStepper : MonoBehaviour
     bool going = false;
     #region Privates
     [SerializeField] AudioSource source;
+    EntityMove move;
     #endregion
 
     private void Awake()
     {
+        move = this.Get<EntityMove>();
         if(!source) source = this.TryGetOrAdd<AudioSource>();
     }
 
@@ -27,6 +29,7 @@ public class AudioStepper : MonoBehaviour
 
     public void AudioStart()
     {
+        if (!move.canMove) return;
         source.pitch = speed;
         going = true;
         StopAllCoroutines();
