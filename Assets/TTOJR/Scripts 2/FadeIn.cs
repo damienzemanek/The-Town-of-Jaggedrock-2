@@ -6,7 +6,8 @@ public class FadeIn : MonoBehaviour
 {
     public FadeSettings fade;
 
-    private void Start()
+
+    private void OnEnable()
     {
         fade.GetGO()?.SetActive(true);
         fade.SetAlpha(0);
@@ -15,7 +16,11 @@ public class FadeIn : MonoBehaviour
 
     private void OnDisable()
     {
-        fade.GetGO()?.SetActive(false);
-        fade.SetAlpha(0);
+        StartCoroutine(C_FadeToTransparent(fade, () =>
+        {
+            fade.SetAlpha(0);
+            fade.GetGO()?.SetActive(false);
+        }));
+
     }
 }

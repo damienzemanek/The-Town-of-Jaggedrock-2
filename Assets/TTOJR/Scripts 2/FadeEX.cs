@@ -115,7 +115,7 @@ namespace Extensions
 
             fade.GetGO()?.gameObject.SetActive(true);
 
-            float fadeVal = 1f;
+            float fadeVal = fade.finalPercentage;
             Color currentColor = fade.GetColor();
 
             while (fadeVal > 0)

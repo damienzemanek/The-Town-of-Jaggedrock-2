@@ -47,7 +47,7 @@ namespace NodeCanvas.DialogueTrees.UI.Examples
         private bool isWaitingChoice;
 
         private AudioSource _localSource;
-        private AudioSource localSource => _localSource != null ? _localSource : _localSource = gameObject.AddComponent<AudioSource>();
+        private AudioSource localSource => _localSource != null ? _localSource : _localSource = gameObject.GetComponent<AudioSource>();
 
 
         private bool anyKeyDown;

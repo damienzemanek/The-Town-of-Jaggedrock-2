@@ -64,7 +64,7 @@ public class TimeCycle : Singleton<TimeCycle>
         currentTime = 0;
         CorruptionManager.instance.CorruptNext();
         source.Play(startCorruption.Rand());
-        ambience.PlayCorruptingAmbience();
+        this.DelayedCall(() => ambience.PlayCorruptingAmbience(), 1f);
     }
 
     [Button]

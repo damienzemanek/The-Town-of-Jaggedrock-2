@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Key 18
   m_EditorClassIdentifier: 
   <type>k__BackingField: 24
-  icon: {fileID: 21300000, guid: 901a0a3cc4d664849afdcbd9dda381bf, type: 3}
+  icon: {fileID: 21300000, guid: 7d0e4104b9b6ac9499199ec328243988, type: 3}
   functionality:
     rid: 5167628920622416248
-  canHold: 0
+  canPhysicallyHold: 0
   itemObj: {fileID: 0}
   references:
     version: 2
@@ -31,3 +31,4 @@ MonoBehaviour:
       type: {class: DestinationUser/Data, ns: , asm: Assembly-CSharp}
       data:
         <useDestination>k__BackingField: {fileID: 0}
+        <objectToPlace>k__BackingField: {fileID: 0}

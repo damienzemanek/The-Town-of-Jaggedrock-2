@@ -28,6 +28,7 @@ public class CursedRoom : RuntimeInjectableMonoBehaviour
 
     public void Uncurse()
     {
+        frostEffect.gameObject.SetActive(false);
         cursed = false;
         OutOfRange();
     }

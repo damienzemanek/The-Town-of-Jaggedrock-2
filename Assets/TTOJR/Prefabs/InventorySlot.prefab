@@ -58,14 +58,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.049172327, g: 0.8018868, b: 0.63228256, a: 0.14117648}
+  m_Color: {r: 0.6132076, g: 0.4830456, b: 0.5895636, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 87685332829c222429d2f6fa5eebc62a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -142,8 +142,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a463d3f3319d5594db8c2f2f3f8522b1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -164,4 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa503c7819684a48bfb7b55320f9992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <displayIcon>k__BackingField: {fileID: 0}
   <selectedIndicator>k__BackingField: {fileID: 4683958867449774405}
+  <myItem>k__BackingField: {fileID: 0}
