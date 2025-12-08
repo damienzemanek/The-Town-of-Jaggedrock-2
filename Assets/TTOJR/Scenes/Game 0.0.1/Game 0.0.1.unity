@@ -83035,7 +83035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98c5d1e8b9f9f742b11c60e6d633fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toMenu: 0
+  toMenu: 1
   scene: {fileID: 1016162549}
   fade:
     targ: {fileID: 289944121}
@@ -128381,7 +128381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98c5d1e8b9f9f742b11c60e6d633fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toMenu: 0
+  toMenu: 1
   scene: {fileID: 1016162549}
   fade:
     targ: {fileID: 209606343}

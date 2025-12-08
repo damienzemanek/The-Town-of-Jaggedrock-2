@@ -1,6 +1,8 @@
 using DependencyInjection;
+using Extensions;
 using TMPro;
 using UnityEngine;
+using static Extensions.AudioEX;
 
 public class SacrificeCandle : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 {
@@ -14,12 +16,15 @@ public class SacrificeCandle : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 
     public int givenNum;
     public TextMeshPro text;
+    public AudioSource source;
+    public AudioClip blow;
 
     protected override void OnInstantiate()
     {
         base.OnInstantiate();
         BuildDetector();
         fireEffect.SetActive(true);
+        if (source == null) source = this.TryGetOrAdd<AudioSource>();
     }
 
     public SacrificeCandle InitializeCandle(int num, Sacrifice _sacrifice)
@@ -47,6 +52,7 @@ public class SacrificeCandle : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         fireEffect.SetActive(false);
         mySacrifice.AttemptToBlowout(givenNum);
         cbd.enabled = false;
+        source.Play(blow);
     }
 
 

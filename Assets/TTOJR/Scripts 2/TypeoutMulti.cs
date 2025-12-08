@@ -70,12 +70,10 @@ public class TypeoutMulti : MonoBehaviour
             }
 
             yield return new WaitForSeconds(delayBetweenTypes);
-            print("Completed a typeou");
 
         }
 
         posthook?.Invoke();
-        print("Completed all typeioyts");
     }
 }
 
