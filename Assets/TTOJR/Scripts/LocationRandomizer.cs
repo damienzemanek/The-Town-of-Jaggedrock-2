@@ -9,13 +9,15 @@ using Sirenix.OdinInspector;
 
 public class LocationRandomizer : MonoBehaviour
 {
+
+    [SerializeField] SO_Person person;
     public enum Locations
     {
         Park,
         Bakery,
         RundownHouse
     }
-    public Locations _frequent;
+    public Locations _frequent => person ? person.frequent : Locations.Park;
 
     public enum Trait
     {
@@ -24,7 +26,7 @@ public class LocationRandomizer : MonoBehaviour
         Worried,
         Calm,
     }
-    public Trait _trait;
+    public Trait _trait => person ? person.trait : Trait.Anxious;
 
 
     public string trait =>
@@ -141,10 +143,8 @@ public class LocationRandomizer : MonoBehaviour
 
     private void OnValidate()
     {
-
-        if(town == null)
-            town = this.Get<Town>();
-
+        if(person == null)  person = this.Get<Dialuage>().so_person;
+        if(town == null) town = this.Get<Town>();
     }
 
     public Locations RandLocEnumExclude(params Locations[] exclude) => EnumEX<Locations>.Rand(exclude);
