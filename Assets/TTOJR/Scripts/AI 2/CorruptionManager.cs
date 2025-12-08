@@ -71,7 +71,11 @@ public class CorruptionManager : MonoBehaviour
 
     public void CorruptRandom()
     {
-        corruptionLocations.Rand().StartCorruption();
+        CorruptonLocation loc = corruptionLocations.Rand();
+
+        if(loc.corrupting) { CorruptRandom(); return; }
+
+        loc.StartCorruption();
         vignet.DoFadeIn();
     }
 

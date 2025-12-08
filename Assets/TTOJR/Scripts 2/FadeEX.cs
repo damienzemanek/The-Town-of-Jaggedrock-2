@@ -155,7 +155,7 @@ namespace Extensions
                 yield return new WaitForSeconds(fade.delay);
             }
 
-            currentColor.a = 1;
+            currentColor.a = fade.finalPercentage;
             fade.SetColor(currentColor);
 
             postHook?.Invoke();

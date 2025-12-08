@@ -187,11 +187,10 @@ public class CrowEffigyEvent : CorruptEventType
 
     public override CorruptEventType StartCorruptImplementation(CorruptonLocation loc)
     {
-        CursedRoom room = null;
         loc.searchables.ForEach(s => s.AddComponent<Searchable>().timeToComplete = timeToSearch);
         loc.room = GameObject.Instantiate(original: cursedAreaPrefab, loc.cursedAreaSpawnLoc).Get<CursedRoom>();
         Searchable correctSearchable = loc.searchables.Rand().Get<Searchable>();
-        correctSearchable.SetAsCorrect(() => SpawnEffigy(loc ,correctSearchable, room));
+        correctSearchable.SetAsCorrect(() => SpawnEffigy(loc ,correctSearchable, loc.room));
         this.Log($"Corrupted location {loc.name}, searchable {correctSearchable.name}");
 
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerActivate());
