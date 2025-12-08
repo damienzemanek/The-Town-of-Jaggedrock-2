@@ -233,6 +233,7 @@ public class SacrificeEvent : CorruptEventType
     void Spawn(CorruptonLocation loc)
     {
         Sacrifice sacrifice = GameObject.Instantiate(sacrificePrefab, loc.sacrificeSpawnLoc).Get<Sacrifice>().SetLoc(loc);
+        loc.sacrifice = sacrifice;
         loc.haltedHook.RemoveAllListeners();
         loc.haltedHook.AddListener(loc.HaltCorruption);
     }
