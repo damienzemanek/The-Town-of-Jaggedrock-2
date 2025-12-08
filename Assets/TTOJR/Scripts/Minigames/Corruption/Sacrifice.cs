@@ -104,6 +104,11 @@ public class Sacrifice : RuntimeInjectableMonoBehaviour
         return this;
     }
 
+    public void SelfDestroy()
+    {
+        Destroy(gameObject, 3f);
+    }
+
 
     #region Methods
 

@@ -38,6 +38,7 @@ public class CorruptionManager : MonoBehaviour
     public Material finishedGameMat;
     public Material chandelierMat;
     public List<GameObject> lights;
+    public FadeIn vignet;
 
     public UnityEvent onCorrupted;
 
@@ -71,6 +72,7 @@ public class CorruptionManager : MonoBehaviour
     public void CorruptRandom()
     {
         corruptionLocations.Rand().StartCorruption();
+        vignet.DoFadeIn();
     }
 
     public void CorruptCompelte()
@@ -79,6 +81,7 @@ public class CorruptionManager : MonoBehaviour
         onCorrupted?.Invoke();
         AfflictResidentDisplay();
         TimeCycle.Instance.DecreaseDifficulty();
+        vignet.DoFadeOut();
     }
 
     public void CorruptHalted()
@@ -86,6 +89,7 @@ public class CorruptionManager : MonoBehaviour
         this.Log("Corrupt Halted");
         TimeCycle.Instance.IncreaseDifficulty();
         TimeCycle.Instance.HaltCorrupt();
+        vignet.DoFadeOut();
     }
 
     public void AfflictResidentDisplay()

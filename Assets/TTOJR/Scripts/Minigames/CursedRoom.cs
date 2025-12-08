@@ -8,7 +8,7 @@ public class CursedRoom : RuntimeInjectableMonoBehaviour
     #region Privates
     [Inject] Referencer referencer;
     ParticleSystem frostEffect;
-    GameObject frostScreen;
+    FadeIn frostScreen;
     #endregion
 
     [SerializeField] bool _cursed;
@@ -22,7 +22,8 @@ public class CursedRoom : RuntimeInjectableMonoBehaviour
     {
         frostEffect = referencer.frostEffect.Get<ParticleSystem>();
         frostScreen = referencer.frostScreen;
-        OutOfRange();
+        frostEffect.gameObject.SetActive(false);
+        breathSource.Stop();
         cursed = true;
     }
 
@@ -36,17 +37,23 @@ public class CursedRoom : RuntimeInjectableMonoBehaviour
     public void OutOfRange()
     {
         frostEffect.gameObject.SetActive(false);
-        frostScreen.SetActive(false);
+        frostScreen.DoFadeOut();
         breathSource.Stop();
     }
 
     public void InRange()
     {
         if (!cursed) return;
-        frostScreen.SetActive(true);
+        frostScreen.DoFadeIn();
         freezeSource.Play(initialFreezeSFX);
         breathSource.Play(breathingSFX, false);
         frostEffect.gameObject.SetActive(true);
         frostEffect.Play();
+    }
+
+    public void SelfDestroy()
+    {
+        OutOfRange();
+        Destroy(gameObject);
     }
 }

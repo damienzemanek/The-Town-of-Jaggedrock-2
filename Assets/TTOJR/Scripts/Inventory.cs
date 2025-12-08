@@ -6,6 +6,7 @@ using Extensions;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using static Extensions.AudioEX;
 
 [RequireComponent(typeof(Interactor))]
 public class Inventory : MonoBehaviour, IDependencyProvider
@@ -27,6 +28,10 @@ public class Inventory : MonoBehaviour, IDependencyProvider
     [Provide] Inventory Provide() => this;
 
     [BoxGroup(group: "UI")][SerializeField] int slotCount;
+
+    [TabGroup("Audio")]
+    public AudioSource source;
+    public AudioClip rustleSFX;
 
     private void Awake()
     {
@@ -140,16 +145,21 @@ public class Inventory : MonoBehaviour, IDependencyProvider
         print("Inv: Selecting Item index {num}");
 
 
-        UnselectAllItems();
-        DisplayItem(num);
 
         //Guard Clauses (for not having an item in the slot)
         if (num >= pickedUpItems.Length) return; if (pickedUpItems.Length <= 0) return;
         if (pickedUpItems[num] == null)
             print($"Inv: Item selected is NULL or EMPTY");
         else
+        {
+            if(selectItem != num) source.Play(pickedUpItems[num].selectSFX);
             print($"Inv: Item selected is {pickedUpItems[num].type.ToString()}");
-        
+        }
+
+        UnselectAllItems();
+        DisplayItem(num);
+
+
         //Enable the Item's object if the player can hold the item
         TryToEnableItemObject(num, pickedUpItems[num]);
 
@@ -157,14 +167,14 @@ public class Inventory : MonoBehaviour, IDependencyProvider
         this.DelayedCall(() => PreRequisiteCallbackDetector.hasItemPreRequisite.Invoke(pickedUpItems[num], true), 0.1f);
 
 
-
-        void TryToEnableItemObject(int num, Item item)
+        bool TryToEnableItemObject(int num, Item item)
         {
             ItemHolder holder = GetComponent<ItemHolder>() ?? throw new Exception("Inv: No Item holder found");
             holder.DisableAllObjects();
-            if (item == null) return;
-            if (!item.canPhysicallyHold) return;
+            if (item == null) return false;
+            if (!item.canPhysicallyHold) return true;
             holder.UseItem(num, item);
+            return true;
         }
 
     }

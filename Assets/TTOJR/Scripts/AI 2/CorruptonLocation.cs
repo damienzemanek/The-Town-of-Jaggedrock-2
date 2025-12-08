@@ -37,6 +37,10 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     [TabGroup("Sacrifice")] public Transform sacrificeSpawnLoc;
     [TabGroup("Sacrifice")] public Transform doorBloodSpawnLoc;
 
+    [TabGroup("Readonly"), ReadOnly] public CursedRoom room;
+    [TabGroup("Readonly"), ReadOnly] public Sacrifice sacrifice;
+
+
     private void Awake()
     {
         if (resident == null) this.Error("Resident not assigned");
@@ -82,7 +86,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
 
     public void HaltCorruption()
     {
-        currentEvent.StopCorrupt(this);
+        currentEvent.StopCorrupt(this, true);
 
 
         TimeCycle.Instance.ambience.PlayGeneralAmbience();
@@ -96,7 +100,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     {
         if (currentEvent != null) currentEvent.currentTime = 0;
         if (!resident) this.Error("No resident has been set");
-
+        currentEvent.StopCorrupt(this, false);
 
         resident.IncreaseCorruption();
         TimeCycle.Instance.ambience.PlayGeneralAmbience();
@@ -163,10 +167,11 @@ public abstract class CorruptEventType
     }
 
     public abstract CorruptEventType StartCorruptImplementation(CorruptonLocation loc);
-    public void StopCorrupt(CorruptonLocation loc)
+    public void StopCorrupt(CorruptonLocation loc, bool spawnNote)
     {
         this.Log("Player stopped corrupt");
-        loc.SpawnNote();
+        if(spawnNote)
+            loc.SpawnNote();
         StopCorruptImplementation(loc);
     }
     public abstract void StopCorruptImplementation(CorruptonLocation loc);
@@ -180,13 +185,11 @@ public class CrowEffigyEvent : CorruptEventType
     public GameObject cursedAreaPrefab;
     public GameObject crowEffigyPrefab;
 
-    CursedRoom room;
-
     public override CorruptEventType StartCorruptImplementation(CorruptonLocation loc)
     {
-        room = null;
+        CursedRoom room = null;
         loc.searchables.ForEach(s => s.AddComponent<Searchable>().timeToComplete = timeToSearch);
-        room = GameObject.Instantiate(original: cursedAreaPrefab, loc.cursedAreaSpawnLoc).Get<CursedRoom>();
+        loc.room = GameObject.Instantiate(original: cursedAreaPrefab, loc.cursedAreaSpawnLoc).Get<CursedRoom>();
         Searchable correctSearchable = loc.searchables.Rand().Get<Searchable>();
         correctSearchable.SetAsCorrect(() => SpawnEffigy(loc ,correctSearchable, room));
         this.Log($"Corrupted location {loc.name}, searchable {correctSearchable.name}");
@@ -208,7 +211,7 @@ public class CrowEffigyEvent : CorruptEventType
     {
         loc.searchables.ForEach(s => s.Get<Searchable>().ComponentReset());
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
-        GameObject.Destroy(room.gameObject);
+        loc.room.SelfDestroy();
     }
 
 
@@ -238,7 +241,7 @@ public class SacrificeEvent : CorruptEventType
     public override void StopCorruptImplementation(CorruptonLocation loc)
     {
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
-
+        loc.sacrifice.SelfDestroy();
     }
 
 

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using DependencyInjection;
 using Extensions;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,10 +12,8 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
 {
     [Inject] Interactor interactor;
     [Inject] Inventory inv;
-    [Inject] Referencer referencer;
     [field: SerializeReference] public Item presetItem;
     [field: SerializeReference] public Item item { get; private set; }
-    [SerializeField] AudioClip pickupSound;
 
     public UnityEventPlus pickedUpEvent;
     CallbackDetector cbDetector;
@@ -36,7 +35,6 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
         AssignValuesForCallbackDetector("Pickup (E)");
         pickedUpEvent.canCall = inv.IsInventoryNotFull;
 
-
         void CopyOverItem()
         {
             //New instance of the item SO
@@ -48,6 +46,8 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
             item.icon = presetItem.icon;
             item.itemObj = presetItem.itemObj;
             item.canPhysicallyHold = presetItem.canPhysicallyHold;
+            item.selectSFX = presetItem.selectSFX;
+            item.pickupSFX = presetItem.pickupSFX;
 
             //Reset the variations (currently used in Uses to reset the used amount)
             item.functionality.variations?.ForEach(v => v.Reset());
@@ -66,7 +66,7 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
         //
         physicalUseHookPoint?.Invoke(inv, item);
 
-        referencer.pickupPlayer.Play(pickupSound);
+        inv.TryGetOrAdd<AudioSource>().Play(item.pickupSFX);
 
         pickedUpEvent?.InvokeWithCondition(mono: this);
         this.Get<MeshRenderer>().enabled = false;

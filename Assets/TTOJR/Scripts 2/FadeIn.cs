@@ -5,16 +5,22 @@ using static Extensions.FadeEX;
 public class FadeIn : MonoBehaviour
 {
     public FadeSettings fade;
+    public bool startTransparent;
 
+    private void Start()
+    {
+        if (startTransparent) fade.SetAlpha(0);
+        else fade.SetAlpha(fade.finalPercentage);
+    }
 
-    private void OnEnable()
+    public void DoFadeIn()
     {
         fade.GetGO()?.SetActive(true);
         fade.SetAlpha(0);
         StartCoroutine(C_FadeToOpaque(fade));
     }
 
-    private void OnDisable()
+    public void DoFadeOut()
     {
         StartCoroutine(C_FadeToTransparent(fade, () =>
         {

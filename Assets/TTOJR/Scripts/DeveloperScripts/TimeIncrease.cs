@@ -25,6 +25,6 @@ public class TimeIncrease : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.KeypadPlus)) Incr();
         if (Input.GetKey(KeyCode.KeypadMinus)) Decr();
         Time.timeScale = _speed;
-        text.text = _speed.ToString("0.0");
+        //text.text = _speed.ToString("0.0");
     }
 }

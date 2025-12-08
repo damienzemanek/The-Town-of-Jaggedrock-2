@@ -172,6 +172,9 @@ public class Item : ScriptableObject
     [DisableInInlineEditors] public bool canPhysicallyHold = false;
 
     [ShowIf("canPhysicallyHold")] public GameObject itemObj;
+
+    public AudioClip pickupSFX;
+    public AudioClip selectSFX;
     
     public Item Clone(string namesuff = " instance")
     {

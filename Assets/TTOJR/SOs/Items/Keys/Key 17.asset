@@ -18,6 +18,8 @@ MonoBehaviour:
     rid: 5167628920622416247
   canPhysicallyHold: 0
   itemObj: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: 244f0b50ce0b0804089a731cf8c1906d, type: 3}
+  selectSFX: {fileID: 8300000, guid: f4d949dcff04ea44ca0e2ec25f8a551a, type: 3}
   references:
     version: 2
     RefIds:

@@ -1,6 +1,7 @@
 using DependencyInjection;
 using Extensions;
 using UnityEngine;
+using static Extensions.AudioEX;
 
 public class PlaceLocation : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 {
@@ -28,6 +29,7 @@ public class PlaceLocation : RuntimeInjectableMonoBehaviour, IDetectorBuilder
             Quaternion.identity,
             loc
         );
+        interactor.TryGetOrAdd<AudioSource>().Play(itemToPlace.pickupSFX);
     }
 
 
