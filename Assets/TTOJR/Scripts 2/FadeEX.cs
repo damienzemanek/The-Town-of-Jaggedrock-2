@@ -69,6 +69,8 @@ namespace Extensions
 
         public void SetAlpha(float val)
         {
+            if (targ == null) return;
+
             switch(targ)
             {
                 case Graphic g:

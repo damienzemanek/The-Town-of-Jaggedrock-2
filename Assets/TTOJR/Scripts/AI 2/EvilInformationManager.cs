@@ -5,6 +5,8 @@ using Sirenix.OdinInspector;
 using DesignPatterns.CreationalPatterns;
 using System.Collections.Generic;
 using Sirenix.Utilities;
+using static Extensions.FadeEX;
+using System.Collections;
 
 public class EvilInformationManager : Singleton<EvilInformationManager>
 {
@@ -28,6 +30,13 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
 
     public string groupingTrait => chosenCoven.so_person.trait.ToString();
     public string activityHint => npcs.npcList.FirstOrDefault(n => n.Get<Dialuage>().so_person == chosenCoven).Get<LocationRandomizer>().activityC;
+
+    [TabGroup("End game")] public FadeSettings fade;
+    [TabGroup("End game")] public AudioSource source;
+    [TabGroup("End game")] public AudioClip shootSFX;
+    [TabGroup("End game")] public GameObject winDisplay;
+    [TabGroup("End game")] public GameObject looseDisplay;
+
 
     protected override void Awake()
     {
@@ -67,6 +76,33 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
         {
             return potential;
         }
+    }
+
+    public void AttemptShoot(Dialuage shotPerson)
+    {
+        string shotPersonName = shotPerson.so_person.personName;
+
+        StartCoroutine(C_FadeToOpaque(fade, () =>
+        {
+            StartCoroutine(CheckShot(shotPersonName));
+        }));
+
+
+    }
+
+    IEnumerator CheckShot(string name)
+    {
+        yield return new WaitForSeconds(1);
+        source.Play(shootSFX);
+        yield return new WaitForSeconds(1);
+
+        name.LogCompare(chosenCoven.so_person.personName);
+
+        if (name == chosenCoven.so_person.personName)
+            winDisplay.SetActive(true);
+        else
+            looseDisplay.SetActive(true);
+
     }
 
     #region Methods

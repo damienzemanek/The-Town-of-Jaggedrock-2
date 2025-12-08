@@ -49,6 +49,24 @@ namespace Extensions
                 Debug.Log($"{Colorize($"[{Bold(obj.GetType().Name)}]", ScriptColor)}: {msg}");
         }
 
+        public static void LogCompare<T>(this T v1, T v2)
+        {
+            bool same = EqualityComparer<T>.Default.Equals(v1, v2);
+
+            string valColor = "#4AA3FF";   // blue
+            string trueColor = "#00FF6A";  // green
+            string falseColor = "#FF3A3A"; // red
+
+            string v1Text = Colorize($"[ {v1} ]", valColor);
+            string v2Text = Colorize($"[ {v2} ]", valColor);
+
+            string resultText = same
+                ? Colorize("TRUE", trueColor)
+                : Colorize("FALSE", falseColor);
+
+            Debug.Log($"Comparing: {v1Text} and {v2Text} : {resultText}");
+        }
+
         public static void Warn(this object obj, string msg = "")
         {
             if (obj == null)

@@ -8,16 +8,30 @@ namespace Extensions
 {
     public static class EnumerateEX
     {
+        [Serializable]
+        public struct PairStringObj
+        {
+            public string name;
+            public GameObject obj;
+        }
+
+        public static GameObject SetActive(this PairStringObj[] vals, string _name, bool _active)
+        {
+            for (int i = 0; i < vals.Length; i++)
+                if (vals[i].name == _name) return vals[i].obj.SetActiveThen(_active);
+
+            return null;
+        }
+        public static void SetAllActive(this PairStringObj[] vals, bool _active)
+        {
+            for (int i = 0; i < vals.Length; i++) vals[i].obj.SetActive(_active);
+        }
 
         public static float Rand(this Vector2 v)
         {
             return UnityEngine.Random.Range(v.x, v.y);
         }
 
-        public static float Rand(float min, float max)
-        {
-            return UnityEngine.Random.Range(min, max);
-        }
 
         #region Privates
 
@@ -42,12 +56,6 @@ namespace Extensions
         {
             return ts[UnityEngine.Random.Range(0, ts.Count)];
         }
-        public static T RandAndRemove<T>(this List<T> ts)
-        {
-            T get = ts[UnityEngine.Random.Range(0, ts.Count)];
-            ts.Remove(get);
-            return get;
-        }
 
         public static T Rand<T>(this List<T> ts, List<T> exclude)
         {
@@ -56,47 +64,59 @@ namespace Extensions
             return Rand(include);
         }
 
-        public static T RandAndRemove<T>(this List<T> ts, List<T> exclude)
-        {
-            var include = ts.Where(t => !exclude.Contains(t)).ToList();
-            if (include.Count <= 0) return default;
-            T get = Rand(include);
-            ts.Remove(get);
-            return get;
-        }
-
         public static T Rand<T>(this List<T> ts, int min, int max)
         {
             return ts[UnityEngine.Random.Range(min, max)];
         }
 
-
-        public static void MakeShallowCopyOf<T>(this List<T> ts, List<T> copyFrom)
+        public static List<T> Swap<T>(this List<T> list, int first, int second)
         {
-            ts.Clear();
+            if (first == second) return list;
+            if (first < 0 || second < 0 || first >= list.Count || second >= list.Count) throw new ArgumentOutOfRangeException();
 
-            for (int i = 0; i < copyFrom.Count; i++)
-                ts.Add(item: copyFrom[i]);
+            T buffer = list[first];
+            list[first] = list[second];
+            list[second] = buffer;
+
+            return list;
         }
 
-        public static void RemoveNulls<T>(this List<T> ts) =>
-            ts.RemoveAll(t => t == null);
-
-
-        public static void Ensure<T>(this List<T> ts)
+        public static List<GameObject> SetAllActive(this List<GameObject> list, bool val)
         {
-            if (ts == null || ts.Count == 0) { ts.Error("list null, or has no values"); return; }
-            ts.RemoveNulls();
+            if(list == null) return null;
+            for (int i = 0; i < list.Count; i++) list[i].SetActive(val);
+            return list;
         }
 
-        public static List<T> Combine<T>(List<T> ts1, List<T> ts2)
+        public static GameObject[] SetAllActive(this GameObject[] list, bool val)
         {
-            List<T> combined = new List<T>(ts1.Count + ts2.Count);
-            combined.AddRange(ts1);
-            combined.AddRange(ts2);
-            return combined;
+            if(list == null) return null;
+            for (int i = 0; i < list.Length; i++) list[i].SetActive(val);
+            return list;
         }
 
+        public static List<GameObject> UnparentAll(this List<GameObject> list)
+        {
+            if (list == null) return null;
+            for (int i = 0; i < list.Count; i++) list[i].transform.parent = null;
+            return list;
+        }
+
+        public static GameObject[] UnparentAll(this GameObject[] list)
+        {
+            if (list == null) return null;
+            for (int i = 0; i < list.Length; i++) list[i].transform.parent = null;
+            return list;
+        }
+
+
+        public static List<T> AddOnce<T>(this List<T> list, T item)
+        {
+            if (item == null) throw new InvalidOperationException("Trying to add null item to list");
+            if (list.Contains(item)) return list;
+            else list.Add(item);
+            return list;
+        }
 
 
 

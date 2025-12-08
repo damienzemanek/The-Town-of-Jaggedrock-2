@@ -36,6 +36,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     CallbackDetector detector;
     DialogueTreeController dialaugeController;
     DialogueActor actor;
+    bool checkingEndGame = false;
     #endregion
 
     protected override void OnInstantiate()
@@ -46,6 +47,7 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
         actor = this.Get<DialogueActor>();
         AssignValuesForCallbackDetector("Talk (E)");
         AssignDialaugeActorName();
+        checkingEndGame = false;
 
         if (isTalkingEffect == null) isTalkingEffect = Instantiate(isTalkingEffectPrefab, effectLoc).SetActiveThen(false);
     }
@@ -67,6 +69,8 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
 
     void DialaugeUsage()
     {
+        if (inConvo) return;
+
         if(CorruptionManager.instance.lost)
         {
             CorruptionManager.instance.TransitionToLoseScreen();
@@ -100,22 +104,32 @@ public class Dialuage : RuntimeInjectableMonoBehaviour, ICallbackUser
     }
     void StopDialauge(bool success)
     {
+        isTalkingEffect.SetActive(value: false);
+
+        if (checkingEndGame) return;
+
         Look look = playerControls.Get<Look>();
         Inventory inv = playerControls.Get<Inventory>();
 
+        inConvo = false;
         TogglePlayerMovement(true);
         look.ToggleCursorUsability(false);
         look.ToggleUpdateMouseLooking(true);
         inv.ToggleInventoryVisability(true);
-        inConvo = false;
 
-        isTalkingEffect.SetActive(value: false);
     }
     void AssignDialaugeActorName() => actor.AssignName(input_name: mname);
 
     public void SetTalkEffectsActive(bool val)
     {
         isTalkingEffect.SetActive(val);
+    }
+
+    public void GetShot()
+    {
+        checkingEndGame = true;
+        EvilInformationManager.Instance.AttemptShoot(this);
+
     }
 }
 

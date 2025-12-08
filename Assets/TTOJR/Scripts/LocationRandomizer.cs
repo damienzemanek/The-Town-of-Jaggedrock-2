@@ -42,6 +42,25 @@ public class LocationRandomizer : MonoBehaviour
         (_frequent == Locations.RundownHouse) ? "I like visiting near that rundown old house" :
         "";
 
+    readonly string[] byeMsgs =
+    {
+        "Goodbye",
+        "See ya",
+        "Bye",
+        "Talk to you later"
+    };
+    public string byeMsg => byeMsgs.Rand();
+
+    readonly string[] hiMsgs =
+    {
+        "Hello",
+        "Hi",
+        "Hi there",
+        "Good day to you"
+    };
+    public string hiMsg => hiMsgs.Rand();
+
+
     [ShowInInspector, ReadOnly] public string[] activitiesT { get => setActivitiesT; }
     readonly string[] setActivitiesT =
     {
