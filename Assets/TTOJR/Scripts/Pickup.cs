@@ -76,6 +76,7 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
 
     public void AssignValuesForCallbackDetector(string interactText)
     {
+        cbDetector.onStay = true;
         cbDetector.Stay.AddListener(() => interactor.SetInteractText(interactText));
         cbDetector.Stay.AddListener(() => interactor.ToggleCanInteract(true));
         cbDetector.Exit.AddListener(() => interactor.ToggleCanInteract(false));
