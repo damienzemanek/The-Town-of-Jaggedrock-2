@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c656c5d7992fac42800355fc2a04ec6, type: 3}
-  m_Name: Note hint activity
+  m_Name: Note hint lie
   m_EditorClassIdentifier: 
   <type>k__BackingField: 5
   icon: {fileID: 21300000, guid: b3cd0dff3a1f55c4cb14c238ebb375fd, type: 3}
@@ -41,4 +41,4 @@ MonoBehaviour:
         usable: 1
         <inv>k__BackingField: {fileID: 0}
         <interactor>k__BackingField: {fileID: 0}
-        sprite: {fileID: 21300000, guid: 367b9713720ef9b4ab9812a943937662, type: 3}
+        sprite: {fileID: 21300000, guid: db7c1c93f3828aa4d9b1777ebd78d633, type: 3}

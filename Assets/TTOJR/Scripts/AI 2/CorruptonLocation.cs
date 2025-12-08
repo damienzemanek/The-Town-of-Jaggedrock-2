@@ -117,6 +117,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     {
         this.Log("Spawning note");
         int rand = Random.Range(1, 4); 
+        if(rand == EvilInformationManager.Instance.previousNoteInt) { SpawnNote(); return; }
         GameObject spawnedNote = null;
         if(rand == 1)
         {
@@ -135,6 +136,8 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
             }
             spawnedNote =Instantiate(EvilInformationManager.Instance.GetHintPrefab(), noteSpawnLoc);
         }
+
+        EvilInformationManager.Instance.previousNoteInt = rand;
         this.Log($"Spawned note {spawnedNote.name}");
 
     }

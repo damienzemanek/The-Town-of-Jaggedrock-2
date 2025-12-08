@@ -24,7 +24,7 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
     public bool[] hasHint;
     public bool hasAllHints { get => hasHint.All(h => h == true); }
 
-
+    public int previousNoteInt = 0;
 
     public string groupingTrait => chosenCoven.so_person.trait.ToString();
     public string activityHint => npcs.npcList.FirstOrDefault(n => n.Get<Dialuage>().so_person == chosenCoven).Get<LocationRandomizer>().activityC;

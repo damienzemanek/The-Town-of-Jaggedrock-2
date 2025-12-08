@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 6978722318816566520}
   - component: {fileID: 8365791813916455181}
   m_Layer: 7
-  m_Name: pickup_ hint activity
+  m_Name: pickup_ hint  lie alternate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
