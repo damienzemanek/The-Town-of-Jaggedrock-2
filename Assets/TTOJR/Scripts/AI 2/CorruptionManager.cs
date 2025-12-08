@@ -6,7 +6,8 @@ using NUnit.Framework;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-
+using Extensions;
+using static Extensions.AudioEX;
 public class CorruptionManager : MonoBehaviour
 {
     public static CorruptionManager instance;
@@ -24,6 +25,8 @@ public class CorruptionManager : MonoBehaviour
     [SerializeField] FadeScreen afflictBg;
     [SerializeField] FadeScreen afflictFadeInto;
     [SerializeField] GameObject afflictVisual;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip afflictSFX;
     [SerializeField] int currentCorruption;
     #endregion
 
@@ -101,7 +104,8 @@ public class CorruptionManager : MonoBehaviour
         afflictBg.gameObject.SetActive(true);
         afflictFadeInto.gameObject.SetActive(true);
         afflictVisual.SetActive(true);
-        afflictFadeInto.FadeToVisible(() => this.DelayedCall(AfflictStop, 2));
+        afflictFadeInto.FadeToVisible(() => this.DelayedCall(AfflictStop, 1.5f));
+        source.Play(afflictSFX).CutShort(0.4f);
     }
 
     void AfflictStop()

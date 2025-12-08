@@ -28,6 +28,21 @@ namespace Extensions
             return source;
         }
 
+        public static AudioSource CutShort(this AudioSource source, float pct)
+        {
+            if (source.clip == null) return source;
+            pct = Mathf.Clamp01(pct);
+
+            float cutTime = source.clip.length * pct;
+
+            source.time = 0f;
+            source.Play();
+
+            source.SetScheduledEndTime(AudioSettings.dspTime + cutTime);
+
+            return source;
+        }
+
         public static AudioSource PlaySimultanious(this AudioSource source, AudioClip[] clips)
         {
             foreach (AudioClip clip in clips)
