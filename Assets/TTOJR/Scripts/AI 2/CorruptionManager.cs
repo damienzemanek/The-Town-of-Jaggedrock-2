@@ -81,6 +81,13 @@ public class CorruptionManager : MonoBehaviour
         TimeCycle.Instance.DecreaseDifficulty();
     }
 
+    public void CorruptHalted()
+    {
+        this.Log("Corrupt Halted");
+        TimeCycle.Instance.IncreaseDifficulty();
+        TimeCycle.Instance.HaltCorrupt();
+    }
+
     public void AfflictResidentDisplay()
     {
         afflictBg.gameObject.SetActive(true);

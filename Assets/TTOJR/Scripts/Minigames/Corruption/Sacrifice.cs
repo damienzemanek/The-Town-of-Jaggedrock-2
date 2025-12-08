@@ -1,6 +1,7 @@
 using System.Linq;
 using DependencyInjection;
 using Extensions;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,14 +18,18 @@ public class Sacrifice : RuntimeInjectableMonoBehaviour
     public TextMeshPro mainNumbersText;
     [SerializeField] int currentCandle;
     [SerializeField] int correctInOrderCandles;
-    public UnityEvent failedHook;
-    public UnityEvent stoppedHook;
+
+    [TabGroup("Audio")] public AudioSource source;
+    [TabGroup("Audio")] public AudioClip[] failAudsSimul;
+
+    public CorruptonLocation loc;
+
+
+
 
     private void OnEnable()
     {
-        if(failedHook == null) failedHook = new UnityEvent();
-        if(stoppedHook == null) stoppedHook = new UnityEvent();
-
+        
         currentCandle = 0;
         correctInOrderCandles = 0;
         GenerateNumbers();
@@ -83,21 +88,25 @@ public class Sacrifice : RuntimeInjectableMonoBehaviour
     public void StopSacrifice()
     {
         complete = true;
-        stoppedHook?.Invoke();
-        stoppedHook?.RemoveAllListeners();
-        failedHook?.RemoveAllListeners();
+        loc.haltedHook?.Invoke();
         this.DelayedCall(() => Destroy(gameObject), 5);
     }
 
     public void ResetSacrifice()
     {
         OnEnable();
-        failedHook?.Invoke();
+        source.PlaySimultanious(failAudsSimul);
+    }
+
+    public Sacrifice SetLoc(CorruptonLocation _loc)
+    {
+        loc = _loc;
+        return this;
     }
 
 
     #region Methods
-        
+
     #endregion
 
 }

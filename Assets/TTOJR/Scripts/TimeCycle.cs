@@ -10,6 +10,7 @@ using Extensions;
 using TMPro;
 using Sirenix.Utilities;
 using DesignPatterns.CreationalPatterns;
+using static Extensions.AudioEX;
 
 public class TimeCycle : Singleton<TimeCycle>
 {
@@ -23,9 +24,21 @@ public class TimeCycle : Singleton<TimeCycle>
     public float[] stepBetweenCorruptEvents;
     public bool timeFrozen = false;
 
+    [TabGroup("Audio")] public AudioSource source;
+    [TabGroup("Audio")] public AudioClip[] startCorruption;
+    [TabGroup("Audio")] public AudioClip[] stopCorruption;
+    [TabGroup("Audio")] public AmbiencePlayer ambience;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (ambience == null) ambience = FindAnyObjectByType<AmbiencePlayer>();
+    }
+
     private void Start()
     {
         currentTime = 50f;
+        ambience.PlayGeneralAmbience();
     }
 
     private void FixedUpdate()
@@ -41,10 +54,17 @@ public class TimeCycle : Singleton<TimeCycle>
         else return false;
     }
 
+    public void HaltCorrupt()
+    {
+        source.Play(stopCorruption.Rand());
+    }
+
     void Corrupt()
     {
         currentTime = 0;
         CorruptionManager.instance.CorruptNext();
+        source.Play(startCorruption.Rand());
+        ambience.PlayCorruptingAmbience();
     }
 
     [Button]

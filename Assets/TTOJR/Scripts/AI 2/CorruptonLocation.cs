@@ -10,6 +10,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 
@@ -28,6 +29,8 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     public Transform noteSpawnLoc;
     public Transform cursedAreaSpawnLoc { get => _cursedAreaSpawnLoc; set => _cursedAreaSpawnLoc = value; }
 
+    public UnityEvent haltedHook;
+
     [TabGroup("Crow")] [SerializeReference] public List<GameObject> searchables;
     [TabGroup("Crow")] public GameObject[] flickerObjs;
 
@@ -42,6 +45,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
 
     private void Start()
     {
+        haltedHook = new UnityEvent();
         ResetAll();
     }
 
@@ -75,12 +79,16 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
         if (corrupting) CorruptComplete();
     }
 
-    public void StopCorruption()
+
+    public void HaltCorruption()
     {
-        corrupting = false;
         currentEvent.StopCorrupt(this);
-        currentEvent = null;
-        TimeCycle.Instance.IncreaseDifficulty();
+
+
+        TimeCycle.Instance.ambience.PlayGeneralAmbience();
+        CorruptionManager.instance.CorruptHalted();
+
+        TransitionOutOfCorruption();
     }
 
     [Button]
@@ -88,9 +96,21 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     {
         if (currentEvent != null) currentEvent.currentTime = 0;
         if (!resident) this.Error("No resident has been set");
+
+
         resident.IncreaseCorruption();
-        StopCorruption();
+        TimeCycle.Instance.ambience.PlayGeneralAmbience();
         CorruptionManager.instance.CorruptCompelte();
+
+
+        TransitionOutOfCorruption();
+    }
+
+    void TransitionOutOfCorruption()
+    {
+        TimeCycle.Instance.ambience.PlayGeneralAmbience();
+        corrupting = false;
+        currentEvent = null;
     }
 
     public void SpawnNote()
@@ -175,9 +195,10 @@ public class CrowEffigyEvent : CorruptEventType
 
     void SpawnEffigy(CorruptonLocation loc ,Searchable correctSearchable, CursedRoom room)
     {
-        CrowEffigy effigy = GameObject.Instantiate(crowEffigyPrefab, correctSearchable.foundLoc).Get<CrowEffigy>();
+        CrowEffigy effigy = GameObject.Instantiate(crowEffigyPrefab, correctSearchable.foundLoc).Get<CrowEffigy>().SetLoc(loc);
         effigy.room = room;
-        effigy.DestroyedHook.AddListener(loc.StopCorruption);
+        loc.haltedHook.RemoveAllListeners();
+        loc.haltedHook.AddListener(loc.HaltCorruption);
     }
 
     public override void StopCorruptImplementation(CorruptonLocation loc)
@@ -206,8 +227,9 @@ public class SacrificeEvent : CorruptEventType
 
     void Spawn(CorruptonLocation loc)
     {
-        Sacrifice sacrifice = GameObject.Instantiate(sacrificePrefab, loc.sacrificeSpawnLoc).Get<Sacrifice>();
-        sacrifice.stoppedHook.AddListener(loc.StopCorruption);
+        Sacrifice sacrifice = GameObject.Instantiate(sacrificePrefab, loc.sacrificeSpawnLoc).Get<Sacrifice>().SetLoc(loc);
+        loc.haltedHook.RemoveAllListeners();
+        loc.haltedHook.AddListener(loc.HaltCorruption);
     }
 
     public override void StopCorruptImplementation(CorruptonLocation loc)

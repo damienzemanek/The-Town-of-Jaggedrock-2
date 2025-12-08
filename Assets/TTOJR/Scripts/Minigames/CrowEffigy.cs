@@ -15,7 +15,7 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 
     public CursedRoom room { get => _room; set => _room = value;}
 
-    public UnityEvent DestroyedHook;
+    public CorruptonLocation loc;
 
     protected override void OnInstantiate()
     {
@@ -23,7 +23,6 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         BuildDetector();
         gameObject.layer = LayerMask.NameToLayer("Interactable");
         AssignEffigyUseCallback();
-        DestroyedHook = new UnityEvent();
     }
 
 
@@ -37,9 +36,8 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         this.Log($"Destroying Effigy in room {room.name}");
         room.Uncurse();
         interactor.ToggleCanInteract(false);
-        DestroyedHook?.Invoke();
-        DestroyedHook?.RemoveAllListeners();
         Destroy(gameObject);
+        loc.haltedHook?.Invoke();
     }
 
     public void BuildDetector()
@@ -49,6 +47,12 @@ public class CrowEffigy : RuntimeInjectableMonoBehaviour, IDetectorBuilder
             .WithEventHooks(stay: true, exit: true)
             .WithInteractAssignments(interactor, "Destroy (E)")
             .Build();
+    }
+
+    public CrowEffigy SetLoc(CorruptonLocation _loc)
+    {
+        loc = _loc;
+        return this;
     }
 
 
