@@ -66,10 +66,10 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
         //
         physicalUseHookPoint?.Invoke(inv, item);
 
-        inv.TryGetOrAdd<AudioSource>().Play(item.pickupSFX);
+        if(item.pickupSFX != null) inv.TryGetOrAdd<AudioSource>().Play(item.pickupSFX);
 
         pickedUpEvent?.InvokeWithCondition(mono: this);
-        this.Get<MeshRenderer>().enabled = false;
+        if (this.Has(out MeshRenderer m)) m.enabled = false;
         transform.Children().ToList().ForEach(c => c.SetActive(false));
         Destroy(gameObject);
         if (inv.IsInventoryFull()) inv.full = true;

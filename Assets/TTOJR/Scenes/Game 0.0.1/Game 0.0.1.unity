@@ -59597,7 +59597,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -137534,16 +137534,15 @@ MonoBehaviour:
     [mname]. "},"_position":{"x":3627.562,"y":3450.259},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":3633.593,"y":3574.732},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"Tell
     me something random."}},{"statement":{"_text":"[Ask about where they often visit]"}},{"statement":{"_text":"[Ask
-    about them]"}}],"_position":{"x":3600.922,"y":3800.504},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3521.61,"y":4013.337},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":3496.61,"y":4115.337},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3674.671,"y":4021.638},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":3654.449,"y":4114.504},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3817.215,"y":4025.25},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":3817.931,"y":4119.1},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":4057.541,"y":3806.743},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
+    about them]"}}],"_position":{"x":3600.922,"y":3800.504},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3521.61,"y":4013.337},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":3496.61,"y":4115.337},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3674.671,"y":4021.638},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":3654.449,"y":4114.504},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3817.215,"y":4025.25},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":3817.931,"y":4119.1},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[willShoot]"},"_position":{"x":4059.732,"y":3806.743},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":4109.604,"y":3865.705},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":4236.826,"y":4046.79},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"12"},{"statement":{"_text":"[byeMsg]."},"_position":{"x":4487.52,"y":3764.994},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -976, y: -883}
-    _zoomFactor: 0.4055334
+    _translation: {x: -1691, y: -1357}
+    _zoomFactor: 0.45644805
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -137588,6 +137587,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -137610,6 +137610,9 @@ MonoBehaviour:
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!65 &1415879038
@@ -142825,6 +142828,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -142849,6 +142853,9 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1481538706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142866,15 +142873,14 @@ MonoBehaviour:
     [mname]. "},"_position":{"x":4728.385,"y":4752.793},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":4734.416,"y":4877.267},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"Tell
     me something random."}},{"statement":{"_text":"[Ask about where they often visit]"}},{"statement":{"_text":"[Ask
-    about them]"}}],"_position":{"x":4701.745,"y":5103.039},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4622.433,"y":5315.872},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":4597.433,"y":5417.872},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4775.494,"y":5324.173},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":4755.272,"y":5417.039},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4918.038,"y":5327.785},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":4918.754,"y":5421.635},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":5158.364,"y":5109.277},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
+    about them]"}}],"_position":{"x":4701.745,"y":5103.039},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4622.433,"y":5315.872},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":4597.433,"y":5417.872},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4775.494,"y":5324.173},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":4755.272,"y":5417.039},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4918.038,"y":5327.785},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":4918.754,"y":5421.635},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[willShoot]"},"_position":{"x":5158.364,"y":5109.277},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":5210.427,"y":5168.24},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":5337.649,"y":5349.325},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"12"},{"statement":{"_text":"[byeMsg]."},"_position":{"x":5588.343,"y":5067.529},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -920, y: -918}
+    _translation: {x: -1316, y: -1072}
     _zoomFactor: 0.2995481
   _firstActivation: 0
   _enableAction: 1
@@ -147160,6 +147166,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -147184,6 +147191,9 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1561917812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147201,16 +147211,15 @@ MonoBehaviour:
     [mname]. "},"_position":{"x":1801.365,"y":1312.174},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":1807.396,"y":1436.647},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"Tell
     me something random."}},{"statement":{"_text":"[Ask about where they often visit]"}},{"statement":{"_text":"[Ask
-    about them]"}}],"_position":{"x":1774.725,"y":1662.419},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":1695.413,"y":1875.252},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":1670.413,"y":1977.252},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":1848.474,"y":1883.553},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":1828.252,"y":1976.419},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":1991.018,"y":1887.165},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":1991.734,"y":1981.015},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":2231.344,"y":1668.658},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
+    about them]"}}],"_position":{"x":1774.725,"y":1662.419},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":1695.413,"y":1875.252},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":1670.413,"y":1977.252},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":1848.474,"y":1883.553},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":1828.252,"y":1976.419},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":1991.018,"y":1887.165},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":1991.734,"y":1981.015},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[willShoot]"},"_position":{"x":2258.865,"y":1654.039},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":2283.407,"y":1727.62},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":2410.629,"y":1908.705},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"12"},{"statement":{"_text":"[byeMsg]."},"_position":{"x":2661.323,"y":1626.909},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -322.73758, y: -15.294221}
-    _zoomFactor: 0.25009727
+    _translation: {x: -1419.5577, y: -888.51874}
+    _zoomFactor: 0.73116153
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -147962,6 +147971,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -147986,6 +147996,9 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1571030348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148003,16 +148016,15 @@ MonoBehaviour:
     [mname]. "},"_position":{"x":5577.695,"y":4705.291},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":5583.726,"y":4829.764},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"Tell
     me something random."}},{"statement":{"_text":"[Ask about where they often visit]"}},{"statement":{"_text":"[Ask
-    about them]"}}],"_position":{"x":5551.055,"y":5055.536},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5471.743,"y":5268.369},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":5446.743,"y":5370.369},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5624.804,"y":5276.67},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":5604.582,"y":5369.536},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5767.348,"y":5280.282},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":5768.064,"y":5374.132},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":6007.674,"y":5061.774},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
+    about them]"}}],"_position":{"x":5551.055,"y":5055.536},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5471.743,"y":5268.369},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":5446.743,"y":5370.369},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5624.804,"y":5276.67},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":5604.582,"y":5369.536},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5767.348,"y":5280.282},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":5768.064,"y":5374.132},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[willShoot]"},"_position":{"x":6007.674,"y":5061.774},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":6059.737,"y":5120.737},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":6186.959,"y":5301.822},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"12"},{"statement":{"_text":"[byeMsg]."},"_position":{"x":6437.653,"y":5020.026},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -898, y: -676}
-    _zoomFactor: 0.2500991
+    _translation: {x: -3387, y: -2574}
+    _zoomFactor: 0.5818937
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -148702,6 +148714,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -148726,6 +148739,9 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1581313029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148743,16 +148759,15 @@ MonoBehaviour:
     [mname]. "},"_position":{"x":3787.481,"y":3985.761},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":3793.513,"y":4110.234},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"Tell
     me something random."}},{"statement":{"_text":"[Ask about where they often visit]"}},{"statement":{"_text":"[Ask
-    about them]"}}],"_position":{"x":3760.842,"y":4336.006},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3681.53,"y":4548.839},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":3656.53,"y":4650.839},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3834.591,"y":4557.14},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":3814.369,"y":4650.006},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3977.135,"y":4560.752},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":3977.851,"y":4654.602},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":4217.46,"y":4342.245},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
+    about them]"}}],"_position":{"x":3760.842,"y":4336.006},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3681.53,"y":4548.839},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":3656.53,"y":4650.839},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3834.591,"y":4557.14},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":3814.369,"y":4650.006},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3977.135,"y":4560.752},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":3977.851,"y":4654.602},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[willShoot]"},"_position":{"x":4218.993,"y":4342.056},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":4269.523,"y":4401.207},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":4396.746,"y":4582.292},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"12"},{"statement":{"_text":"[byeMsg]."},"_position":{"x":4647.439,"y":4300.496},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -460, y: -506}
-    _zoomFactor: 0.25266013
+    _translation: {x: -2067.054, y: -2175.012}
+    _zoomFactor: 0.58185697
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -171588,6 +171603,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -171612,6 +171628,9 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1708027898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171629,16 +171648,15 @@ MonoBehaviour:
     [mname]. "},"_position":{"x":5266.831,"y":5116.272},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":5272.862,"y":5240.745},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"Tell
     me something random."}},{"statement":{"_text":"[Ask about where they often visit]"}},{"statement":{"_text":"[Ask
-    about them]"}}],"_position":{"x":5240.191,"y":5466.517},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5160.879,"y":5679.35},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":5135.879,"y":5781.35},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5313.94,"y":5687.651},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":5293.718,"y":5780.517},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5456.484,"y":5691.263},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":5457.2,"y":5785.113},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":5696.81,"y":5472.756},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
+    about them]"}}],"_position":{"x":5240.191,"y":5466.517},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5160.879,"y":5679.35},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":5135.879,"y":5781.35},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5313.94,"y":5687.651},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":5293.718,"y":5780.517},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":5456.484,"y":5691.263},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":5457.2,"y":5785.113},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[willShoot]"},"_position":{"x":5696.81,"y":5472.756},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":5748.873,"y":5531.718},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":5876.095,"y":5712.803},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"12"},{"statement":{"_text":"[byeMsg]."},"_position":{"x":6126.789,"y":5431.007},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -831, y: -789}
-    _zoomFactor: 0.25213492
+    _translation: {x: -3214, y: -2927}
+    _zoomFactor: 0.60329425
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -240314,6 +240332,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -240338,6 +240357,9 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &4712784944647799417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240355,16 +240377,15 @@ MonoBehaviour:
     [mname]. "},"_position":{"x":3735.0,"y":3666.375},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":3741.031,"y":3790.848},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"Tell
     me something random."}},{"statement":{"_text":"[Ask about where they often visit]"}},{"statement":{"_text":"[Ask
-    about them]"}}],"_position":{"x":3708.36,"y":4016.62},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3629.048,"y":4229.453},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":3604.048,"y":4331.453},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3782.109,"y":4237.754},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":3761.887,"y":4330.62},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3924.653,"y":4241.366},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":3925.369,"y":4335.216},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":4164.979,"y":4022.859},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
+    about them]"}}],"_position":{"x":3708.36,"y":4016.62},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3629.048,"y":4229.453},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":3604.048,"y":4331.453},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3782.109,"y":4237.754},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":3761.887,"y":4330.62},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":3924.653,"y":4241.366},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":3925.369,"y":4335.216},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[willShoot]"},"_position":{"x":4164.979,"y":4022.859},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":4217.042,"y":4081.821},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":4344.264,"y":4262.906},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"12"},{"statement":{"_text":"[byeMsg]."},"_position":{"x":4594.958,"y":3981.11},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -521, y: -496}
-    _zoomFactor: 0.27247816
+    _translation: {x: -1984, y: -1703}
+    _zoomFactor: 0.54236674
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -243563,6 +243584,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -243587,6 +243609,9 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &6389515214586773487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243603,15 +243628,14 @@ MonoBehaviour:
   _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"..."},"_position":{"x":732.8632,"y":249.4846},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"Go
     away."},"_position":{"x":711.7902,"y":355.0059},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":737.5112,"y":507.0676},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"statement":{"_text":"I
-    don''t want to talk to you."},"_position":{"x":716.5775,"y":829.8254},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"3"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":1201.51,"y":800.348},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"availableChoices":[{"statement":{"_text":"[NO
+    don''t want to talk to you."},"_position":{"x":716.5775,"y":829.8254},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"3"},{"statement":{"_text":"[willShoot]"},"_position":{"x":1201.51,"y":800.348},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":1232.229,"y":882.3473},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"5"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":1359.45,"y":1063.433},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"6"},{"statement":{"_text":"..."},"_position":{"x":1620.823,"y":773.9362},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -618, y: -231}
+    _translation: {x: -565, y: -140}
     _zoomFactor: 0.6261073
   _firstActivation: 0
   _enableAction: 1
@@ -247749,6 +247773,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"frequent":{"_propertyPath":"LocationRandomizer.frequent","_name":"frequent","_id":"306abf0f-24c9-4302-9bb9-4f56fa08cd78","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hiMsg":{"_propertyPath":"LocationRandomizer.hiMsg","_name":"hiMsg","_id":"34647eab-4c15-46a0-ad4b-61fc5f71709d","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"byeMsg":{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"willShoot":{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -247773,6 +247798,9 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"LocationRandomizer.byeMsg","_name":"byeMsg","_id":"87701753-5872-4893-844b-5d6f2783f6df","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_propertyPath":"LocationRandomizer.willShoot","_name":"willShoot","_id":"a685693a-d684-4adf-9da6-9ae2f743e09e","$type":"NodeCanvas.Framework.Variable`1[[System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &8021287031881365719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247790,15 +247818,14 @@ MonoBehaviour:
     [mname]. "},"_position":{"x":4594.085,"y":5109.13},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"availableChoices":[{"statement":{"_text":"[Talk]"}},{"statement":{"_text":"[Shoot
     this person]"}},{"statement":{"_text":"[Leave]"}}],"_position":{"x":4600.116,"y":5233.604},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"availableChoices":[{"statement":{"_text":"Tell
     me something random."}},{"statement":{"_text":"[Ask about where they often visit]"}},{"statement":{"_text":"[Ask
-    about them]"}}],"_position":{"x":4567.445,"y":5459.375},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4488.133,"y":5672.208},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":4463.133,"y":5774.208},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4641.194,"y":5680.51},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":4620.972,"y":5773.375},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4783.738,"y":5684.122},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":4784.454,"y":5777.972},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[Are
-    you sure you want to shoot this person?]"},"_position":{"x":5024.063,"y":5465.614},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
+    about them]"}}],"_position":{"x":4567.445,"y":5459.375},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4488.133,"y":5672.208},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"4"},{"statement":{"_text":"[introspect]."},"_position":{"x":4463.133,"y":5774.208},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4641.194,"y":5680.51},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"6"},{"statement":{"_text":"[frequent]."},"_position":{"x":4620.972,"y":5773.375},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"childOptions":[{"weight":{"_value":1.0}}],"_position":{"x":4783.738,"y":5684.122},"$type":"NodeCanvas.DialogueTrees.ProbabilitySelector","$id":"8"},{"statement":{"_text":"[trait]."},"_position":{"x":4784.454,"y":5777.972},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"[willShoot]"},"_position":{"x":5024.063,"y":5465.614},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"availableChoices":[{"statement":{"_text":"[NO
     BACK OUT]"}},{"statement":{"_text":"[YES SHOOT THEM]"}}],"_position":{"x":5076.127,"y":5524.577},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"11"},{"_action":{"method":{"_baseInfo":"Dialuage|GetShot|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":5203.349,"y":5705.662},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"12"},{"statement":{"_text":"[byeMsg]."},"_position":{"x":5454.043,"y":5423.866},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -652, y: -777}
+    _translation: {x: -1044, y: -973}
     _zoomFactor: 0.25009912
   _firstActivation: 0
   _enableAction: 1

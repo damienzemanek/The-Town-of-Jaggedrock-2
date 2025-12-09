@@ -208,7 +208,11 @@ public class CrowEffigyEvent : CorruptEventType
 
     public override void StopCorruptImplementation(CorruptonLocation loc)
     {
-        loc.searchables.ForEach(s => s.Get<Searchable>().ComponentReset());
+        loc.searchables.ForEach(s =>
+        {
+            var comp = s.GetComponent<Searchable>();
+            if (comp != null) GameObject.Destroy(comp);
+        });
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
         loc.room.SelfDestroy();
     }

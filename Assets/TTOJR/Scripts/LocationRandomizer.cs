@@ -60,7 +60,7 @@ public class LocationRandomizer : MonoBehaviour
     };
     public string hiMsg => hiMsgs.Rand();
 
-
+    public string willShoot => "[Are you sure you want to shoot this person?]";
     [ShowInInspector, ReadOnly] public string[] activitiesT { get => setActivitiesT; }
     readonly string[] setActivitiesT =
     {
