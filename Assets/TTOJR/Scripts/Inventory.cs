@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour, IDependencyProvider
     [BoxGroup(group: "Runtime")][SerializeField] int selectItem;
     [BoxGroup(group: "Runtime")][SerializeField] Pickup potentialItem;
     [BoxGroup(group: "Runtime")][SerializeField] public bool canPickup { get; private set; }
+    [BoxGroup(group: "Runtime")] public bool full;
 
     [Inject] EntityControls controls;
     public Interactor interactor { get; private set; }
@@ -202,6 +203,7 @@ public class Inventory : MonoBehaviour, IDependencyProvider
         gridParent.transform.GetChild(selectItem).GetComponent<InventorySlot>().ResetSlot();
         interactor.FailedRaycast?.Invoke();
         interactor.InteractEvent = null;
+        full = false;
     }
 
     public Item GetCurrentItem()

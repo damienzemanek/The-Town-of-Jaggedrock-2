@@ -56,7 +56,7 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
 
     public void PickedUp(Inventory inv)
     {
-        if (inv.IsInventoryFull()) return;
+        if (inv.full) return;
         print($"Pickuped up item {item.type}");
 
         //Setting dependancies for variations
@@ -72,6 +72,8 @@ public class Pickup : RuntimeInjectableMonoBehaviour, ICallbackUser
         this.Get<MeshRenderer>().enabled = false;
         transform.Children().ToList().ForEach(c => c.SetActive(false));
         Destroy(gameObject);
+        if (inv.IsInventoryFull()) inv.full = true;
+        else inv.full = false;
     }
 
     public void AssignValuesForCallbackDetector(string interactText)

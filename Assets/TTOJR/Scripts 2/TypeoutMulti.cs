@@ -10,6 +10,7 @@ using static Extensions.FadeEX;
 
 public class TypeoutMulti : MonoBehaviour
 {
+    [ReadOnly] public bool complete;
     public UnityEvent AfterAllTypeoutsComplete;
     public FadeSettings panelFade;
     [SerializeField] float delayBetweenTypes;
@@ -28,6 +29,7 @@ public class TypeoutMulti : MonoBehaviour
 
     public void StartTypeout()
     {
+        complete = false;
         StartCoroutine(Type(() =>
         {
             foreach(var t in type)
@@ -46,6 +48,20 @@ public class TypeoutMulti : MonoBehaviour
         print("Fading out self");
         StartCoroutine(C_FadeToTransparent(panelFade));
         AfterAllTypeoutsComplete?.Invoke();
+    }
+
+    [PropertyOrder(0)] [Button] public void Skip()
+    {
+        panelFade.SetAlpha(0);
+        panelFade.GetGO()?.SetActive(false);
+        foreach (var t in type)
+        {
+            t.textfade.SetAlpha(0);
+            t.textfade.GetGO()?.SetActive(false);
+        }
+        AfterAllTypeoutsComplete?.Invoke();
+        complete = true;
+        StopAllCoroutines();
     }
 
     public IEnumerator Type(Action posthook = null)

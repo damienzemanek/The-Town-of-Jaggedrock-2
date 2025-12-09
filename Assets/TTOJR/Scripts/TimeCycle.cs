@@ -23,6 +23,7 @@ public class TimeCycle : Singleton<TimeCycle>
     public int difficultyLevel;
     public float[] stepBetweenCorruptEvents;
     public bool timeFrozen = false;
+    public TypeoutMulti intro;
 
     [TabGroup("Audio")] public AudioSource source;
     [TabGroup("Audio")] public AudioClip[] startCorruption;
@@ -39,6 +40,16 @@ public class TimeCycle : Singleton<TimeCycle>
     {
         currentTime = 25f;
         ambience.PlayGeneralAmbience();
+    }
+
+    private void Update()
+    {
+        if (!intro.complete)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+                intro.Skip();
+
+        }
     }
 
     private void FixedUpdate()
