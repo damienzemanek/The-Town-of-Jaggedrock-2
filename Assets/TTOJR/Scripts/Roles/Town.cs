@@ -47,6 +47,8 @@ public class Town : RuntimeInjectableMonoBehaviour
             corrupted = true;
             EvilInformationManager.Instance.corruptedDisplay.SetActive(true);
             EvilInformationManager.Instance.Lose();
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
     }
 
