@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a967fdf03c8d3649896e4a8550d8295, type: 3}
   m_Name: Town 9
   m_EditorClassIdentifier: 
-  _personName: Kacey
+  _personName: Kace
   excludeSelfFromGetRandomPersonNamne: 0
   trait: 0
   frequent: 2

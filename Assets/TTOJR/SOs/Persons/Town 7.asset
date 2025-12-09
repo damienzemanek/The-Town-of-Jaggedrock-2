@@ -15,4 +15,4 @@ MonoBehaviour:
   _personName: Katherine
   excludeSelfFromGetRandomPersonNamne: 0
   trait: 0
-  frequent: 2
+  frequent: 1

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _personName: Jane
   excludeSelfFromGetRandomPersonNamne: 0
-  trait: 0
+  trait: 3
   frequent: 0
