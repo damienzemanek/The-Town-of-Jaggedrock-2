@@ -4,13 +4,12 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using DesignPatterns.CreationalPatterns;
 using System.Collections.Generic;
-using Sirenix.Utilities;
 using static Extensions.FadeEX;
 using System.Collections;
 
 public class EvilInformationManager : Singleton<EvilInformationManager>
 {
-
+    public EntityControls player;
     #region Privates
     NPCs npcs;
     #endregion
@@ -23,7 +22,7 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
     [TabGroup("Traits")] public GameObject[] traitPrefabs;
     [TabGroup("Frequents")] public GameObject[] frequentPrefabs;
     [TabGroup("Hints")] public List<GameObject> hintPrefabs;
-    public bool[] hasHint;
+    public List<bool> hasHint;
     public bool hasAllHints { get => hasHint.All(h => h == true); }
 
     public int previousNoteInt = 0;
@@ -36,6 +35,8 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
     [TabGroup("End game")] public AudioClip shootSFX;
     [TabGroup("End game")] public GameObject winDisplay;
     [TabGroup("End game")] public GameObject looseDisplay;
+    [TabGroup("End game")] public GameObject corruptedDisplay;
+
 
 
     protected override void Awake()
@@ -43,7 +44,7 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
         base.Awake();
         covenSelected = false;
         if(npcs == null) npcs = FindFirstObjectByType<NPCs>();
-        hasHint = new bool[2];
+        hasHint = new List<bool>(2);
         hasHint.ForEach(b => b = false);
     }
 
@@ -103,6 +104,11 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
         else
             looseDisplay.SetActive(true);
 
+    }
+
+    public void Lose()
+    {
+        player.canMove = false;
     }
 
     #region Methods

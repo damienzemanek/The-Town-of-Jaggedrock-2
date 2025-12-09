@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TTOJR/Scenes/Game 0.0.1/Game 0.0.1.unity
     guid: 6cf23a2b1ca17bf438c7f3fdfae30adc
-  - enabled: 1
-    path: Assets/TTOJR/Scenes/Game 0.0.1/Lose.unity
-    guid: 0e0d6aa5085108746b4acf885b04c473
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

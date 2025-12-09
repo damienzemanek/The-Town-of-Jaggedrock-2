@@ -45,8 +45,8 @@ public class Town : RuntimeInjectableMonoBehaviour
         if (currentCorruptionLevel > 2)
         {
             corrupted = true;
-            obj.Get<Renderer>().material = CorruptionManager.instance.fullyCorrupt;
-            CorruptionManager.instance.LoseGame();
+            EvilInformationManager.Instance.corruptedDisplay.SetActive(true);
+            EvilInformationManager.Instance.Lose();
         }
     }
 

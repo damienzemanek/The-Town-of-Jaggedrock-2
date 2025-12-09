@@ -1,10 +1,8 @@
 using UnityEngine;
 using Extensions;
 using System.Collections;
-using ParadoxNotion.Design;
 using Sirenix.OdinInspector;
 using ShowIfAttribute = Sirenix.OdinInspector.ShowIfAttribute;
-using UnityEditor.Media;
 
 public class AudioPlay : MonoBehaviour
 {

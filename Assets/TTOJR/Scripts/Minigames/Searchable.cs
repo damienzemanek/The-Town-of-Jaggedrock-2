@@ -3,6 +3,8 @@ using System.Linq;
 using DependencyInjection;
 using UnityEngine;
 using UnityEngine.Events;
+using Extensions;
+using static Extensions.AudioEX;
 
 public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 {
@@ -15,6 +17,7 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     [SerializeField] bool _correct;
     [SerializeField] float progress;
     [SerializeField] float _timeToComplete;
+
     #endregion
 
     public bool correct { get => _correct; set => _correct = value; }
@@ -65,6 +68,13 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         cbDetector.rayCastDetector = false; //Turns the CBDetector Off
         interactor.SetHoldingInteraction(false);
         interactor.ToggleCanInteract(false);
+
+        if (correct)
+        {
+            if (this.Has(out SearchableAudioHolder aud))
+                aud.source.Play(aud.successFind);
+        }
+        else if (this.Has(out SearchableAudioHolder aud)) aud.source.Play(aud.failFind);
     }
     void AssignSearchableCallbacks()
     {

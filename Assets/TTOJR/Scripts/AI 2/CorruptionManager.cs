@@ -82,6 +82,7 @@ public class CorruptionManager : MonoBehaviour
         vignet.DoFadeIn();
     }
 
+    [Button]
     public void CorruptCompelte()
     {
         this.Log("Corrupt Complete");

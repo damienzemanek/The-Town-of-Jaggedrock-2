@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using Extensions;
 using TMPro;
-using Sirenix.Utilities;
 using DesignPatterns.CreationalPatterns;
 using static Extensions.AudioEX;
 
@@ -38,7 +37,7 @@ public class TimeCycle : Singleton<TimeCycle>
 
     private void Start()
     {
-        currentTime = 25f;
+        currentTime = 35f;
         ambience.PlayGeneralAmbience();
     }
 
@@ -86,8 +85,10 @@ public class TimeCycle : Singleton<TimeCycle>
 
     public void IncreaseDifficulty()
     {
-        if (difficultyLevel < stepBetweenCorruptEvents.Length - 1)
-            difficultyLevel++;
+        difficultyLevel++;
+
+        if (difficultyLevel >= stepBetweenCorruptEvents.Length)
+            difficultyLevel = 0;
     }
 
     public void DecreaseDifficulty()
