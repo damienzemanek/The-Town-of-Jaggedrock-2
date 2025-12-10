@@ -42,4 +42,4 @@ MonoBehaviour:
       type: {class: DestinationUser/Data, ns: , asm: Assembly-CSharp}
       data:
         <useDestination>k__BackingField: {fileID: 0}
-        <objectToPlace>k__BackingField: {fileID: 0}
+        <objectToPlace>k__BackingField: {fileID: 7001300857490752306, guid: 1c9df340a08af6b40b44a84b19f6d2e3, type: 3}

@@ -21,14 +21,19 @@ public class PlaceLocation : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         invUpdater = this.Get<InventoryUpdater>();
     }
 
+    private void Start()
+    {
+        if (loc == null) this.Error("no location set");
+    }
+
     public void Place(GameObject go)
     {
         GameObject spawned = UnityEngine.Object.Instantiate(
             go,
-            loc.position,
-            Quaternion.identity,
             loc
         );
+
+        print($"Placed Object {go.name}");
         interactor.TryGetOrAdd<AudioSource>().Play(itemToPlace.pickupSFX);
     }
 
