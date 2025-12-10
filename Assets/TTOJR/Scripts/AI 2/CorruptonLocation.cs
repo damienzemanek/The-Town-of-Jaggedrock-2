@@ -116,6 +116,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
         currentEvent = null;
     }
 
+    [Button]
     public void SpawnNote()
     {
         this.Log("Spawning note");
@@ -223,7 +224,14 @@ public class CrowEffigyEvent : CorruptEventType
         });
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
         loc.room.SelfDestroy();
-        loc.searchables.ForEach(s => s.Get<Searchable>().SelfDestroy());
+        loc.searchables.ForEach(s =>
+        {
+            if(s != null)
+            {
+                Searchable searchable = s.Get<Searchable>().SelfDestroy();
+                GameObject.Destroy(searchable);
+            }
+        });
         if (loc.roomEffectsSpawnLoc.childCount > 0) loc.roomEffectsSpawnLoc.DestroyAllChildren();
     }
 

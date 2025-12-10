@@ -90126,6 +90126,10 @@ MonoBehaviour:
   onEnter: 1
   Enter:
     m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1951918766}
         m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
@@ -90175,10 +90179,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onStay: 0
-  Stay:
-    m_PersistentCalls:
-      m_Calls: []
   onExit: 1
   Exit:
     m_PersistentCalls:
@@ -115255,6 +115255,10 @@ MonoBehaviour:
   onEnter: 1
   Enter:
     m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1951918766}
         m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
@@ -115304,10 +115308,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onStay: 0
-  Stay:
-    m_PersistentCalls:
-      m_Calls: []
   onExit: 1
   Exit:
     m_PersistentCalls:
@@ -119459,6 +119459,10 @@ MonoBehaviour:
   onEnter: 1
   Enter:
     m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1951918766}
         m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
@@ -119508,10 +119512,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onStay: 0
-  Stay:
-    m_PersistentCalls:
-      m_Calls: []
   onExit: 1
   Exit:
     m_PersistentCalls:
@@ -158732,6 +158732,10 @@ MonoBehaviour:
   onEnter: 1
   Enter:
     m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1951918766}
         m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
@@ -158781,10 +158785,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onStay: 0
-  Stay:
-    m_PersistentCalls:
-      m_Calls: []
   onExit: 1
   Exit:
     m_PersistentCalls:
@@ -168418,6 +168418,10 @@ MonoBehaviour:
   onEnter: 1
   Enter:
     m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1951918766}
         m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
@@ -168467,10 +168471,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onStay: 0
-  Stay:
-    m_PersistentCalls:
-      m_Calls: []
   onExit: 1
   Exit:
     m_PersistentCalls:
@@ -189164,7 +189164,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 27.8
+  MaxDistance: 31
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -189211,12 +189211,12 @@ AudioSource:
       outWeight: 0.74587625
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: -1.3822898
-      outSlope: -1.3822898
+      value: 0.0039978027
+      inSlope: -1.429952
+      outSlope: -1.429952
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.58100736
+      inWeight: 0.41774598
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -189275,7 +189275,7 @@ Transform:
   m_GameObject: {fileID: 1805221149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2817802, y: 4.269032, z: -32.66609}
+  m_LocalPosition: {x: -22.9, y: 4.269032, z: -32.66609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -221018,6 +221018,10 @@ MonoBehaviour:
   onEnter: 1
   Enter:
     m_PersistentCalls:
+      m_Calls: []
+  onStay: 1
+  Stay:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1951918766}
         m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
@@ -221067,10 +221071,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onStay: 0
-  Stay:
-    m_PersistentCalls:
-      m_Calls: []
   onExit: 1
   Exit:
     m_PersistentCalls:

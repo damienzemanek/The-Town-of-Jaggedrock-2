@@ -22,7 +22,7 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
     [TabGroup("Traits")] public GameObject[] traitPrefabs;
     [TabGroup("Frequents")] public GameObject[] frequentPrefabs;
     [TabGroup("Hints")] public List<GameObject> hintPrefabs;
-    public List<bool> hasHint;
+    public bool[] hasHint;
     public bool hasAllHints { get => hasHint.All(h => h == true); }
 
     public int previousNoteInt = 0;
@@ -44,8 +44,10 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
         base.Awake();
         covenSelected = false;
         if(npcs == null) npcs = FindFirstObjectByType<NPCs>();
-        hasHint = new List<bool>(2);
-        hasHint.ForEach(b => b = false);
+        hasHint = new bool[2];
+        for(int i = 0; i < hasHint.Length; i++)
+            hasHint[i] = false;
+
     }
 
     private void Start()
@@ -70,7 +72,11 @@ public class EvilInformationManager : Singleton<EvilInformationManager>
         int indx = hintPrefabs.IndexOf(potential);
         if (!hasAllHints)
         {
-            if (!hasHint[indx]) return potential;
+            if (!hasHint[indx])
+            {
+                hasHint[indx] = true;
+                return potential;
+            }
             else return GetHintPrefab();
         }
         else

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using Extensions;
 using static Extensions.AudioEX;
 using Sirenix.OdinInspector;
+using NodeCanvas.Tasks.Actions;
 
 public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 {
@@ -127,10 +128,14 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         Destroy(cbDetector);
     }
 
-    public void SelfDestroy()
+    public Searchable SelfDestroy()
     {
-        Destroy(effect);
-        Destroy(gameObject);
+        ResetProgress();
+        effect.SetActive(false);
+        effect = null;
+        correct = false;
+        complete = false;
+        return this;
     }
 
 
