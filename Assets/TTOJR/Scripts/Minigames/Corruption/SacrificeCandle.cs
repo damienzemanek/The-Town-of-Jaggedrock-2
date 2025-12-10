@@ -11,7 +11,7 @@ public class SacrificeCandle : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     [Inject] Interactor interactor;
     Sacrifice mySacrifice;
     CallbackDetector cbd;
-    [SerializeField] GameObject fireEffect;
+    [SerializeField] GameObject[] fireEffects;
     #endregion
 
     public int givenNum;
@@ -23,14 +23,14 @@ public class SacrificeCandle : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     {
         base.OnInstantiate();
         BuildDetector();
-        fireEffect.SetActive(true);
+        fireEffects.SetAllActive(true);
         if (source == null) source = this.TryGetOrAdd<AudioSource>();
     }
 
     public SacrificeCandle InitializeCandle(int num, Sacrifice _sacrifice)
     {
         if(cbd) cbd.enabled = true;
-        fireEffect.SetActive(true);
+        fireEffects.SetAllActive(true);
         givenNum = num;
         text.text = "" + givenNum;
         mySacrifice = _sacrifice;
@@ -49,7 +49,7 @@ public class SacrificeCandle : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 
     public void Blowout()
     {
-        fireEffect.SetActive(false);
+        fireEffects.SetAllActive(false);
         mySacrifice.AttemptToBlowout(givenNum);
         cbd.enabled = false;
         source.Play(blow);

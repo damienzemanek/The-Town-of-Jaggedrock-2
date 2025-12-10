@@ -29,6 +29,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     public UnityEvent haltedHook;
 
     [TabGroup("Crow")] [SerializeReference] public List<GameObject> searchables;
+    [TabGroup("Crow")] public Transform roomEffectsSpawnLoc;
     [TabGroup("Crow")] public GameObject[] flickerObjs;
 
     [TabGroup("Sacrifice")] public Transform sacrificeSpawnLoc;
@@ -36,6 +37,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
 
     [TabGroup("Readonly"), ReadOnly] public CursedRoom room;
     [TabGroup("Readonly"), ReadOnly] public Sacrifice sacrifice;
+
 
 
     private void Awake()
@@ -181,11 +183,17 @@ public class CrowEffigyEvent : CorruptEventType
     public float timeToSearch = 4f;
     public GameObject cursedAreaPrefab;
     public GameObject crowEffigyPrefab;
+    public GameObject roomEffectsPrefabs;
 
     public override CorruptEventType StartCorruptImplementation(CorruptonLocation loc)
     {
-        loc.searchables.ForEach(s => s.AddComponent<Searchable>().timeToComplete = timeToSearch);
+        loc.searchables.ForEach(s =>
+        {
+            Searchable searchable = s.AddComponent<Searchable>();
+            searchable.timeToComplete = timeToSearch;
+        });
         loc.room = GameObject.Instantiate(original: cursedAreaPrefab, loc.cursedAreaSpawnLoc).Get<CursedRoom>();
+        GameObject.Instantiate(roomEffectsPrefabs, loc.roomEffectsSpawnLoc);
         Searchable correctSearchable = loc.searchables.Rand().Get<Searchable>();
         correctSearchable.SetAsCorrect(() => SpawnEffigy(loc ,correctSearchable, loc.room));
         this.Log($"Corrupted location {loc.name}, searchable {correctSearchable.name}");
@@ -209,9 +217,13 @@ public class CrowEffigyEvent : CorruptEventType
         {
             var comp = s.GetComponent<Searchable>();
             if (comp != null) GameObject.Destroy(comp);
+
+            var comp2 = s.GetComponent<EffigySearchable>();
+            if(comp != null) GameObject.Destroy(comp2);
         });
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
         loc.room.SelfDestroy();
+        loc.searchables.ForEach(s => s.Get<Searchable>().SelfDestroy());
     }
 
 

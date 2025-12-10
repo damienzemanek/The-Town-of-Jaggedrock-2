@@ -4,7 +4,6 @@ using System.Collections;
 using Sirenix.OdinInspector;
 using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 
-[DefaultExecutionOrder(1)]
 public class OvertimeGetBrighter : MonoBehaviour
 {
     TimeCycle time;

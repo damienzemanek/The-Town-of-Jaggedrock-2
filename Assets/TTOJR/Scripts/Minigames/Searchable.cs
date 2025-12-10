@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Extensions;
 using static Extensions.AudioEX;
+using Sirenix.OdinInspector;
 
 public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 {
@@ -17,6 +18,7 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     [SerializeField] bool _correct;
     [SerializeField] float progress;
     [SerializeField] float _timeToComplete;
+    CorruptonLocation loc;
 
     #endregion
 
@@ -25,6 +27,7 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
     public float timeToComplete { get => _timeToComplete; set => _timeToComplete = value; }  
     [field: SerializeField] public bool complete { get; private set; }
     [field: SerializeField] public UnityEvent completeEvent { get; private set; }
+    [ReadOnly] public GameObject effect;
 
     protected override void OnInstantiate()
     {
@@ -36,6 +39,8 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
         AssignSearchableCallbacks();
 
         completeEvent = new UnityEvent();
+        effect = transform.Get<SearchableAudioHolder>().effect;
+        effect.SetActive(true);
     }
     public void IncreaseProgress()
     {
@@ -61,6 +66,7 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 
     void Complete()
     {
+        effect.SetActive(false);
         completeEvent?.Invoke();
         progress = timeToComplete;
         complete = true;
@@ -120,5 +126,12 @@ public class Searchable : RuntimeInjectableMonoBehaviour, IDetectorBuilder
 
         Destroy(cbDetector);
     }
+
+    public void SelfDestroy()
+    {
+        Destroy(effect);
+        Destroy(gameObject);
+    }
+
 
 }
