@@ -18,5 +18,13 @@ namespace Extensions
                 z ?? transform.eulerAngles.z);
             return transform;
         }
+
+        public static Transform DestroyAllChildren(this Transform t)
+        {
+            for (int i = t.childCount - 1; i >= 0; i--) 
+                GameObject.Destroy(t.GetChild(i).gameObject);
+
+            return t;
+        }
     }
 }

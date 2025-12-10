@@ -224,6 +224,7 @@ public class CrowEffigyEvent : CorruptEventType
         loc.flickerObjs.ToList().ForEach(o => o.Get<ComponentFlicker>().FlickerDeactivate());
         loc.room.SelfDestroy();
         loc.searchables.ForEach(s => s.Get<Searchable>().SelfDestroy());
+        if (loc.roomEffectsSpawnLoc.childCount > 0) loc.roomEffectsSpawnLoc.DestroyAllChildren();
     }
 
 

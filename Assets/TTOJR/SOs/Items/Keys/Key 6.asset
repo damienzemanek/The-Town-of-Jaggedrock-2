@@ -29,7 +29,7 @@ MonoBehaviour:
         usable: 1
         <inv>k__BackingField: {fileID: 0}
         <interactor>k__BackingField: {fileID: 0}
-        <objectToPlace>k__BackingField: {fileID: 2361832078258529956, guid: 6151fe1c33d374d45b7fbe6090421e32, type: 3}
+        <objectToPlace>k__BackingField: {fileID: 7377770307986786033, guid: 6151fe1c33d374d45b7fbe6090421e32, type: 3}
         placeLocation: {fileID: 0}
     - rid: 5167628920622416230
       type: {class: DestinationUser, ns: , asm: Assembly-CSharp}
