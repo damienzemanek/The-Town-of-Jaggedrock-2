@@ -243,6 +243,14 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 718
       objectReference: {fileID: 0}
+    - target: {fileID: 8168762164776292409, guid: 2967f3a69eb15864c80bcb6983125a2a, type: 3}
+      propertyPath: upAmount._value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168762164776292409, guid: 2967f3a69eb15864c80bcb6983125a2a, type: 3}
+      propertyPath: upAmount.deviate
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

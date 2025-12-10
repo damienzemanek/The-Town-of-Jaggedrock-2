@@ -55,7 +55,7 @@ namespace RetroArsenal
 			
 			if (toggleAutoObject != null)
 			{
-				fullAutoButton = toggleAutoObject.GetComponent<UnityEngine.UI.Toggle>();
+				//fullAutoButton = toggleAutoObject.GetComponent<Toggle>();
 			}
 
             UpdateDisplayName();

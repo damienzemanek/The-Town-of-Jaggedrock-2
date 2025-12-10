@@ -18,7 +18,7 @@ public class CorruptonLocation : MonoBehaviour, IResidentLocation
     [SerializeField] Transform _cursedAreaSpawnLoc;
     [SerializeField, ReadOnly] bool _corrupting;
     [SerializeField] Town _resident;
-    [SerializeReference, ReadOnly] CorruptEventType currentEvent;
+    [SerializeReference, ReadOnly]  public CorruptEventType currentEvent;
     #endregion
 
     public bool corrupting { get => _corrupting; set => _corrupting = value; }

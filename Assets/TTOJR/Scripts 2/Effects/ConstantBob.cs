@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ConstantBob : MonoBehaviour
 {
-    [SerializeField] float upAmount;
+    [SerializeField] Deviatable upAmount;
     [SerializeField] Vector2 moveTime;
 
     Vector3 origPos;
@@ -14,7 +14,7 @@ public class ConstantBob : MonoBehaviour
     private void Awake()
     {
         origPos = transform.position;
-        newPos = new Vector3(origPos.x, origPos.y + upAmount, origPos.z);
+        newPos = new Vector3(origPos.x, origPos.y + upAmount.value, origPos.z);
     }
 
     private void Start()

@@ -4,10 +4,11 @@ using Sirenix.OdinInspector;
 
 public class UnityLifecycleHook : MonoBehaviour
 {
-    public bool awake, onenable, start, update, fixedupdate;
+    public bool awake, onenable, ondisable, start, update, fixedupdate;
 
     [ShowIf("awake")] public UnityEvent OnAwake;
-    [ShowIf("onenable")] public UnityEvent OnOnEnable;
+    [ShowIf("onenable")] public UnityEvent OnEnabled;
+    [ShowIf("ondisable")] public UnityEvent OnDisabled;
     [ShowIf("start")] public UnityEvent OnStart;
     [ShowIf("update")] public UnityEvent OnUpdate;
     [ShowIf("fixedupdate")] public UnityEvent OnFixedUpdate;
@@ -19,7 +20,11 @@ public class UnityLifecycleHook : MonoBehaviour
 
     private void OnEnable()
     {
-        if (onenable) OnOnEnable?.Invoke();
+        if (onenable) OnEnabled?.Invoke();
+    }
+    private void OnDisable()
+    {
+        if (ondisable) OnDisabled?.Invoke();
     }
 
     private void Start()
@@ -36,4 +41,5 @@ public class UnityLifecycleHook : MonoBehaviour
     {
         if (fixedupdate) OnFixedUpdate?.Invoke();
     }
+
 }

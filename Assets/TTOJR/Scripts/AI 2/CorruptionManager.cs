@@ -20,6 +20,8 @@ public class CorruptionManager : MonoBehaviour
         bool isntRandom { get => !isRandom; }
         [ShowIf("isntRandom")] public UnityEvent corruptHook;
     }
+    [ReadOnly, ShowInInspector] CorruptonLocation currentCorruptionLocation;
+    [ReadOnly, ShowInInspector] public float maxTimeUntilCorrupted => currentCorruptionLocation != null ? currentCorruptionLocation.currentEvent.duration : 60;
 
     #region Privates
     [SerializeField] FadeScreen afflictBg;
@@ -42,6 +44,10 @@ public class CorruptionManager : MonoBehaviour
     public Material chandelierMat;
     public List<GameObject> lights;
     public FadeIn vignet;
+    public GameObject[] corruptionObjects;
+    public GameObject[] disableObjectsWhenCorrupting;
+    public float delaySettingActive = 2.5f;
+
 
     public UnityEvent onCorrupted;
 
@@ -66,6 +72,12 @@ public class CorruptionManager : MonoBehaviour
         onCorrupted.RemoveAllListeners();
     }
 
+    private void Start()
+    {
+        corruptionObjects.SetAllActive(false);
+        disableObjectsWhenCorrupting.SetAllActive(true);
+    }
+
     public void CorruptNext()
     {
         if (corruptionEvents[currentCorruption].isRandom) CorruptRandom();
@@ -80,6 +92,8 @@ public class CorruptionManager : MonoBehaviour
 
         loc.StartCorruption();
         vignet.DoFadeIn();
+        corruptionObjects.SetAllActive(true);
+        StartCoroutine(disableObjectsWhenCorrupting.C_SetAllActiveOverTime(false, delaySettingActive));
     }
 
     [Button]
@@ -90,6 +104,8 @@ public class CorruptionManager : MonoBehaviour
         AfflictResidentDisplay();
         TimeCycle.Instance.DecreaseDifficulty();
         vignet.DoFadeOut();
+        corruptionObjects.SetAllActive(false);
+        disableObjectsWhenCorrupting.SetAllActive(true);
     }
 
     public void CorruptHalted()
@@ -98,6 +114,9 @@ public class CorruptionManager : MonoBehaviour
         TimeCycle.Instance.IncreaseDifficulty();
         TimeCycle.Instance.HaltCorrupt();
         vignet.DoFadeOut();
+        corruptionObjects.SetAllActive(false);
+        disableObjectsWhenCorrupting.SetAllActive(true);
+
     }
 
     public void AfflictResidentDisplay()

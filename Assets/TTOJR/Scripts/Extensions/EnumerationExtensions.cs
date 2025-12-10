@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -94,6 +95,17 @@ namespace Extensions
             for (int i = 0; i < list.Length; i++) list[i].SetActive(val);
             return list;
         }
+
+        public static IEnumerator C_SetAllActiveOverTime(this GameObject[] list, bool val, float delay)
+        {
+            if (list == null) yield break;
+            for (int i = 0; i < list.Length; i++)
+            {
+                yield return new WaitForSeconds(delay);
+                list[i].SetActive(val);
+            }
+        }
+
 
         public static List<GameObject> UnparentAll(this List<GameObject> list)
         {

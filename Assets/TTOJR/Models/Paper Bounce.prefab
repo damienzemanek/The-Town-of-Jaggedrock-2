@@ -46,8 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5bb81a34e8d7545b0c06e8cc773cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upAmount: 0.4
-  moveTime: {x: 1, y: 2}
+  upAmount:
+    deviate: 0
+    _value: 1
+    _valueBetween: {x: 1, y: 0}
+  moveTime: {x: 3, y: 4}
 --- !u!114 &5508628717582732664
 MonoBehaviour:
   m_ObjectHideFlags: 0

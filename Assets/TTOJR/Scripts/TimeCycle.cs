@@ -18,6 +18,7 @@ public class TimeCycle : Singleton<TimeCycle>
 
     [Inject] EntityControls controls;
 
+    public float firstCorruptionTimeSkip = 50f;
     public float currentTime;
     public int difficultyLevel;
     public float[] stepBetweenCorruptEvents;
@@ -37,7 +38,7 @@ public class TimeCycle : Singleton<TimeCycle>
 
     private void Start()
     {
-        currentTime = 35f;
+        currentTime = firstCorruptionTimeSkip;
         ambience.PlayGeneralAmbience();
     }
 
